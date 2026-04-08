@@ -92,6 +92,7 @@ This demonstrates that the Obsidian + Claude Code combination has at least two d
 [[Wiki Knowledge Graph]]
 [[Obsidian Skills Ecosystem]]
 [[LLM Knowledge Linting]]
+[[Obsidian CLI]]
 [[Synthesis: Karpathy LLM Wiki Method via Claude Code]]
 [[Synthesis: Karpathy's LLM Wiki Idea File]]
 [[Synthesis: Obsidian + Claude Code Second Brain Setup]]

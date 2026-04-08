@@ -127,6 +127,7 @@ This suggests that Claude Code skills exist on a complexity spectrum: simple ski
 [[Obsidian Knowledge Vault]]
 [[Skills Architecture Patterns]]
 [[NotebookLM Skills]]
+[[Obsidian CLI]]
 [[Obsidian Skills Ecosystem]]
 [[Synthesis: 18 Claude Code Token Hacks in 18 Minutes]]
 [[Synthesis: Claude Code Best Practice (shanraisshan)]]
@@ -136,3 +137,4 @@ This suggests that Claude Code skills exist on a complexity spectrum: simple ski
 [[Synthesis: claude-world/notebooklm-skill]]
 [[Synthesis: kepano/obsidian-skills]]
 [[Synthesis: pablo-mano/Obsidian-CLI-skill]]
+[[notebooklm-py CLI]]

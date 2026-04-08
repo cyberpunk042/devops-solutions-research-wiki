@@ -78,3 +78,4 @@ The breadth of output formats — from visual (slides, mind maps, infographics) 
 [[Agentic Search vs Vector Search]]
 [[Synthesis: PleasePrompto/notebooklm-skill]]
 [[Synthesis: claude-world/notebooklm-skill]]
+[[notebooklm-py CLI]]

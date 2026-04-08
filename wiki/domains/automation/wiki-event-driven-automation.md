@@ -86,3 +86,5 @@ The connection between this concept and the AI-Driven Content Pipeline is direct
 [[LLM Knowledge Linting]]
 [[AI-Driven Content Pipeline]]
 [[Claude Code Best Practices]]
+[[Obsidian CLI]]
+[[notebooklm-py CLI]]

@@ -116,6 +116,7 @@ The dependence on Obsidian's desktop app for CLI operations (pablo-mano) is a me
 [[NotebookLM Skills]]
 [[LLM Wiki Pattern]]
 [[Skills Architecture Patterns]]
+[[Obsidian CLI]]
 [[Synthesis: axtonliu/axton-obsidian-visual-skills]]
 [[Synthesis: kepano/obsidian-skills]]
 [[Synthesis: pablo-mano/Obsidian-CLI-skill]]

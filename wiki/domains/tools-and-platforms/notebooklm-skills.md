@@ -94,3 +94,4 @@ A practical user might reasonably install both: PleasePrompto for daily coding a
 [[Agentic Search vs Vector Search]]
 [[Synthesis: PleasePrompto/notebooklm-skill]]
 [[Synthesis: claude-world/notebooklm-skill]]
+[[notebooklm-py CLI]]

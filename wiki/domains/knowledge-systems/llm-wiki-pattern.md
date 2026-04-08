@@ -122,6 +122,7 @@ These extensions represent the maturation path from a personal tool to a product
 [[Agentic Search vs Vector Search]]
 [[Claude Code Best Practices]]
 [[NotebookLM Skills]]
+[[Obsidian CLI]]
 [[Obsidian Skills Ecosystem]]
 [[Synthesis: Claude Code Best Practice (shanraisshan)]]
 [[Synthesis: Karpathy LLM Wiki Method via Claude Code]]
@@ -129,3 +130,4 @@ These extensions represent the maturation path from a personal tool to a product
 [[Synthesis: LLM Wiki v2 -- Extending Karpathy's Pattern with Agentmemory Lessons]]
 [[Synthesis: Obsidian + Claude Code Second Brain Setup]]
 [[Synthesis: kepano/obsidian-skills]]
+[[notebooklm-py CLI]]

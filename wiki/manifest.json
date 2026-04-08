@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-08T07:20:21.211504+00:00",
+  "generated": "2026-04-08T13:47:44.079018+00:00",
   "stats": {
-    "pages": 31,
+    "pages": 33,
     "domains": 5,
     "sources": 12,
     "comparisons": 3,
-    "relationships": 222,
-    "tags_unique": 127
+    "relationships": 238,
+    "tags_unique": 133
   },
   "pages": [
     {
@@ -1159,6 +1159,89 @@
       ]
     },
     {
+      "path": "domains/tools-and-platforms/notebooklm-py-cli.md",
+      "slug": "domains/tools-and-platforms/notebooklm-py-cli",
+      "title": "notebooklm-py CLI",
+      "type": "concept",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "notebooklm",
+        "cli",
+        "python",
+        "api",
+        "automation",
+        "browser-automation",
+        "content-pipeline",
+        "agent-tools",
+        "google",
+        "research-tool"
+      ],
+      "sources": [
+        {
+          "id": "src-notebooklm-py-official",
+          "type": "documentation",
+          "url": "https://github.com/teng-lin/notebooklm-py",
+          "file": "raw/articles/notebooklm-py-official-docs.md",
+          "title": "notebooklm-py \u2014 Official Documentation",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-claude-world-notebooklm-skill",
+          "type": "documentation",
+          "url": "https://github.com/claude-world/notebooklm-skill",
+          "file": "raw/articles/claude-worldnotebooklm-skill.md",
+          "title": "claude-world/notebooklm-skill",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-pleaseprompto-notebooklm-skill",
+          "type": "documentation",
+          "url": "https://github.com/PleasePrompto/notebooklm-skill",
+          "file": "raw/articles/pleasepromptonotebooklm-skill.md",
+          "title": "PleasePrompto/notebooklm-skill",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "BUILDS ON",
+          "target": "NotebookLM"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "NotebookLM Skills"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "AI-Driven Content Pipeline"
+        },
+        {
+          "verb": "PARALLELS",
+          "target": "Obsidian CLI"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Event-Driven Automation"
+        }
+      ]
+    },
+    {
       "path": "domains/tools-and-platforms/notebooklm-skills.md",
       "slug": "domains/tools-and-platforms/notebooklm-skills",
       "title": "NotebookLM Skills",
@@ -1284,6 +1367,80 @@
         {
           "verb": "RELATES TO",
           "target": "LLM Wiki Pattern"
+        }
+      ]
+    },
+    {
+      "path": "domains/tools-and-platforms/obsidian-cli.md",
+      "slug": "domains/tools-and-platforms/obsidian-cli",
+      "title": "Obsidian CLI",
+      "type": "concept",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "obsidian",
+        "cli",
+        "automation",
+        "scripting",
+        "tui",
+        "vault-management",
+        "pipeline-integration",
+        "agent-tools",
+        "second-brain"
+      ],
+      "sources": [
+        {
+          "id": "src-obsidian-cli-official",
+          "type": "documentation",
+          "url": "https://help.obsidian.md/cli",
+          "file": "raw/articles/obsidian-cli-official-docs.md",
+          "title": "Obsidian CLI \u2014 Official Documentation",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-pablo-mano-obsidian-cli-skill",
+          "type": "documentation",
+          "url": "https://github.com/pablo-mano/Obsidian-CLI-skill",
+          "file": "raw/articles/pablo-manoobsidian-cli-skill.md",
+          "title": "pablo-mano/Obsidian-CLI-skill",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "BUILDS ON",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Event-Driven Automation"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Obsidian Skills Ecosystem"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "USED BY",
+          "target": "AI-Driven Content Pipeline"
+        },
+        {
+          "verb": "PARALLELS",
+          "target": "notebooklm-py CLI"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Ingestion Pipeline"
         }
       ]
     },
@@ -2126,8 +2283,8 @@
       "relationship_count": 66
     },
     "tools-and-platforms": {
-      "page_count": 10,
-      "relationship_count": 62
+      "page_count": 12,
+      "relationship_count": 78
     }
   },
   "tags": {
@@ -2205,6 +2362,7 @@
     ],
     "obsidian": [
       "comparisons/skills-architecture-patterns",
+      "domains/tools-and-platforms/obsidian-cli",
       "domains/tools-and-platforms/obsidian-knowledge-vault",
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "sources/src-axton-obsidian-visual-skills",
@@ -2216,6 +2374,7 @@
     "notebooklm": [
       "comparisons/skills-architecture-patterns",
       "domains/automation/ai-driven-content-pipeline",
+      "domains/tools-and-platforms/notebooklm-py-cli",
       "domains/tools-and-platforms/notebooklm-skills",
       "domains/tools-and-platforms/notebooklm",
       "sources/src-claude-notebooklm-content-team",
@@ -2367,6 +2526,7 @@
     ],
     "content-pipeline": [
       "domains/automation/ai-driven-content-pipeline",
+      "domains/tools-and-platforms/notebooklm-py-cli",
       "domains/tools-and-platforms/notebooklm-skills",
       "sources/src-claude-world-notebooklm-skill"
     ],
@@ -2374,6 +2534,8 @@
       "domains/automation/ai-driven-content-pipeline",
       "domains/automation/claude-code-scheduling",
       "domains/automation/wiki-event-driven-automation",
+      "domains/tools-and-platforms/notebooklm-py-cli",
+      "domains/tools-and-platforms/obsidian-cli",
       "sources/src-claude-notebooklm-content-team",
       "sources/src-claude-world-notebooklm-skill",
       "sources/src-llm-wiki-v2-agentmemory"
@@ -2426,6 +2588,7 @@
     ],
     "second-brain": [
       "domains/knowledge-systems/llm-wiki-pattern",
+      "domains/tools-and-platforms/obsidian-cli",
       "domains/tools-and-platforms/obsidian-knowledge-vault",
       "sources/src-karpathy-claude-code-10x",
       "sources/src-karpathy-llm-wiki-idea-file",
@@ -2506,27 +2669,63 @@
     "structured-knowledge": [
       "domains/knowledge-systems/wiki-knowledge-graph"
     ],
+    "cli": [
+      "domains/tools-and-platforms/notebooklm-py-cli",
+      "domains/tools-and-platforms/obsidian-cli",
+      "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "python": [
+      "domains/tools-and-platforms/notebooklm-py-cli",
+      "sources/src-claude-world-notebooklm-skill",
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "api": [
+      "domains/tools-and-platforms/notebooklm-py-cli"
+    ],
+    "browser-automation": [
+      "domains/tools-and-platforms/notebooklm-py-cli",
+      "domains/tools-and-platforms/notebooklm-skills",
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "agent-tools": [
+      "domains/tools-and-platforms/notebooklm-py-cli",
+      "domains/tools-and-platforms/obsidian-cli"
+    ],
+    "google": [
+      "domains/tools-and-platforms/notebooklm-py-cli",
+      "domains/tools-and-platforms/notebooklm",
+      "sources/src-claude-notebooklm-content-team"
+    ],
+    "research-tool": [
+      "domains/tools-and-platforms/notebooklm-py-cli"
+    ],
     "mcp": [
       "domains/tools-and-platforms/notebooklm-skills",
       "sources/src-claude-world-notebooklm-skill"
     ],
-    "browser-automation": [
-      "domains/tools-and-platforms/notebooklm-skills",
-      "sources/src-pleaseprompto-notebooklm-skill"
-    ],
     "source-grounded": [
       "domains/tools-and-platforms/notebooklm-skills",
       "sources/src-pleaseprompto-notebooklm-skill"
-    ],
-    "google": [
-      "domains/tools-and-platforms/notebooklm",
-      "sources/src-claude-notebooklm-content-team"
     ],
     "research": [
       "domains/tools-and-platforms/notebooklm"
     ],
     "free-tools": [
       "domains/tools-and-platforms/notebooklm"
+    ],
+    "scripting": [
+      "domains/tools-and-platforms/obsidian-cli"
+    ],
+    "tui": [
+      "domains/tools-and-platforms/obsidian-cli"
+    ],
+    "vault-management": [
+      "domains/tools-and-platforms/obsidian-cli",
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "pipeline-integration": [
+      "domains/tools-and-platforms/obsidian-cli"
     ],
     "knowledge-vault": [
       "domains/tools-and-platforms/obsidian-knowledge-vault"
@@ -2553,10 +2752,6 @@
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "sources/src-axton-obsidian-visual-skills"
     ],
-    "cli": [
-      "domains/tools-and-platforms/obsidian-skills-ecosystem",
-      "sources/src-pablo-mano-obsidian-cli-skill"
-    ],
     "ecosystem": [
       "domains/tools-and-platforms/obsidian-skills-ecosystem"
     ],
@@ -2568,10 +2763,6 @@
     ],
     "canvas": [
       "sources/src-axton-obsidian-visual-skills"
-    ],
-    "python": [
-      "sources/src-claude-world-notebooklm-skill",
-      "sources/src-pleaseprompto-notebooklm-skill"
     ],
     "primary-source": [
       "sources/src-karpathy-llm-wiki-idea-file"
@@ -2597,9 +2788,6 @@
     "skill": [
       "sources/src-pablo-mano-obsidian-cli-skill",
       "sources/src-pleaseprompto-notebooklm-skill"
-    ],
-    "vault-management": [
-      "sources/src-pablo-mano-obsidian-cli-skill"
     ],
     "cross-agent": [
       "sources/src-pablo-mano-obsidian-cli-skill"

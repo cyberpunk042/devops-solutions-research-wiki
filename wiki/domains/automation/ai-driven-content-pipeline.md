@@ -82,5 +82,7 @@ A key architectural observation is that the pipeline's reliability depends on th
 [[Wiki Ingestion Pipeline]]
 [[NotebookLM Skills]]
 [[Skills Architecture Patterns]]
+[[Obsidian CLI]]
 [[Synthesis: Obsidian + Claude Code Second Brain Setup]]
 [[Wiki Event-Driven Automation]]
+[[notebooklm-py CLI]]
