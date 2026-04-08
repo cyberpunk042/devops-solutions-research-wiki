@@ -151,6 +151,34 @@ def validate_page(
             "message": f"Summary is very short ({word_count(summary)} words)",
         })
 
+    # Check derived_from references (for lesson/pattern/decision types)
+    derived_types = {"lesson", "pattern", "decision"}
+    if page_type in derived_types:
+        derived_from = meta.get("derived_from", [])
+        if not derived_from:
+            warnings.append({
+                "code": "missing_derived_from",
+                "message": f"Type '{page_type}' should have derived_from field listing source pages",
+            })
+
+    # Check maturity enum if present
+    maturity = meta.get("maturity")
+    if maturity and maturity not in enums.get("maturity", []):
+        errors.append({
+            "code": "invalid_enum",
+            "message": f"Invalid maturity value: '{maturity}' (allowed: {enums.get('maturity', [])})",
+            "field": "maturity",
+        })
+
+    # Check reversibility enum if present
+    reversibility = meta.get("reversibility")
+    if reversibility and reversibility not in enums.get("reversibility", []):
+        errors.append({
+            "code": "invalid_enum",
+            "message": f"Invalid reversibility value: '{reversibility}' (allowed: {enums.get('reversibility', [])})",
+            "field": "reversibility",
+        })
+
     return result
 
 
