@@ -4,8 +4,8 @@ Recurring structures observed across sources
 
 ## Pages
 
-<!-- Pages added during ingestion -->
+- [Plan Execute Review Cycle](plan-execute-review-cycle.md) — The Plan→Execute→Review cycle is a recurring structural pattern observed independently across AI agent orchestration ...
 
 ## Tags
 
-<!-- Tag cloud generated during ingestion -->
+`plan-execute-review`, `orchestration`, `agent-workflow`, `feedback-loop`, `guardrails`, `deterministic`, `multi-pass`, `cross-domain`, `harness-engineering`, `openfleet`

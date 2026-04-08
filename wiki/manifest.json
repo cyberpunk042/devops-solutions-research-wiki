@@ -1,14 +1,21 @@
 {
-  "generated": "2026-04-08T15:51:40.784975+00:00",
+  "generated": "2026-04-08T15:56:54.449498+00:00",
   "stats": {
-    "pages": 48,
+    "pages": 52,
     "domains": 7,
     "sources": 16,
     "comparisons": 3,
-    "relationships": 356,
-    "tags_unique": 217,
-    "layers": {},
-    "maturity": {}
+    "relationships": 391,
+    "tags_unique": 228,
+    "layers": {
+      "6": 1,
+      "4": 2,
+      "5": 1
+    },
+    "maturity": {
+      "seed": 3,
+      "growing": 1
+    }
   },
   "pages": [
     {
@@ -206,6 +213,83 @@
         {
           "verb": "RELATES TO",
           "target": "LLM Wiki Pattern"
+        }
+      ]
+    },
+    {
+      "path": "decisions/mcp-vs-cli-for-tool-integration.md",
+      "slug": "decisions/mcp-vs-cli-for-tool-integration",
+      "title": "Decision: MCP vs CLI for Tool Integration",
+      "type": "decision",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "mcp",
+        "cli",
+        "skills",
+        "tool-integration",
+        "token-efficiency",
+        "claude-code",
+        "integration-pattern",
+        "context-management"
+      ],
+      "sources": [
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering"
+        },
+        {
+          "id": "src-claude-code-accuracy-tips",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
+          "title": "Claude Code Works Better When You Do This"
+        }
+      ],
+      "layer": 6,
+      "maturity": "seed",
+      "derived_from": [
+        "Synthesis: Claude Code Harness Engineering",
+        "Synthesis: Claude Code Accuracy Tips",
+        "MCP Integration Architecture",
+        "Claude Code"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Synthesis: Claude Code Harness Engineering"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Synthesis: Claude Code Accuracy Tips"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "MCP Integration Architecture"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Claude Code"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Research Pipeline Orchestration"
         }
       ]
     },
@@ -2555,6 +2639,273 @@
       "relationships": []
     },
     {
+      "path": "lessons/always-plan-before-executing.md",
+      "slug": "lessons/always-plan-before-executing",
+      "title": "Always Plan Before Executing",
+      "type": "lesson",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "planning",
+        "agent-behavior",
+        "harness-engineering",
+        "openfleet",
+        "claude-code",
+        "plan-work-review",
+        "orchestration",
+        "rework-prevention",
+        "spec-driven"
+      ],
+      "sources": [
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-harness-engineering-github",
+          "type": "documentation",
+          "url": "https://github.com/Chachamaru127/claude-code-harness",
+          "title": "claude-code-harness GitHub",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": 4,
+      "maturity": "seed",
+      "derived_from": [
+        "Harness Engineering",
+        "OpenFleet",
+        "Claude Code",
+        "Synthesis: Claude Code Harness Engineering"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Claude Code"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Synthesis: Claude Code Harness Engineering"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Research Pipeline Orchestration"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Rework Prevention"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Agent Orchestration Patterns"
+        }
+      ]
+    },
+    {
+      "path": "lessons/cli-tools-beat-mcp-for-token-efficiency.md",
+      "slug": "lessons/cli-tools-beat-mcp-for-token-efficiency",
+      "title": "CLI Tools Beat MCP for Token Efficiency",
+      "type": "lesson",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "cli",
+        "mcp",
+        "token-efficiency",
+        "skills",
+        "context-management",
+        "accuracy",
+        "tool-integration",
+        "agent-design"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-code-accuracy-tips",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
+          "title": "Claude Code Works Better When You Do This"
+        },
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering"
+        }
+      ],
+      "layer": 4,
+      "maturity": "seed",
+      "derived_from": [
+        "Synthesis: Claude Code Accuracy Tips",
+        "Synthesis: Claude Code Harness Engineering",
+        "Claude Code",
+        "MCP Integration Architecture"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Synthesis: Claude Code Accuracy Tips"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Synthesis: Claude Code Harness Engineering"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "MCP Integration Architecture"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "MCP Integration Architecture"
+        },
+        {
+          "verb": "CONTRADICTS",
+          "target": "default assumption that MCP is the standard tool integration pattern"
+        }
+      ]
+    },
+    {
+      "path": "patterns/plan-execute-review-cycle.md",
+      "slug": "patterns/plan-execute-review-cycle",
+      "title": "Plan Execute Review Cycle",
+      "type": "pattern",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "plan-execute-review",
+        "orchestration",
+        "agent-workflow",
+        "feedback-loop",
+        "guardrails",
+        "deterministic",
+        "multi-pass",
+        "cross-domain",
+        "harness-engineering",
+        "openfleet"
+      ],
+      "sources": [
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation"
+        },
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering"
+        },
+        {
+          "id": "src-karpathy-claude-code-10x",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=7sInxhTDA7U",
+          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code"
+        },
+        {
+          "id": "src-user-directive-integration",
+          "type": "notes",
+          "file": "raw/notes/2026-04-08-user-directive-integration-vision.md",
+          "title": "User Directive \u2014 Integration Vision & Service Architecture"
+        }
+      ],
+      "layer": 5,
+      "maturity": "growing",
+      "derived_from": [
+        "Harness Engineering",
+        "OpenFleet",
+        "Claude Code",
+        "Research Pipeline Orchestration"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Claude Code"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Research Pipeline Orchestration"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "MCP Integration Architecture"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Event-Driven Automation"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Agent Orchestration Patterns"
+        }
+      ]
+    },
+    {
       "path": "sources/src-axton-obsidian-visual-skills.md",
       "slug": "sources/src-axton-obsidian-visual-skills",
       "title": "Synthesis: axtonliu/axton-obsidian-visual-skills",
@@ -3472,12 +3823,16 @@
   ],
   "domains": {
     "cross-domain": {
-      "page_count": 2,
-      "relationship_count": 14
+      "page_count": 3,
+      "relationship_count": 24
+    },
+    "tools-and-platforms": {
+      "page_count": 15,
+      "relationship_count": 98
     },
     "ai-agents": {
-      "page_count": 13,
-      "relationship_count": 107
+      "page_count": 15,
+      "relationship_count": 124
     },
     "ai-models": {
       "page_count": 2,
@@ -3494,10 +3849,6 @@
     "knowledge-systems": {
       "page_count": 9,
       "relationship_count": 83
-    },
-    "tools-and-platforms": {
-      "page_count": 14,
-      "relationship_count": 90
     }
   },
   "tags": {
@@ -3535,12 +3886,14 @@
     ],
     "skills": [
       "comparisons/skills-architecture-patterns",
+      "decisions/mcp-vs-cli-for-tool-integration",
       "domains/ai-agents/claude-code-best-practices",
       "domains/ai-agents/claude-code-skills",
       "domains/ai-agents/claude-code",
       "domains/ai-agents/openclaw",
       "domains/tools-and-platforms/notebooklm-skills",
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "sources/src-axton-obsidian-visual-skills",
       "sources/src-claude-notebooklm-content-team",
       "sources/src-kepano-obsidian-skills",
@@ -3555,10 +3908,12 @@
       "comparisons/skills-architecture-patterns"
     ],
     "cross-domain": [
-      "comparisons/skills-architecture-patterns"
+      "comparisons/skills-architecture-patterns",
+      "patterns/plan-execute-review-cycle"
     ],
     "claude-code": [
       "comparisons/skills-architecture-patterns",
+      "decisions/mcp-vs-cli-for-tool-integration",
       "domains/ai-agents/claude-code-best-practices",
       "domains/ai-agents/claude-code-context-management",
       "domains/ai-agents/claude-code-skills",
@@ -3569,6 +3924,7 @@
       "domains/knowledge-systems/wiki-ingestion-pipeline",
       "domains/tools-and-platforms/notebooklm-skills",
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "lessons/always-plan-before-executing",
       "sources/src-axton-obsidian-visual-skills",
       "sources/src-claude-code-accuracy-tips",
       "sources/src-claude-notebooklm-content-team",
@@ -3613,6 +3969,40 @@
     "composition": [
       "comparisons/skills-architecture-patterns"
     ],
+    "mcp": [
+      "decisions/mcp-vs-cli-for-tool-integration",
+      "domains/ai-agents/claude-code",
+      "domains/automation/mcp-integration-architecture",
+      "domains/knowledge-systems/lightrag",
+      "domains/tools-and-platforms/notebooklm-skills",
+      "lessons/cli-tools-beat-mcp-for-token-efficiency",
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "cli": [
+      "decisions/mcp-vs-cli-for-tool-integration",
+      "domains/tools-and-platforms/notebooklm-py-cli",
+      "domains/tools-and-platforms/obsidian-cli",
+      "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "lessons/cli-tools-beat-mcp-for-token-efficiency",
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "tool-integration": [
+      "decisions/mcp-vs-cli-for-tool-integration",
+      "lessons/cli-tools-beat-mcp-for-token-efficiency"
+    ],
+    "token-efficiency": [
+      "decisions/mcp-vs-cli-for-tool-integration",
+      "lessons/cli-tools-beat-mcp-for-token-efficiency"
+    ],
+    "integration-pattern": [
+      "decisions/mcp-vs-cli-for-tool-integration"
+    ],
+    "context-management": [
+      "decisions/mcp-vs-cli-for-tool-integration",
+      "domains/ai-agents/claude-code",
+      "lessons/cli-tools-beat-mcp-for-token-efficiency",
+      "sources/src-claude-code-accuracy-tips"
+    ],
     "best-practices": [
       "domains/ai-agents/claude-code-best-practices",
       "sources/src-shanraisshan-claude-code-best-practice"
@@ -3622,6 +4012,8 @@
       "domains/ai-agents/openfleet",
       "domains/automation/ai-driven-content-pipeline",
       "domains/automation/research-pipeline-orchestration",
+      "lessons/always-plan-before-executing",
+      "patterns/plan-execute-review-cycle",
       "sources/src-shanraisshan-claude-code-best-practice"
     ],
     "plan-mode": [
@@ -3737,17 +4129,6 @@
     "anthropic": [
       "domains/ai-agents/claude-code"
     ],
-    "mcp": [
-      "domains/ai-agents/claude-code",
-      "domains/automation/mcp-integration-architecture",
-      "domains/knowledge-systems/lightrag",
-      "domains/tools-and-platforms/notebooklm-skills",
-      "sources/src-claude-world-notebooklm-skill"
-    ],
-    "context-management": [
-      "domains/ai-agents/claude-code",
-      "sources/src-claude-code-accuracy-tips"
-    ],
     "automation": [
       "domains/ai-agents/claude-code",
       "domains/automation/ai-driven-content-pipeline",
@@ -3762,15 +4143,19 @@
     ],
     "harness-engineering": [
       "domains/ai-agents/harness-engineering",
+      "lessons/always-plan-before-executing",
+      "patterns/plan-execute-review-cycle",
       "sources/src-harness-engineering"
     ],
     "guardrails": [
       "domains/ai-agents/harness-engineering",
       "domains/tools-and-platforms/aicp",
+      "patterns/plan-execute-review-cycle",
       "sources/src-harness-engineering"
     ],
     "plan-work-review": [
       "domains/ai-agents/harness-engineering",
+      "lessons/always-plan-before-executing",
       "sources/src-harness-engineering"
     ],
     "runtime-safety": [
@@ -3782,6 +4167,7 @@
     ],
     "spec-driven": [
       "domains/ai-agents/harness-engineering",
+      "lessons/always-plan-before-executing",
       "sources/src-harness-engineering"
     ],
     "typescript": [
@@ -3844,7 +4230,9 @@
     ],
     "openfleet": [
       "domains/ai-agents/openfleet",
-      "domains/knowledge-systems/lightrag"
+      "domains/knowledge-systems/lightrag",
+      "lessons/always-plan-before-executing",
+      "patterns/plan-execute-review-cycle"
     ],
     "ai-agents": [
       "domains/ai-agents/openfleet"
@@ -3970,7 +4358,8 @@
       "domains/knowledge-systems/wiki-ingestion-pipeline"
     ],
     "multi-pass": [
-      "domains/automation/research-pipeline-orchestration"
+      "domains/automation/research-pipeline-orchestration",
+      "patterns/plan-execute-review-cycle"
     ],
     "event-driven": [
       "domains/automation/wiki-event-driven-automation",
@@ -4138,12 +4527,6 @@
       "domains/tools-and-platforms/aicp",
       "domains/tools-and-platforms/plane"
     ],
-    "cli": [
-      "domains/tools-and-platforms/notebooklm-py-cli",
-      "domains/tools-and-platforms/obsidian-cli",
-      "domains/tools-and-platforms/obsidian-skills-ecosystem",
-      "sources/src-pablo-mano-obsidian-cli-skill"
-    ],
     "python": [
       "domains/tools-and-platforms/notebooklm-py-cli",
       "sources/src-claude-world-notebooklm-skill",
@@ -4241,6 +4624,34 @@
     "pm-agent": [
       "domains/tools-and-platforms/plane"
     ],
+    "planning": [
+      "lessons/always-plan-before-executing"
+    ],
+    "agent-behavior": [
+      "lessons/always-plan-before-executing"
+    ],
+    "rework-prevention": [
+      "lessons/always-plan-before-executing"
+    ],
+    "accuracy": [
+      "lessons/cli-tools-beat-mcp-for-token-efficiency",
+      "sources/src-claude-code-accuracy-tips"
+    ],
+    "agent-design": [
+      "lessons/cli-tools-beat-mcp-for-token-efficiency"
+    ],
+    "plan-execute-review": [
+      "patterns/plan-execute-review-cycle"
+    ],
+    "agent-workflow": [
+      "patterns/plan-execute-review-cycle"
+    ],
+    "feedback-loop": [
+      "patterns/plan-execute-review-cycle"
+    ],
+    "deterministic": [
+      "patterns/plan-execute-review-cycle"
+    ],
     "excalidraw": [
       "sources/src-axton-obsidian-visual-skills"
     ],
@@ -4249,9 +4660,6 @@
     ],
     "canvas": [
       "sources/src-axton-obsidian-visual-skills"
-    ],
-    "accuracy": [
-      "sources/src-claude-code-accuracy-tips"
     ],
     "superpowers": [
       "sources/src-claude-code-accuracy-tips"
@@ -4333,6 +4741,19 @@
   },
   "orphaned_refs": [
     {
+      "target": "Agent Orchestration Patterns",
+      "referenced_by": [
+        "Always Plan Before Executing",
+        "Plan Execute Review Cycle"
+      ]
+    },
+    {
+      "target": "Rework Prevention",
+      "referenced_by": [
+        "Always Plan Before Executing"
+      ]
+    },
+    {
       "target": "ai-driven-content-pipeline",
       "referenced_by": [
         "Synthesis: Claude + NotebookLM Content Automation"
@@ -4348,6 +4769,12 @@
       "target": "claude-code-skills",
       "referenced_by": [
         "Synthesis: Claude + NotebookLM Content Automation"
+      ]
+    },
+    {
+      "target": "default assumption that MCP is the standard tool integration pattern",
+      "referenced_by": [
+        "CLI Tools Beat MCP for Token Efficiency"
       ]
     },
     {
