@@ -876,13 +876,18 @@ CHAINS: Dict[str, Dict[str, Any]] = {
         "needs_input": False,
     },
     "evolve": {
-        "description": "Gaps → scaffold lesson candidates → post-chain",
-        "steps": ["gaps", "post"],
+        "description": "Score candidates → scaffold top N → post-chain",
+        "steps": ["evolve-score", "post"],
+        "needs_input": False,
+    },
+    "evolve-auto": {
+        "description": "Score → scaffold → generate (local model) → post-chain",
+        "steps": ["evolve-auto", "post"],
         "needs_input": False,
     },
     "spine-refresh": {
-        "description": "Rebuild domain overviews → post-chain",
-        "steps": ["post"],
+        "description": "Score domain-overview candidates → generate → post-chain",
+        "steps": ["evolve-spine", "post"],
         "needs_input": False,
     },
 }
@@ -965,6 +970,22 @@ def run_chain(chain_name: str, project_root: Path, inputs: List[str] = None,
             step_result = run_sync_step(project_root, verbose=verbose)
             results["steps"]["sync"] = step_result
 
+        elif step_name == "evolve-score":
+            from tools.evolve import evolve as run_evolve
+            step_result = run_evolve(project_root, mode="scaffold", top=5, verbose=verbose)
+            results["steps"]["evolve-score"] = step_result
+
+        elif step_name == "evolve-auto":
+            from tools.evolve import evolve as run_evolve
+            step_result = run_evolve(project_root, mode="auto", backend_name="openai", top=5, verbose=verbose)
+            results["steps"]["evolve-auto"] = step_result
+
+        elif step_name == "evolve-spine":
+            from tools.evolve import evolve as run_evolve
+            step_result = run_evolve(project_root, mode="auto", type_filter="domain-overview",
+                                     backend_name="openai", top=7, verbose=verbose)
+            results["steps"]["evolve-spine"] = step_result
+
     return results
 
 
@@ -1044,7 +1065,7 @@ Commands:
     parser.add_argument("command",
                         choices=["post", "fetch", "scan", "status", "run",
                                  "chain", "gaps", "crossref", "integrations",
-                                 "scaffold"],
+                                 "scaffold", "evolve"],
                         help="Pipeline command")
     parser.add_argument("args", nargs="*", help="Command arguments (URLs, paths, chain name, etc.)")
     parser.add_argument("--batch", help="File containing URLs (one per line)")
@@ -1055,7 +1076,11 @@ Commands:
     parser.add_argument("--json", action="store_true", help="JSON output")
     parser.add_argument("--quiet", "-q", action="store_true", help="Minimal output")
 
-    args = parser.parse_args()
+    args, _extra = parser.parse_known_args()
+    # Merge unrecognised flags into args.args so sub-commands (e.g. evolve) can
+    # re-parse them with their own ArgumentParser.
+    if _extra:
+        args.args = list(args.args) + _extra
     root = get_project_root()
     verbose = not args.quiet and not args.json
 
@@ -1218,6 +1243,54 @@ Commands:
         if not result["ok"]:
             print(f"ERROR: {result['error']}")
             sys.exit(1)
+        sys.exit(0)
+
+    elif args.command == "evolve":
+        from tools.evolve import evolve as run_evolve
+        import argparse as _argparse
+        sub = _argparse.ArgumentParser(prog="pipeline evolve", add_help=False)
+        sub.add_argument("--score", action="store_true")
+        sub.add_argument("--scaffold", action="store_true")
+        sub.add_argument("--auto", action="store_true")
+        sub.add_argument("--dry-run", action="store_true", dest="dry_run")
+        sub.add_argument("--execute", action="store_true")
+        sub.add_argument("--review", action="store_true")
+        sub.add_argument("--stale", action="store_true")
+        sub.add_argument("--backend", default=os.environ.get("WIKI_EVOLVE_BACKEND", "claude-code"))
+        sub.add_argument("--top", type=int, default=int(os.environ.get("WIKI_EVOLVE_TOP", 10)))
+        sub.add_argument("--type", dest="etype")
+        sub.add_argument("--domain")
+        sub.add_argument("--clear", action="store_true")
+        sub_args = sub.parse_args(args.args)
+
+        # Determine mode from first true flag (score is default)
+        if sub_args.stale:
+            mode = "stale"
+        elif sub_args.review:
+            mode = "review"
+        elif sub_args.execute:
+            mode = "execute"
+        elif sub_args.dry_run:
+            mode = "dry-run"
+        elif sub_args.auto:
+            mode = "auto"
+        elif sub_args.scaffold:
+            mode = "scaffold"
+        else:
+            mode = "score"
+
+        result = run_evolve(
+            project_root=root,
+            mode=mode,
+            backend_name=sub_args.backend,
+            top=sub_args.top,
+            type_filter=sub_args.etype,
+            domain_filter=sub_args.domain,
+            clear_queue=sub_args.clear,
+            verbose=verbose,
+        )
+        if args.json:
+            print(json.dumps(result, indent=2, default=str))
         sys.exit(0)
 
 

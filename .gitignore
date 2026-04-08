@@ -27,3 +27,6 @@ Thumbs.db
 # Obsidian workspace (user-specific, not portable)
 wiki/.obsidian/workspace.json
 wiki/.obsidian/workspace-mobile.json
+
+# Evolution queue prompt files (generated, not committed)
+wiki/.evolve-queue/*.prompt.md
