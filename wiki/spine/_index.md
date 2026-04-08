@@ -1,15 +1,11 @@
 # Spine
 
-Strategic architecture of the knowledge base — domain overviews, learning paths, evolution tracking
+Strategic architecture and domain overviews
 
-## Domain Overviews
+## Pages
 
-<!-- Links to spine/domain-overviews/ pages -->
+<!-- Pages added during ingestion -->
 
-## Learning Paths
+## Tags
 
-<!-- Links to spine/learning-paths/ pages -->
-
-## Evolution Log
-
-<!-- Links to spine/evolution-log/ pages -->
+<!-- Tag cloud generated during ingestion -->

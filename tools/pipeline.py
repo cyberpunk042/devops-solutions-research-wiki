@@ -36,6 +36,7 @@ from tools.common import (
     parse_sections,
     parse_relationships,
     rebuild_domain_index,
+    rebuild_layer_index,
     word_count,
 )
 from tools.ingest import ingest_url, list_raw
@@ -171,15 +172,32 @@ def post_chain(project_root: Path, verbose: bool = True) -> Dict[str, Any]:
 
     report: Dict[str, Any] = {"steps": {}, "success": True}
 
-    # Step 1: Rebuild indexes
+    # Step 1: Rebuild indexes (domain + layer)
     if verbose:
-        print("  [1/5] Rebuilding domain indexes...")
+        print("  [1/6] Rebuilding domain indexes...")
     indexes_updated = rebuild_all_indexes(wiki_dir, domains_config)
+
+    # Rebuild layer indexes
+    layer_dirs = {
+        "lessons": "Structured insights synthesized from sources",
+        "patterns": "Recurring structures observed across sources",
+        "decisions": "Actionable choice frameworks with tradeoffs",
+        "spine": "Strategic architecture and domain overviews",
+    }
+    for layer_name, desc in layer_dirs.items():
+        layer_dir = wiki_dir / layer_name
+        if layer_dir.exists():
+            content = rebuild_layer_index(layer_dir, layer_name, desc)
+            idx = layer_dir / "_index.md"
+            old = idx.read_text(encoding="utf-8") if idx.exists() else ""
+            if content != old:
+                idx.write_text(content, encoding="utf-8")
+                indexes_updated += 1
     report["steps"]["indexes"] = {"updated": indexes_updated}
 
     # Step 2: Regenerate manifest
     if verbose:
-        print("  [2/5] Regenerating manifest.json...")
+        print("  [2/6] Regenerating manifest.json...")
     manifest = run_manifest(wiki_dir, manifest_path)
     pages = manifest.get("stats", {}).get("pages", 0)
     rels = manifest.get("stats", {}).get("relationships", 0)
@@ -187,7 +205,7 @@ def post_chain(project_root: Path, verbose: bool = True) -> Dict[str, Any]:
 
     # Step 3: Validate
     if verbose:
-        print("  [3/5] Validating pages...")
+        print("  [3/6] Validating pages...")
     validation = run_validate(wiki_dir, schema_path)
     report["steps"]["validate"] = validation
     if validation["errors"] > 0:
@@ -195,7 +213,7 @@ def post_chain(project_root: Path, verbose: bool = True) -> Dict[str, Any]:
 
     # Step 4: Regenerate wikilinks
     if verbose:
-        print("  [4/5] Regenerating wikilinks...")
+        print("  [4/6] Regenerating wikilinks...")
     obsidian = run_obsidian(project_root)
     report["steps"]["obsidian"] = {
         "updated": obsidian["updated"],
@@ -204,7 +222,7 @@ def post_chain(project_root: Path, verbose: bool = True) -> Dict[str, Any]:
 
     # Step 5: Lint
     if verbose:
-        print("  [5/5] Running lint checks...")
+        print("  [5/6] Running lint checks...")
     lint = run_lint(wiki_dir)
     report["steps"]["lint"] = lint
 

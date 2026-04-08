@@ -1,11 +1,11 @@
 # Lessons
 
-Structured insights distilled from source-derived knowledge (Layer 4)
+Structured insights synthesized from sources
 
 ## Pages
 
-<!-- Auto-maintained by pipeline -->
+<!-- Pages added during ingestion -->
 
 ## Tags
 
-<!-- Auto-maintained by pipeline -->
+<!-- Tag cloud generated during ingestion -->

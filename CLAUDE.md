@@ -14,7 +14,7 @@ A monorepo containing:
 ## Project Structure
 
 - `raw/` — Unprocessed source material (transcripts, articles, papers, notes, dumps)
-- `wiki/` — Processed knowledge (domains/, sources/, comparisons/, index.md, manifest.json)
+- `wiki/` — Processed knowledge (domains/, sources/, comparisons/, lessons/, patterns/, decisions/, spine/, index.md, manifest.json)
 - `tools/` — Python utilities (lint, manifest, export, validate, stats)
 - `skills/` — Claude skill definitions
 - `config/` — Schema, domain registry, export profiles, quality standards
@@ -26,7 +26,12 @@ Every wiki page uses YAML frontmatter with these required fields:
 
   title, type, domain, status, confidence, created, updated, sources, tags
 
-Page types: concept, source-synthesis, comparison, reference, deep-dive, index
+Page types: concept, source-synthesis, comparison, reference, deep-dive, index,
+  lesson, pattern, decision, domain-overview, learning-path, evolution
+
+Optional fields for evolved pages: layer, derived_from, maturity, instances, reversibility
+
+Maturity levels: seed, growing, mature, canonical
 
 Status lifecycle: raw → processing → synthesized → verified → stale
 
@@ -42,6 +47,9 @@ Every page follows this section order:
   ## Deep Analysis    ← full resolution (concept, comparison, deep-dive types)
   ## Open Questions   ← gaps to fill (optional but encouraged)
   ## Relationships    ← VERB: target format, one per line
+
+Evolved page types (lesson, pattern, decision) have additional required sections.
+See config/templates/ for section structure. Scaffold via: `python3 -m tools.pipeline scaffold <type> <title>`
 
 ## Relationship Conventions
 
@@ -86,12 +94,13 @@ Every page must have:
 
 After every ingestion, run: `python3 -m tools.pipeline post`
 
-This executes all 5 steps automatically:
-1. Rebuild affected _index.md files
-2. Regenerate manifest.json
+This executes all 6 steps automatically:
+1. Rebuild affected _index.md files (including layer indexes)
+2. Regenerate manifest.json (with layer/maturity stats)
 3. Validate all pages — errors block completion
 4. Regenerate wikilinks via obsidian.py
 5. Run lint checks and report summary
+6. Rebuild layer indexes (lessons/, patterns/, decisions/, spine/)
 
 ## Integration
 

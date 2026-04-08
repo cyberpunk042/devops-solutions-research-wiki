@@ -1,11 +1,11 @@
 # Patterns
 
-Recurring structures observed across multiple sources and concepts (Layer 5)
+Recurring structures observed across sources
 
 ## Pages
 
-<!-- Auto-maintained by pipeline -->
+<!-- Pages added during ingestion -->
 
 ## Tags
 
-<!-- Auto-maintained by pipeline -->
+<!-- Tag cloud generated during ingestion -->

@@ -1,11 +1,11 @@
 # Decisions
 
-Actionable choice frameworks with explicit tradeoffs (Layer 6)
+Actionable choice frameworks with tradeoffs
 
 ## Pages
 
-<!-- Auto-maintained by pipeline -->
+<!-- Pages added during ingestion -->
 
 ## Tags
 
-<!-- Auto-maintained by pipeline -->
+<!-- Tag cloud generated during ingestion -->
