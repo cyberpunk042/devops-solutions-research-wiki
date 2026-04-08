@@ -9,7 +9,8 @@ Usage:
     python3 -m tools.setup --check                 # Check environment only
     python3 -m tools.setup --obsidian-config       # Configure Obsidian vault
     python3 -m tools.setup --services              # List available services
-    python3 -m tools.setup --services wiki-sync    # Deploy sync daemon
+    python3 -m tools.setup --services wiki-sync    # Deploy sync daemon (auto-detect target)
+    python3 -m tools.setup --services wiki-sync --target /mnt/c/Users/You/vault  # Custom target
     python3 -m tools.setup --services wiki-watcher # Deploy watcher daemon
 """
 
@@ -276,7 +277,7 @@ def list_services(project_root: Path):
     log_info("View logs:   journalctl --user -u <name> -f")
 
 
-def install_service(service_name: str, project_root: Path) -> bool:
+def install_service(service_name: str, project_root: Path, target: str = None) -> bool:
     """Generate and enable a systemd user service from template."""
     if not is_wsl() and platform.system() != "Linux":
         log_error("systemd services only supported on Linux/WSL")
@@ -301,12 +302,16 @@ def install_service(service_name: str, project_root: Path) -> bool:
 
     # Resolve sync target for wiki-sync service
     if "{{sync_target}}" in content:
-        from tools.sync import get_sync_config
-        sync_config = get_sync_config(project_root)
-        sync_target = sync_config.get("target", "")
+        if target:
+            sync_target = target
+        else:
+            from tools.sync import get_sync_config
+            sync_config = get_sync_config(project_root)
+            sync_target = sync_config.get("target", "")
         if not sync_target:
-            log_error("No sync target detected. Set WIKI_SYNC_TARGET env var first.")
+            log_error("No sync target. Use: setup.py --services wiki-sync --target /mnt/c/Users/You/path")
             return False
+        log_info(f"Sync target: {sync_target}")
         content = content.replace("{{sync_target}}", sync_target)
 
     systemd_dir = Path.home() / ".config" / "systemd" / "user"
@@ -338,6 +343,7 @@ def main():
     parser.add_argument("--obsidian-config", action="store_true", help="Configure Obsidian vault")
     parser.add_argument("--services", nargs="?", const="__list__", default=None,
                         metavar="NAME", help="Deploy a systemd service (or list available)")
+    parser.add_argument("--target", help="Sync target path (for wiki-sync service)")
     args = parser.parse_args()
 
     root = get_project_root()
@@ -352,7 +358,7 @@ def main():
         if args.services == "__list__":
             list_services(root)
         else:
-            success = install_service(args.services, root)
+            success = install_service(args.services, root, target=args.target)
             sys.exit(0 if success else 1)
     else:
         # Full setup

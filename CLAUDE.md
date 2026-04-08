@@ -186,7 +186,8 @@ Cross-platform (Linux, macOS, Windows):
     python -m tools.setup --deps       # Install dependencies via uv + Python 3.11 venv
     python -m tools.setup --obsidian-config  # Configure Obsidian vault
     python -m tools.setup --services              # List available services
-    python -m tools.setup --services wiki-sync    # Deploy sync daemon (WSL→Windows)
+    python -m tools.setup --services wiki-sync    # Deploy sync daemon (WSL→Windows, auto-detect target)
+    python -m tools.setup --services wiki-sync --target /mnt/c/Users/You/vault  # Custom target
     python -m tools.setup --services wiki-watcher # Deploy watcher daemon (auto post-chain)
 
 Requires uv (https://docs.astral.sh/uv/). All tools run via `.venv/bin/python -m tools.<name>`.
