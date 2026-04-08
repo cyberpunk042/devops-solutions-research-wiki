@@ -61,3 +61,10 @@ The breadth of output formats — from visual (slides, mind maps, infographics) 
 - USED BY: ai-driven-content-pipeline
 - ENABLES: claude-code-skills
 - RELATES TO: claude-code-scheduling
+
+## Backlinks
+
+[[src-claude-notebooklm-content-team]]
+[[ai-driven-content-pipeline]]
+[[claude-code-skills]]
+[[claude-code-scheduling]]

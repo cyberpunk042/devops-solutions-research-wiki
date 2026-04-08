@@ -58,3 +58,12 @@ A key architectural decision is that the raw source is preserved in the `raw/` f
 - IMPLEMENTS: LLM Wiki Pattern
 - USED BY: Obsidian Knowledge Vault
 - FEEDS INTO: LLM Knowledge Linting
+
+## Backlinks
+
+[[src-karpathy-claude-code-10x]]
+[[LLM Wiki Pattern]]
+[[Obsidian Knowledge Vault]]
+[[LLM Knowledge Linting]]
+[[LLM Wiki vs RAG]]
+[[Synthesis: Karpathy LLM Wiki Method via Claude Code]]

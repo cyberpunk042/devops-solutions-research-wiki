@@ -52,3 +52,11 @@ One implicit pattern from the transcript is using Obsidian purely as a reader, n
 - DERIVED FROM: src-karpathy-claude-code-10x
 - IMPLEMENTS: LLM Wiki Pattern
 - ENABLES: Wiki Ingestion Pipeline
+
+## Backlinks
+
+[[src-karpathy-claude-code-10x]]
+[[LLM Wiki Pattern]]
+[[Wiki Ingestion Pipeline]]
+[[LLM Knowledge Linting]]
+[[Synthesis: Karpathy LLM Wiki Method via Claude Code]]

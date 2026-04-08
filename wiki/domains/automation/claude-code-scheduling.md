@@ -64,3 +64,10 @@ The "bypass permissions mode" for low-risk tasks is a trust calibration mechanis
 - BUILDS ON: claude-code-skills
 - ENABLES: ai-driven-content-pipeline
 - RELATES TO: notebooklm
+
+## Backlinks
+
+[[src-claude-notebooklm-content-team]]
+[[claude-code-skills]]
+[[ai-driven-content-pipeline]]
+[[notebooklm]]

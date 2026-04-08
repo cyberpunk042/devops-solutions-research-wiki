@@ -1,0 +1,24 @@
+{
+  "collapse-filter": false,
+  "search": "",
+  "showTags": false,
+  "showAttachments": false,
+  "hideUnresolved": false,
+  "showOrphans": true,
+  "collapse-color-groups": false,
+  "colorGroups": [
+    {"query": "path:domains/ai-agents", "color": {"a": 1, "rgb": 4886754}},
+    {"query": "path:domains/knowledge-systems", "color": {"a": 1, "rgb": 2470655}},
+    {"query": "path:domains/automation", "color": {"a": 1, "rgb": 16750848}},
+    {"query": "path:domains/tools-and-platforms", "color": {"a": 1, "rgb": 8388352}},
+    {"query": "path:sources", "color": {"a": 1, "rgb": 10066329}}
+  ],
+  "collapse-display": false,
+  "lineSizeMultiplier": 1,
+  "nodeSizeMultiplier": 1,
+  "textFadeMultiplier": 0,
+  "centerStrength": 0.5,
+  "repelStrength": 10,
+  "linkStrength": 1,
+  "linkDistance": 250
+}

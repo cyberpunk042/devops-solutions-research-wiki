@@ -67,3 +67,11 @@ A key architectural observation is that the pipeline's reliability depends on th
 - BUILDS ON: claude-code-skills
 - BUILDS ON: claude-code-scheduling
 - IMPLEMENTS: Agent-as-orchestrator pattern where Claude Code coordinates specialized tools rather than generating content directly
+
+## Backlinks
+
+[[src-claude-notebooklm-content-team]]
+[[notebooklm]]
+[[claude-code-skills]]
+[[claude-code-scheduling]]
+[[Agent-as-orchestrator pattern where Claude Code coordinates specialized tools rather than generating content directly]]

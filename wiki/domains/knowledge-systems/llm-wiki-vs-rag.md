@@ -56,3 +56,10 @@ A hybrid approach is implied but not explicitly discussed: you could use the wik
 - DERIVED FROM: src-karpathy-claude-code-10x
 - COMPARES TO: LLM Wiki Pattern
 - RELATES TO: Wiki Ingestion Pipeline
+
+## Backlinks
+
+[[src-karpathy-claude-code-10x]]
+[[LLM Wiki Pattern]]
+[[Wiki Ingestion Pipeline]]
+[[Synthesis: Karpathy LLM Wiki Method via Claude Code]]

@@ -58,3 +58,12 @@ The pattern's main limitation is scale. At hundreds of pages it works well, but 
 - ENABLES: Wiki Ingestion Pipeline
 - USED BY: Obsidian Knowledge Vault
 - FEEDS INTO: LLM Knowledge Linting
+
+## Backlinks
+
+[[src-karpathy-claude-code-10x]]
+[[LLM Wiki vs RAG]]
+[[Wiki Ingestion Pipeline]]
+[[Obsidian Knowledge Vault]]
+[[LLM Knowledge Linting]]
+[[Synthesis: Karpathy LLM Wiki Method via Claude Code]]

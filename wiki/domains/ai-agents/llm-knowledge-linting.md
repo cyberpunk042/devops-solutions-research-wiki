@@ -56,3 +56,11 @@ The confidence level for this page is set to medium because the transcript provi
 - BUILDS ON: LLM Wiki Pattern
 - BUILDS ON: Wiki Ingestion Pipeline
 - RELATES TO: Obsidian Knowledge Vault
+
+## Backlinks
+
+[[src-karpathy-claude-code-10x]]
+[[LLM Wiki Pattern]]
+[[Wiki Ingestion Pipeline]]
+[[Obsidian Knowledge Vault]]
+[[Synthesis: Karpathy LLM Wiki Method via Claude Code]]

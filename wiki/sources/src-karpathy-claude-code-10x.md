@@ -42,3 +42,12 @@ This video breaks down Andrej Karpathy's viral post about using LLMs to build pe
 - ENABLES: Obsidian Knowledge Vault
 - ENABLES: Wiki Ingestion Pipeline
 - ENABLES: LLM Knowledge Linting
+
+## Backlinks
+
+[[src-karpathy-claude-code-10x]]
+[[LLM Wiki Pattern]]
+[[LLM Wiki vs RAG]]
+[[Obsidian Knowledge Vault]]
+[[Wiki Ingestion Pipeline]]
+[[LLM Knowledge Linting]]

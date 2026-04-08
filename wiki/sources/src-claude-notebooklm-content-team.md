@@ -50,3 +50,11 @@ This video demonstrates how to connect Claude Code to Google's NotebookLM to cre
 - RELATES TO: claude-code-skills
 - RELATES TO: claude-code-scheduling
 - RELATES TO: ai-driven-content-pipeline
+
+## Backlinks
+
+[[src-claude-notebooklm-content-team]]
+[[notebooklm]]
+[[claude-code-skills]]
+[[claude-code-scheduling]]
+[[ai-driven-content-pipeline]]

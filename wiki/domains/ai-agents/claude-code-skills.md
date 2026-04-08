@@ -65,3 +65,10 @@ The connection to long-running agent sessions is important: skills persist acros
 - ENABLES: ai-driven-content-pipeline
 - ENABLES: claude-code-scheduling
 - BUILDS ON: notebooklm
+
+## Backlinks
+
+[[src-claude-notebooklm-content-team]]
+[[ai-driven-content-pipeline]]
+[[claude-code-scheduling]]
+[[notebooklm]]
