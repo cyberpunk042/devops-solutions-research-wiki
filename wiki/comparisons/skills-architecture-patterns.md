@@ -143,12 +143,26 @@ The connection to context management is the critical constraint that shapes all 
 
 ## Open Questions
 
-- What is the empirical complexity ceiling for skills -- at what point does the LLM's decompression of skill instructions become unreliable?
-- Will agentskills.io become the universal standard, or will platform-specific skill formats fragment the ecosystem?
-- Can skills be automatically generated from observed user workflows (skill induction)?
-- How should skill versioning work -- semantic versioning for breaking changes in instruction format?
-- Can the compression-expansion pattern be measured -- what is the ratio of skill file size to effective prompt size at runtime?
-- How do skills interact with the memory lifecycle -- should frequently-used skills be promoted to procedural memory in the LLM Wiki v2 model?
+- Will agentskills.io become the universal standard, or will platform-specific skill formats fragment the ecosystem? (Requires: external observation of ecosystem consolidation over time; no wiki page covers this trajectory)
+- How should skill versioning work — semantic versioning for breaking changes in instruction format? (Requires: empirical data from large-scale skill deployment; no wiki page covers versioning semantics for SKILL.md)
+
+## Answered Open Questions
+
+### What is the empirical complexity ceiling for skills — at what point does the LLM's decompression of skill instructions become unreliable?
+
+Cross-referencing `CLI Tools Beat MCP for Token Efficiency` and `Design.md Pattern`: the complexity ceiling has two distinct mechanisms. First, context budget exhaustion: `CLI Tools Beat MCP for Token Efficiency` documents that Claude Code accuracy drops significantly at 40% context usage and becomes unreliable at 60%+. Any skill complex enough to consume a large fraction of the context window will trigger this degradation before the task begins. Second, instruction decompression fidelity: `Design.md Pattern` notes that Design.md files are "static context loaded at session start" and asks "What's the token cost of loading a full Design.md into context? Does it suffer the same context pollution as MCP schemas?" — confirming that even structured static skills face the same context cost constraint. The `Context-Aware Tool Loading` pattern provides the resolution: skills should be loaded only when relevant (deferred loading), so the complexity ceiling is not a fixed character count but a function of session length and competing context demands. For production-grade skills like claude-world's 13-tool pipeline, the recommended architecture is `context: fork` (sub-agent isolation) to prevent the skill from polluting the parent session context.
+
+### Can the compression-expansion pattern be measured — what is the ratio of skill file size to effective prompt size at runtime?
+
+Cross-referencing `CLI Tools Beat MCP for Token Efficiency`: the lesson documents one concrete data point — the Playwright CLI vs. MCP comparison shows "12x cost differential" between MCP (which injects full accessibility trees on every navigation step) and CLI (which loads targeted YAML snapshots on demand). While this is a CLI vs. MCP comparison rather than a direct skill compression ratio measurement, it establishes that the expansion ratio at runtime depends heavily on how frequently the skill triggers data retrieval. The `Skills Architecture Patterns` comparison matrix identifies "context cost model" as varying by tier: tool wrapper skills (load once per invocation), pipeline skills (load for pipeline duration), and query skills (load per-question). A measurement framework would require instrumenting session token usage per skill invocation across multiple task types — no existing wiki page has done this empirically, but the CLI lesson's Playwright numbers (12x between modes) suggest expansion ratios of 5-15x are plausible for full-pipeline skills.
+
+### Can skills be automatically generated from observed user workflows (skill induction)?
+
+Cross-referencing `Wiki Event-Driven Automation` and `Agent Orchestration Patterns`: skill induction (automatic skill generation from observed behavior) maps directly to two existing patterns. First, `Wiki Event-Driven Automation` describes "crystallization" — the process of automatically distilling completed chains of work into structured digests. A crystallized exploration ("what was the question, what was found, what steps were taken") is structurally identical to a skill file ("what context, what operations, what output"). Second, `Agent Orchestration Patterns` documents the "5-verb harness workflow" (Setup → Plan → Work → Review → Release) where the Plan phase captures intent before execution — a captured plan is one component of a generated skill. The technical path: if an agent logs its tool calls, decision points, and outcomes for a workflow, that log can be crystallized into a SKILL.md via a second pass. This is not currently implemented in any wiki-documented project, but the building blocks (crystallization, plan capture, post-session compression) are all present in existing patterns.
+
+### How do skills interact with the memory lifecycle — should frequently-used skills be promoted to procedural memory in the LLM Wiki v2 model?
+
+Cross-referencing `Wiki Event-Driven Automation`: the LLM Wiki v2 memory model defines multiple tiers, including procedural memory for recurring operational patterns. Skills are already a form of procedural memory — they encode "how to act" rather than "what is known." The event-driven automation framework's "on session end" hook (compress session into observations, file insights) is the mechanism that would naturally promote skills: if a skill is invoked in many sessions, its compressed summary should appear in working memory at session start via the "on session start" hook (load relevant context from the wiki). The practical implementation: CLAUDE.md or a session-start skill references the most frequently used skills directly, reducing the invocation step for high-frequency operations. For lower-frequency skills, the deferred loading model (explicit slash command trigger) remains correct. The `Context-Aware Tool Loading` pattern's "when not to" section confirms: "Tools invoked on nearly every turn" warrant pre-loading at session start, while infrequent tools should remain deferred.
 
 ## Relationships
 
@@ -170,3 +184,4 @@ The connection to context management is the critical constraint that shapes all 
 [[AI-Driven Content Pipeline]]
 [[LLM Wiki Pattern]]
 [[Infrastructure as Code Patterns]]
+[[Pattern: Skills + Obsidian]]

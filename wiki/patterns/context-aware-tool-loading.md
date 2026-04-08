@@ -128,3 +128,5 @@ This is the documentation layer's application of deferred loading. The alternati
 [[Research Pipeline Orchestration]]
 [[Wiki Ingestion Pipeline]]
 [[Cross-Domain Patterns]]
+[[Pattern: Skills + Cli]]
+[[Pattern: Skills + Notebooklm]]

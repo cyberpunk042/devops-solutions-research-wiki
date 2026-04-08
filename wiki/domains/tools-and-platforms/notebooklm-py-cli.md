@@ -120,12 +120,26 @@ async with await NotebookLMClient.from_storage() as client:
 
 ## Open Questions
 
-- What are the practical rate limits for automated NotebookLM usage before Google throttles or blocks the account?
-- Can notebooklm-py's async API be wrapped as an MCP server for direct use in Claude Code conversations?
-- How does the `add-research` deep mode compare to our `tools/ingest.py` + web search pipeline for source discovery?
-- What is the quality/accuracy comparison between NotebookLM's source-grounded answers (Gemini) and the wiki's synthesized pages (Claude)?
-- Can notebook metadata and source lists be synced bidirectionally with wiki/manifest.json?
-- Will Google release an official NotebookLM API that makes browser automation unnecessary?
+- What are the practical rate limits for automated NotebookLM usage before Google throttles or blocks the account? (Requires: empirical measurement under sustained load; the `--retry` flag with exponential backoff is documented as the mitigation, but no wiki page specifies concrete thresholds)
+- Will Google release an official NotebookLM API that makes browser automation unnecessary? (Requires: external announcement from Google; no existing wiki page covers this)
+
+## Answered Open Questions
+
+### Can notebooklm-py's async API be wrapped as an MCP server for direct use in Claude Code conversations?
+
+Cross-referencing `CLI Tools Beat MCP for Token Efficiency` and `Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py`: the MCP wrapping is technically possible but architecturally inadvisable for this use case. The `CLI Tools Beat MCP for Token Efficiency` lesson documents that an MCP server wrapping notebooklm-py would load all its tool schemas (notebook, source, chat, generate, download, sharing, agent commands) into every Claude Code session at startup — before any NotebookLM operation is requested. The `src-notebooklm-claude-code-workflow` synthesis explicitly confirms the correct architecture: "The integration uses notebooklm-py as a CLI tool with a corresponding Claude Code skill — not a NotebookLM MCP server. This is consistent with the CLI-over-MCP pattern for known-workflow integrations. The skill is loaded when needed, not registered as a persistent context overhead." The PleasePrompto project has a companion MCP server (notebooklm-mcp, TypeScript) for cases where cross-context discoverability matters, demonstrating that MCP wrapping is possible — but the CLI+Skill approach is preferred for sessions where NotebookLM is one of several tools rather than the primary interface.
+
+### How does the `add-research` deep mode compare to our `tools/ingest.py` + web search pipeline for source discovery?
+
+Cross-referencing `Research Pipeline Orchestration`: the two approaches serve complementary roles rather than competing. The `Research Pipeline Orchestration` page documents the ONLINE RESEARCH pipeline as: web_search → fetch → save_raw → extract → analyze → synthesize → write → integrate. This pipeline produces wiki pages — structured knowledge synthesis. `notebooklm source add-research` (deep mode) triggers NotebookLM's web research agent to find and import relevant sources automatically — it produces sources loaded into a NotebookLM notebook, not wiki pages. Deep mode is "comprehensive research" finding primary sources; `tools/ingest.py` is purpose-built for wiki-format extraction from known URLs. The `Research Pipeline Orchestration` page also identifies a gap: "Fetch topics: WebSearch + WebFetch — Needs pipeline wrapper." The `add-research` deep mode could fill this gap as the topic-to-sources discovery step, with `tools/ingest.py` then processing the discovered URLs into wiki pages. The two tools compose rather than replace each other.
+
+### What is the quality/accuracy comparison between NotebookLM's source-grounded answers (Gemini) and the wiki's synthesized pages (Claude)?
+
+Cross-referencing `Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py`: the synthesis page provides the clearest comparison: "The wiki is the NotebookLM equivalent — a grounded knowledge base that Claude Code queries to get project-specific answers rather than relying on training data. The difference is ownership and integration depth — the wiki is project-owned and integrated with all tooling; NotebookLM is a SaaS with richer source ingestion and synthesis features." For accuracy, NotebookLM's Gemini-powered answers are grounded in uploaded sources with citations — reliable for "what do these specific sources say" questions. The wiki's Claude-synthesized pages are reliable for cross-domain synthesis, pattern recognition, and relationship mapping that requires reasoning across many sources. NotebookLM is more accurate for source-faithful retrieval; the wiki is more accurate for emergent synthesis. The competitive analysis use case confirms this division: NotebookLM synthesizes 250 competitor sources; Claude Code uses those synthesis results to make product decisions and write wiki-level insights.
+
+### Can notebook metadata and source lists be synced bidirectionally with wiki/manifest.json?
+
+Cross-referencing `Research Pipeline Orchestration`: the sync is architecturally feasible using the async Python API. The `Research Pipeline Orchestration` page defines an ECOSYSTEM SYNC pipeline type: "detect_changes → diff → update_or_create → cross_reference → integrate." Bidirectional sync between NotebookLM notebooks and wiki/manifest.json would work as follows: (1) manifest.json contains all wiki pages with their source URLs; (2) `notebooklm source list` returns the source URLs loaded into each notebook; (3) a sync script (extending tools/manifest.py or pipeline.py) can diff the two lists and call `notebooklm source add` for sources in manifest.json not yet in the notebook, and create stub wiki pages for notebook sources not yet in manifest.json. The existing `NotebookLMClient.notebooks` and `NotebookLMClient.sources` async API classes provide the programmatic access. Full bidirectional sync would require a mapping table (notebook ID → wiki domain) since the notebook structure and wiki domain structure may differ.
 
 ## Relationships
 

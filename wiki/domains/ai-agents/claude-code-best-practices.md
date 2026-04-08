@@ -121,6 +121,7 @@ Confirmed by cross-referencing the Context-Aware Tool Loading pattern and the Ha
 [[Context Management Is the Primary LLM Productivity Lever]]
 [[Harness Engineering]]
 [[Infrastructure as Code Patterns]]
+[[Pattern: Skills + Claude-Code]]
 [[Plan Execute Review Cycle]]
 [[Rework Prevention]]
 [[Skills Architecture Is the Dominant LLM Extension Pattern]]

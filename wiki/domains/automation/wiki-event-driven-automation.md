@@ -54,12 +54,26 @@ The connection between this concept and the AI-Driven Content Pipeline is direct
 
 ## Open Questions
 
-- What is the right quality threshold for auto-filing query answers -- too low creates noise, too high loses valuable insights?
-- How should session-end compression balance completeness against conciseness?
-- Can event hooks be implemented purely through Claude Code skills and scheduling, or do they require custom infrastructure?
-- How does the auto-contradiction check scale as the wiki grows -- does it need to read the entire wiki on every write?
-- What is the failure mode when an automated hook produces low-quality output -- is there a rollback mechanism?
-- Cross-source insight: The hooks architecture here maps directly to Claude Code Best Practices' hook taxonomy (PostToolUse, PreToolUse, Stop hooks). The six wiki event hooks could be implemented as Claude Code hooks, creating a direct bridge between the ai-agents and automation domains. The "on-schedule" hook maps to Claude Code Scheduling's two modes (local cron vs. remote tasks).
+- What is the right quality threshold for auto-filing query answers — too low creates noise, too high loses valuable insights? (Requires: empirical calibration data from deployed wiki systems; no existing wiki page specifies a concrete threshold)
+- How should session-end compression balance completeness against conciseness? (Requires: empirical data on compression quality at different length ratios; no existing wiki page covers this)
+
+## Answered Open Questions
+
+### Can event hooks be implemented purely through Claude Code skills and scheduling, or do they require custom infrastructure?
+
+Cross-referencing `WSL2 Development Patterns` and `Research Pipeline Orchestration`: yes, event hooks can be implemented using current Claude Code capabilities without custom infrastructure. The `WSL2 Development Patterns` page documents the exact implementation: tools/watcher.py (change detection daemon deployed as a systemd user service) fires the post-chain whenever wiki/ changes are detected. This is the "on new source" hook in production form. The `Research Pipeline Orchestration` page documents the "on-schedule" hook implementation path: "Claude Code Scheduling's two modes (local cron vs. remote tasks)" provide the scheduling substrate. The six wiki event hooks map to existing primitives: (1) on new source → tools/watcher.py + post-chain; (2) on session start → CLAUDE.md context loading; (3) on session end → crystallization skill triggered by Stop hook; (4) on query → quality-gated filing via PostToolUse hook in Claude Code; (5) on memory write → contradiction check in the wiki-agent skill; (6) on schedule → systemd timer or Claude Code Scheduling. The `WSL2 Development Patterns` page confirms that the watcher service auto-restarts on failure via systemd, providing hook reliability without manual intervention.
+
+### How does the auto-contradiction check scale as the wiki grows — does it need to read the entire wiki on every write?
+
+Cross-referencing `Research Pipeline Orchestration` and `Agent Orchestration Patterns`: full-wiki reads on every write do not scale. The `Research Pipeline Orchestration` page documents the wiki's domain-indexed structure — each domain has an `_index.md` and manifest.json provides a full page inventory with metadata. This means contradiction checking can be scoped: when a new page is written to domain X, only load domain X's index and related domains' summaries (via manifest metadata) rather than the full wiki. The `Agent Orchestration Patterns` page documents the OpenFleet approach to scale: "behavioral security on new/changed tasks" (step 5 of the 12-step cycle) is performed only on delta items, not the full fleet state. The same pattern applies here — contradiction checking should be incremental (compare new content against the affected domain's pages and their stated relationships), not global. As the wiki grows, the manifest.json summary layer becomes increasingly important as the scalable contradiction-check index.
+
+### What is the failure mode when an automated hook produces low-quality output — is there a rollback mechanism?
+
+Cross-referencing `Agent Orchestration Patterns`: the correct failure response is the "review gate" pattern documented in agent orchestration. The `Agent Orchestration Patterns` page states: "a mandatory review gate prevents unreviewed outputs from propagating downstream." For automated wiki hooks, this maps to: (1) hooks write to a staging location (e.g., raw/auto-generated/) rather than directly into wiki/; (2) a validation step (tools/validate.py) acts as the review gate — outputs that fail validation are rejected and flagged, not committed; (3) quality scoring (the "on query" hook's quality threshold) acts as a pre-review filter. The `WSL2 Development Patterns` page documents that tools/watcher.py runs the post-chain (validate → manifest → lint) after every write — this is the existing rollback-adjacent mechanism: invalid pages are caught and reported before they can corrupt the graph. A full rollback (reverting automated writes) is available via git, since the wiki is a git repository — "wiki is just a git repo of markdown files" (Obsidian Knowledge Vault page). The combination of staging → validate → commit provides rollback without requiring a separate rollback mechanism.
+
+### Answered: The Six Hooks Map to Claude Code Best Practices Hook Taxonomy
+
+The hooks architecture for wiki event automation maps directly to Claude Code's PostToolUse, PreToolUse, and Stop hooks. The six wiki event hooks can be implemented as native Claude Code hooks without additional infrastructure: (1) "on new source" → PostToolUse hook fires after any file write to raw/; (2) "on session start" → CLAUDE.md pre-loads session context; (3) "on session end" → Stop hook triggers crystallization; (4) "on query" → PostToolUse hook on any query tool call evaluates quality score; (5) "on memory write" → PostToolUse hook on wiki page writes triggers contradiction check; (6) "on schedule" → Claude Code Scheduling's two modes (local cron via systemd timer as documented in `WSL2 Development Patterns`, or remote tasks). This creates a direct bridge between the ai-agents and automation domains — the wiki's event-driven maintenance is implementable as standard Claude Code harness configuration.
 
 ## Relationships
 

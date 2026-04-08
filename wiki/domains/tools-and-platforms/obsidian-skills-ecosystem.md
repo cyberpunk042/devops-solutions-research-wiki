@@ -88,12 +88,26 @@ The dependence on Obsidian's desktop app for CLI operations (pablo-mano) is a me
 
 ## Open Questions
 
-- Will the agentskills.io specification become the dominant standard for AI agent skills, or will platform-specific formats win?
-- How will skill conflicts be managed when multiple skills overlap (e.g., two Canvas skills, two CLI skills)?
-- Will Obsidian introduce a plugin API that makes CLI-over-IPC unnecessary for agent interaction?
-- Can visual generation skills (axton) achieve deterministic, production-quality output, or will output variability remain a fundamental limitation?
-- What is the path from experimental community skills to officially endorsed Obsidian extensions?
-- Cross-source insight: The three-layer ecosystem pattern here (official spec, visual generation, deep CLI) parallels the Command-Agent-Skill hierarchy in Claude Code Best Practices. In both cases, different abstraction levels serve different purposes and compose rather than compete. This suggests a general principle: agent extensibility systems naturally stratify into specification, generation, and control layers.
+- Will Obsidian introduce a plugin API that makes CLI-over-IPC unnecessary for agent interaction? (Requires: external Obsidian roadmap announcement; no wiki page covers this)
+- What is the path from experimental community skills to officially endorsed Obsidian extensions? (Requires: external Obsidian governance information; no wiki page covers this process)
+
+## Answered Open Questions
+
+### Will the agentskills.io specification become the dominant standard for AI agent skills, or will platform-specific formats win?
+
+Cross-referencing `Skills Architecture Patterns` and `CLI Tools Beat MCP for Token Efficiency`: the `Skills Architecture Patterns` comparison page documents that all three ecosystems (Claude Code, Obsidian, NotebookLM) "independently converged on SKILL.md markdown as the universal definition format" without a central authority mandating it. The convergence evidence is strong: pablo-mano's skill works with 8+ agent platforms by pasting SKILL.md into system prompts, confirming format portability. However, `CLI Tools Beat MCP for Token Efficiency` notes that Google Trends data shows "CLI overtaking MCP" in 2026 as the integration pattern, suggesting that format standardization is secondary to the CLI-vs-MCP loading model decision. The likely outcome based on wiki evidence: SKILL.md markdown is already the de facto standard; agentskills.io's role is to formalize it. Platform-specific formats would need to offer something SKILL.md cannot — and since SKILL.md is already human-readable, LLM-native, and Git-compatible, fragmentation is unlikely unless a major platform makes a deliberate divergence decision.
+
+### How will skill conflicts be managed when multiple skills overlap (e.g., two Canvas skills, two CLI skills)?
+
+Cross-referencing `Skills Architecture Patterns`: the comparison page identifies the "single file vs. folder structure" tension and the overlapping CLI/Canvas coverage between kepano and pablo-mano as an existing resolved case. The resolution documented: "kepano provides the canonical format definition, pablo-mano provides exhaustive operational reference." The conflict management mechanism is trigger description differentiation — if two skills have distinct enough description fields, the model routes to the correct one for each task. Where both could apply, the model selects based on context richness (pablo-mano's 130+ command coverage wins for operational tasks; kepano's spec-level description wins when the agent needs to understand the format). The `Skills Architecture Patterns` page confirms this is "not problematic because the overlapping skills serve different purposes (specification vs. generation, basic vs. comprehensive)." For true conflicts (two skills that give contradictory instructions for identical triggers), `CLI Tools Beat MCP for Token Efficiency` suggests the resolution: the last-loaded skill wins in context, but the correct architectural response is ensuring skills have non-overlapping trigger scopes rather than relying on load order.
+
+### Can visual generation skills (axton) achieve deterministic, production-quality output, or will output variability remain a fundamental limitation?
+
+Cross-referencing `Design.md Pattern`: the Design.md pattern provides the answer by analogy. Design.md encodes design constraints (colors, typography, spacing, component patterns) as "binding constraints" that the model treats as guardrails rather than suggestions. The `Design.md Pattern` page states: "Google Stitch passes the full Design.md as context alongside every prompt to Gemini. The model treats it as binding constraints — your specific hex values, font families, and spacing scales, not generic defaults." For axton's visual generation skills, the path to production quality is the same mechanism: encode precise visual constraints in the SKILL.md (specific Excalidraw element types, exact color palette, layout algorithm parameters) rather than leaving visual decisions to the model's judgment. The `Design.md Pattern` notes that preview.html artifacts allow human verification before code generation — an analogous "preview before commit" step for visual skill output would catch variability before it reaches the vault. The fundamental variability limitation is not eliminated by this, but it is bounded: the model can always deviate from instructions, but explicit, testable constraints make deviation detectable.
+
+### Answered: The Three-Layer Pattern Parallels Command-Agent-Skill Hierarchy
+
+The three-layer ecosystem pattern (official spec → visual generation → deep CLI) parallels the Command-Agent-Skill hierarchy documented in Claude Code Best Practices. In both cases, different abstraction levels serve different purposes and compose rather than compete: the specification layer (kepano / Commands) defines the authoritative format and interface contract; the generation layer (axton / Agents) produces content in those formats using coordinated execution; the control layer (pablo-mano / Skills) provides programmatic depth for operational workflows. This parallel is confirmed by `Skills Architecture Patterns`, which documents the same stratification independently: "Three-layer stratification emerges independently: specification layer, generation layer, control layer." The general principle — agent extensibility systems naturally stratify into these three layers — appears to be a structural invariant rather than a design choice.
 
 ## Relationships
 
@@ -119,6 +133,7 @@ The dependence on Obsidian's desktop app for CLI operations (pablo-mano) is a me
 [[Obsidian CLI]]
 [[Obsidian as Knowledge Infrastructure Not Just Note-Taking]]
 [[OpenClaw]]
+[[Pattern: Skills + Obsidian]]
 [[Synthesis: axtonliu/axton-obsidian-visual-skills]]
 [[Synthesis: kepano/obsidian-skills]]
 [[Synthesis: pablo-mano/Obsidian-CLI-skill]]
