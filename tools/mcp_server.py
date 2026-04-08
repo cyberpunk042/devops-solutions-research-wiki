@@ -223,6 +223,64 @@ def wiki_integrations() -> str:
     return json.dumps(report, indent=2, default=str)
 
 
+@server.tool()
+def wiki_continue() -> str:
+    """Resume the wiki mission. Runs: post-chain, evolve review, evolve score, gaps, crossref. Returns full mission state."""
+    root = get_project_root()
+    report = {}
+
+    # Post-chain
+    post_result = post_chain(root, verbose=False)
+    report["post"] = {
+        "pages": post_result["steps"].get("manifest", {}).get("pages", 0),
+        "relationships": post_result["steps"].get("manifest", {}).get("relationships", 0),
+        "validation_errors": post_result["steps"].get("validate", {}).get("errors", 0),
+    }
+
+    # Evolve review
+    from tools.evolve import review_seeds, detect_stale, score_candidates
+    review = review_seeds(root, verbose=False)
+    stale = detect_stale(root, verbose=False)
+    report["review"] = {
+        "promotable": len(review.get("promotable", [])),
+        "stale": len(stale.get("stale", [])),
+    }
+
+    # Score candidates
+    candidates = score_candidates(root, top=10)
+    report["candidates"] = [
+        {"title": c.title, "type": c.type, "score": round(c.score, 3)}
+        for c in candidates
+    ]
+
+    # Gaps
+    gaps = run_gaps(root, verbose=False)
+    report["gaps"] = {
+        "orphaned_targets": len(gaps.get("orphaned_targets", [])),
+        "thin_pages": len(gaps.get("thin_pages", [])),
+        "weak_domains": len(gaps.get("weak_domains", [])),
+        "open_questions": len(gaps.get("open_questions", [])),
+    }
+
+    # Crossref
+    crossref = run_crossref(root, verbose=False)
+    report["crossref"] = {
+        "missing_backlinks": len(crossref.get("missing_backlinks", [])),
+        "potential_comparisons": len(crossref.get("potential_comparisons", [])),
+    }
+
+    return json.dumps(report, indent=2, default=str)
+
+
+@server.tool()
+def wiki_evolve(mode: str = "score", top: int = 10, type_filter: str = None) -> str:
+    """Run the evolution pipeline. Modes: score, scaffold, dry-run, review, stale."""
+    from tools.evolve import evolve as run_evolve
+    root = get_project_root()
+    result = run_evolve(root, mode=mode, top=top, type_filter=type_filter, verbose=False)
+    return json.dumps(result, indent=2, default=str)
+
+
 # ---------------------------------------------------------------------------
 # Entrypoint
 # ---------------------------------------------------------------------------

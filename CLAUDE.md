@@ -135,15 +135,24 @@ Export transforms YAML frontmatter to markdown headers for compatibility.
 - `python3 -m tools.pipeline evolve --execute` — List prompt queue for session execution
 - `python3 -m tools.pipeline evolve --review` — List seed pages ready for maturity promotion
 - `python3 -m tools.pipeline chain <name>` — Run a named chain (ingest, ingest-local, analyze, full, health, evolve, evolve-auto)
+- `python3 -m tools.pipeline chain continue` — Resume mission (status → review → score → gaps → crossref)
+- `python3 -m tools.pipeline chain review` — Weekly health check (post → review → gaps → crossref)
 - `python3 -m tools.pipeline chain --list` — List available chains
+
+### Skills (conversation interface)
+
+Skills in `skills/` — invocable via natural language or slash commands:
+- `wiki-agent` — Ingest sources, query knowledge, maintain quality, export
+- `evolve` — Score candidates, scaffold, generate, review maturity, detect staleness
+- `continue` — Resume the mission: run diagnostics, show state, present options
 
 ### MCP Server (native tools for any Claude Code conversation)
 
 Registered in `.mcp.json` — auto-discovered by Claude Code.
-13 tools: wiki_status, wiki_search, wiki_read_page, wiki_list_pages,
+15 tools: wiki_status, wiki_search, wiki_read_page, wiki_list_pages,
 wiki_post, wiki_fetch, wiki_fetch_topic, wiki_scan_project,
 wiki_gaps, wiki_crossref, wiki_sync, wiki_mirror_to_notebooklm,
-wiki_integrations.
+wiki_integrations, wiki_continue, wiki_evolve.
 
 Manual start: `.venv/bin/python -m tools.mcp_server`
 
