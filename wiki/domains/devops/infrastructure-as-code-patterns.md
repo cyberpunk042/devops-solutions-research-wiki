@@ -97,11 +97,22 @@ The ecosystem explicitly rejects manual setup. The feedback principle "Pipeline 
 
 ## Open Questions
 
-- Should CLAUDE.md have a validated schema (like config/schema.yaml for wiki pages) to enforce required sections?
-- How should conflicting CLAUDE.md instructions be resolved when multiple CLAUDE.md files exist in a project hierarchy?
-- Can config/schema.yaml be extended to validate skills files, not just wiki pages?
-- What is the right level of verbosity for a CLAUDE.md before context cost outweighs configuration value?
-- Should the 24 immune system rules be expressed as a YAML rule file (machine-executable) rather than Python logic in doctor.py?
+- Should CLAUDE.md have a validated schema (like config/schema.yaml for wiki pages) to enforce required sections? (Requires: decision by the ecosystem curator; technically feasible but no existing tooling in the wiki's validate.py supports prose-section validation)
+- Can config/schema.yaml be extended to validate skills files, not just wiki pages? (Requires: external research on Claude Code skills file structure conventions; not fully documented in existing wiki pages)
+
+### Answered Open Questions
+
+**Q: How should conflicting CLAUDE.md instructions be resolved when multiple CLAUDE.md files exist in a project hierarchy?**
+
+Cross-referencing `Harness Engineering` and `Design.md Pattern`: the `Harness Engineering` page documents how Claude Code processes CLAUDE.md files — they are read at session start as "binding operational instructions." The `Design.md Pattern` page establishes the companion file ecosystem (CLAUDE.md + DESIGN.md + AGENTS.md) where "each file addresses a different dimension of AI agent context." Claude Code's actual behavior with multiple CLAUDE.md files in a hierarchy (parent directory + project root + subdirectory) is to load all of them, with more-specific (deeper directory) files taking precedence over less-specific ones when there are conflicts — following standard configuration file override semantics. The `Harness Engineering` page notes that harness guardrails operate "at execution time through hooks, actually blocking dangerous operations" independent of CLAUDE.md content, meaning hooks (not CLAUDE.md prose) are the conflict-resolution layer for critical operations. Practical guidance from existing wiki knowledge: structure CLAUDE.md files so they are additive (subdirectory files extend, not override, parent files), and use hooks for critical constraints that must be enforced regardless of CLAUDE.md hierarchy.
+
+**Q: What is the right level of verbosity for a CLAUDE.md before context cost outweighs configuration value?**
+
+Cross-referencing `Context-Aware Tool Loading` and `Design.md Pattern`: the `Context-Aware Tool Loading` pattern provides the quantitative answer. Claude Code accuracy is high at 20% context usage, drops significantly at 40%, becomes unreliable at 60%+. CLAUDE.md occupies context budget on every turn. The `Design.md Pattern` page documents this explicitly: "every token in CLAUDE.md costs context budget... This creates an implicit pressure to keep it concise — verbosity has a real cost." It also provides the practical guidance: "keep it concise (under ~200 lines), reference detailed component specifications in a separate file loaded on demand via a skill." For CLAUDE.md, the equivalent is: keep the always-loaded CLAUDE.md to the minimum required for session initialization (project type, critical conventions, key commands), and put detailed operational workflows in skills files that load only when that workflow is invoked. The `Context-Aware Tool Loading` pattern's threshold: if information is needed on fewer than ~80% of turns, do not pre-load it in CLAUDE.md — put it in a skill. This wiki's own CLAUDE.md (~250+ lines) is at the upper boundary where additional verbosity would measurably increase per-turn context pressure.
+
+**Q: Should the 24 immune system rules be expressed as a YAML rule file (machine-executable) rather than Python logic in doctor.py?**
+
+Cross-referencing `Immune System Rules` and `devops-control-plane`: the `Immune System Rules` page establishes the core requirement: "doctor.py runs with zero LLM calls. Rules are pure Python: state comparisons, threshold checks, counter increments. This makes the immune system fast (microseconds per check), cheap (no token cost), and auditable." The `devops-control-plane` page documents that the control-plane already uses YAML for stack policy definitions (`stacks/*.yml`): "each file specifies detection rules, health checks, and integration guidance. The engine reads these at runtime to auto-detect project capabilities." This is precisely the precedent for YAML rule files. A YAML format for immune system rules would make them: (1) shareable across OpenFleet and AICP without Python import dependencies, (2) human-reviewable without reading Python logic, (3) modifiable without code changes or deployments. The counter-argument from the `Immune System Rules` page: Python rules have full expressiveness for complex state comparisons that YAML cannot easily capture. The optimal design mirrors the control-plane's pattern: define rule metadata and thresholds in YAML (the "what"), implement the evaluation logic in Python (the "how"), and load YAML at runtime. This gives shareability and editability without sacrificing evaluation power.
 
 ## Relationships
 

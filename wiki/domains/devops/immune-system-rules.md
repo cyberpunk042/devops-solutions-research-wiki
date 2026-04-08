@@ -113,11 +113,22 @@ This is a model for how operational knowledge should flow in any multi-project e
 
 ## Open Questions
 
-- What is the full text of all 24 rules? The number is documented but the specific rule definitions are not yet in the wiki.
-- How does the 3-strike window duration scale with the orchestrator cycle speed (turbo=5s vs economic=60s)?
-- Can the immune system rules be expressed as a shared library usable by both OpenFleet and AICP's circuit breaker pattern?
-- What is the median time-to-detection for each rule category? This would quantify the operational value.
-- Should the rules evolve automatically (ML on incident data) or remain statically maintained via human post-mortem review?
+- What is the full text of all 24 rules? The number is documented but the specific rule definitions are not yet in the wiki. (Requires: direct inspection of openfleet/doctor.py source; not yet ingested into wiki)
+- What is the median time-to-detection for each rule category? This would quantify the operational value. (Requires: empirical data from OpenFleet production operation; not available in existing wiki pages)
+
+### Answered Open Questions
+
+**Q: How does the 3-strike window duration scale with the orchestrator cycle speed (turbo=5s vs economic=60s)?**
+
+Cross-referencing `OpenFleet` and `Agent Orchestration Patterns`: the `OpenFleet` page documents three cycle speeds: turbo=5s, standard=30s, economic=60s. The `Agent Orchestration Patterns` page documents the 12-step cycle and confirms the doctor runs at step 6 on every cycle. The 3-strike window is defined as a number of violations within a window — if the window is time-based (e.g., 3 violations in 90 seconds), turbo mode (5s cycles) would detect violations ~6x faster than standard mode but may also trigger more false positives from transient blips that resolve quickly. If the window is cycle-count-based (e.g., 3 violations in 3 consecutive cycles), turbo mode accumulates strikes 6x faster than standard mode in wall-clock time, while economic mode takes 3 minutes. The `Immune System Rules` page documents that the strike window "prevents both false positives and silent degradation" — implying the window is tuned for the standard 30s cycle. At turbo speed, the window likely requires recalibration to avoid false escalation on transient anomalies that resolve within a few seconds. This remains a noted design concern without a canonical answer in the wiki.
+
+**Q: Can the immune system rules be expressed as a shared library usable by both OpenFleet and AICP's circuit breaker pattern?**
+
+Cross-referencing `AICP` and `devops-control-plane`: the `AICP` page documents that AICP implements a circuit breaker (CLOSED → OPEN → HALF_OPEN) per backend, and that OpenFleet's doctor.py already applies the AICP circuit breaker pattern at fleet level: "LLM backend circuit breaker open (AICP pattern applied at fleet level)" is listed as a Resource Rule. The `devops-control-plane` page confirms the immune system rules "originated from control-plane incident analysis" and were transferred to OpenFleet. The architectural pattern for sharing already exists — the control-plane is the "incident laboratory," OpenFleet is the consumer. A shared library would require extracting the rule-checking logic from doctor.py into a Python package that both OpenFleet and AICP could import. The `Infrastructure as Code Patterns` page raises this directly: "Should the 24 immune system rules be expressed as a YAML rule file (machine-executable) rather than Python logic in doctor.py?" — suggesting that YAML rule definitions would be the more shareable format. The answer: technically feasible, architecturally aligned with the ecosystem's IaC philosophy, but not yet implemented.
+
+**Q: Should the rules evolve automatically (ML on incident data) or remain statically maintained via human post-mortem review?**
+
+Cross-referencing `devops-control-plane` and `Agent Orchestration Patterns`: the `Immune System Rules` page's own analysis provides the core answer: "Post-mortem-derived rules codified in Python provide: (1) Infrastructure-level enforcement — cannot be bypassed by any model; (2) Session-level tracking — counters persist across the entire task lifecycle; (3) Full audit trail — every rule check writes to the append-only ledger." The `devops-control-plane` page confirms the append-only audit ledger as the definitive record. Automatic ML evolution would make the rules non-deterministic — exactly the property the immune system was designed to avoid. The `Agent Orchestration Patterns` page reinforces: "A deterministic security scan cannot be social-engineered via a crafted task description. An LLM-based security layer can be prompted around." Applying this principle to rule evolution: ML-driven rule mutation introduces the same reliability risks as LLM-based enforcement. The answer from existing wiki knowledge: rules should remain statically maintained via human post-mortem review. The human review gate in the knowledge evolution pipeline (`--review` flag) is the same principle applied to wiki pages — automation handles bookkeeping, humans handle high-stakes decisions. ML could assist by surfacing anomaly candidates for human review, but should not auto-modify rule thresholds.
 
 ## Relationships
 

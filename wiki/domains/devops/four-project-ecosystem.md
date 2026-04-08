@@ -164,11 +164,22 @@ AICP's 5-stage roadmap targets near-zero Claude API cost by routing 80%+ of oper
 
 ## Open Questions
 
-- Should devops-control-plane's vault be the centralized credential store for all five projects?
-- What is the integration story for OpenArms → OpenFleet agent coordination (not just human-to-fleet)?
-- How does the dual-machine target architecture (Alpha + Bravo) change the integration map?
-- Can the research wiki's MCP server become the knowledge layer for OpenArms agents via mcporter?
-- What is the right cadence for syncing wiki knowledge back to LightRAG — on every post-chain, or on a schedule?
+- How does the dual-machine target architecture (Alpha + Bravo) change the integration map? (Requires: external research on distributed WSL2/multi-machine fleet architecture; not covered in detail in existing wiki pages beyond the machine table in AICP)
+- What is the right cadence for syncing wiki knowledge back to LightRAG — on every post-chain, or on a schedule? (Requires: external research on LightRAG ingestion performance and incremental update semantics; not covered in existing wiki pages)
+
+### Answered Open Questions
+
+**Q: Should devops-control-plane's vault be the centralized credential store for all five projects?**
+
+Cross-referencing `devops-control-plane` and `AICP`: the `devops-control-plane` page explicitly documents this as a potential architectural decision: "The encrypted vault could serve as the credential store for all ecosystem projects — API keys for NotebookLM, Claude, LocalAI, GitHub, Plane." The vault system uses AES-256-GCM with PBKDF2-SHA256 (100,000 KDF iterations) with auto-lock — robust security characteristics. The `AICP` page separately documents that AICP's guardrails include path protection against `.env` and `*.key` files, suggesting credentials are currently per-project in `.env` files. The `devops-control-plane` page notes the vault "could serve as shared service potential" but this is not yet implemented. The practical answer from cross-referencing: the vault's technical characteristics make it a suitable centralized store, but the integration requires that all five projects be updated to read credentials via the control-plane's vault API rather than `.env` files — a non-trivial migration. The decision is not yet made and both the devops-control-plane and AICP pages flag it as open.
+
+**Q: What is the integration story for OpenArms → OpenFleet agent coordination (not just human-to-fleet)?**
+
+Cross-referencing `OpenArms` and `OpenFleet`: the `OpenArms` page documents the `sessions_send` cross-session mechanism that allows agents to coordinate work across OpenArms sessions "without leaving the gateway." OpenFleet uses IRC channels (`#fleet`, `#alerts`, `#reviews`) for agent-to-agent coordination and has an "Open Gateway" (WebSocket at ws://127.0.0.1:18789) for agent sessions and heartbeats. The `OpenArms` page notes its architecture was inspired by "the OpenClaw architecture (long-running named agent sessions with Telegram-based status)." The integration path: OpenArms agents can reach OpenFleet via its Open Gateway WebSocket, and the `mcporter` bridge in OpenArms enables MCP tool calls to the OpenFleet ecosystem's exposed MCP tools. The `OpenArms` page directly asks this as an open question ("What is the recommended skill structure for bridging OpenArms ↔ openfleet agent coordination?") but does not yet have a canonical answer — the technical bridge exists (WebSocket + mcporter), the skill definition is pending.
+
+**Q: Can the research wiki's MCP server become the knowledge layer for OpenArms agents via mcporter?**
+
+Cross-referencing `OpenArms` and `MCP Integration Architecture`: yes — both pages explicitly confirm this as an intended integration path. The `OpenArms` page states: "mcporter enables MCP tool exposure, including the research-wiki MCP server, to OpenArms agents" and asks "Can wiki MCP tools be exposed to OpenArms agents via mcporter for in-chat knowledge queries?" The `MCP Integration Architecture` page lists "mcporter bridge exposes wiki MCP tools to OpenArms agents" in the OpenArms row of the integration map. The `OpenArms` page documents that "Skills installed in `~/.openarms/workspace/skills/` can include Claude Code skills from the research wiki." The wiki MCP server (15 tools: `wiki_status`, `wiki_search`, `wiki_read_page`, etc.) is the natural knowledge query layer for OpenArms agents. The integration is technically straightforward via mcporter — the implementation work is connecting the `.mcp.json` configuration to the mcporter bridge registration in OpenArms.
 
 ## Relationships
 

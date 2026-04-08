@@ -114,11 +114,22 @@ Tools:
 
 ## Open Questions
 
-- What MCP framework to use? FastMCP (Python), TypeScript MCP SDK, or custom?
-- Should the wiki watcher use inotify, polling, or git hooks for change detection?
-- How to handle MCP server authentication for multi-user scenarios?
-- Can one MCP server expose all three tool sets, or should they be separate servers?
-- What is the startup/shutdown lifecycle for service daemons on WSL2?
+- How to handle MCP server authentication for multi-user scenarios? (Requires: external research on MCP auth patterns; not covered in existing wiki pages)
+- Can one MCP server expose all three tool sets, or should they be separate servers? (Requires: external research on MCP server multi-namespace patterns; not covered in existing wiki pages)
+
+### Answered Open Questions
+
+**Q: What MCP framework to use? FastMCP (Python), TypeScript MCP SDK, or custom?**
+
+Cross-referencing `Decision: MCP vs CLI for Tool Integration`: the decision page documents that the wiki already has a prototyped MCP server (`tools/mcp_server.py`) written in Python, with 15 tools exposed. The decision page also establishes that "CLI+Skills is the default preferred approach for operational tool integration" and that MCP is used "for external service bridges and tool discovery." Combining these: Python (FastMCP or the existing mcp_server.py implementation) is the correct framework choice for the wiki MCP server, since all existing tooling is Python and the `tools/mcp_server.py` file is already implemented. TypeScript MCP SDK would be appropriate only for the NotebookLM or Obsidian MCP servers if their integrations are TypeScript-native. For the planned three-server architecture, a Python framework for the Wiki MCP server (already proven) and TypeScript only where the integration requires it is the pragmatic choice.
+
+**Q: Should the wiki watcher use inotify, polling, or git hooks for change detection?**
+
+Cross-referencing `WSL2 Development Patterns`: the watcher architecture is definitively resolved. The `WSL2 Development Patterns` page documents: "inotify does not work reliably on /mnt/c — this matters for any daemon that watches files in Windows-accessible paths." The watcher must use polling for /mnt/c paths, and can use inotify for the Linux-side wiki/ path. The page further documents the two-daemon architecture: `tools/watcher.py` polls wiki/ on the Linux filesystem (where inotify is reliable) and `tools/sync.py` separately bridges to Windows. Git hooks are not appropriate here — they only fire on git operations, not on arbitrary file saves from Claude Code's Bash tool writes. The answer: polling for WSL2 wiki watching, with the Linux-side path kept on ext4 for reliable inotify if event-driven performance is ever needed.
+
+**Q: What is the startup/shutdown lifecycle for service daemons on WSL2?**
+
+Cross-referencing `WSL2 Development Patterns`: the lifecycle is fully documented. Service daemons deploy as systemd user services via `python -m tools.setup --services wiki-sync` (or `wiki-watcher`). This writes service files to `~/.config/systemd/user/` and runs `systemctl enable`. Systemd must be enabled in `/etc/wsl.conf` with `[boot] systemd=true` and a `wsl --shutdown` restart to take effect. The `WSL2 Development Patterns` page notes this is the ecosystem's IaC pattern applied to daemon lifecycle: no manual systemctl commands in CLAUDE.md, only reproducible setup scripts. The open question about what happens to user services after WSL2 restart is noted there — they should auto-restart if enabled, but this is flagged as needing verification.
 
 ## Relationships
 

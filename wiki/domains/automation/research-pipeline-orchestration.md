@@ -93,11 +93,22 @@ The gap between current state and the vision:
 
 ## Open Questions
 
-- Should the pipeline engine be a Python script (tools/pipeline.py) or an MCP server that Claude Code invokes?
-- How to handle pipeline failures mid-chain (e.g., one URL fails to fetch — skip or retry)?
-- What is the right granularity for parallelism — per-URL, per-page, per-domain?
-- Can subagents be used for parallel page synthesis (one subagent per source)?
-- How does the pipeline interact with NotebookLM's research agent (notebooklm source add-research)?
+- How to handle pipeline failures mid-chain (e.g., one URL fails to fetch — skip or retry)? (Requires: external research on asyncio error handling patterns and retry strategies; not directly covered in existing wiki pages)
+- How does the pipeline interact with NotebookLM's research agent (notebooklm source add-research)? (Requires: external research on notebooklm-py API specifics; not covered in existing wiki pages)
+
+### Answered Open Questions
+
+**Q: Should the pipeline engine be a Python script (tools/pipeline.py) or an MCP server that Claude Code invokes?**
+
+Cross-referencing `Decision: MCP vs CLI for Tool Integration`: the decision is clear and directly applicable. The decision page states: "Wiki pipeline operations (ingest, validate, lint, export, gaps) → CLI tools invoked via Bash, guided by skills loaded on demand" and "MCP servers for external service bridges and tool discovery." The pipeline engine is exactly the category of operational tooling that belongs as a CLI Python script. The rationale: MCP schema overhead is paid on every message even in conversations not involving the pipeline; CLI invokes zero overhead when not called. The decision page also notes: "For routine operation within a dedicated wiki conversation, invoking CLI directly via Bash is lower-overhead and produces higher accuracy per the measured degradation curve." The existing `tools/pipeline.py` is the correct implementation pattern — an MCP wrapper can be added later for cross-conversation discoverability without changing the CLI-primary model.
+
+**Q: What is the right granularity for parallelism — per-URL, per-page, per-domain?**
+
+Cross-referencing `Agent Orchestration Patterns`: the orchestration patterns page documents the appropriate parallelism model. OpenFleet caps parallel dispatch at 2 tasks per 30-second cycle "to prevent runaway parallel execution." The sub-agent dispatch model states: "dispatch multiple sub-agents for independent tasks, but cap concurrency." For the research pipeline, the natural parallelism boundary is per-URL/per-source (each URL fetch and initial extraction is independent), not per-page (cross-referencing introduces dependencies between pages) and not per-domain (domain-level operations require knowledge of all pages in the domain). The `Knowledge Evolution Pipeline` page reinforces that "sequential: for dependent steps (extract must finish before analyze)" and "parallel: for independent inputs (ingest 12 URLs simultaneously)." The recommended granularity: parallel per-URL during the fetch+extract phase, sequential within the cross-reference and integration phases.
+
+**Q: Can subagents be used for parallel page synthesis (one subagent per source)?**
+
+Cross-referencing `Agent Orchestration Patterns`: yes, with explicit scope boundaries. The orchestration patterns page documents the sub-agent dispatch model: "Define the task boundary explicitly: what the sub-agent receives, what it produces, what it must not do. Initialize fresh context: do not pass the full conversation history. Collect output, validate, integrate: the parent agent receives the sub-agent's output and validates it before incorporating it." For page synthesis, each subagent receives a single raw source file and produces a single wiki page — a well-bounded task. The parent pipeline validates each page (via `tools/validate.py`) before integration. The decision page adds: "When subagents execute wiki operations in parallel, CLI invocation is preferable to MCP because each subagent gets a fresh context window. Routing subagent work through MCP adds schema overhead to each fresh context unnecessarily." Subagents are appropriate for parallel page synthesis as long as each one uses CLI tools and starts with a clean context scoped to one source.
 
 ## Relationships
 
