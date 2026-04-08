@@ -38,6 +38,8 @@ A practitioner's guide to 7 techniques for improving Claude Code accuracy, prese
 
 - **CLI+Skills over MCP trend**: CLI+Skills loads tool instructions only when relevant (skill loading is contextual), while MCP loads all tool schemas into context at startup. Result: CLI is more token-efficient, produces fewer hallucinations, costs less. Google Trends shows CLI overtaking MCP. Playwright CLI vs MCP comparison: CLI was cheaper and more accurate.
 
+- **Playwright CLI vs MCP — 12x cost differential confirmed**: A dedicated side-by-side Playwright CLI vs. MCP comparison video (src-playwright-cli-vs-mcp) provides the concrete mechanism: MCP dumps the full accessibility tree into context after every single navigation step, while CLI saves page data to a YAML file on disk and only loads it when Claude needs to find a specific element. In a 10-step test, MCP loads 10 full accessibility trees; CLI may load 2-3 targeted YAML snapshots. The accuracy tips source references a "12x cost differential" for CLI over MCP and higher accuracy on known-page tests. Google Trends data in the same source shows CLI search interest overtaking MCP. Microsoft (Playwright's creator) officially recommends CLI over MCP for AI agent use — it also has 3x more features than the MCP version, making the tradeoff asymmetric: CLI wins on both cost and capability for structured testing workflows.
+
 ## Relationships
 
 - DERIVED FROM: src-claude-code-accuracy-tips
@@ -46,6 +48,9 @@ A practitioner's guide to 7 techniques for improving Claude Code accuracy, prese
 - RELATES TO: Claude Code Skills
 - RELATES TO: NotebookLM
 - RELATES TO: OpenClaw
+- SUPPORTS: Synthesis: Playwright CLI vs MCP — Automate QA with Less Tokens
+- SUPPORTS: CLI Tools Beat MCP for Token Efficiency
+- SUPPORTS: Decision: MCP vs CLI for Tool Integration
 
 ## Backlinks
 
@@ -55,3 +60,9 @@ A practitioner's guide to 7 techniques for improving Claude Code accuracy, prese
 [[Claude Code Skills]]
 [[NotebookLM]]
 [[OpenClaw]]
+[[Synthesis: Playwright CLI vs MCP — Automate QA with Less Tokens]]
+[[CLI Tools Beat MCP for Token Efficiency]]
+[[Decision: MCP vs CLI for Tool Integration]]
+[[Context Management Is the Primary LLM Productivity Lever]]
+[[Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py]]
+[[Synthesis: Superpowers Plugin — End of Vibe Coding (Full Tutorial)]]

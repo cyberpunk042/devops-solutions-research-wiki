@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-08T17:36:35.658676+00:00",
+  "generated": "2026-04-08T17:51:49.045260+00:00",
   "stats": {
-    "pages": 64,
+    "pages": 68,
     "domains": 7,
-    "sources": 16,
+    "sources": 20,
     "comparisons": 3,
-    "relationships": 478,
-    "tags_unique": 244,
+    "relationships": 513,
+    "tags_unique": 260,
     "layers": {
       "6": 1,
       "4": 7,
@@ -249,6 +249,12 @@
           "type": "youtube-transcript",
           "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
           "title": "Claude Code Works Better When You Do This"
+        },
+        {
+          "id": "src-playwright-cli-vs-mcp",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=nN5R9DFYsXY",
+          "title": "Claude Code + Playwright CLI: Automate QA with Less Tokens"
         }
       ],
       "layer": 6,
@@ -267,6 +273,10 @@
         {
           "verb": "DERIVED FROM",
           "target": "Synthesis: Claude Code Accuracy Tips"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Synthesis: Playwright CLI vs MCP \u2014 Automate QA with Less Tokens"
         },
         {
           "verb": "DERIVED FROM",
@@ -2762,6 +2772,12 @@
           "type": "article",
           "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
           "title": "Building Claude Code with Harness Engineering"
+        },
+        {
+          "id": "src-playwright-cli-vs-mcp",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=nN5R9DFYsXY",
+          "title": "Claude Code + Playwright CLI: Automate QA with Less Tokens"
         }
       ],
       "layer": 4,
@@ -2780,6 +2796,10 @@
         {
           "verb": "DERIVED FROM",
           "target": "Synthesis: Claude Code Harness Engineering"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Synthesis: Playwright CLI vs MCP \u2014 Automate QA with Less Tokens"
         },
         {
           "verb": "RELATES TO",
@@ -3457,6 +3477,18 @@
         {
           "verb": "RELATES TO",
           "target": "OpenClaw"
+        },
+        {
+          "verb": "SUPPORTS",
+          "target": "Synthesis: Playwright CLI vs MCP \u2014 Automate QA with Less Tokens"
+        },
+        {
+          "verb": "SUPPORTS",
+          "target": "CLI Tools Beat MCP for Token Efficiency"
+        },
+        {
+          "verb": "SUPPORTS",
+          "target": "Decision: MCP vs CLI for Tool Integration"
         }
       ]
     },
@@ -3929,6 +3961,75 @@
       ]
     },
     {
+      "path": "sources/src-notebooklm-claude-code-workflow.md",
+      "slug": "sources/src-notebooklm-claude-code-workflow",
+      "title": "Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py",
+      "type": "source-synthesis",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "notebooklm",
+        "claude-code",
+        "research",
+        "competitive-analysis",
+        "cli",
+        "skills",
+        "knowledge-base",
+        "automation",
+        "notebooklm-py"
+      ],
+      "sources": [
+        {
+          "id": "src-notebooklm-claude-code-workflow",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=fV17ZkPBlAc",
+          "file": "raw/transcripts/this-notebooklm-claude-code-workflow-is-insane.txt",
+          "title": "This NotebookLM + Claude Code Workflow Is Insane",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-notebooklm-claude-code-workflow"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Synthesis: Claude Code Accuracy Tips"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Memory Lifecycle Management"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Research Pipeline Orchestration"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "LLM Wiki vs RAG"
+        }
+      ]
+    },
+    {
       "path": "sources/src-obsidian-claude-code-second-brain.md",
       "slug": "sources/src-obsidian-claude-code-second-brain",
       "title": "Synthesis: Obsidian + Claude Code Second Brain Setup",
@@ -4045,6 +4146,137 @@
       ]
     },
     {
+      "path": "sources/src-playwright-cli-vs-mcp.md",
+      "slug": "sources/src-playwright-cli-vs-mcp",
+      "title": "Synthesis: Playwright CLI vs MCP \u2014 Automate QA with Less Tokens",
+      "type": "source-synthesis",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "playwright",
+        "mcp",
+        "cli",
+        "token-efficiency",
+        "qa-automation",
+        "context-management",
+        "skills",
+        "testing",
+        "claude-code"
+      ],
+      "sources": [
+        {
+          "id": "src-playwright-cli-vs-mcp",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=nN5R9DFYsXY",
+          "file": "raw/transcripts/claude-code-playwright-cli-automate-qa-with-less-tokens.txt",
+          "title": "Claude Code + Playwright CLI: Automate QA with Less Tokens",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-playwright-cli-vs-mcp"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "CLI Tools Beat MCP for Token Efficiency"
+        },
+        {
+          "verb": "SUPPORTS",
+          "target": "Decision: MCP vs CLI for Tool Integration"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Synthesis: Claude Code Accuracy Tips"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Research Pipeline Orchestration"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-playwright-mcp-visual-testing.md",
+      "slug": "sources/src-playwright-mcp-visual-testing",
+      "title": "Synthesis: Playwright MCP for Visual Development Testing",
+      "type": "source-synthesis",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "playwright",
+        "mcp",
+        "visual-testing",
+        "frontend",
+        "claude-code",
+        "design-review",
+        "responsive-design",
+        "subagents",
+        "claude-md",
+        "qa"
+      ],
+      "sources": [
+        {
+          "id": "src-playwright-mcp-visual-testing",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=NjOqPbUecC4",
+          "file": "raw/transcripts/claude-code-now-has-eyes-playwright-mcp-integration.txt",
+          "title": "Claude Code Now Has Eyes | Playwright MCP Integration",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-playwright-mcp-visual-testing"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Synthesis: Playwright CLI vs MCP \u2014 Automate QA with Less Tokens"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "MCP Integration Architecture"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Harness Engineering"
+        }
+      ]
+    },
+    {
       "path": "sources/src-pleaseprompto-notebooklm-skill.md",
       "slug": "sources/src-pleaseprompto-notebooklm-skill",
       "title": "Synthesis: PleasePrompto/notebooklm-skill",
@@ -4155,6 +4387,76 @@
         {
           "verb": "RELATES TO",
           "target": "LLM Wiki Pattern"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-superpowers-end-of-vibe-coding.md",
+      "slug": "sources/src-superpowers-end-of-vibe-coding",
+      "title": "Synthesis: Superpowers Plugin \u2014 End of Vibe Coding (Full Tutorial)",
+      "type": "source-synthesis",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "superpowers",
+        "claude-code",
+        "tdd",
+        "git-worktrees",
+        "subagents",
+        "spec-driven-development",
+        "planning",
+        "implementation",
+        "production",
+        "workflow"
+      ],
+      "sources": [
+        {
+          "id": "src-superpowers-end-of-vibe-coding",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=TX91PdBn_IA",
+          "file": "raw/transcripts/claude-code-superpowers-the-end-of-vibe-coding-full-tutorial.txt",
+          "title": "Claude Code + SUPERPOWERS = The End of Vibe Coding? (Full Tutorial)",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-superpowers-end-of-vibe-coding"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Plan Execute Review Cycle"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Synthesis: Claude Code Accuracy Tips"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Research Pipeline Orchestration"
         }
       ]
     },
@@ -4574,11 +4876,11 @@
     },
     "tools-and-platforms": {
       "page_count": 17,
-      "relationship_count": 112
+      "relationship_count": 113
     },
     "ai-agents": {
-      "page_count": 18,
-      "relationship_count": 149
+      "page_count": 21,
+      "relationship_count": 175
     },
     "ai-models": {
       "page_count": 3,
@@ -4593,8 +4895,8 @@
       "relationship_count": 10
     },
     "knowledge-systems": {
-      "page_count": 12,
-      "relationship_count": 109
+      "page_count": 13,
+      "relationship_count": 117
     }
   },
   "tags": {
@@ -4644,7 +4946,9 @@
       "sources/src-axton-obsidian-visual-skills",
       "sources/src-claude-notebooklm-content-team",
       "sources/src-kepano-obsidian-skills",
+      "sources/src-notebooklm-claude-code-workflow",
       "sources/src-obsidian-claude-code-second-brain",
+      "sources/src-playwright-cli-vs-mcp",
       "sources/src-shanraisshan-claude-code-best-practice"
     ],
     "architecture": [
@@ -4683,10 +4987,14 @@
       "sources/src-harness-engineering",
       "sources/src-karpathy-claude-code-10x",
       "sources/src-kepano-obsidian-skills",
+      "sources/src-notebooklm-claude-code-workflow",
       "sources/src-obsidian-claude-code-second-brain",
       "sources/src-pablo-mano-obsidian-cli-skill",
+      "sources/src-playwright-cli-vs-mcp",
+      "sources/src-playwright-mcp-visual-testing",
       "sources/src-pleaseprompto-notebooklm-skill",
       "sources/src-shanraisshan-claude-code-best-practice",
+      "sources/src-superpowers-end-of-vibe-coding",
       "sources/src-token-hacks-claude-code"
     ],
     "obsidian": [
@@ -4710,6 +5018,7 @@
       "sources/src-claude-code-accuracy-tips",
       "sources/src-claude-notebooklm-content-team",
       "sources/src-claude-world-notebooklm-skill",
+      "sources/src-notebooklm-claude-code-workflow",
       "sources/src-pleaseprompto-notebooklm-skill"
     ],
     "SKILL-md": [
@@ -4728,7 +5037,9 @@
       "domains/knowledge-systems/lightrag",
       "domains/tools-and-platforms/notebooklm-skills",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
-      "sources/src-claude-world-notebooklm-skill"
+      "sources/src-claude-world-notebooklm-skill",
+      "sources/src-playwright-cli-vs-mcp",
+      "sources/src-playwright-mcp-visual-testing"
     ],
     "cli": [
       "decisions/mcp-vs-cli-for-tool-integration",
@@ -4736,7 +5047,9 @@
       "domains/tools-and-platforms/obsidian-cli",
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
-      "sources/src-pablo-mano-obsidian-cli-skill"
+      "sources/src-notebooklm-claude-code-workflow",
+      "sources/src-pablo-mano-obsidian-cli-skill",
+      "sources/src-playwright-cli-vs-mcp"
     ],
     "tool-integration": [
       "decisions/mcp-vs-cli-for-tool-integration",
@@ -4744,7 +5057,8 @@
     ],
     "token-efficiency": [
       "decisions/mcp-vs-cli-for-tool-integration",
-      "lessons/cli-tools-beat-mcp-for-token-efficiency"
+      "lessons/cli-tools-beat-mcp-for-token-efficiency",
+      "sources/src-playwright-cli-vs-mcp"
     ],
     "integration-pattern": [
       "decisions/mcp-vs-cli-for-tool-integration"
@@ -4754,7 +5068,8 @@
       "domains/ai-agents/claude-code",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "lessons/lesson-convergence-on-claude-code-best-practices",
-      "sources/src-claude-code-accuracy-tips"
+      "sources/src-claude-code-accuracy-tips",
+      "sources/src-playwright-cli-vs-mcp"
     ],
     "best-practices": [
       "domains/ai-agents/claude-code-best-practices",
@@ -4779,7 +5094,9 @@
       "domains/ai-agents/claude-code",
       "lessons/lesson-convergence-on-claude-code-best-practices",
       "sources/src-claude-code-accuracy-tips",
-      "sources/src-shanraisshan-claude-code-best-practice"
+      "sources/src-playwright-mcp-visual-testing",
+      "sources/src-shanraisshan-claude-code-best-practice",
+      "sources/src-superpowers-end-of-vibe-coding"
     ],
     "commands": [
       "domains/ai-agents/claude-code-best-practices",
@@ -4900,6 +5217,7 @@
       "sources/src-claude-notebooklm-content-team",
       "sources/src-claude-world-notebooklm-skill",
       "sources/src-llm-wiki-v2-agentmemory",
+      "sources/src-notebooklm-claude-code-workflow",
       "spine/domain-overviews/automation-\u2014-domain-overview"
     ],
     "harness-engineering": [
@@ -5198,7 +5516,8 @@
     "knowledge-base": [
       "domains/knowledge-systems/llm-wiki-pattern",
       "sources/src-karpathy-claude-code-10x",
-      "sources/src-karpathy-llm-wiki-idea-file"
+      "sources/src-karpathy-llm-wiki-idea-file",
+      "sources/src-notebooklm-claude-code-workflow"
     ],
     "karpathy": [
       "domains/knowledge-systems/llm-wiki-pattern",
@@ -5265,7 +5584,8 @@
       "domains/knowledge-systems/wiki-ingestion-pipeline"
     ],
     "workflow": [
-      "domains/knowledge-systems/wiki-ingestion-pipeline"
+      "domains/knowledge-systems/wiki-ingestion-pipeline",
+      "sources/src-superpowers-end-of-vibe-coding"
     ],
     "typed-relationships": [
       "domains/knowledge-systems/wiki-knowledge-graph"
@@ -5328,7 +5648,8 @@
       "sources/src-pleaseprompto-notebooklm-skill"
     ],
     "research": [
-      "domains/tools-and-platforms/notebooklm"
+      "domains/tools-and-platforms/notebooklm",
+      "sources/src-notebooklm-claude-code-workflow"
     ],
     "free-tools": [
       "domains/tools-and-platforms/notebooklm"
@@ -5400,7 +5721,8 @@
     ],
     "planning": [
       "lessons/always-plan-before-executing",
-      "lessons/lesson-convergence-on-claude-code-best-practices"
+      "lessons/lesson-convergence-on-claude-code-best-practices",
+      "sources/src-superpowers-end-of-vibe-coding"
     ],
     "agent-behavior": [
       "lessons/always-plan-before-executing"
@@ -5474,7 +5796,8 @@
       "sources/src-axton-obsidian-visual-skills"
     ],
     "superpowers": [
-      "sources/src-claude-code-accuracy-tips"
+      "sources/src-claude-code-accuracy-tips",
+      "sources/src-superpowers-end-of-vibe-coding"
     ],
     "agent-teams": [
       "sources/src-claude-code-accuracy-tips",
@@ -5519,6 +5842,12 @@
     "scaling": [
       "sources/src-llm-wiki-v2-agentmemory"
     ],
+    "competitive-analysis": [
+      "sources/src-notebooklm-claude-code-workflow"
+    ],
+    "notebooklm-py": [
+      "sources/src-notebooklm-claude-code-workflow"
+    ],
     "skill": [
       "sources/src-pablo-mano-obsidian-cli-skill",
       "sources/src-pleaseprompto-notebooklm-skill"
@@ -5532,11 +5861,54 @@
     "copilot": [
       "sources/src-pablo-mano-obsidian-cli-skill"
     ],
+    "playwright": [
+      "sources/src-playwright-cli-vs-mcp",
+      "sources/src-playwright-mcp-visual-testing"
+    ],
+    "qa-automation": [
+      "sources/src-playwright-cli-vs-mcp"
+    ],
+    "testing": [
+      "sources/src-playwright-cli-vs-mcp"
+    ],
+    "visual-testing": [
+      "sources/src-playwright-mcp-visual-testing"
+    ],
+    "frontend": [
+      "sources/src-playwright-mcp-visual-testing"
+    ],
+    "design-review": [
+      "sources/src-playwright-mcp-visual-testing"
+    ],
+    "responsive-design": [
+      "sources/src-playwright-mcp-visual-testing"
+    ],
+    "claude-md": [
+      "sources/src-playwright-mcp-visual-testing"
+    ],
+    "qa": [
+      "sources/src-playwright-mcp-visual-testing"
+    ],
     "tips": [
       "sources/src-shanraisshan-claude-code-best-practice"
     ],
     "boris-cherny": [
       "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "tdd": [
+      "sources/src-superpowers-end-of-vibe-coding"
+    ],
+    "git-worktrees": [
+      "sources/src-superpowers-end-of-vibe-coding"
+    ],
+    "spec-driven-development": [
+      "sources/src-superpowers-end-of-vibe-coding"
+    ],
+    "implementation": [
+      "sources/src-superpowers-end-of-vibe-coding"
+    ],
+    "production": [
+      "sources/src-superpowers-end-of-vibe-coding"
     ],
     "peak-hours": [
       "sources/src-token-hacks-claude-code"
@@ -5792,6 +6164,12 @@
       ]
     },
     {
+      "target": "src-notebooklm-claude-code-workflow",
+      "referenced_by": [
+        "Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py"
+      ]
+    },
+    {
       "target": "src-obsidian-claude-code-second-brain",
       "referenced_by": [
         "Claude Code Skills",
@@ -5808,6 +6186,18 @@
       ]
     },
     {
+      "target": "src-playwright-cli-vs-mcp",
+      "referenced_by": [
+        "Synthesis: Playwright CLI vs MCP \u2014 Automate QA with Less Tokens"
+      ]
+    },
+    {
+      "target": "src-playwright-mcp-visual-testing",
+      "referenced_by": [
+        "Synthesis: Playwright MCP for Visual Development Testing"
+      ]
+    },
+    {
       "target": "src-pleaseprompto-notebooklm-skill",
       "referenced_by": [
         "NotebookLM Skills",
@@ -5821,6 +6211,12 @@
         "Claude Code Context Management",
         "Claude Code Skills",
         "Synthesis: Claude Code Best Practice (shanraisshan)"
+      ]
+    },
+    {
+      "target": "src-superpowers-end-of-vibe-coding",
+      "referenced_by": [
+        "Synthesis: Superpowers Plugin \u2014 End of Vibe Coding (Full Tutorial)"
       ]
     },
     {

@@ -23,6 +23,10 @@ sources:
     type: youtube-transcript
     url: "https://www.youtube.com/watch?v=D5bRTv6GhXk"
     title: "Claude Code Works Better When You Do This"
+  - id: src-playwright-cli-vs-mcp
+    type: youtube-transcript
+    url: "https://www.youtube.com/watch?v=nN5R9DFYsXY"
+    title: "Claude Code + Playwright CLI: Automate QA with Less Tokens"
 tags: [mcp, cli, skills, tool-integration, token-efficiency, claude-code, integration-pattern, context-management]
 ---
 
@@ -62,11 +66,15 @@ Multiple independent sources converge on CLI+Skills as more token-efficient than
 
 **Context loading dynamics**: MCP servers register all their tool schemas at conversation startup. With 13 wiki tools, each exposing a JSON schema with descriptions, parameters, and examples, this represents hundreds of tokens added to every single message. Skills load only when invoked — a user session that never touches wiki operations incurs zero overhead. This is the mechanism behind the accuracy difference: more available context space means less context pressure, fewer hallucinations, and lower cost per task.
 
+**Playwright CLI vs. MCP side-by-side demonstration (src-playwright-cli-vs-mcp):** A dedicated comparison video provides the clearest mechanical proof. Playwright MCP dumps the complete accessibility tree of the current page into Claude's context window after every single navigation step or browser action — every click, every form submit, every page load triggers a full accessibility tree injection. Playwright CLI saves page state to a YAML file on disk; Claude reads the file only when it needs to locate a specific element, and skips the read entirely when it already knows what to do. In a 10-step QA test, MCP injects 10 full accessibility trees (each containing hundreds of tokens of element data). CLI loads 2-3 targeted YAML snapshots on demand. This is the mechanistic basis for the 12x cost differential referenced in the accuracy tips source. Importantly, Microsoft (Playwright's creator) now officially recommends CLI over MCP for AI agent use, and the CLI has 3x more features than the MCP version — eliminating any residual capability argument for MCP on this tool.
+
+**When MCP still wins: unknown pages and aggregated operations**: The Playwright comparison reveals a specific use case where MCP retains an advantage — when Claude needs to test or explore a page it has never seen before, MCP's forced full-page visibility ensures nothing is missed (unexpected errors, dynamic state changes, edge cases). The CLI's lazy-loading means Claude may miss errors that appear in the full page if it does not know to look for them. This informs a refined heuristic: use CLI for structured, known-workflow automation (regression tests, form filling, known-flow verification), and use MCP for exploratory testing or pages with high uncertainty. More broadly, MCP is appropriate for aggregated or grouped operations where full visibility at every step has genuine value — not mindlessly added to every agent config by default.
+
 **Quantified degradation curve** (from src-claude-code-accuracy-tips): Accuracy is high at 20% context usage, drops significantly at 40%, becomes unreliable at 60%+, and produces bugs/hallucinations at 80%. MCP schema overhead shifts the starting point upward before any real work begins. CLI starts at zero.
 
 **Harness engineering principle**: The harness engineering synthesis explicitly states "CLI over MCP is emerging consensus — multiple sources now converge on CLI+Skills being more token-efficient and accurate than MCP for tool integration." This aligns with the emerging community consensus from practitioners building at scale (the accuracy tips source is from a former Amazon/Microsoft senior engineer building an entire startup with Claude Code).
 
-**MCP's genuine value proposition**: MCP shines when tools need to be available across any conversation without user scaffolding, or when integrating services that do not expose a CLI. The wiki's planned NotebookLM MCP server is the right use of the pattern — notebooklm-py does not offer a rich CLI workflow; wrapping it in MCP gives any conversation access to query notebooks. Similarly, the planned Obsidian MCP exposes vault management to agents that have no filesystem path to the Windows-side vault.
+**MCP's genuine value proposition**: MCP shines when tools need to be available across any conversation without user scaffolding, or when integrating services that do not expose a CLI. The wiki's planned NotebookLM MCP server is the right use of the pattern — notebooklm-py does offer a CLI, but an MCP wrapper gives any conversation access to query notebooks without per-session skill loading. Similarly, the planned Obsidian MCP exposes vault management to agents that have no filesystem path to the Windows-side vault. The principle: MCP should be used deliberately for aggregated access or services requiring persistent availability, not added reflexively to every agent config.
 
 **Practical split for this system**: The wiki pipeline tools already exist as CLI Python modules (`python3 -m tools.pipeline`, `python3 -m tools.validate`, etc.). The MCP server wrapping them (already prototyped) is appropriate for discoverability and cross-conversation access, but for routine operation within a dedicated wiki conversation, invoking CLI directly via Bash is lower-overhead and produces higher accuracy per the measured degradation curve.
 
@@ -91,6 +99,7 @@ The one nuance: if CLI skills accumulate significant institutional knowledge tha
 
 - DERIVED FROM: Synthesis: Claude Code Harness Engineering
 - DERIVED FROM: Synthesis: Claude Code Accuracy Tips
+- DERIVED FROM: Synthesis: Playwright CLI vs MCP — Automate QA with Less Tokens
 - DERIVED FROM: MCP Integration Architecture
 - DERIVED FROM: Claude Code
 - RELATES TO: Claude Code Skills
@@ -102,6 +111,7 @@ The one nuance: if CLI skills accumulate significant institutional knowledge tha
 
 [[Synthesis: Claude Code Harness Engineering]]
 [[Synthesis: Claude Code Accuracy Tips]]
+[[Synthesis: Playwright CLI vs MCP — Automate QA with Less Tokens]]
 [[MCP Integration Architecture]]
 [[Claude Code]]
 [[Claude Code Skills]]

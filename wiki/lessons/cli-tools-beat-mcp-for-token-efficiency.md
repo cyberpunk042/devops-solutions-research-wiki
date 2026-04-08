@@ -22,6 +22,10 @@ sources:
     type: article
     url: "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0"
     title: "Building Claude Code with Harness Engineering"
+  - id: src-playwright-cli-vs-mcp
+    type: youtube-transcript
+    url: "https://www.youtube.com/watch?v=nN5R9DFYsXY"
+    title: "Claude Code + Playwright CLI: Automate QA with Less Tokens"
 tags: [cli, mcp, token-efficiency, skills, context-management, accuracy, tool-integration, agent-design]
 ---
 
@@ -57,7 +61,11 @@ The emerging practitioner consensus captured across multiple independent sources
 
 **Playwright CLI vs. MCP direct comparison (src-claude-code-accuracy-tips):** A former Amazon/Microsoft senior AI engineer building BookZero.AI entirely with Claude Code ran a direct comparison between Playwright's MCP server and its CLI+Skills equivalent. The CLI was cheaper and more accurate. This is the most concrete single data point: same task, two integration modes, measurable difference in both cost and output quality.
 
-**Google Trends signal (src-claude-code-accuracy-tips):** The same source notes that Google Trends shows "CLI overtaking MCP" as a search trend in 2026. This is a weak signal individually but meaningful as confirmation that the practitioner community is converging on the same conclusion independently.
+**Playwright CLI vs. MCP mechanism video (src-playwright-cli-vs-mcp):** A dedicated comparison video provides the underlying mechanism with precise detail. MCP dumps the full accessibility tree into context after every single navigation step. CLI saves page state to a YAML file on disk and only loads it when Claude explicitly needs to find an element. In a 10-step QA test, MCP injects 10 full accessibility trees into the context window; CLI loads 2-3 targeted YAML snapshots on demand. The referenced "12x cost differential" in the accuracy tips source is substantiated by this mechanism: MCP's per-step context injection compounds across every action, while CLI's lazy-loading eliminates most of that overhead. The video also shows the accuracy trade-off clearly: CLI is more accurate for known-page tests (you know what fields and flows to expect), MCP retains an advantage for exploratory testing or unknown-page bug verification (where forced full-page visibility catches unexpected error states). This is the most mechanistically detailed evidence available.
+
+**Microsoft officially recommends CLI over MCP for Playwright (src-playwright-cli-vs-mcp):** Playwright's creator (Microsoft) now recommends the CLI for AI agent integrations. The CLI also has 3x more features than the Playwright MCP server. This makes the CLI-over-MCP finding asymmetric — CLI wins on cost, accuracy for known tests, AND feature breadth. The tool's creator endorsing CLI over their own MCP server is a strong external validation signal.
+
+**Google Trends signal (src-claude-code-accuracy-tips):** The accuracy tips source notes that Google Trends shows "CLI overtaking MCP" as a search trend in 2026. This is a weak signal individually but meaningful as confirmation that the practitioner community is converging on the same conclusion independently.
 
 **Context loading mechanics (src-claude-code-accuracy-tips):** The source states explicitly: "CLI+Skills loads tool instructions only when relevant (skill loading is contextual), while MCP loads all tool schemas into context at startup." This is the mechanism, not just the observation.
 
@@ -87,6 +95,7 @@ The emerging practitioner consensus captured across multiple independent sources
 
 - DERIVED FROM: Synthesis: Claude Code Accuracy Tips
 - DERIVED FROM: Synthesis: Claude Code Harness Engineering
+- DERIVED FROM: Synthesis: Playwright CLI vs MCP — Automate QA with Less Tokens
 - RELATES TO: Claude Code
 - RELATES TO: MCP Integration Architecture
 - RELATES TO: Claude Code Context Management
@@ -98,6 +107,7 @@ The emerging practitioner consensus captured across multiple independent sources
 
 [[Synthesis: Claude Code Accuracy Tips]]
 [[Synthesis: Claude Code Harness Engineering]]
+[[Synthesis: Playwright CLI vs MCP — Automate QA with Less Tokens]]
 [[Claude Code]]
 [[MCP Integration Architecture]]
 [[Claude Code Context Management]]

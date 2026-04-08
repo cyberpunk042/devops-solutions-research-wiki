@@ -80,3 +80,6 @@ The connection to Karpathy's original lint operation is direct: lint can serve a
 [[Wiki Knowledge Graph]]
 [[Wiki Event-Driven Automation]]
 [[Agentic Search vs Vector Search]]
+[[LLM-Maintained Wikis Outperform Static Documentation]]
+[[Multi-Stage Ingestion Beats Single-Pass Processing]]
+[[Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py]]

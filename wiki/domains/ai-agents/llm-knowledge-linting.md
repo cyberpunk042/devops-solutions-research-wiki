@@ -99,6 +99,8 @@ This transforms lint from a periodic maintenance task into a continuous quality 
 [[Claude Code Context Management]]
 [[Wiki Knowledge Graph]]
 [[Claude Code Scheduling]]
+[[LLM-Maintained Wikis Outperform Static Documentation]]
+[[Multi-Stage Ingestion Beats Single-Pass Processing]]
 [[OpenClaw]]
 [[Synthesis: Karpathy LLM Wiki Method via Claude Code]]
 [[Synthesis: Karpathy's LLM Wiki Idea File]]

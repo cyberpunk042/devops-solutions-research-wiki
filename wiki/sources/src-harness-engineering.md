@@ -55,9 +55,13 @@ Harness engineering is the practice of building structured control systems aroun
 
 ## Backlinks
 
+[[Decision: MCP vs CLI for Tool Integration]]
 [[Harness Engineering]]
 [[Claude Code Best Practices]]
 [[Claude Code Skills]]
 [[Claude Code]]
 [[OpenFleet]]
 [[OpenClaw]]
+[[Always Plan Before Executing]]
+[[CLI Tools Beat MCP for Token Efficiency]]
+[[Context Management Is the Primary LLM Productivity Lever]]

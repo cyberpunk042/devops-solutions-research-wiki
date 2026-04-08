@@ -140,3 +140,5 @@ Avoid or simplify this pattern when:
 [[MCP Integration Architecture]]
 [[Wiki Event-Driven Automation]]
 [[Agent Orchestration Patterns]]
+[[Context Management Is the Primary LLM Productivity Lever]]
+[[Synthesis: Superpowers Plugin — End of Vibe Coding (Full Tutorial)]]
