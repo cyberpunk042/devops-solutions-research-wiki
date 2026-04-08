@@ -90,6 +90,7 @@ The connection between this concept and the AI-Driven Content Pipeline is direct
 [[MCP Integration Architecture]]
 [[Research Pipeline Orchestration]]
 [[Claude Code Best Practices]]
+[[Agent Orchestration Patterns]]
 [[Multi-Stage Ingestion Beats Single-Pass Processing]]
 [[Obsidian CLI]]
 [[Plan Execute Review Cycle]]

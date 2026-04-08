@@ -143,3 +143,6 @@ This is not a marginal efficiency gain — it is a category change. It means the
 [[Wiki Knowledge Graph]]
 [[LLM Wiki vs RAG]]
 [[Research Pipeline Orchestration]]
+[[Cross-Domain Patterns]]
+[[PARA Methodology]]
+[[Zettelkasten Methodology]]

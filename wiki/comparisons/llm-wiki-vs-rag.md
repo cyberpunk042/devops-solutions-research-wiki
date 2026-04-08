@@ -103,6 +103,7 @@ Choose **Hybrid Search** when:
 [[Memory Lifecycle Management]]
 [[NotebookLM]]
 [[Claude Code Best Practices]]
+[[Knowledge Evolution Pipeline]]
 [[LLM-Maintained Wikis Outperform Static Documentation]]
 [[Second Brain Architecture]]
 [[Synthesis: Karpathy LLM Wiki Method via Claude Code]]

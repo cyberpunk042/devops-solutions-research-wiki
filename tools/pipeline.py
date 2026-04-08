@@ -469,6 +469,9 @@ def run_gaps(project_root: Path, verbose: bool = True) -> Dict[str, Any]:
         # Skip conceptual targets (assumptions, self-references)
         if target.startswith("default assumption") or target == "devops-solutions-research-wiki":
             continue
+        # Case-insensitive domain name check
+        if target.lower().replace(" ", "-") in manifest.get("domains", {}):
+            continue
         # Skip slug-vs-title mismatches
         if target.lower().replace(" ", "-") in all_slugs:
             continue

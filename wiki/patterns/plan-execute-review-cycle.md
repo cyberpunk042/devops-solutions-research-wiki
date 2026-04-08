@@ -141,4 +141,6 @@ Avoid or simplify this pattern when:
 [[Wiki Event-Driven Automation]]
 [[Agent Orchestration Patterns]]
 [[Context Management Is the Primary LLM Productivity Lever]]
+[[Cross-Domain Patterns]]
+[[Rework Prevention]]
 [[Synthesis: Superpowers Plugin — End of Vibe Coding (Full Tutorial)]]

@@ -140,6 +140,7 @@ This suggests that Claude Code skills exist on a complexity spectrum: simple ski
 [[Context-Aware Tool Loading]]
 [[Decision: MCP vs CLI for Tool Integration]]
 [[Harness Engineering]]
+[[Multi-Channel AI Agent Access]]
 [[NotebookLM Skills]]
 [[Obsidian CLI]]
 [[Obsidian Skills Ecosystem]]

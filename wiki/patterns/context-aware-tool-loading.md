@@ -127,3 +127,4 @@ This is the documentation layer's application of deferred loading. The alternati
 [[default assumption that registering all MCP tools at startup is cost-free]]
 [[Research Pipeline Orchestration]]
 [[Wiki Ingestion Pipeline]]
+[[Cross-Domain Patterns]]

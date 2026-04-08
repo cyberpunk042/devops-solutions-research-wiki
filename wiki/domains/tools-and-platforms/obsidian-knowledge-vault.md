@@ -92,6 +92,7 @@ This demonstrates that the Obsidian + Claude Code combination has at least two d
 [[Wiki Knowledge Graph]]
 [[Obsidian Skills Ecosystem]]
 [[LLM Knowledge Linting]]
+[[Knowledge Evolution Pipeline]]
 [[LLM-Maintained Wikis Outperform Static Documentation]]
 [[Obsidian CLI]]
 [[Obsidian as Knowledge Infrastructure Not Just Note-Taking]]
@@ -102,3 +103,4 @@ This demonstrates that the Obsidian + Claude Code combination has at least two d
 [[Synthesis: axtonliu/axton-obsidian-visual-skills]]
 [[Synthesis: kepano/obsidian-skills]]
 [[Synthesis: pablo-mano/Obsidian-CLI-skill]]
+[[Zettelkasten Methodology]]

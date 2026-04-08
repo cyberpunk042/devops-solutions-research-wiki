@@ -115,6 +115,7 @@ The LLM Wiki v2 document proposes that the binary choice between wiki and RAG is
 [[Claude Code Best Practices]]
 [[LightRAG]]
 [[Agentic Search vs Vector Search]]
+[[Knowledge Evolution Pipeline]]
 [[LLM-Maintained Wikis Outperform Static Documentation]]
 [[Memory Lifecycle Management]]
 [[Second Brain Architecture]]

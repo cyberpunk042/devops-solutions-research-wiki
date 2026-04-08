@@ -5,6 +5,7 @@ Software tools, platforms, IDEs, CLI tools, SaaS products
 ## Pages
 
 - [AICP](aicp.md) — AICP (AI Control Platform) is a personal AI control workspace that orchestrates local and cloud AI backends under use...
+- [Multi-Channel AI Agent Access](multi-channel-ai-agent-access.md) — Multi-channel AI agent access is the architectural pattern of making a single AI agent runtime reachable through mult...
 - [notebooklm-py CLI](notebooklm-py-cli.md) — notebooklm-py is an unofficial Python package (9
 - [NotebookLM Skills](notebooklm-skills.md) — Two independent open-source projects bridge Google's NotebookLM with Claude Code through the skills system: claude-wo...
 - [NotebookLM](notebooklm.md) — NotebookLM is Google's free AI research tool that ingests user-provided sources — documents, website links, YouTube v...
@@ -16,4 +17,4 @@ Software tools, platforms, IDEs, CLI tools, SaaS products
 
 ## Tags
 
-`notebooklm`, `cli`, `obsidian`, `fleet-integration`, `automation`, `browser-automation`, `content-pipeline`, `agent-tools`, `google`, `claude-code`, `skills`, `second-brain`, `project-management`, `aicp`, `localai`, `ai-control-platform`, `backend-routing`, `think-edit-act`, `guardrails`, `circuit-breaker`
+`notebooklm`, `cli`, `obsidian`, `fleet-integration`, `multi-channel`, `ai-assistant`, `messaging`, `openarms`, `gateway`, `automation`, `browser-automation`, `content-pipeline`, `agent-tools`, `google`, `claude-code`, `skills`, `second-brain`, `project-management`, `aicp`, `localai`

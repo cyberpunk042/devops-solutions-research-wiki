@@ -106,6 +106,7 @@ The 5-minute prompt cache TTL is a subtle but important operational detail. It m
 [[LLM Knowledge Linting]]
 [[Skills Architecture Patterns]]
 [[Claude Code]]
+[[Agent Orchestration Patterns]]
 [[CLI Tools Beat MCP for Token Efficiency]]
 [[Context-Aware Tool Loading]]
 [[Decision: MCP vs CLI for Tool Integration]]

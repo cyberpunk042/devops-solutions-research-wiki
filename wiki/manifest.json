@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-08T19:58:10.792485+00:00",
+  "generated": "2026-04-08T20:41:17.067730+00:00",
   "stats": {
-    "pages": 73,
+    "pages": 80,
     "domains": 7,
     "sources": 20,
-    "comparisons": 4,
-    "relationships": 556,
-    "tags_unique": 280,
+    "comparisons": 5,
+    "relationships": 615,
+    "tags_unique": 319,
     "layers": {
       "6": 1,
       "4": 7,
@@ -102,6 +102,97 @@
         {
           "verb": "RELATES TO",
           "target": "Memory Lifecycle Management"
+        }
+      ]
+    },
+    {
+      "path": "comparisons/cross-domain-patterns.md",
+      "slug": "comparisons/cross-domain-patterns",
+      "title": "Cross-Domain Patterns",
+      "type": "comparison",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "cross-domain",
+        "patterns",
+        "meta-analysis",
+        "plan-execute-review",
+        "progressive-distillation",
+        "deferred-loading",
+        "context-aware",
+        "orchestration",
+        "knowledge-systems",
+        "ai-agents"
+      ],
+      "sources": [
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-claude-code-accuracy-tips",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
+          "title": "Claude Code Works Better When You Do This",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "RELATES TO",
+          "target": "Plan Execute Review Cycle"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Context-Aware Tool Loading"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Agent Orchestration Patterns"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Knowledge Evolution Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Zettelkasten Methodology"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "PARA Methodology"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Second Brain Architecture"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Research Pipeline Orchestration"
         }
       ]
     },
@@ -377,6 +468,90 @@
         {
           "verb": "FEEDS INTO",
           "target": "Research Pipeline Orchestration"
+        }
+      ]
+    },
+    {
+      "path": "domains/ai-agents/agent-orchestration-patterns.md",
+      "slug": "domains/ai-agents/agent-orchestration-patterns",
+      "title": "Agent Orchestration Patterns",
+      "type": "concept",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "orchestration",
+        "ai-agents",
+        "multi-agent",
+        "deterministic-brain",
+        "sub-agent",
+        "delegation",
+        "plan-execute-review",
+        "fleet-management",
+        "harness-engineering",
+        "openfleet"
+      ],
+      "sources": [
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "IMPLEMENTS",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Plan Execute Review Cycle"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Always Plan Before Executing"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Rework Prevention"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Research Pipeline Orchestration"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Wiki Event-Driven Automation"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "MCP Integration Architecture"
         }
       ]
     },
@@ -1162,6 +1337,82 @@
       ]
     },
     {
+      "path": "domains/ai-agents/rework-prevention.md",
+      "slug": "domains/ai-agents/rework-prevention",
+      "title": "Rework Prevention",
+      "type": "concept",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "rework-prevention",
+        "planning",
+        "quality-gates",
+        "spec-compliance",
+        "agent-behavior",
+        "harness-engineering",
+        "openfleet",
+        "test-driven",
+        "context-management",
+        "cost-of-rework"
+      ],
+      "sources": [
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "ENABLED BY",
+          "target": "Always Plan Before Executing"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Agent Orchestration Patterns"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Plan Execute Review Cycle"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Research Pipeline Orchestration"
+        }
+      ]
+    },
+    {
       "path": "domains/ai-models/local-llm-quantization.md",
       "slug": "domains/ai-models/local-llm-quantization",
       "title": "Local LLM Quantization",
@@ -1656,6 +1907,88 @@
       ]
     },
     {
+      "path": "domains/knowledge-systems/knowledge-evolution-pipeline.md",
+      "slug": "domains/knowledge-systems/knowledge-evolution-pipeline",
+      "title": "Knowledge Evolution Pipeline",
+      "type": "concept",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "evolution",
+        "knowledge-systems",
+        "pipeline",
+        "maturity",
+        "scoring",
+        "second-brain",
+        "llm-automation",
+        "seed",
+        "growing",
+        "mature",
+        "canonical",
+        "wiki-evolution"
+      ],
+      "sources": [
+        {
+          "id": "src-pipeline-tooling",
+          "type": "documentation",
+          "file": "tools/pipeline.py",
+          "title": "Wiki Pipeline Tool \u2014 evolve command",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-claude-md",
+          "type": "documentation",
+          "file": "CLAUDE.md",
+          "title": "Wiki Project Instructions",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "ENABLES",
+          "target": "Second Brain Architecture"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Memory Lifecycle Management"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Research Pipeline Orchestration"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "AICP"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "LLM Wiki vs RAG"
+        }
+      ]
+    },
+    {
       "path": "domains/knowledge-systems/lightrag.md",
       "slug": "domains/knowledge-systems/lightrag",
       "title": "LightRAG",
@@ -2005,6 +2338,80 @@
       ]
     },
     {
+      "path": "domains/knowledge-systems/para-methodology.md",
+      "slug": "domains/knowledge-systems/para-methodology",
+      "title": "PARA Methodology",
+      "type": "concept",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "para",
+        "pkm",
+        "second-brain",
+        "tiago-forte",
+        "projects",
+        "areas",
+        "resources",
+        "archives",
+        "code-workflow",
+        "progressive-summarization",
+        "knowledge-management",
+        "action-oriented"
+      ],
+      "sources": [
+        {
+          "id": "src-second-brain-research",
+          "type": "article",
+          "file": "raw/articles/second-brain-pkm-research.md",
+          "title": "Second Brain / PKM Research",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-zettelkasten-basb",
+          "type": "article",
+          "url": "https://zettelkasten.de/posts/building-a-second-brain-and-zettelkasten/",
+          "title": "Combining Zettelkasten and Building a Second Brain",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "BUILDS ON",
+          "target": "Second Brain Architecture"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "Zettelkasten Methodology"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Memory Lifecycle Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Knowledge Evolution Pipeline"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Research Pipeline Orchestration"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        }
+      ]
+    },
+    {
       "path": "domains/knowledge-systems/second-brain-architecture.md",
       "slug": "domains/knowledge-systems/second-brain-architecture",
       "title": "Second Brain Architecture",
@@ -2261,6 +2668,83 @@
       ]
     },
     {
+      "path": "domains/knowledge-systems/zettelkasten-methodology.md",
+      "slug": "domains/knowledge-systems/zettelkasten-methodology",
+      "title": "Zettelkasten Methodology",
+      "type": "concept",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "zettelkasten",
+        "pkm",
+        "luhmann",
+        "atomic-notes",
+        "permanent-notes",
+        "heterarchical",
+        "bidirectional-links",
+        "knowledge-management",
+        "second-brain",
+        "connections",
+        "emergence"
+      ],
+      "sources": [
+        {
+          "id": "src-second-brain-research",
+          "type": "article",
+          "file": "raw/articles/second-brain-pkm-research.md",
+          "title": "Second Brain / PKM Research",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-zettelkasten-basb",
+          "type": "article",
+          "url": "https://zettelkasten.de/posts/building-a-second-brain-and-zettelkasten/",
+          "title": "Combining Zettelkasten and Building a Second Brain",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "BUILDS ON",
+          "target": "Second Brain Architecture"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "PARA Methodology"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Memory Lifecycle Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Knowledge Evolution Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Obsidian Knowledge Vault"
+        }
+      ]
+    },
+    {
       "path": "domains/tools-and-platforms/aicp.md",
       "slug": "domains/tools-and-platforms/aicp",
       "title": "AICP",
@@ -2321,6 +2805,75 @@
         {
           "verb": "RELATES TO",
           "target": "devops-control-plane"
+        }
+      ]
+    },
+    {
+      "path": "domains/tools-and-platforms/multi-channel-ai-agent-access.md",
+      "slug": "domains/tools-and-platforms/multi-channel-ai-agent-access",
+      "title": "Multi-Channel AI Agent Access",
+      "type": "concept",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "multi-channel",
+        "ai-assistant",
+        "messaging",
+        "openarms",
+        "gateway",
+        "telegram",
+        "discord",
+        "slack",
+        "signal",
+        "imessage",
+        "whatsapp",
+        "matrix",
+        "channel-routing",
+        "agent-access"
+      ],
+      "sources": [
+        {
+          "id": "src-openarms-local",
+          "type": "documentation",
+          "file": "raw/articles/openarms-readme.md",
+          "title": "OpenArms \u2014 Project Documentation",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "ENABLES",
+          "target": "OpenArms"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "MCP Integration Architecture"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "AICP"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Agent Orchestration Patterns"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Research Pipeline Orchestration"
         }
       ]
     },
@@ -5266,16 +5819,16 @@
   ],
   "domains": {
     "cross-domain": {
-      "page_count": 5,
-      "relationship_count": 37
+      "page_count": 6,
+      "relationship_count": 47
     },
     "tools-and-platforms": {
-      "page_count": 18,
-      "relationship_count": 121
+      "page_count": 19,
+      "relationship_count": 128
     },
     "ai-agents": {
-      "page_count": 23,
-      "relationship_count": 193
+      "page_count": 25,
+      "relationship_count": 211
     },
     "ai-models": {
       "page_count": 3,
@@ -5290,8 +5843,8 @@
       "relationship_count": 10
     },
     "knowledge-systems": {
-      "page_count": 14,
-      "relationship_count": 127
+      "page_count": 17,
+      "relationship_count": 151
     }
   },
   "tags": {
@@ -5332,6 +5885,61 @@
     "index-navigation": [
       "comparisons/agentic-search-vs-vector-search"
     ],
+    "cross-domain": [
+      "comparisons/cross-domain-patterns",
+      "comparisons/llm-wiki-vs-rag",
+      "comparisons/skills-architecture-patterns",
+      "patterns/plan-execute-review-cycle",
+      "spine/domain-overviews/cross-domain-\u2014-domain-overview"
+    ],
+    "patterns": [
+      "comparisons/cross-domain-patterns",
+      "comparisons/skills-architecture-patterns",
+      "lessons/lesson-convergence-on-claude-code-skills"
+    ],
+    "meta-analysis": [
+      "comparisons/cross-domain-patterns"
+    ],
+    "plan-execute-review": [
+      "comparisons/cross-domain-patterns",
+      "domains/ai-agents/agent-orchestration-patterns",
+      "patterns/plan-execute-review-cycle"
+    ],
+    "progressive-distillation": [
+      "comparisons/cross-domain-patterns",
+      "domains/knowledge-systems/second-brain-architecture"
+    ],
+    "deferred-loading": [
+      "comparisons/cross-domain-patterns",
+      "patterns/context-aware-tool-loading"
+    ],
+    "context-aware": [
+      "comparisons/cross-domain-patterns"
+    ],
+    "orchestration": [
+      "comparisons/cross-domain-patterns",
+      "domains/ai-agents/agent-orchestration-patterns",
+      "domains/ai-agents/claude-code-best-practices",
+      "domains/ai-agents/openfleet",
+      "domains/automation/ai-driven-content-pipeline",
+      "domains/automation/research-pipeline-orchestration",
+      "lessons/always-plan-before-executing",
+      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
+      "patterns/plan-execute-review-cycle",
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "knowledge-systems": [
+      "comparisons/cross-domain-patterns",
+      "domains/knowledge-systems/knowledge-evolution-pipeline",
+      "spine/domain-overviews/knowledge-systems-\u2014-domain-overview"
+    ],
+    "ai-agents": [
+      "comparisons/cross-domain-patterns",
+      "domains/ai-agents/agent-orchestration-patterns",
+      "domains/ai-agents/design-md-pattern",
+      "domains/ai-agents/openfleet",
+      "spine/domain-overviews/ai-agents-\u2014-domain-overview"
+    ],
     "llm-wiki": [
       "comparisons/llm-wiki-vs-rag",
       "domains/knowledge-systems/llm-wiki-pattern",
@@ -5343,14 +5951,10 @@
     ],
     "knowledge-management": [
       "comparisons/llm-wiki-vs-rag",
+      "domains/knowledge-systems/para-methodology",
       "domains/knowledge-systems/second-brain-architecture",
+      "domains/knowledge-systems/zettelkasten-methodology",
       "lessons/lesson-convergence-on-llm-wiki-pattern"
-    ],
-    "cross-domain": [
-      "comparisons/llm-wiki-vs-rag",
-      "comparisons/skills-architecture-patterns",
-      "patterns/plan-execute-review-cycle",
-      "spine/domain-overviews/cross-domain-\u2014-domain-overview"
     ],
     "skills": [
       "comparisons/skills-architecture-patterns",
@@ -5375,10 +5979,6 @@
     "architecture": [
       "comparisons/skills-architecture-patterns",
       "sources/src-karpathy-llm-wiki-idea-file"
-    ],
-    "patterns": [
-      "comparisons/skills-architecture-patterns",
-      "lessons/lesson-convergence-on-claude-code-skills"
     ],
     "claude-code": [
       "comparisons/skills-architecture-patterns",
@@ -5487,25 +6087,52 @@
     "context-management": [
       "decisions/mcp-vs-cli-for-tool-integration",
       "domains/ai-agents/claude-code",
+      "domains/ai-agents/rework-prevention",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "lessons/lesson-convergence-on-claude-code-best-practices",
       "patterns/context-aware-tool-loading",
       "sources/src-claude-code-accuracy-tips",
       "sources/src-playwright-cli-vs-mcp"
     ],
+    "multi-agent": [
+      "domains/ai-agents/agent-orchestration-patterns",
+      "domains/ai-agents/openclaw",
+      "domains/ai-agents/openfleet",
+      "sources/src-llm-wiki-v2-agentmemory"
+    ],
+    "deterministic-brain": [
+      "domains/ai-agents/agent-orchestration-patterns",
+      "domains/ai-agents/openfleet"
+    ],
+    "sub-agent": [
+      "domains/ai-agents/agent-orchestration-patterns"
+    ],
+    "delegation": [
+      "domains/ai-agents/agent-orchestration-patterns"
+    ],
+    "fleet-management": [
+      "domains/ai-agents/agent-orchestration-patterns",
+      "domains/ai-agents/openfleet"
+    ],
+    "harness-engineering": [
+      "domains/ai-agents/agent-orchestration-patterns",
+      "domains/ai-agents/harness-engineering",
+      "domains/ai-agents/rework-prevention",
+      "lessons/always-plan-before-executing",
+      "patterns/plan-execute-review-cycle",
+      "sources/src-harness-engineering"
+    ],
+    "openfleet": [
+      "domains/ai-agents/agent-orchestration-patterns",
+      "domains/ai-agents/openfleet",
+      "domains/ai-agents/rework-prevention",
+      "domains/knowledge-systems/lightrag",
+      "lessons/always-plan-before-executing",
+      "patterns/plan-execute-review-cycle"
+    ],
     "best-practices": [
       "domains/ai-agents/claude-code-best-practices",
       "lessons/lesson-convergence-on-claude-code-best-practices",
-      "sources/src-shanraisshan-claude-code-best-practice"
-    ],
-    "orchestration": [
-      "domains/ai-agents/claude-code-best-practices",
-      "domains/ai-agents/openfleet",
-      "domains/automation/ai-driven-content-pipeline",
-      "domains/automation/research-pipeline-orchestration",
-      "lessons/always-plan-before-executing",
-      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
-      "patterns/plan-execute-review-cycle",
       "sources/src-shanraisshan-claude-code-best-practice"
     ],
     "plan-mode": [
@@ -5648,11 +6275,6 @@
     "design-system": [
       "domains/ai-agents/design-md-pattern"
     ],
-    "ai-agents": [
-      "domains/ai-agents/design-md-pattern",
-      "domains/ai-agents/openfleet",
-      "spine/domain-overviews/ai-agents-\u2014-domain-overview"
-    ],
     "claude-md": [
       "domains/ai-agents/design-md-pattern",
       "sources/src-playwright-mcp-visual-testing"
@@ -5668,12 +6290,6 @@
     ],
     "agent-context": [
       "domains/ai-agents/design-md-pattern"
-    ],
-    "harness-engineering": [
-      "domains/ai-agents/harness-engineering",
-      "lessons/always-plan-before-executing",
-      "patterns/plan-execute-review-cycle",
-      "sources/src-harness-engineering"
     ],
     "guardrails": [
       "domains/ai-agents/harness-engineering",
@@ -5737,6 +6353,7 @@
     ],
     "gateway": [
       "domains/ai-agents/openclaw",
+      "domains/tools-and-platforms/multi-channel-ai-agent-access",
       "domains/tools-and-platforms/openarms"
     ],
     "brain": [
@@ -5749,26 +6366,10 @@
       "domains/ai-agents/openclaw",
       "domains/ai-agents/openfleet"
     ],
-    "multi-agent": [
-      "domains/ai-agents/openclaw",
-      "domains/ai-agents/openfleet",
-      "sources/src-llm-wiki-v2-agentmemory"
-    ],
     "messaging": [
       "domains/ai-agents/openclaw",
+      "domains/tools-and-platforms/multi-channel-ai-agent-access",
       "domains/tools-and-platforms/openarms"
-    ],
-    "openfleet": [
-      "domains/ai-agents/openfleet",
-      "domains/knowledge-systems/lightrag",
-      "lessons/always-plan-before-executing",
-      "patterns/plan-execute-review-cycle"
-    ],
-    "fleet-management": [
-      "domains/ai-agents/openfleet"
-    ],
-    "deterministic-brain": [
-      "domains/ai-agents/openfleet"
     ],
     "vibe-managing": [
       "domains/ai-agents/openfleet"
@@ -5776,6 +6377,33 @@
     "lightrag": [
       "domains/ai-agents/openfleet",
       "domains/knowledge-systems/lightrag"
+    ],
+    "rework-prevention": [
+      "domains/ai-agents/rework-prevention",
+      "lessons/always-plan-before-executing"
+    ],
+    "planning": [
+      "domains/ai-agents/rework-prevention",
+      "lessons/always-plan-before-executing",
+      "lessons/lesson-convergence-on-claude-code-best-practices",
+      "sources/src-superpowers-end-of-vibe-coding"
+    ],
+    "quality-gates": [
+      "domains/ai-agents/rework-prevention",
+      "lessons/lesson-convergence-on-llm-wiki-pattern"
+    ],
+    "spec-compliance": [
+      "domains/ai-agents/rework-prevention"
+    ],
+    "agent-behavior": [
+      "domains/ai-agents/rework-prevention",
+      "lessons/always-plan-before-executing"
+    ],
+    "test-driven": [
+      "domains/ai-agents/rework-prevention"
+    ],
+    "cost-of-rework": [
+      "domains/ai-agents/rework-prevention"
     ],
     "quantization": [
       "domains/ai-models/local-llm-quantization",
@@ -5866,6 +6494,7 @@
     ],
     "pipeline": [
       "domains/automation/research-pipeline-orchestration",
+      "domains/knowledge-systems/knowledge-evolution-pipeline",
       "domains/knowledge-systems/wiki-ingestion-pipeline",
       "lessons/lesson-convergence-on-wiki-ingestion-pipeline"
     ],
@@ -5938,6 +6567,46 @@
     "infrastructure": [
       "domains/devops/devops-control-plane"
     ],
+    "evolution": [
+      "domains/knowledge-systems/knowledge-evolution-pipeline"
+    ],
+    "maturity": [
+      "domains/knowledge-systems/knowledge-evolution-pipeline"
+    ],
+    "scoring": [
+      "domains/knowledge-systems/knowledge-evolution-pipeline"
+    ],
+    "second-brain": [
+      "domains/knowledge-systems/knowledge-evolution-pipeline",
+      "domains/knowledge-systems/llm-wiki-pattern",
+      "domains/knowledge-systems/para-methodology",
+      "domains/knowledge-systems/second-brain-architecture",
+      "domains/knowledge-systems/zettelkasten-methodology",
+      "domains/tools-and-platforms/obsidian-cli",
+      "domains/tools-and-platforms/obsidian-knowledge-vault",
+      "lessons/lesson-convergence-on-obsidian-knowledge-vault",
+      "sources/src-karpathy-claude-code-10x",
+      "sources/src-karpathy-llm-wiki-idea-file",
+      "sources/src-obsidian-claude-code-second-brain"
+    ],
+    "llm-automation": [
+      "domains/knowledge-systems/knowledge-evolution-pipeline"
+    ],
+    "seed": [
+      "domains/knowledge-systems/knowledge-evolution-pipeline"
+    ],
+    "growing": [
+      "domains/knowledge-systems/knowledge-evolution-pipeline"
+    ],
+    "mature": [
+      "domains/knowledge-systems/knowledge-evolution-pipeline"
+    ],
+    "canonical": [
+      "domains/knowledge-systems/knowledge-evolution-pipeline"
+    ],
+    "wiki-evolution": [
+      "domains/knowledge-systems/knowledge-evolution-pipeline"
+    ],
     "knowledge-graph": [
       "domains/knowledge-systems/lightrag",
       "domains/knowledge-systems/llm-wiki-vs-rag",
@@ -5962,16 +6631,6 @@
       "domains/knowledge-systems/llm-wiki-pattern",
       "sources/src-karpathy-claude-code-10x",
       "sources/src-karpathy-llm-wiki-idea-file"
-    ],
-    "second-brain": [
-      "domains/knowledge-systems/llm-wiki-pattern",
-      "domains/knowledge-systems/second-brain-architecture",
-      "domains/tools-and-platforms/obsidian-cli",
-      "domains/tools-and-platforms/obsidian-knowledge-vault",
-      "lessons/lesson-convergence-on-obsidian-knowledge-vault",
-      "sources/src-karpathy-claude-code-10x",
-      "sources/src-karpathy-llm-wiki-idea-file",
-      "sources/src-obsidian-claude-code-second-brain"
     ],
     "index-files": [
       "domains/knowledge-systems/llm-wiki-pattern"
@@ -6017,20 +6676,46 @@
     "ebbinghaus": [
       "domains/knowledge-systems/memory-lifecycle-management"
     ],
-    "pkm": [
+    "para": [
+      "domains/knowledge-systems/para-methodology",
       "domains/knowledge-systems/second-brain-architecture"
+    ],
+    "pkm": [
+      "domains/knowledge-systems/para-methodology",
+      "domains/knowledge-systems/second-brain-architecture",
+      "domains/knowledge-systems/zettelkasten-methodology"
+    ],
+    "tiago-forte": [
+      "domains/knowledge-systems/para-methodology"
+    ],
+    "projects": [
+      "domains/knowledge-systems/para-methodology"
+    ],
+    "areas": [
+      "domains/knowledge-systems/para-methodology"
+    ],
+    "resources": [
+      "domains/knowledge-systems/para-methodology"
+    ],
+    "archives": [
+      "domains/knowledge-systems/para-methodology"
+    ],
+    "code-workflow": [
+      "domains/knowledge-systems/para-methodology"
+    ],
+    "progressive-summarization": [
+      "domains/knowledge-systems/para-methodology"
+    ],
+    "action-oriented": [
+      "domains/knowledge-systems/para-methodology"
     ],
     "zettelkasten": [
-      "domains/knowledge-systems/second-brain-architecture"
-    ],
-    "para": [
-      "domains/knowledge-systems/second-brain-architecture"
-    ],
-    "progressive-distillation": [
-      "domains/knowledge-systems/second-brain-architecture"
+      "domains/knowledge-systems/second-brain-architecture",
+      "domains/knowledge-systems/zettelkasten-methodology"
     ],
     "atomic-notes": [
-      "domains/knowledge-systems/second-brain-architecture"
+      "domains/knowledge-systems/second-brain-architecture",
+      "domains/knowledge-systems/zettelkasten-methodology"
     ],
     "wiki": [
       "domains/knowledge-systems/wiki-ingestion-pipeline"
@@ -6050,6 +6735,24 @@
     ],
     "structured-knowledge": [
       "domains/knowledge-systems/wiki-knowledge-graph"
+    ],
+    "luhmann": [
+      "domains/knowledge-systems/zettelkasten-methodology"
+    ],
+    "permanent-notes": [
+      "domains/knowledge-systems/zettelkasten-methodology"
+    ],
+    "heterarchical": [
+      "domains/knowledge-systems/zettelkasten-methodology"
+    ],
+    "bidirectional-links": [
+      "domains/knowledge-systems/zettelkasten-methodology"
+    ],
+    "connections": [
+      "domains/knowledge-systems/zettelkasten-methodology"
+    ],
+    "emergence": [
+      "domains/knowledge-systems/zettelkasten-methodology"
     ],
     "aicp": [
       "domains/tools-and-platforms/aicp"
@@ -6072,6 +6775,45 @@
     "fleet-integration": [
       "domains/tools-and-platforms/aicp",
       "domains/tools-and-platforms/plane"
+    ],
+    "multi-channel": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access",
+      "domains/tools-and-platforms/openarms"
+    ],
+    "ai-assistant": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access",
+      "domains/tools-and-platforms/openarms"
+    ],
+    "openarms": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access",
+      "domains/tools-and-platforms/openarms"
+    ],
+    "telegram": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access"
+    ],
+    "discord": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access"
+    ],
+    "slack": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access"
+    ],
+    "signal": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access"
+    ],
+    "imessage": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access"
+    ],
+    "whatsapp": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access"
+    ],
+    "matrix": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access"
+    ],
+    "channel-routing": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access"
+    ],
+    "agent-access": [
+      "domains/tools-and-platforms/multi-channel-ai-agent-access"
     ],
     "python": [
       "domains/tools-and-platforms/notebooklm-py-cli",
@@ -6149,16 +6891,7 @@
     "ecosystem": [
       "domains/tools-and-platforms/obsidian-skills-ecosystem"
     ],
-    "openarms": [
-      "domains/tools-and-platforms/openarms"
-    ],
-    "ai-assistant": [
-      "domains/tools-and-platforms/openarms"
-    ],
     "plugin-sdk": [
-      "domains/tools-and-platforms/openarms"
-    ],
-    "multi-channel": [
       "domains/tools-and-platforms/openarms"
     ],
     "sandbox": [
@@ -6192,17 +6925,6 @@
     "pm-agent": [
       "domains/tools-and-platforms/plane"
     ],
-    "planning": [
-      "lessons/always-plan-before-executing",
-      "lessons/lesson-convergence-on-claude-code-best-practices",
-      "sources/src-superpowers-end-of-vibe-coding"
-    ],
-    "agent-behavior": [
-      "lessons/always-plan-before-executing"
-    ],
-    "rework-prevention": [
-      "lessons/always-plan-before-executing"
-    ],
     "accuracy": [
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "lessons/lesson-convergence-on-claude-code-best-practices",
@@ -6230,9 +6952,6 @@
     "relationships": [
       "lessons/lesson-convergence-on-llm-wiki-pattern"
     ],
-    "quality-gates": [
-      "lessons/lesson-convergence-on-llm-wiki-pattern"
-    ],
     "knowledge-infrastructure": [
       "lessons/lesson-convergence-on-obsidian-knowledge-vault"
     ],
@@ -6244,9 +6963,6 @@
     ],
     "deepening": [
       "lessons/lesson-convergence-on-wiki-ingestion-pipeline"
-    ],
-    "deferred-loading": [
-      "patterns/context-aware-tool-loading"
     ],
     "tool-design": [
       "patterns/context-aware-tool-loading"
@@ -6262,9 +6978,6 @@
     "context7": [
       "patterns/context-aware-tool-loading",
       "sources/src-claude-code-accuracy-tips"
-    ],
-    "plan-execute-review": [
-      "patterns/plan-execute-review-cycle"
     ],
     "agent-workflow": [
       "patterns/plan-execute-review-cycle"
@@ -6413,9 +7126,6 @@
     "ai-models": [
       "spine/domain-overviews/ai-models-\u2014-domain-overview"
     ],
-    "knowledge-systems": [
-      "spine/domain-overviews/knowledge-systems-\u2014-domain-overview"
-    ],
     "tools-and-platforms": [
       "spine/domain-overviews/tools-and-platforms-\u2014-domain-overview"
     ]
@@ -6441,13 +7151,6 @@
         "Devops \u2014 Domain Overview",
         "Knowledge Systems \u2014 Domain Overview",
         "Tools And Platforms \u2014 Domain Overview"
-      ]
-    },
-    {
-      "target": "Agent Orchestration Patterns",
-      "referenced_by": [
-        "Always Plan Before Executing",
-        "Plan Execute Review Cycle"
       ]
     },
     {
@@ -6482,12 +7185,6 @@
       ]
     },
     {
-      "target": "Knowledge Evolution Pipeline",
-      "referenced_by": [
-        "Second Brain Architecture"
-      ]
-    },
-    {
       "target": "Knowledge Systems",
       "referenced_by": [
         "AI Agents \u2014 Domain Overview",
@@ -6499,21 +7196,9 @@
       ]
     },
     {
-      "target": "Multi-Channel AI Agent Access",
-      "referenced_by": [
-        "OpenArms"
-      ]
-    },
-    {
       "target": "PARA methodology",
       "referenced_by": [
         "Second Brain Architecture"
-      ]
-    },
-    {
-      "target": "Rework Prevention",
-      "referenced_by": [
-        "Always Plan Before Executing"
       ]
     },
     {
