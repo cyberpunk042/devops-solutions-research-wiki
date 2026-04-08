@@ -103,3 +103,5 @@ The emerging practitioner consensus captured across multiple independent sources
 [[Claude Code Context Management]]
 [[Claude Code Skills]]
 [[default assumption that MCP is the standard tool integration pattern]]
+[[Context Management Is the Primary LLM Productivity Lever]]
+[[Skills Architecture Is the Dominant LLM Extension Pattern]]
