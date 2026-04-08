@@ -281,17 +281,16 @@ def watch_sync(config: Dict[str, Any], interval: int = 15,
 
             synced = False
 
-            # Source changed → sync to target
+            # Source changed → sync to target (including first run)
             if source_fp != last_source_fp:
-                if last_source_fp is not None:  # Skip first run detection
-                    ts = datetime.now().strftime("%H:%M:%S")
-                    print(f"  [{ts}] Source changed — syncing to target...")
-                    result = run_sync(config, reverse=False, verbose=False)
-                    if result["ok"]:
-                        print(f"  [{ts}] Synced ({result.get('files_changed', '?')} files)")
-                    else:
-                        print(f"  [{ts}] Sync failed: {result.get('error', 'unknown')}")
-                    synced = True
+                ts = datetime.now().strftime("%H:%M:%S")
+                print(f"  [{ts}] Source changed — syncing to target...")
+                result = run_sync(config, reverse=False, verbose=False)
+                if result["ok"]:
+                    print(f"  [{ts}] Synced ({result.get('files_changed', '?')} files)")
+                else:
+                    print(f"  [{ts}] Sync failed: {result.get('error', 'unknown')}")
+                synced = True
                 last_source_fp = source_fp
 
             # Target changed → sync back to source (bidirectional)
