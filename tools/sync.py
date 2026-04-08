@@ -113,8 +113,8 @@ def get_sync_config(project_root: Path, target_override: str = None) -> Dict[str
 # ---------------------------------------------------------------------------
 
 def sync_rsync(source: str, target: str, reverse: bool = False,
-               delete: bool = True, verbose: bool = True) -> Dict[str, Any]:
-    """Sync using rsync."""
+               delete: bool = False, verbose: bool = True) -> Dict[str, Any]:
+    """Sync using rsync. Uses --update (newer wins) by default, not --delete."""
     if reverse:
         source, target = target, source
 
@@ -122,7 +122,7 @@ def sync_rsync(source: str, target: str, reverse: bool = False,
     src = source.rstrip("/") + "/"
     dst = target.rstrip("/") + "/"
 
-    cmd = ["rsync", "-a"]
+    cmd = ["rsync", "-a", "--update"]
     if verbose:
         cmd.append("-v")
     if delete:
@@ -274,6 +274,23 @@ def watch_sync(config: Dict[str, Any], interval: int = 15,
     last_source_fp = None
     last_target_fp = None
 
+    # Initial sync: reverse first (pick up Windows changes), then forward
+    if Path(target).exists():
+        ts = datetime.now().strftime("%H:%M:%S")
+        print(f"  [{ts}] Initial reverse sync (target → source)...")
+        result = run_sync(config, reverse=True, verbose=False)
+        if result["ok"]:
+            print(f"  [{ts}] Reverse synced ({result.get('files_changed', '?')} files)")
+    ts = datetime.now().strftime("%H:%M:%S")
+    print(f"  [{ts}] Initial forward sync (source → target)...")
+    result = run_sync(config, reverse=False, verbose=False)
+    if result["ok"]:
+        print(f"  [{ts}] Forward synced ({result.get('files_changed', '?')} files)")
+    save_sync_state(Path(source).parent, result)
+
+    last_source_fp = dir_fingerprint(source)
+    last_target_fp = dir_fingerprint(target) if Path(target).exists() else None
+
     try:
         while True:
             source_fp = dir_fingerprint(source)
@@ -281,7 +298,7 @@ def watch_sync(config: Dict[str, Any], interval: int = 15,
 
             synced = False
 
-            # Source changed → sync to target (including first run)
+            # Source changed → sync to target
             if source_fp != last_source_fp:
                 ts = datetime.now().strftime("%H:%M:%S")
                 print(f"  [{ts}] Source changed — syncing to target...")
