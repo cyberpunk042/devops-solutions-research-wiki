@@ -71,3 +71,5 @@ The "bypass permissions mode" for low-risk tasks is a trust calibration mechanis
 [[claude-code-skills]]
 [[ai-driven-content-pipeline]]
 [[notebooklm]]
+[[Claude Code Skills]]
+[[Wiki Event-Driven Automation]]

@@ -12,7 +12,19 @@ sources:
     file: raw/transcripts/karpathy-claude-code-10x.txt
     title: "Andrej Karpathy Just 10x'd Everyone's Claude Code"
     ingested: 2026-04-08
-tags: [llm-wiki, rag, semantic-search, vector-database, comparison, knowledge-retrieval]
+  - id: src-karpathy-llm-wiki-idea-file
+    type: documentation
+    url: "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f"
+    file: raw/articles/karpathy-llm-wiki-idea-file.md
+    title: "Karpathy LLM Wiki Idea File"
+    ingested: 2026-04-08
+  - id: src-llm-wiki-v2-agentmemory
+    type: documentation
+    url: "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2"
+    file: raw/articles/llm-wiki-v2-extending-karpathys-llm-wiki-pattern-with-lessons-from-building-agen.md
+    title: "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory"
+    ingested: 2026-04-08
+tags: [llm-wiki, rag, semantic-search, vector-database, comparison, knowledge-retrieval, hybrid-search, knowledge-graph]
 ---
 
 # LLM Wiki vs RAG
@@ -43,23 +55,41 @@ However, the wiki approach has a fundamental context window constraint. As the n
 
 A hybrid approach is implied but not explicitly discussed: you could use the wiki pattern for curated, high-value knowledge and RAG for bulk document retrieval, with the LLM deciding which system to query based on the nature of the question.
 
+### Karpathy's Primary Source Framing
+
+Karpathy's actual idea file provides the clearest articulation of the distinction: "Most people's experience with LLMs and documents looks like RAG: you upload a collection of files, the LLM retrieves relevant chunks at query time, and generates an answer. This works, but the LLM is rediscovering knowledge from scratch on every question. There's no accumulation." He explicitly names NotebookLM, ChatGPT file uploads, and "most RAG systems" as examples of the retrieve-and-forget pattern. The wiki alternative is described as "compiled once and then kept current, not re-derived on every query."
+
+### LLM Wiki v2: Hybrid Search as the Bridge
+
+The LLM Wiki v2 document proposes that the binary choice between wiki and RAG is a false dichotomy at scale. It recommends a three-stream hybrid search that combines BM25 (keyword matching), vector search (semantic similarity), and graph traversal (relationship walking), fused with reciprocal rank fusion. This effectively embeds RAG-style vector search as one component of the wiki's search mechanism, using it alongside -- rather than instead of -- the structural navigation that makes the wiki pattern powerful. The index.md approach remains useful as a human-readable catalog but is no longer relied upon as the LLM's primary search mechanism past ~100-200 pages.
+
 ## Open Questions
 
-- Is there a hybrid architecture that combines wiki-style relationship navigation with vector search for initial retrieval?
+- The LLM Wiki v2 proposes hybrid search -- but has it been validated empirically against pure RAG at the 200-1000 page range?
 - How does the wiki approach handle cases where the user's query does not map cleanly to any index entry?
 - Could the wiki index itself be embedded and searched via vectors as a first pass, with link-following as a second pass?
 - At what scale does the token cost of wiki navigation exceed the infrastructure cost of maintaining a RAG pipeline?
 - How do newer approaches like LightRAG or GraphRAG compare to the LLM Wiki pattern?
+- Karpathy mentions qmd (hybrid BM25/vector search with LLM re-ranking) as a scaling tool -- how does this compare to the v2 document's three-stream hybrid search proposal?
 
 ## Relationships
 
 - DERIVED FROM: src-karpathy-claude-code-10x
+- DERIVED FROM: src-karpathy-llm-wiki-idea-file
+- DERIVED FROM: src-llm-wiki-v2-agentmemory
 - COMPARES TO: LLM Wiki Pattern
 - RELATES TO: Wiki Ingestion Pipeline
+- RELATES TO: Wiki Knowledge Graph
 
 ## Backlinks
 
 [[src-karpathy-claude-code-10x]]
+[[src-karpathy-llm-wiki-idea-file]]
+[[src-llm-wiki-v2-agentmemory]]
 [[LLM Wiki Pattern]]
 [[Wiki Ingestion Pipeline]]
+[[Wiki Knowledge Graph]]
+[[Memory Lifecycle Management]]
 [[Synthesis: Karpathy LLM Wiki Method via Claude Code]]
+[[Synthesis: Karpathy's LLM Wiki Idea File]]
+[[Synthesis: LLM Wiki v2 -- Extending Karpathy's Pattern with Agentmemory Lessons]]

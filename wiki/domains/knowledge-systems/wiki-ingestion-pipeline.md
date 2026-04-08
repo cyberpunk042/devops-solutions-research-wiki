@@ -12,7 +12,19 @@ sources:
     file: raw/transcripts/karpathy-claude-code-10x.txt
     title: "Andrej Karpathy Just 10x'd Everyone's Claude Code"
     ingested: 2026-04-08
-tags: [ingestion, pipeline, claude-code, wiki, markdown, data-processing, workflow]
+  - id: src-karpathy-llm-wiki-idea-file
+    type: documentation
+    url: "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f"
+    file: raw/articles/karpathy-llm-wiki-idea-file.md
+    title: "Karpathy LLM Wiki Idea File"
+    ingested: 2026-04-08
+  - id: src-llm-wiki-v2-agentmemory
+    type: documentation
+    url: "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2"
+    file: raw/articles/llm-wiki-v2-extending-karpathys-llm-wiki-pattern-with-lessons-from-building-agen.md
+    title: "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory"
+    ingested: 2026-04-08
+tags: [ingestion, pipeline, claude-code, wiki, markdown, data-processing, workflow, entity-extraction, event-driven]
 ---
 
 # Wiki Ingestion Pipeline
@@ -31,6 +43,10 @@ The wiki ingestion pipeline is the workflow by which raw source documents are tr
 - **Automatic relationship discovery**: Claude Code does not just summarize — it identifies entities, concepts, and their relationships, then creates explicit interlinks between pages. The human does no manual relationship building.
 - **Index and log maintenance**: Every ingestion operation updates the master index (adding new entries for tools, techniques, concepts, people, comparisons) and appends to the log (operation history for auditability).
 - **Project context matters**: Telling Claude Code the purpose of the vault (research project vs. personal second brain vs. YouTube archive) changes how it structures and categorizes the output.
+- **Interactive vs. batch modes (from primary source)**: Karpathy describes two ingestion styles: interactive ("I prefer to ingest sources one at a time and stay involved — I read the summaries, check the updates, and guide the LLM on what to emphasize") and batch ("you could also batch-ingest many sources at once with less supervision"). The right workflow depends on user preference and is documented in the schema.
+- **Entity extraction during ingestion (from v2)**: The LLM Wiki v2 document argues that ingestion should go beyond prose summaries to extract structured entities (people, projects, libraries, concepts) with typed attributes and relationships. This enables graph-based queries that catch connections prose summaries miss.
+- **Event-driven auto-ingestion (from v2)**: Rather than requiring the user to manually trigger ingestion, a "new source" event hook should auto-ingest, extract entities, update the graph, and update the index. The human remains in the loop for curation but is freed from remembering to trigger processing.
+- **Privacy filtering on ingest (from v2)**: Before anything reaches the wiki, sensitive data (API keys, tokens, passwords, PII) should be automatically stripped. This should be a standard ingestion step, not something the user remembers to do manually.
 
 ## Deep Analysis
 
@@ -55,15 +71,28 @@ A key architectural decision is that the raw source is preserved in the `raw/` f
 ## Relationships
 
 - DERIVED FROM: src-karpathy-claude-code-10x
+- DERIVED FROM: src-karpathy-llm-wiki-idea-file
+- DERIVED FROM: src-llm-wiki-v2-agentmemory
 - IMPLEMENTS: LLM Wiki Pattern
 - USED BY: Obsidian Knowledge Vault
 - FEEDS INTO: LLM Knowledge Linting
+- FEEDS INTO: Wiki Knowledge Graph
+- RELATES TO: Wiki Event-Driven Automation
 
 ## Backlinks
 
 [[src-karpathy-claude-code-10x]]
+[[src-karpathy-llm-wiki-idea-file]]
+[[src-llm-wiki-v2-agentmemory]]
 [[LLM Wiki Pattern]]
 [[Obsidian Knowledge Vault]]
 [[LLM Knowledge Linting]]
+[[Wiki Knowledge Graph]]
+[[Wiki Event-Driven Automation]]
+[[Claude Code Best Practices]]
 [[LLM Wiki vs RAG]]
+[[Memory Lifecycle Management]]
 [[Synthesis: Karpathy LLM Wiki Method via Claude Code]]
+[[Synthesis: Karpathy's LLM Wiki Idea File]]
+[[Synthesis: LLM Wiki v2 -- Extending Karpathy's Pattern with Agentmemory Lessons]]
+[[Synthesis: Obsidian + Claude Code Second Brain Setup]]

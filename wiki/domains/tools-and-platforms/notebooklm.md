@@ -61,6 +61,7 @@ The breadth of output formats — from visual (slides, mind maps, infographics) 
 - USED BY: ai-driven-content-pipeline
 - ENABLES: claude-code-skills
 - RELATES TO: claude-code-scheduling
+- ENABLES: NotebookLM Skills
 
 ## Backlinks
 
@@ -68,3 +69,7 @@ The breadth of output formats — from visual (slides, mind maps, infographics) 
 [[ai-driven-content-pipeline]]
 [[claude-code-skills]]
 [[claude-code-scheduling]]
+[[NotebookLM Skills]]
+[[Claude Code Skills]]
+[[Synthesis: PleasePrompto/notebooklm-skill]]
+[[Synthesis: claude-world/notebooklm-skill]]

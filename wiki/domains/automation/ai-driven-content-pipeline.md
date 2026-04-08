@@ -75,3 +75,6 @@ A key architectural observation is that the pipeline's reliability depends on th
 [[claude-code-skills]]
 [[claude-code-scheduling]]
 [[Agent-as-orchestrator pattern where Claude Code coordinates specialized tools rather than generating content directly]]
+[[Claude Code Skills]]
+[[Synthesis: Obsidian + Claude Code Second Brain Setup]]
+[[Wiki Event-Driven Automation]]
