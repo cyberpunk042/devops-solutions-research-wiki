@@ -1011,7 +1011,7 @@ def run_chain(chain_name: str, project_root: Path, inputs: List[str] = None,
 
         elif step_name == "evolve-score":
             from tools.evolve import evolve as run_evolve
-            step_result = run_evolve(project_root, mode="scaffold", top=5, verbose=verbose)
+            step_result = run_evolve(project_root, mode="score", top=10, verbose=verbose)
             results["steps"]["evolve-score"] = step_result
 
         elif step_name == "evolve-auto":
