@@ -228,3 +228,11 @@ def rebuild_domain_index(domain_dir: Path, domain_name: str, description: str) -
         lines.append("<!-- Tag cloud generated during ingestion -->")
 
     return "\n".join(lines) + "\n"
+
+
+def rebuild_layer_index(layer_dir: Path, layer_name: str, description: str) -> str:
+    """Rebuild a layer _index.md (lessons/, patterns/, decisions/, spine/).
+
+    Same logic as rebuild_domain_index but for non-domain directories.
+    """
+    return rebuild_domain_index(layer_dir, layer_name, description)

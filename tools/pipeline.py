@@ -753,6 +753,61 @@ def run_sync_step(project_root: Path, verbose: bool = True) -> Dict[str, Any]:
 
 
 # ---------------------------------------------------------------------------
+# Scaffold command
+# ---------------------------------------------------------------------------
+
+def scaffold_page(page_type: str, title: str, project_root: Path,
+                  domain: str = None, derived_from: List[str] = None,
+                  verbose: bool = True) -> Dict[str, Any]:
+    """Create a new page from template. Returns {ok, path, error}."""
+    template_dir = project_root / "config" / "templates"
+    template_path = template_dir / f"{page_type}.md"
+
+    if not template_path.exists():
+        return {"ok": False, "error": f"No template for type: {page_type}"}
+
+    template = template_path.read_text(encoding="utf-8")
+    today = datetime.now().strftime("%Y-%m-%d")
+    slug = title.lower().replace(" ", "-").replace(":", "")[:80].strip("-")
+
+    # Determine output directory
+    type_dirs = {
+        "lesson": "wiki/lessons",
+        "pattern": "wiki/patterns",
+        "decision": "wiki/decisions",
+        "domain-overview": "wiki/spine/domain-overviews",
+        "learning-path": "wiki/spine/learning-paths",
+        "evolution": "wiki/spine/evolution-log",
+    }
+    out_dir = project_root / type_dirs.get(page_type, "wiki")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"{slug}.md"
+
+    if out_path.exists():
+        return {"ok": False, "error": f"Page already exists: {out_path.relative_to(project_root)}"}
+
+    # Fill template placeholders
+    content = template
+    content = content.replace("{{title}}", title)
+    content = content.replace("{{date}}", today)
+    content = content.replace("{{domain}}", domain or "cross-domain")
+    content = content.replace("{{domain_name}}", (domain or "cross-domain").replace("-", " ").title())
+    content = content.replace("{{concept}}", title)
+
+    if derived_from:
+        content = content.replace("{{derived_page_1}}", derived_from[0])
+        if len(derived_from) > 1:
+            content = content.replace("{{derived_page_2}}", derived_from[1])
+
+    out_path.write_text(content, encoding="utf-8")
+
+    if verbose:
+        print(f"  Scaffolded: {out_path.relative_to(project_root)}")
+
+    return {"ok": True, "path": str(out_path.relative_to(project_root))}
+
+
+# ---------------------------------------------------------------------------
 # Named chains (predefined pipeline sequences)
 # ---------------------------------------------------------------------------
 
@@ -800,6 +855,16 @@ CHAINS: Dict[str, Dict[str, Any]] = {
     "deep": {
         "description": "Gaps → crossref → mirror → sync (full analysis + integration)",
         "steps": ["gaps", "crossref", "mirror", "post", "sync"],
+        "needs_input": False,
+    },
+    "evolve": {
+        "description": "Gaps → scaffold lesson candidates → post-chain",
+        "steps": ["gaps", "post"],
+        "needs_input": False,
+    },
+    "spine-refresh": {
+        "description": "Rebuild domain overviews → post-chain",
+        "steps": ["post"],
         "needs_input": False,
     },
 }
@@ -960,7 +1025,8 @@ Commands:
     )
     parser.add_argument("command",
                         choices=["post", "fetch", "scan", "status", "run",
-                                 "chain", "gaps", "crossref", "integrations"],
+                                 "chain", "gaps", "crossref", "integrations",
+                                 "scaffold"],
                         help="Pipeline command")
     parser.add_argument("args", nargs="*", help="Command arguments (URLs, paths, chain name, etc.)")
     parser.add_argument("--batch", help="File containing URLs (one per line)")
@@ -1117,6 +1183,23 @@ Commands:
                 installed = "YES" if info["installed"] else "NO"
                 responsive = "YES" if info["responsive"] else "NO"
                 print(f"  {name:15s}  installed={installed:3s}  responsive={responsive:3s}  {info['note']}")
+        sys.exit(0)
+
+    elif args.command == "scaffold":
+        if len(args.args) < 2:
+            print("Usage: pipeline scaffold <type> <title> [--topic DOMAIN] [--batch DERIVED1,DERIVED2]")
+            sys.exit(1)
+        page_type = args.args[0]
+        title = " ".join(args.args[1:])
+        derived = args.batch.split(",") if args.batch else None
+        result = scaffold_page(page_type, title, root,
+                               domain=args.topic, derived_from=derived,
+                               verbose=verbose)
+        if args.json:
+            print(json.dumps(result, indent=2))
+        if not result["ok"]:
+            print(f"ERROR: {result['error']}")
+            sys.exit(1)
         sys.exit(0)
 
 

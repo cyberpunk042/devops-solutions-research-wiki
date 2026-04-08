@@ -77,12 +77,24 @@ def build_stats(wiki_dir: Path) -> Dict[str, Any]:
             "gap_score": round(gap_score, 3),
         }
 
+    by_layer = Counter()
+    by_maturity = Counter()
+    for p in pages:
+        layer = p.get("layer")
+        if layer is not None:
+            by_layer[str(layer)] += 1
+        mat = p.get("maturity")
+        if mat:
+            by_maturity[mat] += 1
+
     return {
         "total_pages": len(pages),
         "by_type": dict(by_type),
         "by_domain": dict(by_domain),
         "by_status": dict(by_status),
         "by_confidence": dict(by_confidence),
+        "by_layer": dict(by_layer),
+        "by_maturity": dict(by_maturity),
         "relationship_density": {
             "average_per_page": round(avg_rels, 1),
             "most_connected": rel_counts[:5] if rel_counts else [],
@@ -121,6 +133,10 @@ def main():
         print(f"\nTop tags: {stats['tag_cloud'][:10]}")
         print(f"\nFreshness: {json.dumps(stats['freshness'], indent=2)}")
         print(f"\nOrphaned refs: {stats['orphaned_refs_total']}")
+        if stats["by_layer"]:
+            print(f"\nBy layer: {json.dumps(stats['by_layer'], indent=2)}")
+        if stats["by_maturity"]:
+            print(f"\nBy maturity: {json.dumps(stats['by_maturity'], indent=2)}")
         print(f"\nDomain gaps:")
         for d, g in stats["domain_gaps"].items():
             print(f"  {d}: {g['pages']} pages, gap score {g['gap_score']}")
