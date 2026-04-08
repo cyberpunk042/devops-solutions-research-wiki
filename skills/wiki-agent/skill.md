@@ -43,13 +43,9 @@ Quality gates (every page):
 - title matches # Heading, domain matches folder
 
 Post-ingestion (every time):
-1. Update affected _index.md files
-2. Run: python3 tools/manifest.py
-3. Run: python3 tools/validate.py
-4. Run: python3 tools/obsidian.py
-5. Flag stale pages needing review
-6. Report summary: sources processed, pages created/updated, domains affected,
-   relationships added, any warnings
+Run: `python3 -m tools.pipeline post`
+This handles all steps automatically: rebuild indexes, manifest, validate,
+wikilinks, lint, and reports summary.
 
 ### Query
 

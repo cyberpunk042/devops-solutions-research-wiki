@@ -84,13 +84,14 @@ Every page must have:
 
 ## Post-Ingestion
 
-After every ingestion:
-1. Update affected _index.md files
-2. Regenerate manifest.json via tools/manifest.py
-3. Run tools/validate.py — errors block completion
-4. Flag stale pages affected by new information
-5. Regenerate wikilinks via tools/obsidian.py
-6. Report summary of changes
+After every ingestion, run: `python3 -m tools.pipeline post`
+
+This executes all 5 steps automatically:
+1. Rebuild affected _index.md files
+2. Regenerate manifest.json
+3. Validate all pages — errors block completion
+4. Regenerate wikilinks via obsidian.py
+5. Run lint checks and report summary
 
 ## Integration
 
@@ -104,15 +105,51 @@ Export transforms YAML frontmatter to markdown headers for compatibility.
 
 ## Tooling
 
-- `python3 tools/validate.py` — Schema validation (exit 0 = clean, 1 = errors)
-- `python3 tools/manifest.py` — Regenerate wiki/manifest.json
-- `python3 tools/lint.py [--report|--summary|--fix]` — Health checks
-- `python3 tools/export.py [openfleet|aicp]` — Export for sister projects
-- `python3 tools/stats.py [--json]` — Coverage & growth reporting
-- `python3 tools/obsidian.py` — Regenerate [[wikilinks]] for Obsidian graph view
-- `python3 tools/ingest.py URL [URL...]` — Fetch URLs (YouTube, GitHub, web) into raw/
-- `python3 tools/ingest.py --batch file.txt` — Batch ingest from URL list
-- `python3 tools/ingest.py --list-raw` — List unprocessed raw files
+### Pipeline (primary entry point)
+
+- `python3 -m tools.pipeline post` — Run full post-ingestion chain (index → manifest → validate → obsidian → lint)
+- `python3 -m tools.pipeline fetch URL [URL...]` — Fetch URLs into raw/
+- `python3 -m tools.pipeline fetch --batch file.txt` — Batch fetch from URL list
+- `python3 -m tools.pipeline fetch --topic "query"` — Queue a research topic
+- `python3 -m tools.pipeline scan ../project/` — Scan local project, copy key docs to raw/
+- `python3 -m tools.pipeline status` — Show raw files and wiki stats
+- `python3 -m tools.pipeline run URL [URL...]` — Parallel fetch + post-chain in one command
+- `python3 -m tools.pipeline gaps` — Gap analysis (orphans, thin pages, weak domains, open questions)
+- `python3 -m tools.pipeline crossref` — Cross-reference analysis (missing backlinks, domain bridges, comparison candidates)
+- `python3 -m tools.pipeline chain <name>` — Run a named chain (ingest, ingest-local, analyze, full, health)
+- `python3 -m tools.pipeline chain --list` — List available chains
+
+### Sync (WSL ↔ Windows)
+
+- `python -m tools.sync` — One-shot sync wiki/ to Windows for Obsidian
+- `python -m tools.sync --watch` — Watch daemon, auto-syncs on changes (bidirectional)
+- `python -m tools.sync --watch --interval 10` — Custom watch interval
+- `python -m tools.sync --reverse` — Sync from Windows back to WSL
+- `python -m tools.sync --status` — Show sync config and last sync
+- `python -m tools.sync --target /path` — Override target path
+- Env: `WIKI_SYNC_TARGET` to override default, `WIN_USER` for Windows username
+
+### Individual tools
+
+- `python3 -m tools.validate` — Schema validation (exit 0 = clean, 1 = errors)
+- `python3 -m tools.manifest -o wiki/manifest.json` — Regenerate manifest
+- `python3 -m tools.lint [--report|--summary|--fix]` — Health checks
+- `python3 -m tools.export [openfleet|aicp]` — Export for sister projects
+- `python3 -m tools.stats [--json]` — Coverage & growth reporting
+- `python3 -m tools.obsidian` — Regenerate [[wikilinks]] for Obsidian graph view
+- `python3 -m tools.ingest URL [URL...]` — Fetch URLs (YouTube, GitHub, web) into raw/
+- `python3 -m tools.ingest --list-raw` — List unprocessed raw files
+
+## Setup
+
+Cross-platform (Linux, macOS, Windows):
+
+    python -m tools.setup              # Full setup (check + deps + obsidian config)
+    python -m tools.setup --check      # Check environment
+    python -m tools.setup --deps       # Install dependencies via uv + Python 3.11 venv
+    python -m tools.setup --obsidian-config  # Configure Obsidian vault
+
+Requires uv (https://docs.astral.sh/uv/). All tools run via `.venv/bin/python -m tools.<name>`.
 
 ## Conventions
 
