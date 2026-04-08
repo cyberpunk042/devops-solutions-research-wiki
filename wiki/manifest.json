@@ -1,21 +1,21 @@
 {
-  "generated": "2026-04-08T17:56:02.672775+00:00",
+  "generated": "2026-04-08T18:04:20.430066+00:00",
   "stats": {
-    "pages": 69,
+    "pages": 70,
     "domains": 7,
     "sources": 20,
     "comparisons": 3,
-    "relationships": 519,
-    "tags_unique": 266,
+    "relationships": 531,
+    "tags_unique": 269,
     "layers": {
       "6": 1,
       "4": 7,
-      "5": 1,
+      "5": 2,
       "spine": 7
     },
     "maturity": {
       "seed": 11,
-      "growing": 5
+      "growing": 6
     }
   },
   "pages": [
@@ -3333,6 +3333,109 @@
       ]
     },
     {
+      "path": "patterns/context-aware-tool-loading.md",
+      "slug": "patterns/context-aware-tool-loading",
+      "title": "Context-Aware Tool Loading",
+      "type": "pattern",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "context-management",
+        "token-efficiency",
+        "deferred-loading",
+        "skills",
+        "mcp",
+        "cli",
+        "tool-design",
+        "agent-architecture",
+        "accuracy",
+        "notebooklm",
+        "playwright",
+        "context7"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-code-accuracy-tips",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
+          "title": "Claude Code Works Better When You Do This"
+        },
+        {
+          "id": "src-playwright-cli-vs-mcp",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=nN5R9DFYsXY",
+          "title": "Claude Code + Playwright CLI: Automate QA with Less Tokens"
+        },
+        {
+          "id": "src-notebooklm-claude-code-workflow",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=fV17ZkPBlAc",
+          "title": "This NotebookLM + Claude Code Workflow Is Insane"
+        }
+      ],
+      "layer": 5,
+      "maturity": "growing",
+      "derived_from": [
+        "Synthesis: Claude Code Accuracy Tips",
+        "Synthesis: Playwright CLI vs MCP \u2014 Automate QA with Less Tokens",
+        "CLI Tools Beat MCP for Token Efficiency",
+        "Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Synthesis: Claude Code Accuracy Tips"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Synthesis: Playwright CLI vs MCP \u2014 Automate QA with Less Tokens"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "CLI Tools Beat MCP for Token Efficiency"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "CLI Tools Beat MCP for Token Efficiency"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "MCP Integration Architecture"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "CONTRADICTS",
+          "target": "default assumption that registering all MCP tools at startup is cost-free"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Research Pipeline Orchestration"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Wiki Ingestion Pipeline"
+        }
+      ]
+    },
+    {
       "path": "patterns/plan-execute-review-cycle.md",
       "slug": "patterns/plan-execute-review-cycle",
       "title": "Plan Execute Review Cycle",
@@ -4946,8 +5049,8 @@
       "relationship_count": 113
     },
     "ai-agents": {
-      "page_count": 22,
-      "relationship_count": 181
+      "page_count": 23,
+      "relationship_count": 193
     },
     "ai-models": {
       "page_count": 3,
@@ -5010,6 +5113,7 @@
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "lessons/lesson-convergence-on-claude-code-skills",
+      "patterns/context-aware-tool-loading",
       "sources/src-axton-obsidian-visual-skills",
       "sources/src-claude-notebooklm-content-team",
       "sources/src-kepano-obsidian-skills",
@@ -5082,6 +5186,7 @@
       "domains/tools-and-platforms/notebooklm-py-cli",
       "domains/tools-and-platforms/notebooklm-skills",
       "domains/tools-and-platforms/notebooklm",
+      "patterns/context-aware-tool-loading",
       "sources/src-claude-code-accuracy-tips",
       "sources/src-claude-notebooklm-content-team",
       "sources/src-claude-world-notebooklm-skill",
@@ -5104,6 +5209,7 @@
       "domains/knowledge-systems/lightrag",
       "domains/tools-and-platforms/notebooklm-skills",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
+      "patterns/context-aware-tool-loading",
       "sources/src-claude-world-notebooklm-skill",
       "sources/src-playwright-cli-vs-mcp",
       "sources/src-playwright-mcp-visual-testing"
@@ -5114,6 +5220,7 @@
       "domains/tools-and-platforms/obsidian-cli",
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
+      "patterns/context-aware-tool-loading",
       "sources/src-notebooklm-claude-code-workflow",
       "sources/src-pablo-mano-obsidian-cli-skill",
       "sources/src-playwright-cli-vs-mcp"
@@ -5125,6 +5232,7 @@
     "token-efficiency": [
       "decisions/mcp-vs-cli-for-tool-integration",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
+      "patterns/context-aware-tool-loading",
       "sources/src-playwright-cli-vs-mcp"
     ],
     "integration-pattern": [
@@ -5135,6 +5243,7 @@
       "domains/ai-agents/claude-code",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "lessons/lesson-convergence-on-claude-code-best-practices",
+      "patterns/context-aware-tool-loading",
       "sources/src-claude-code-accuracy-tips",
       "sources/src-playwright-cli-vs-mcp"
     ],
@@ -5823,6 +5932,7 @@
     "accuracy": [
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "lessons/lesson-convergence-on-claude-code-best-practices",
+      "patterns/context-aware-tool-loading",
       "sources/src-claude-code-accuracy-tips"
     ],
     "agent-design": [
@@ -5864,6 +5974,24 @@
     "deepening": [
       "lessons/lesson-convergence-on-wiki-ingestion-pipeline"
     ],
+    "deferred-loading": [
+      "patterns/context-aware-tool-loading"
+    ],
+    "tool-design": [
+      "patterns/context-aware-tool-loading"
+    ],
+    "agent-architecture": [
+      "patterns/context-aware-tool-loading"
+    ],
+    "playwright": [
+      "patterns/context-aware-tool-loading",
+      "sources/src-playwright-cli-vs-mcp",
+      "sources/src-playwright-mcp-visual-testing"
+    ],
+    "context7": [
+      "patterns/context-aware-tool-loading",
+      "sources/src-claude-code-accuracy-tips"
+    ],
     "plan-execute-review": [
       "patterns/plan-execute-review-cycle"
     ],
@@ -5892,9 +6020,6 @@
     "agent-teams": [
       "sources/src-claude-code-accuracy-tips",
       "sources/src-harness-engineering"
-    ],
-    "context7": [
-      "sources/src-claude-code-accuracy-tips"
     ],
     "cli-over-mcp": [
       "sources/src-claude-code-accuracy-tips"
@@ -5950,10 +6075,6 @@
     ],
     "copilot": [
       "sources/src-pablo-mano-obsidian-cli-skill"
-    ],
-    "playwright": [
-      "sources/src-playwright-cli-vs-mcp",
-      "sources/src-playwright-mcp-visual-testing"
     ],
     "qa-automation": [
       "sources/src-playwright-cli-vs-mcp"
@@ -6139,6 +6260,12 @@
       "target": "default assumption that MCP is the standard tool integration pattern",
       "referenced_by": [
         "CLI Tools Beat MCP for Token Efficiency"
+      ]
+    },
+    {
+      "target": "default assumption that registering all MCP tools at startup is cost-free",
+      "referenced_by": [
+        "Context-Aware Tool Loading"
       ]
     },
     {

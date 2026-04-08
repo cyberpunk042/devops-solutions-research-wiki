@@ -64,5 +64,6 @@ A practitioner's guide to 7 techniques for improving Claude Code accuracy, prese
 [[CLI Tools Beat MCP for Token Efficiency]]
 [[Decision: MCP vs CLI for Tool Integration]]
 [[Context Management Is the Primary LLM Productivity Lever]]
+[[Context-Aware Tool Loading]]
 [[Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py]]
 [[Synthesis: Superpowers Plugin — End of Vibe Coding (Full Tutorial)]]

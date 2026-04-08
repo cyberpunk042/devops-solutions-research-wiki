@@ -121,6 +121,7 @@ The gap between current state and the vision:
 [[Obsidian CLI]]
 [[notebooklm-py CLI]]
 [[Always Plan Before Executing]]
+[[Context-Aware Tool Loading]]
 [[Decision: MCP vs CLI for Tool Integration]]
 [[Harness Engineering]]
 [[Multi-Stage Ingestion Beats Single-Pass Processing]]

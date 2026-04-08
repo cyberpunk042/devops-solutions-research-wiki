@@ -84,3 +84,4 @@ This architecture directly maps to the research wiki's own design goals. The wik
 [[Memory Lifecycle Management]]
 [[Research Pipeline Orchestration]]
 [[LLM Wiki vs RAG]]
+[[Context-Aware Tool Loading]]

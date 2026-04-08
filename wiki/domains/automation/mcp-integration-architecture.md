@@ -142,6 +142,7 @@ Tools:
 [[AICP]]
 [[Wiki Event-Driven Automation]]
 [[CLI Tools Beat MCP for Token Efficiency]]
+[[Context-Aware Tool Loading]]
 [[Decision: MCP vs CLI for Tool Integration]]
 [[Harness Engineering]]
 [[Plan Execute Review Cycle]]

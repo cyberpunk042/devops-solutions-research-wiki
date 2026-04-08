@@ -82,4 +82,5 @@ The skill file wraps the CLI by loading official Microsoft Playwright CLI docume
 [[Claude Code Context Management]]
 [[Synthesis: Claude Code Accuracy Tips]]
 [[Research Pipeline Orchestration]]
+[[Context-Aware Tool Loading]]
 [[Synthesis: Playwright MCP for Visual Development Testing]]

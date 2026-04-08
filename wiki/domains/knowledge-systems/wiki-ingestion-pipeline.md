@@ -101,6 +101,7 @@ A key architectural decision is that the raw source is preserved in the `raw/` f
 [[Claude Code Context Management]]
 [[Claude Code]]
 [[Claude Code Best Practices]]
+[[Context-Aware Tool Loading]]
 [[Decision: MCP vs CLI for Tool Integration]]
 [[LLM Wiki vs RAG]]
 [[LLM-Maintained Wikis Outperform Static Documentation]]

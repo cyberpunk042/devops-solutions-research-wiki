@@ -127,6 +127,7 @@ These extensions represent the maturation path from a personal tool to a product
 [[OpenFleet]]
 [[Claude Code]]
 [[Claude Code Best Practices]]
+[[Context-Aware Tool Loading]]
 [[LLM-Maintained Wikis Outperform Static Documentation]]
 [[Multi-Stage Ingestion Beats Single-Pass Processing]]
 [[NotebookLM Skills]]

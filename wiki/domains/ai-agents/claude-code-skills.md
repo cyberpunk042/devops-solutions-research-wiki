@@ -137,6 +137,7 @@ This suggests that Claude Code skills exist on a complexity spectrum: simple ski
 [[Always Plan Before Executing]]
 [[CLI Tools Beat MCP for Token Efficiency]]
 [[Context Management Is the Primary LLM Productivity Lever]]
+[[Context-Aware Tool Loading]]
 [[Decision: MCP vs CLI for Tool Integration]]
 [[Harness Engineering]]
 [[NotebookLM Skills]]
