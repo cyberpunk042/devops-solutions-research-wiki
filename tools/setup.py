@@ -301,18 +301,26 @@ def install_service(service_name: str, project_root: Path, target: str = None) -
     content = content.replace("{{venv_python}}", str(venv_python(project_root)))
 
     # Resolve sync target for wiki-sync service
+    resolved_target = None
     if "{{sync_target}}" in content:
         if target:
-            sync_target = target
+            resolved_target = target
         else:
             from tools.sync import get_sync_config
             sync_config = get_sync_config(project_root)
-            sync_target = sync_config.get("target", "")
-        if not sync_target:
+            resolved_target = sync_config.get("target", "")
+        if not resolved_target:
             log_error("No sync target. Use: setup.py --services wiki-sync --target /mnt/c/Users/You/path")
             return False
-        log_info(f"Sync target: {sync_target}")
-        content = content.replace("{{sync_target}}", sync_target)
+        log_info(f"Sync target: {resolved_target}")
+        content = content.replace("{{sync_target}}", resolved_target)
+
+    # Create sync target directory if needed
+    if resolved_target:
+        target_path = Path(resolved_target)
+        if not target_path.exists():
+            target_path.mkdir(parents=True, exist_ok=True)
+            log_info(f"Created target directory: {resolved_target}")
 
     systemd_dir = Path.home() / ".config" / "systemd" / "user"
     systemd_dir.mkdir(parents=True, exist_ok=True)
@@ -322,7 +330,8 @@ def install_service(service_name: str, project_root: Path, target: str = None) -
 
     subprocess.run(["systemctl", "--user", "daemon-reload"], check=True)
     subprocess.run(["systemctl", "--user", "enable", service_name], check=True)
-    subprocess.run(["systemctl", "--user", "start", service_name], check=True)
+    # restart (not start) in case service is already running with old config
+    subprocess.run(["systemctl", "--user", "restart", service_name], check=True)
 
     log_info(f"Service '{service_name}' installed and started")
     log_info(f"  Status:  systemctl --user status {service_name}")
