@@ -62,11 +62,25 @@ A key architectural decision is that the raw source is preserved in the `raw/` f
 
 ## Open Questions
 
-- Can the pipeline be run in fully non-interactive mode for automated ingestion (skipping the clarifying questions)?
-- How does the pipeline handle updates to a previously ingested source — does it diff and update, or re-create from scratch?
-- Is there a way to prioritize which raw documents to ingest next based on the wiki's current gaps?
-- How does ingestion quality vary across source types (structured PDF vs. rambling transcript vs. dense technical paper)?
-- Could the pipeline be triggered automatically when a new file appears in the `raw/` folder?
+- How does ingestion quality vary across source types (structured PDF vs. rambling transcript vs. dense technical paper)? (Requires: empirical benchmarking across source types; the `Rework Prevention` page notes that smart mode escalates for "low-quality source" cases, but no quantitative quality data across source types is documented in existing wiki pages)
+
+### Answered Open Questions
+
+**Q: Can the pipeline be run in fully non-interactive mode for automated ingestion (skipping the clarifying questions)?**
+
+Cross-referencing `Rework Prevention` and `Research Pipeline Orchestration`: yes — `auto` mode is the fully non-interactive ingestion mode. The `Rework Prevention` page documents all three ingestion modes: "auto mode: No gates. Appropriate only for high-confidence, low-complexity sources where rework risk is low and throughput is valued. The `post` chain's validation step (exit code 1 on errors) is the only hard gate in auto mode." The `Research Pipeline Orchestration` page confirms the vision: "Extract pages (Claude Code manual) → Needs skill-driven automation" and documents `pipeline run URL [URL...]` as the "Parallel fetch + post-chain in one command" — this is the closest current implementation of fully automated end-to-end ingestion. The three-mode system (auto/guided/smart) means non-interactive operation is already supported by design; the user selects `auto` or the pipeline defaults to `smart` which only asks questions when risk is high. For fully automated pipeline operation (e.g., scheduled overnight ingestion of a URL list), `auto` mode with `pipeline run --batch urls.txt` is the correct invocation.
+
+**Q: How does the pipeline handle updates to a previously ingested source — does it diff and update, or re-create from scratch?**
+
+Cross-referencing `Knowledge Evolution Pipeline` and `Rework Prevention`: the current model is re-create from scratch using the evolution pipeline's `derived_from` + `status: stale` mechanism, not diff-and-patch. The `Knowledge Evolution Pipeline` page documents the update mechanism: "The original page is preserved (or marked `status: stale`) and the promoted page carries a `derived_from` frontmatter field pointing back." The `Rework Prevention` page notes: "The raw source is preserved in the `raw/` folder even after ingestion. This means you can re-ingest sources with different parameters." The practical update workflow: re-ingest the updated source (or new version of a source) and the pipeline creates new pages; the curator then marks the old pages `status: stale` and adds `SUPERSEDES` relationships from new to old. A true diff-and-update mechanism (detecting changes between ingestion runs and patching only modified sections) is not implemented in existing wiki tooling — the `Knowledge Evolution Pipeline` page's `--review` flag is the closest human gate for deciding whether a re-ingested version should supersede an existing page.
+
+**Q: Is there a way to prioritize which raw documents to ingest next based on the wiki's current gaps?**
+
+Cross-referencing `Knowledge Evolution Pipeline` and `Research Pipeline Orchestration`: yes — `pipeline gaps` is the gap analysis tool that identifies what to ingest next. The `Knowledge Evolution Pipeline` page documents the outer loop: "3. Gaps: Run `pipeline gaps` to find orphans, thin pages, missing backlinks, and under-covered domains. 4. Research: Queue new sources to fill identified gaps." The `Research Pipeline Orchestration` page describes a `DEEPENING` pipeline type: "lint_report → identify_thin → research_gaps → enrich → validate → integrate" — this is the automated version of gap-driven ingestion prioritization. For raw files already in `raw/`, `tools/pipeline status` shows unprocessed raw files, and `pipeline gaps` identifies which domains are thin. Cross-referencing these two outputs gives a priority queue: ingest raw files that address the weakest domains first. The `pipeline chain continue` command (`status → review → score → gaps → crossref`) surfaces this priority information in one operation.
+
+**Q: Could the pipeline be triggered automatically when a new file appears in the `raw/` folder?**
+
+Cross-referencing `Knowledge Evolution Pipeline` and `WSL2 Development Patterns`: yes — this is explicitly described in the LLM Wiki v2 source as "event-driven auto-ingestion" and the infrastructure to implement it already exists. The `Wiki Ingestion Pipeline` Key Insights section (from v2) states: "Rather than requiring the user to manually trigger ingestion, a 'new source' event hook should auto-ingest, extract entities, update the graph, and update the index. The human remains in the loop for curation but is freed from remembering to trigger processing." The `WSL2 Development Patterns` page documents `tools/watcher.py` which already watches the `wiki/` folder for changes and triggers the post-chain. Extending `watcher.py` to also watch `raw/` for new files (which land on the Linux filesystem where inotify is reliable) and trigger `pipeline run` in `auto` or `smart` mode is a direct implementation of the v2 vision. The `Research Pipeline Orchestration` page calls this the `ONLINE RESEARCH` pipeline triggered by "new source" events. The technical components exist; the missing piece is extending the watcher's watched paths from `wiki/` to also include `raw/`.
 
 ## Relationships
 

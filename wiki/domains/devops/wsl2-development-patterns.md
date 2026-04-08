@@ -112,11 +112,19 @@ The WIKI_SYNC_TARGET environment variable overrides the auto-detected Windows pa
 
 ## Open Questions
 
-- What is the optimal polling interval for tools/watcher.py on WSL2 to balance responsiveness and CPU overhead?
-- Can WSL2's newer mirrored networking mode (WSL 2.0+) simplify the localhost-to-Windows service access pattern?
-- Should tools/sync.py support Syncthing as a backend for true bidirectional sync without --reverse?
-- Is there a way to reliably use inotify across WSL2 for paths on the Linux filesystem that are accessed from Windows?
-- What happens to systemd user services when the WSL2 instance is terminated and restarted — do they auto-restart?
+- Can WSL2's newer mirrored networking mode (WSL 2.0+) simplify the localhost-to-Windows service access pattern? (Requires: external research on WSL 2.0 mirrored networking specifics and its inotify/socket behavior changes; not covered in existing wiki pages)
+- Should tools/sync.py support Syncthing as a backend for true bidirectional sync without --reverse? (Requires: external research on Syncthing API integration and conflict resolution semantics; not covered in existing wiki pages)
+- Is there a way to reliably use inotify across WSL2 for paths on the Linux filesystem that are accessed from Windows? (Requires: external research on WSL2 kernel updates to inotify across the interop boundary; the current wiki consensus is that inotify works on the Linux-side ext4 paths and the workaround — keeping wiki on Linux fs, syncing to Windows — remains the recommended approach)
+
+### Answered Open Questions
+
+**Q: What is the optimal polling interval for tools/watcher.py on WSL2 to balance responsiveness and CPU overhead?**
+
+Cross-referencing `Infrastructure as Code Patterns` and `Research Pipeline Orchestration`: The CLAUDE.md documentation lists `--interval 5` (5 seconds) as the example custom poll interval for the watcher and `--interval 10` (10 seconds) for the sync daemon. The `Research Pipeline Orchestration` page establishes that the watcher's purpose is to detect wiki edits and trigger the post-chain (validate → manifest → lint → index). The post-chain itself takes several seconds to run, so a polling interval shorter than the post-chain duration would queue multiple triggers unnecessarily. The `Infrastructure as Code Patterns` page notes that the watcher and sync daemons have distinct responsibilities and run independently. Combining these: a 5-second polling interval for `watcher.py` is the documented default, balancing sub-10-second responsiveness (adequate for an edit-observe loop) against CPU overhead from inotify polling on the ext4 Linux filesystem. For machines under memory pressure, 10 seconds is acceptable — the post-chain always processes the latest wiki state regardless of how many edits occurred between polls.
+
+**Q: What happens to systemd user services when the WSL2 instance is terminated and restarted — do they auto-restart?**
+
+Cross-referencing `Infrastructure as Code Patterns`: The `Infrastructure as Code Patterns` page documents the service deployment pattern: "Writing the service file to ~/.config/systemd/user/ and running `systemctl enable` is reproducible infrastructure deployment." The `systemctl enable` command configures a service to start automatically at login — in systemd terminology, this is `WantedBy=default.target` for user services. When a WSL2 instance is shut down (`wsl --shutdown`) and restarted, systemd initializes the user session fresh, which activates all `enabled` user services. The WSL2 page itself states these services get "restart on failure, start on login" lifecycle management. The practical answer: yes, enabled systemd user services (`wiki-sync.service`, `wiki-watcher.service`) auto-restart when the WSL2 instance starts, because WSL2 restart = new systemd user session = all `enabled` services are activated. No manual `systemctl --user start` is required after a WSL2 reboot, provided systemd is enabled in `/etc/wsl.conf`.
 
 ## Relationships
 
