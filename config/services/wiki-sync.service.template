@@ -9,6 +9,7 @@ Restart=on-failure
 RestartSec=10
 Environment=PYTHONPATH={{project_root}}
 Environment=WIKI_SYNC_TARGET={{sync_target}}
+Environment=WIKI_SYNC_MODE={{sync_mode}}
 
 [Install]
 WantedBy=default.target

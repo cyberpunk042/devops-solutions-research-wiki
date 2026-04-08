@@ -70,10 +70,13 @@ def get_win_user() -> Optional[str]:
 
 def get_sync_config(project_root: Path, target_override: str = None) -> Dict[str, Any]:
     """Determine sync source, target, and method based on platform."""
-    wiki_dir = project_root / "wiki"
+    # WIKI_SYNC_MODE: "vault" syncs wiki/ only, "repo" syncs entire project
+    sync_mode = os.environ.get("WIKI_SYNC_MODE", "repo")
+    source_dir = project_root if sync_mode == "repo" else project_root / "wiki"
 
     config = {
-        "source": str(wiki_dir),
+        "source": str(source_dir),
+        "sync_mode": sync_mode,
         "target": None,
         "method": None,  # rsync, robocopy, or shutil
         "platform": platform.system(),
@@ -131,6 +134,13 @@ def sync_rsync(source: str, target: str, reverse: bool = False,
         "--exclude", ".gitkeep",
         "--exclude", ".obsidian/workspace*.json",
         "--exclude", ".obsidian/workspace",
+        "--exclude", ".git/",
+        "--exclude", ".venv/",
+        "--exclude", "__pycache__/",
+        "--exclude", "*.pyc",
+        "--exclude", ".sync-state.json",
+        "--exclude", ".watcher-state.json",
+        "--exclude", ".evolve-queue/*.prompt.md",
         src, dst,
     ])
 

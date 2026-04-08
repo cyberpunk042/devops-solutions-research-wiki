@@ -315,6 +315,12 @@ def install_service(service_name: str, project_root: Path, target: str = None) -
         log_info(f"Sync target: {resolved_target}")
         content = content.replace("{{sync_target}}", resolved_target)
 
+    # Resolve sync mode (default: repo)
+    if "{{sync_mode}}" in content:
+        sync_mode = os.environ.get("WIKI_SYNC_MODE", "repo")
+        content = content.replace("{{sync_mode}}", sync_mode)
+        log_info(f"Sync mode: {sync_mode}")
+
     # Create sync target directory if needed
     if resolved_target:
         target_path = Path(resolved_target)
