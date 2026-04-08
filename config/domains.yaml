@@ -1,0 +1,20 @@
+# Domain registry — grows organically as topics emerge
+# Each domain gets a wiki/domains/{name}/ folder with _index.md
+
+domains:
+  ai-agents:
+    description: "Multi-agent systems, orchestration, fleet management, agent memory"
+  ai-models:
+    description: "LLMs, embeddings, training, fine-tuning, model evaluation"
+  infrastructure:
+    description: "Containers, networking, cloud, databases, storage"
+  devops:
+    description: "CI/CD, deployment, monitoring, IaC, SRE"
+  security:
+    description: "AppSec, infrastructure security, threat modeling, compliance"
+  knowledge-systems:
+    description: "RAG, knowledge graphs, wikis, embeddings, search, synthesis"
+  automation:
+    description: "Scheduling, pipelines, workflow automation, cron, task orchestration"
+  tools-and-platforms:
+    description: "Software tools, platforms, IDEs, CLI tools, SaaS products"

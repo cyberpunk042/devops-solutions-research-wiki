@@ -1,0 +1,99 @@
+# Wiki page frontmatter schema definition
+# Used by tools/validate.py to enforce page structure
+
+required_fields:
+  - title
+  - type
+  - domain
+  - status
+  - confidence
+  - created
+  - updated
+  - sources
+  - tags
+
+optional_fields:
+  - subdomain
+  - aliases
+  - complexity
+  - resolution
+
+enums:
+  type:
+    - concept
+    - source-synthesis
+    - comparison
+    - reference
+    - deep-dive
+    - index
+  status:
+    - raw
+    - processing
+    - synthesized
+    - verified
+    - stale
+  confidence:
+    - low
+    - medium
+    - high
+    - authoritative
+  complexity:
+    - beginner
+    - intermediate
+    - advanced
+    - expert
+  source_type:
+    - article
+    - youtube-transcript
+    - paper
+    - documentation
+    - notes
+    - paste
+    - book
+    - podcast-transcript
+
+required_sections:
+  concept:
+    - Summary
+    - Key Insights
+    - Deep Analysis
+    - Relationships
+  source-synthesis:
+    - Summary
+    - Key Insights
+    - Relationships
+  comparison:
+    - Summary
+    - Key Insights
+    - Deep Analysis
+    - Relationships
+  reference:
+    - Summary
+    - Relationships
+  deep-dive:
+    - Summary
+    - Key Insights
+    - Deep Analysis
+    - Relationships
+  index: []
+
+relationship_verbs:
+  - BUILDS ON
+  - ENABLES
+  - COMPARES TO
+  - CONTRADICTS
+  - USED BY
+  - RELATES TO
+  - FEEDS INTO
+  - DERIVED FROM
+  - SUPERSEDES
+  - IMPLEMENTS
+  - EXTENDS
+
+source_required_fields:
+  - id
+  - type
+
+source_needs_one_of:
+  - url
+  - file
