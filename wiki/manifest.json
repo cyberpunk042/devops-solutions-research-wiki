@@ -1,0 +1,2770 @@
+{
+  "generated": "2026-04-08T07:20:21.211504+00:00",
+  "stats": {
+    "pages": 31,
+    "domains": 5,
+    "sources": 12,
+    "comparisons": 3,
+    "relationships": 222,
+    "tags_unique": 127
+  },
+  "pages": [
+    {
+      "path": "comparisons/agentic-search-vs-vector-search.md",
+      "slug": "comparisons/agentic-search-vs-vector-search",
+      "title": "Agentic Search vs Vector Search",
+      "type": "comparison",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "agentic-search",
+        "vector-search",
+        "rag",
+        "hybrid-search",
+        "knowledge-retrieval",
+        "comparison",
+        "glob-grep",
+        "index-navigation"
+      ],
+      "sources": [
+        {
+          "id": "src-karpathy-claude-code-10x",
+          "type": "youtube-transcript",
+          "file": "wiki/sources/src-karpathy-claude-code-10x.md",
+          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code"
+        },
+        {
+          "id": "src-karpathy-llm-wiki-idea-file",
+          "type": "documentation",
+          "file": "wiki/sources/src-karpathy-llm-wiki-idea-file.md",
+          "title": "Karpathy LLM Wiki Idea File"
+        },
+        {
+          "id": "src-llm-wiki-v2-agentmemory",
+          "type": "documentation",
+          "file": "wiki/sources/src-llm-wiki-v2-agentmemory.md",
+          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory"
+        },
+        {
+          "id": "src-shanraisshan-claude-code-best-practice",
+          "type": "documentation",
+          "file": "wiki/sources/src-shanraisshan-claude-code-best-practice.md",
+          "title": "shanraisshan/claude-code-best-practice"
+        },
+        {
+          "id": "src-pleaseprompto-notebooklm-skill",
+          "type": "documentation",
+          "file": "wiki/sources/src-pleaseprompto-notebooklm-skill.md",
+          "title": "PleasePrompto/notebooklm-skill"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "SYNTHESIZES",
+          "target": "LLM Wiki vs RAG"
+        },
+        {
+          "verb": "SYNTHESIZES",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "NotebookLM"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "NotebookLM Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Memory Lifecycle Management"
+        }
+      ]
+    },
+    {
+      "path": "comparisons/skills-architecture-patterns.md",
+      "slug": "comparisons/skills-architecture-patterns",
+      "title": "Skills Architecture Patterns",
+      "type": "comparison",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "skills",
+        "architecture",
+        "patterns",
+        "cross-domain",
+        "claude-code",
+        "obsidian",
+        "notebooklm",
+        "SKILL-md",
+        "agent-extensibility",
+        "composition"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-notebooklm-content-team",
+          "type": "youtube-transcript",
+          "file": "wiki/sources/src-claude-notebooklm-content-team.md",
+          "title": "Claude + NotebookLM = Your 24/7 Content Team"
+        },
+        {
+          "id": "src-shanraisshan-claude-code-best-practice",
+          "type": "documentation",
+          "file": "wiki/sources/src-shanraisshan-claude-code-best-practice.md",
+          "title": "shanraisshan/claude-code-best-practice"
+        },
+        {
+          "id": "src-obsidian-claude-code-second-brain",
+          "type": "youtube-transcript",
+          "file": "wiki/sources/src-obsidian-claude-code-second-brain.md",
+          "title": "Obsidian + Claude Code: The Second Brain Setup That Actually Works"
+        },
+        {
+          "id": "src-kepano-obsidian-skills",
+          "type": "documentation",
+          "file": "wiki/sources/src-kepano-obsidian-skills.md",
+          "title": "kepano/obsidian-skills"
+        },
+        {
+          "id": "src-axton-obsidian-visual-skills",
+          "type": "documentation",
+          "file": "wiki/sources/src-axton-obsidian-visual-skills.md",
+          "title": "axtonliu/axton-obsidian-visual-skills"
+        },
+        {
+          "id": "src-pablo-mano-obsidian-cli-skill",
+          "type": "documentation",
+          "file": "wiki/sources/src-pablo-mano-obsidian-cli-skill.md",
+          "title": "pablo-mano/Obsidian-CLI-skill"
+        },
+        {
+          "id": "src-claude-world-notebooklm-skill",
+          "type": "documentation",
+          "file": "wiki/sources/src-claude-world-notebooklm-skill.md",
+          "title": "claude-world/notebooklm-skill"
+        },
+        {
+          "id": "src-pleaseprompto-notebooklm-skill",
+          "type": "documentation",
+          "file": "wiki/sources/src-pleaseprompto-notebooklm-skill.md",
+          "title": "PleasePrompto/notebooklm-skill"
+        },
+        {
+          "id": "src-token-hacks-claude-code",
+          "type": "youtube-transcript",
+          "file": "wiki/sources/src-token-hacks-claude-code.md",
+          "title": "18 Claude Code Token Hacks in 18 Minutes"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "SYNTHESIZES",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "SYNTHESIZES",
+          "target": "Obsidian Skills Ecosystem"
+        },
+        {
+          "verb": "SYNTHESIZES",
+          "target": "NotebookLM Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "AI-Driven Content Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        }
+      ]
+    },
+    {
+      "path": "domains/ai-agents/claude-code-best-practices.md",
+      "slug": "domains/ai-agents/claude-code-best-practices",
+      "title": "Claude Code Best Practices",
+      "type": "concept",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "claude-code",
+        "best-practices",
+        "orchestration",
+        "plan-mode",
+        "subagents",
+        "skills",
+        "commands",
+        "hooks",
+        "workflows",
+        "prompting",
+        "git",
+        "debugging",
+        "development-workflow"
+      ],
+      "sources": [
+        {
+          "id": "src-shanraisshan-claude-code-best-practice",
+          "type": "documentation",
+          "url": "https://github.com/shanraisshan/claude-code-best-practice",
+          "file": "raw/articles/shanraisshanclaude-code-best-practice.md",
+          "title": "shanraisshan/claude-code-best-practice",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-token-hacks-claude-code",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=49V-5Ock8LU",
+          "file": "raw/transcripts/18-claude-code-token-hacks-in-18-minutes.txt",
+          "title": "18 Claude Code Token Hacks in 18 Minutes",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-shanraisshan-claude-code-best-practice"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-token-hacks-claude-code"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Event-Driven Automation"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki vs RAG"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Skills Architecture Patterns"
+        }
+      ]
+    },
+    {
+      "path": "domains/ai-agents/claude-code-context-management.md",
+      "slug": "domains/ai-agents/claude-code-context-management",
+      "title": "Claude Code Context Management",
+      "type": "concept",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "claude-code",
+        "context-window",
+        "token-management",
+        "CLAUDE-md",
+        "compact",
+        "prompt-caching",
+        "MCP-overhead",
+        "cost-optimization",
+        "memory",
+        "context-engineering"
+      ],
+      "sources": [
+        {
+          "id": "src-shanraisshan-claude-code-best-practice",
+          "type": "documentation",
+          "url": "https://github.com/shanraisshan/claude-code-best-practice",
+          "file": "raw/articles/shanraisshanclaude-code-best-practice.md",
+          "title": "shanraisshan/claude-code-best-practice",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-token-hacks-claude-code",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=49V-5Ock8LU",
+          "file": "raw/transcripts/18-claude-code-token-hacks-in-18-minutes.txt",
+          "title": "18 Claude Code Token Hacks in 18 Minutes",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-shanraisshan-claude-code-best-practice"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-token-hacks-claude-code"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Memory Lifecycle Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "CONSTRAINS",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "CONSTRAINS",
+          "target": "LLM Knowledge Linting"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Skills Architecture Patterns"
+        }
+      ]
+    },
+    {
+      "path": "domains/ai-agents/claude-code-skills.md",
+      "slug": "domains/ai-agents/claude-code-skills",
+      "title": "Claude Code Skills",
+      "type": "concept",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "claude-code",
+        "skills",
+        "markdown",
+        "agent-configuration",
+        "extensibility",
+        "obsidian-cli",
+        "multi-step-workflows",
+        "gmail-integration",
+        "progressive-disclosure",
+        "context-forking",
+        "hooks"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-notebooklm-content-team",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/claude-notebooklm-content-team.txt",
+          "title": "Claude + NotebookLM = Your 24/7 Content Team",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-obsidian-claude-code-second-brain",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=Y2rpFa43jTo",
+          "file": "raw/transcripts/obsidian-claude-code-the-second-brain-setup-that-actually-works.txt",
+          "title": "Obsidian + Claude Code: The Second Brain Setup That Actually Works",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-shanraisshan-claude-code-best-practice",
+          "type": "documentation",
+          "url": "https://github.com/shanraisshan/claude-code-best-practice",
+          "file": "raw/articles/shanraisshanclaude-code-best-practice.md",
+          "title": "shanraisshan/claude-code-best-practice",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-token-hacks-claude-code",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=49V-5Ock8LU",
+          "file": "raw/transcripts/18-claude-code-token-hacks-in-18-minutes.txt",
+          "title": "18 Claude Code Token Hacks in 18 Minutes",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-claude-notebooklm-content-team"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-obsidian-claude-code-second-brain"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-shanraisshan-claude-code-best-practice"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-token-hacks-claude-code"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "AI-Driven Content Pipeline"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Claude Code Scheduling"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Event-Driven Automation"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "NotebookLM"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Skills Architecture Patterns"
+        }
+      ]
+    },
+    {
+      "path": "domains/ai-agents/llm-knowledge-linting.md",
+      "slug": "domains/ai-agents/llm-knowledge-linting",
+      "title": "LLM Knowledge Linting",
+      "type": "concept",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "linting",
+        "knowledge-quality",
+        "health-check",
+        "llm-agent",
+        "wiki-maintenance",
+        "data-integrity",
+        "self-healing",
+        "contradiction-resolution"
+      ],
+      "sources": [
+        {
+          "id": "src-karpathy-claude-code-10x",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/karpathy-claude-code-10x.txt",
+          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-karpathy-llm-wiki-idea-file",
+          "type": "documentation",
+          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+          "file": "raw/articles/karpathy-llm-wiki-idea-file.md",
+          "title": "Karpathy LLM Wiki Idea File",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-llm-wiki-v2-agentmemory",
+          "type": "documentation",
+          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
+          "file": "raw/articles/llm-wiki-v2-extending-karpathys-llm-wiki-pattern-with-lessons-from-building-agen.md",
+          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-claude-code-10x"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-llm-wiki-idea-file"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-llm-wiki-v2-agentmemory"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Memory Lifecycle Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Event-Driven Automation"
+        },
+        {
+          "verb": "CONSTRAINED BY",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "ENABLED BY",
+          "target": "Claude Code Scheduling"
+        }
+      ]
+    },
+    {
+      "path": "domains/automation/ai-driven-content-pipeline.md",
+      "slug": "domains/automation/ai-driven-content-pipeline",
+      "title": "AI-Driven Content Pipeline",
+      "type": "concept",
+      "domain": "automation",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "content-pipeline",
+        "automation",
+        "claude-code",
+        "notebooklm",
+        "orchestration",
+        "content-generation"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-notebooklm-content-team",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/claude-notebooklm-content-team.txt",
+          "title": "Claude + NotebookLM = Your 24/7 Content Team",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-claude-notebooklm-content-team"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "NotebookLM"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Scheduling"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Agent-as-Orchestrator Pattern"
+        },
+        {
+          "verb": "PARALLELS",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "NotebookLM Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Skills Architecture Patterns"
+        }
+      ]
+    },
+    {
+      "path": "domains/automation/claude-code-scheduling.md",
+      "slug": "domains/automation/claude-code-scheduling",
+      "title": "Claude Code Scheduling",
+      "type": "concept",
+      "domain": "automation",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "claude-code",
+        "scheduling",
+        "cron",
+        "remote-tasks",
+        "automation",
+        "anthropic-cloud"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-notebooklm-content-team",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/claude-notebooklm-content-team.txt",
+          "title": "Claude + NotebookLM = Your 24/7 Content Team",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-claude-notebooklm-content-team"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "AI-Driven Content Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "NotebookLM"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Event-Driven Automation"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Knowledge Linting"
+        }
+      ]
+    },
+    {
+      "path": "domains/automation/wiki-event-driven-automation.md",
+      "slug": "domains/automation/wiki-event-driven-automation",
+      "title": "Wiki Event-Driven Automation",
+      "type": "concept",
+      "domain": "automation",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "automation",
+        "event-driven",
+        "hooks",
+        "auto-ingest",
+        "auto-lint",
+        "wiki-maintenance",
+        "crystallization"
+      ],
+      "sources": [
+        {
+          "id": "src-llm-wiki-v2-agentmemory",
+          "type": "documentation",
+          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
+          "file": "raw/articles/llm-wiki-v2-extending-karpathys-llm-wiki-pattern-with-lessons-from-building-agen.md",
+          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-obsidian-claude-code-second-brain",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=Y2rpFa43jTo",
+          "file": "raw/transcripts/obsidian-claude-code-the-second-brain-setup-that-actually-works.txt",
+          "title": "Obsidian + Claude Code: The Second Brain Setup That Actually Works",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-llm-wiki-v2-agentmemory"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-obsidian-claude-code-second-brain"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Scheduling"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Memory Lifecycle Management"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "LLM Knowledge Linting"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "AI-Driven Content Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        }
+      ]
+    },
+    {
+      "path": "domains/knowledge-systems/llm-wiki-pattern.md",
+      "slug": "domains/knowledge-systems/llm-wiki-pattern",
+      "title": "LLM Wiki Pattern",
+      "type": "concept",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "llm-wiki",
+        "knowledge-base",
+        "markdown",
+        "karpathy",
+        "second-brain",
+        "index-files",
+        "memex",
+        "schema",
+        "compounding-knowledge"
+      ],
+      "sources": [
+        {
+          "id": "src-karpathy-claude-code-10x",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/karpathy-claude-code-10x.txt",
+          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-karpathy-llm-wiki-idea-file",
+          "type": "documentation",
+          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+          "file": "raw/articles/karpathy-llm-wiki-idea-file.md",
+          "title": "Karpathy LLM Wiki Idea File",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-llm-wiki-v2-agentmemory",
+          "type": "documentation",
+          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
+          "file": "raw/articles/llm-wiki-v2-extending-karpathys-llm-wiki-pattern-with-lessons-from-building-agen.md",
+          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-claude-code-10x"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-llm-wiki-idea-file"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-llm-wiki-v2-agentmemory"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "LLM Wiki vs RAG"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Memory Lifecycle Management"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Event-Driven Automation"
+        },
+        {
+          "verb": "USED BY",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "LLM Knowledge Linting"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "NotebookLM"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Skills Architecture Patterns"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Agentic Search vs Vector Search"
+        }
+      ]
+    },
+    {
+      "path": "domains/knowledge-systems/llm-wiki-vs-rag.md",
+      "slug": "domains/knowledge-systems/llm-wiki-vs-rag",
+      "title": "LLM Wiki vs RAG",
+      "type": "comparison",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "llm-wiki",
+        "rag",
+        "semantic-search",
+        "vector-database",
+        "comparison",
+        "knowledge-retrieval",
+        "hybrid-search",
+        "knowledge-graph"
+      ],
+      "sources": [
+        {
+          "id": "src-karpathy-claude-code-10x",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/karpathy-claude-code-10x.txt",
+          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-karpathy-llm-wiki-idea-file",
+          "type": "documentation",
+          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+          "file": "raw/articles/karpathy-llm-wiki-idea-file.md",
+          "title": "Karpathy LLM Wiki Idea File",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-llm-wiki-v2-agentmemory",
+          "type": "documentation",
+          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
+          "file": "raw/articles/llm-wiki-v2-extending-karpathys-llm-wiki-pattern-with-lessons-from-building-agen.md",
+          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-claude-code-10x"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-llm-wiki-idea-file"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-llm-wiki-v2-agentmemory"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "NotebookLM"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        }
+      ]
+    },
+    {
+      "path": "domains/knowledge-systems/memory-lifecycle-management.md",
+      "slug": "domains/knowledge-systems/memory-lifecycle-management",
+      "title": "Memory Lifecycle Management",
+      "type": "concept",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "memory-lifecycle",
+        "confidence-scoring",
+        "supersession",
+        "forgetting",
+        "consolidation",
+        "knowledge-decay",
+        "ebbinghaus"
+      ],
+      "sources": [
+        {
+          "id": "src-llm-wiki-v2-agentmemory",
+          "type": "documentation",
+          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
+          "file": "raw/articles/llm-wiki-v2-extending-karpathys-llm-wiki-pattern-with-lessons-from-building-agen.md",
+          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-llm-wiki-v2-agentmemory"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "LLM Knowledge Linting"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki vs RAG"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Event-Driven Automation"
+        }
+      ]
+    },
+    {
+      "path": "domains/knowledge-systems/wiki-ingestion-pipeline.md",
+      "slug": "domains/knowledge-systems/wiki-ingestion-pipeline",
+      "title": "Wiki Ingestion Pipeline",
+      "type": "concept",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "ingestion",
+        "pipeline",
+        "claude-code",
+        "wiki",
+        "markdown",
+        "data-processing",
+        "workflow",
+        "entity-extraction",
+        "event-driven"
+      ],
+      "sources": [
+        {
+          "id": "src-karpathy-claude-code-10x",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/karpathy-claude-code-10x.txt",
+          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-karpathy-llm-wiki-idea-file",
+          "type": "documentation",
+          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+          "file": "raw/articles/karpathy-llm-wiki-idea-file.md",
+          "title": "Karpathy LLM Wiki Idea File",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-llm-wiki-v2-agentmemory",
+          "type": "documentation",
+          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
+          "file": "raw/articles/llm-wiki-v2-extending-karpathys-llm-wiki-pattern-with-lessons-from-building-agen.md",
+          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-claude-code-10x"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-llm-wiki-idea-file"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-llm-wiki-v2-agentmemory"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "USED BY",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "LLM Knowledge Linting"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Event-Driven Automation"
+        },
+        {
+          "verb": "PARALLELS",
+          "target": "AI-Driven Content Pipeline"
+        },
+        {
+          "verb": "CONSTRAINED BY",
+          "target": "Claude Code Context Management"
+        }
+      ]
+    },
+    {
+      "path": "domains/knowledge-systems/wiki-knowledge-graph.md",
+      "slug": "domains/knowledge-systems/wiki-knowledge-graph",
+      "title": "Wiki Knowledge Graph",
+      "type": "concept",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "knowledge-graph",
+        "entity-extraction",
+        "typed-relationships",
+        "graph-traversal",
+        "structured-knowledge",
+        "hybrid-search"
+      ],
+      "sources": [
+        {
+          "id": "src-llm-wiki-v2-agentmemory",
+          "type": "documentation",
+          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
+          "file": "raw/articles/llm-wiki-v2-extending-karpathys-llm-wiki-pattern-with-lessons-from-building-agen.md",
+          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-llm-wiki-v2-agentmemory"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Memory Lifecycle Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki vs RAG"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Knowledge Linting"
+        }
+      ]
+    },
+    {
+      "path": "domains/tools-and-platforms/notebooklm-skills.md",
+      "slug": "domains/tools-and-platforms/notebooklm-skills",
+      "title": "NotebookLM Skills",
+      "type": "concept",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "notebooklm",
+        "claude-code",
+        "skills",
+        "mcp",
+        "browser-automation",
+        "content-pipeline",
+        "source-grounded"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-world-notebooklm-skill",
+          "type": "documentation",
+          "url": "https://github.com/claude-world/notebooklm-skill",
+          "file": "raw/articles/claude-worldnotebooklm-skill.md",
+          "title": "claude-world/notebooklm-skill",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-pleaseprompto-notebooklm-skill",
+          "type": "documentation",
+          "url": "https://github.com/PleasePrompto/notebooklm-skill",
+          "file": "raw/articles/pleasepromptonotebooklm-skill.md",
+          "title": "PleasePrompto/notebooklm-skill",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-claude-world-notebooklm-skill"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-pleaseprompto-notebooklm-skill"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "NotebookLM"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Obsidian Skills Ecosystem"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "AI-Driven Content Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Skills Architecture Patterns"
+        }
+      ]
+    },
+    {
+      "path": "domains/tools-and-platforms/notebooklm.md",
+      "slug": "domains/tools-and-platforms/notebooklm",
+      "title": "NotebookLM",
+      "type": "concept",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "notebooklm",
+        "google",
+        "research",
+        "content-generation",
+        "free-tools"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-notebooklm-content-team",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/claude-notebooklm-content-team.txt",
+          "title": "Claude + NotebookLM = Your 24/7 Content Team",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-claude-notebooklm-content-team"
+        },
+        {
+          "verb": "USED BY",
+          "target": "AI-Driven Content Pipeline"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Scheduling"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "NotebookLM Skills"
+        },
+        {
+          "verb": "CONTRASTS WITH",
+          "target": "LLM Wiki vs RAG"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        }
+      ]
+    },
+    {
+      "path": "domains/tools-and-platforms/obsidian-knowledge-vault.md",
+      "slug": "domains/tools-and-platforms/obsidian-knowledge-vault",
+      "title": "Obsidian Knowledge Vault",
+      "type": "concept",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "obsidian",
+        "knowledge-vault",
+        "graph-view",
+        "web-clipper",
+        "markdown",
+        "second-brain",
+        "git-sync",
+        "obsidian-cli",
+        "project-management"
+      ],
+      "sources": [
+        {
+          "id": "src-karpathy-claude-code-10x",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/karpathy-claude-code-10x.txt",
+          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-karpathy-llm-wiki-idea-file",
+          "type": "documentation",
+          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+          "file": "raw/articles/karpathy-llm-wiki-idea-file.md",
+          "title": "Karpathy LLM Wiki Idea File",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-obsidian-claude-code-second-brain",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=Y2rpFa43jTo",
+          "file": "raw/transcripts/obsidian-claude-code-the-second-brain-setup-that-actually-works.txt",
+          "title": "Obsidian + Claude Code: The Second Brain Setup That Actually Works",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-claude-code-10x"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-llm-wiki-idea-file"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-obsidian-claude-code-second-brain"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "USED BY",
+          "target": "Obsidian Skills Ecosystem"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Knowledge Linting"
+        }
+      ]
+    },
+    {
+      "path": "domains/tools-and-platforms/obsidian-skills-ecosystem.md",
+      "slug": "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "title": "Obsidian Skills Ecosystem",
+      "type": "concept",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "obsidian",
+        "skills",
+        "agent-skills",
+        "claude-code",
+        "visual-diagrams",
+        "cli",
+        "ecosystem"
+      ],
+      "sources": [
+        {
+          "id": "src-kepano-obsidian-skills",
+          "type": "documentation",
+          "url": "https://github.com/kepano/obsidian-skills",
+          "file": "raw/articles/kepanoobsidian-skills.md",
+          "title": "kepano/obsidian-skills",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-axton-obsidian-visual-skills",
+          "type": "documentation",
+          "url": "https://github.com/axtonliu/axton-obsidian-visual-skills",
+          "file": "raw/articles/axtonliuaxton-obsidian-visual-skills.md",
+          "title": "axtonliu/axton-obsidian-visual-skills",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-pablo-mano-obsidian-cli-skill",
+          "type": "documentation",
+          "url": "https://github.com/pablo-mano/Obsidian-CLI-skill",
+          "file": "raw/articles/pablo-manoobsidian-cli-skill.md",
+          "title": "pablo-mano/Obsidian-CLI-skill",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-kepano-obsidian-skills"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-axton-obsidian-visual-skills"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-pablo-mano-obsidian-cli-skill"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "NotebookLM Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Skills Architecture Patterns"
+        }
+      ]
+    },
+    {
+      "path": "index.md",
+      "slug": "index",
+      "title": "index",
+      "type": "",
+      "domain": "",
+      "status": "",
+      "confidence": "",
+      "created": "",
+      "updated": "",
+      "tags": [],
+      "sources": [],
+      "relationships": []
+    },
+    {
+      "path": "sources/src-axton-obsidian-visual-skills.md",
+      "slug": "sources/src-axton-obsidian-visual-skills",
+      "title": "Synthesis: axtonliu/axton-obsidian-visual-skills",
+      "type": "source-synthesis",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "obsidian",
+        "excalidraw",
+        "mermaid",
+        "canvas",
+        "visual-diagrams",
+        "claude-code",
+        "skills"
+      ],
+      "sources": [
+        {
+          "id": "src-axton-obsidian-visual-skills",
+          "type": "documentation",
+          "url": "https://github.com/axtonliu/axton-obsidian-visual-skills",
+          "file": "raw/articles/axtonliuaxton-obsidian-visual-skills.md",
+          "title": "axtonliu/axton-obsidian-visual-skills",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-axton-obsidian-visual-skills"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Obsidian Skills Ecosystem"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "src-kepano-obsidian-skills"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-claude-notebooklm-content-team.md",
+      "slug": "sources/src-claude-notebooklm-content-team",
+      "title": "Synthesis: Claude + NotebookLM Content Automation",
+      "type": "source-synthesis",
+      "domain": "automation",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "claude-code",
+        "notebooklm",
+        "automation",
+        "skills",
+        "scheduling",
+        "google"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-notebooklm-content-team",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/claude-notebooklm-content-team.txt",
+          "title": "Claude + NotebookLM = Your 24/7 Content Team",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-claude-notebooklm-content-team"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "notebooklm"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "claude-code-skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "claude-code-scheduling"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "ai-driven-content-pipeline"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-claude-world-notebooklm-skill.md",
+      "slug": "sources/src-claude-world-notebooklm-skill",
+      "title": "Synthesis: claude-world/notebooklm-skill",
+      "type": "source-synthesis",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "notebooklm",
+        "claude-code",
+        "mcp",
+        "content-pipeline",
+        "automation",
+        "python"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-world-notebooklm-skill",
+          "type": "documentation",
+          "url": "https://github.com/claude-world/notebooklm-skill",
+          "file": "raw/articles/claude-worldnotebooklm-skill.md",
+          "title": "claude-world/notebooklm-skill",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-claude-world-notebooklm-skill"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "NotebookLM Skills"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "NotebookLM"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-karpathy-claude-code-10x.md",
+      "slug": "sources/src-karpathy-claude-code-10x",
+      "title": "Synthesis: Karpathy LLM Wiki Method via Claude Code",
+      "type": "source-synthesis",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "karpathy",
+        "llm-wiki",
+        "obsidian",
+        "knowledge-base",
+        "claude-code",
+        "second-brain"
+      ],
+      "sources": [
+        {
+          "id": "src-karpathy-claude-code-10x",
+          "type": "youtube-transcript",
+          "file": "raw/transcripts/karpathy-claude-code-10x.txt",
+          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-claude-code-10x"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "LLM Wiki vs RAG"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "LLM Knowledge Linting"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-karpathy-llm-wiki-idea-file.md",
+      "slug": "sources/src-karpathy-llm-wiki-idea-file",
+      "title": "Synthesis: Karpathy's LLM Wiki Idea File",
+      "type": "source-synthesis",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "karpathy",
+        "llm-wiki",
+        "knowledge-base",
+        "memex",
+        "markdown",
+        "second-brain",
+        "architecture",
+        "primary-source"
+      ],
+      "sources": [
+        {
+          "id": "src-karpathy-llm-wiki-idea-file",
+          "type": "documentation",
+          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
+          "file": "raw/articles/karpathy-llm-wiki-idea-file.md",
+          "title": "Karpathy LLM Wiki Idea File",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-karpathy-llm-wiki-idea-file"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "LLM Knowledge Linting"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki vs RAG"
+        },
+        {
+          "verb": "SUPERSEDES",
+          "target": "src-karpathy-claude-code-10x"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-kepano-obsidian-skills.md",
+      "slug": "sources/src-kepano-obsidian-skills",
+      "title": "Synthesis: kepano/obsidian-skills",
+      "type": "source-synthesis",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "obsidian",
+        "skills",
+        "agent-skills",
+        "claude-code",
+        "codex-cli",
+        "markdown",
+        "json-canvas"
+      ],
+      "sources": [
+        {
+          "id": "src-kepano-obsidian-skills",
+          "type": "documentation",
+          "url": "https://github.com/kepano/obsidian-skills",
+          "file": "raw/articles/kepanoobsidian-skills.md",
+          "title": "kepano/obsidian-skills",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-kepano-obsidian-skills"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Obsidian Skills Ecosystem"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "LLM Wiki Pattern"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-llm-wiki-v2-agentmemory.md",
+      "slug": "sources/src-llm-wiki-v2-agentmemory",
+      "title": "Synthesis: LLM Wiki v2 -- Extending Karpathy's Pattern with Agentmemory Lessons",
+      "type": "source-synthesis",
+      "domain": "knowledge-systems",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "llm-wiki-v2",
+        "agentmemory",
+        "memory-lifecycle",
+        "knowledge-graph",
+        "confidence-scoring",
+        "automation",
+        "multi-agent",
+        "scaling"
+      ],
+      "sources": [
+        {
+          "id": "src-llm-wiki-v2-agentmemory",
+          "type": "documentation",
+          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
+          "file": "raw/articles/llm-wiki-v2-extending-karpathys-llm-wiki-pattern-with-lessons-from-building-agen.md",
+          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-llm-wiki-v2-agentmemory"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "src-karpathy-llm-wiki-idea-file"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "LLM Knowledge Linting"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki vs RAG"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-obsidian-claude-code-second-brain.md",
+      "slug": "sources/src-obsidian-claude-code-second-brain",
+      "title": "Synthesis: Obsidian + Claude Code Second Brain Setup",
+      "type": "source-synthesis",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "obsidian",
+        "claude-code",
+        "second-brain",
+        "git-sync",
+        "obsidian-cli",
+        "skills",
+        "project-management",
+        "gmail-integration"
+      ],
+      "sources": [
+        {
+          "id": "src-obsidian-claude-code-second-brain",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=Y2rpFa43jTo",
+          "file": "raw/transcripts/obsidian-claude-code-the-second-brain-setup-that-actually-works.txt",
+          "title": "Obsidian + Claude Code: The Second Brain Setup That Actually Works",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-obsidian-claude-code-second-brain"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "AI-Driven Content Pipeline"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-pablo-mano-obsidian-cli-skill.md",
+      "slug": "sources/src-pablo-mano-obsidian-cli-skill",
+      "title": "Synthesis: pablo-mano/Obsidian-CLI-skill",
+      "type": "source-synthesis",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "obsidian",
+        "cli",
+        "claude-code",
+        "skill",
+        "vault-management",
+        "cross-agent",
+        "cursor",
+        "copilot"
+      ],
+      "sources": [
+        {
+          "id": "src-pablo-mano-obsidian-cli-skill",
+          "type": "documentation",
+          "url": "https://github.com/pablo-mano/Obsidian-CLI-skill",
+          "file": "raw/articles/pablo-manoobsidian-cli-skill.md",
+          "title": "pablo-mano/Obsidian-CLI-skill",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-pablo-mano-obsidian-cli-skill"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Obsidian Skills Ecosystem"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Obsidian Knowledge Vault"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "src-kepano-obsidian-skills"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-pleaseprompto-notebooklm-skill.md",
+      "slug": "sources/src-pleaseprompto-notebooklm-skill",
+      "title": "Synthesis: PleasePrompto/notebooklm-skill",
+      "type": "source-synthesis",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "notebooklm",
+        "claude-code",
+        "skill",
+        "source-grounded",
+        "browser-automation",
+        "python"
+      ],
+      "sources": [
+        {
+          "id": "src-pleaseprompto-notebooklm-skill",
+          "type": "documentation",
+          "url": "https://github.com/PleasePrompto/notebooklm-skill",
+          "file": "raw/articles/pleasepromptonotebooklm-skill.md",
+          "title": "PleasePrompto/notebooklm-skill",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-pleaseprompto-notebooklm-skill"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "NotebookLM Skills"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "NotebookLM"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "src-claude-world-notebooklm-skill"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-shanraisshan-claude-code-best-practice.md",
+      "slug": "sources/src-shanraisshan-claude-code-best-practice",
+      "title": "Synthesis: Claude Code Best Practice (shanraisshan)",
+      "type": "source-synthesis",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "claude-code",
+        "best-practices",
+        "subagents",
+        "commands",
+        "skills",
+        "hooks",
+        "orchestration",
+        "workflows",
+        "CLAUDE-md",
+        "tips",
+        "boris-cherny",
+        "context-engineering"
+      ],
+      "sources": [
+        {
+          "id": "src-shanraisshan-claude-code-best-practice",
+          "type": "documentation",
+          "url": "https://github.com/shanraisshan/claude-code-best-practice",
+          "file": "raw/articles/shanraisshanclaude-code-best-practice.md",
+          "title": "shanraisshan/claude-code-best-practice",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-shanraisshan-claude-code-best-practice"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Pattern"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-token-hacks-claude-code.md",
+      "slug": "sources/src-token-hacks-claude-code",
+      "title": "Synthesis: 18 Claude Code Token Hacks in 18 Minutes",
+      "type": "source-synthesis",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "claude-code",
+        "token-management",
+        "context-window",
+        "cost-optimization",
+        "prompt-caching",
+        "MCP-overhead",
+        "compact",
+        "peak-hours",
+        "sub-agents"
+      ],
+      "sources": [
+        {
+          "id": "src-token-hacks-claude-code",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=49V-5Ock8LU",
+          "file": "raw/transcripts/18-claude-code-token-hacks-in-18-minutes.txt",
+          "title": "18 Claude Code Token Hacks in 18 Minutes",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-token-hacks-claude-code"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        }
+      ]
+    }
+  ],
+  "domains": {
+    "cross-domain": {
+      "page_count": 2,
+      "relationship_count": 14
+    },
+    "ai-agents": {
+      "page_count": 6,
+      "relationship_count": 51
+    },
+    "automation": {
+      "page_count": 4,
+      "relationship_count": 29
+    },
+    "knowledge-systems": {
+      "page_count": 8,
+      "relationship_count": 66
+    },
+    "tools-and-platforms": {
+      "page_count": 10,
+      "relationship_count": 62
+    }
+  },
+  "tags": {
+    "agentic-search": [
+      "comparisons/agentic-search-vs-vector-search"
+    ],
+    "vector-search": [
+      "comparisons/agentic-search-vs-vector-search"
+    ],
+    "rag": [
+      "comparisons/agentic-search-vs-vector-search",
+      "domains/knowledge-systems/llm-wiki-vs-rag"
+    ],
+    "hybrid-search": [
+      "comparisons/agentic-search-vs-vector-search",
+      "domains/knowledge-systems/llm-wiki-vs-rag",
+      "domains/knowledge-systems/wiki-knowledge-graph"
+    ],
+    "knowledge-retrieval": [
+      "comparisons/agentic-search-vs-vector-search",
+      "domains/knowledge-systems/llm-wiki-vs-rag"
+    ],
+    "comparison": [
+      "comparisons/agentic-search-vs-vector-search",
+      "domains/knowledge-systems/llm-wiki-vs-rag"
+    ],
+    "glob-grep": [
+      "comparisons/agentic-search-vs-vector-search"
+    ],
+    "index-navigation": [
+      "comparisons/agentic-search-vs-vector-search"
+    ],
+    "skills": [
+      "comparisons/skills-architecture-patterns",
+      "domains/ai-agents/claude-code-best-practices",
+      "domains/ai-agents/claude-code-skills",
+      "domains/tools-and-platforms/notebooklm-skills",
+      "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "sources/src-axton-obsidian-visual-skills",
+      "sources/src-claude-notebooklm-content-team",
+      "sources/src-kepano-obsidian-skills",
+      "sources/src-obsidian-claude-code-second-brain",
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "architecture": [
+      "comparisons/skills-architecture-patterns",
+      "sources/src-karpathy-llm-wiki-idea-file"
+    ],
+    "patterns": [
+      "comparisons/skills-architecture-patterns"
+    ],
+    "cross-domain": [
+      "comparisons/skills-architecture-patterns"
+    ],
+    "claude-code": [
+      "comparisons/skills-architecture-patterns",
+      "domains/ai-agents/claude-code-best-practices",
+      "domains/ai-agents/claude-code-context-management",
+      "domains/ai-agents/claude-code-skills",
+      "domains/automation/ai-driven-content-pipeline",
+      "domains/automation/claude-code-scheduling",
+      "domains/knowledge-systems/wiki-ingestion-pipeline",
+      "domains/tools-and-platforms/notebooklm-skills",
+      "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "sources/src-axton-obsidian-visual-skills",
+      "sources/src-claude-notebooklm-content-team",
+      "sources/src-claude-world-notebooklm-skill",
+      "sources/src-karpathy-claude-code-10x",
+      "sources/src-kepano-obsidian-skills",
+      "sources/src-obsidian-claude-code-second-brain",
+      "sources/src-pablo-mano-obsidian-cli-skill",
+      "sources/src-pleaseprompto-notebooklm-skill",
+      "sources/src-shanraisshan-claude-code-best-practice",
+      "sources/src-token-hacks-claude-code"
+    ],
+    "obsidian": [
+      "comparisons/skills-architecture-patterns",
+      "domains/tools-and-platforms/obsidian-knowledge-vault",
+      "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "sources/src-axton-obsidian-visual-skills",
+      "sources/src-karpathy-claude-code-10x",
+      "sources/src-kepano-obsidian-skills",
+      "sources/src-obsidian-claude-code-second-brain",
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "notebooklm": [
+      "comparisons/skills-architecture-patterns",
+      "domains/automation/ai-driven-content-pipeline",
+      "domains/tools-and-platforms/notebooklm-skills",
+      "domains/tools-and-platforms/notebooklm",
+      "sources/src-claude-notebooklm-content-team",
+      "sources/src-claude-world-notebooklm-skill",
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "SKILL-md": [
+      "comparisons/skills-architecture-patterns"
+    ],
+    "agent-extensibility": [
+      "comparisons/skills-architecture-patterns"
+    ],
+    "composition": [
+      "comparisons/skills-architecture-patterns"
+    ],
+    "best-practices": [
+      "domains/ai-agents/claude-code-best-practices",
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "orchestration": [
+      "domains/ai-agents/claude-code-best-practices",
+      "domains/automation/ai-driven-content-pipeline",
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "plan-mode": [
+      "domains/ai-agents/claude-code-best-practices"
+    ],
+    "subagents": [
+      "domains/ai-agents/claude-code-best-practices",
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "commands": [
+      "domains/ai-agents/claude-code-best-practices",
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "hooks": [
+      "domains/ai-agents/claude-code-best-practices",
+      "domains/ai-agents/claude-code-skills",
+      "domains/automation/wiki-event-driven-automation",
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "workflows": [
+      "domains/ai-agents/claude-code-best-practices",
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "prompting": [
+      "domains/ai-agents/claude-code-best-practices"
+    ],
+    "git": [
+      "domains/ai-agents/claude-code-best-practices"
+    ],
+    "debugging": [
+      "domains/ai-agents/claude-code-best-practices"
+    ],
+    "development-workflow": [
+      "domains/ai-agents/claude-code-best-practices"
+    ],
+    "context-window": [
+      "domains/ai-agents/claude-code-context-management",
+      "sources/src-token-hacks-claude-code"
+    ],
+    "token-management": [
+      "domains/ai-agents/claude-code-context-management",
+      "sources/src-token-hacks-claude-code"
+    ],
+    "CLAUDE-md": [
+      "domains/ai-agents/claude-code-context-management",
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "compact": [
+      "domains/ai-agents/claude-code-context-management",
+      "sources/src-token-hacks-claude-code"
+    ],
+    "prompt-caching": [
+      "domains/ai-agents/claude-code-context-management",
+      "sources/src-token-hacks-claude-code"
+    ],
+    "MCP-overhead": [
+      "domains/ai-agents/claude-code-context-management",
+      "sources/src-token-hacks-claude-code"
+    ],
+    "cost-optimization": [
+      "domains/ai-agents/claude-code-context-management",
+      "sources/src-token-hacks-claude-code"
+    ],
+    "memory": [
+      "domains/ai-agents/claude-code-context-management"
+    ],
+    "context-engineering": [
+      "domains/ai-agents/claude-code-context-management",
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "markdown": [
+      "domains/ai-agents/claude-code-skills",
+      "domains/knowledge-systems/llm-wiki-pattern",
+      "domains/knowledge-systems/wiki-ingestion-pipeline",
+      "domains/tools-and-platforms/obsidian-knowledge-vault",
+      "sources/src-karpathy-llm-wiki-idea-file",
+      "sources/src-kepano-obsidian-skills"
+    ],
+    "agent-configuration": [
+      "domains/ai-agents/claude-code-skills"
+    ],
+    "extensibility": [
+      "domains/ai-agents/claude-code-skills"
+    ],
+    "obsidian-cli": [
+      "domains/ai-agents/claude-code-skills",
+      "domains/tools-and-platforms/obsidian-knowledge-vault",
+      "sources/src-obsidian-claude-code-second-brain"
+    ],
+    "multi-step-workflows": [
+      "domains/ai-agents/claude-code-skills"
+    ],
+    "gmail-integration": [
+      "domains/ai-agents/claude-code-skills",
+      "sources/src-obsidian-claude-code-second-brain"
+    ],
+    "progressive-disclosure": [
+      "domains/ai-agents/claude-code-skills"
+    ],
+    "context-forking": [
+      "domains/ai-agents/claude-code-skills"
+    ],
+    "linting": [
+      "domains/ai-agents/llm-knowledge-linting"
+    ],
+    "knowledge-quality": [
+      "domains/ai-agents/llm-knowledge-linting"
+    ],
+    "health-check": [
+      "domains/ai-agents/llm-knowledge-linting"
+    ],
+    "llm-agent": [
+      "domains/ai-agents/llm-knowledge-linting"
+    ],
+    "wiki-maintenance": [
+      "domains/ai-agents/llm-knowledge-linting",
+      "domains/automation/wiki-event-driven-automation"
+    ],
+    "data-integrity": [
+      "domains/ai-agents/llm-knowledge-linting"
+    ],
+    "self-healing": [
+      "domains/ai-agents/llm-knowledge-linting"
+    ],
+    "contradiction-resolution": [
+      "domains/ai-agents/llm-knowledge-linting"
+    ],
+    "content-pipeline": [
+      "domains/automation/ai-driven-content-pipeline",
+      "domains/tools-and-platforms/notebooklm-skills",
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "automation": [
+      "domains/automation/ai-driven-content-pipeline",
+      "domains/automation/claude-code-scheduling",
+      "domains/automation/wiki-event-driven-automation",
+      "sources/src-claude-notebooklm-content-team",
+      "sources/src-claude-world-notebooklm-skill",
+      "sources/src-llm-wiki-v2-agentmemory"
+    ],
+    "content-generation": [
+      "domains/automation/ai-driven-content-pipeline",
+      "domains/tools-and-platforms/notebooklm"
+    ],
+    "scheduling": [
+      "domains/automation/claude-code-scheduling",
+      "sources/src-claude-notebooklm-content-team"
+    ],
+    "cron": [
+      "domains/automation/claude-code-scheduling"
+    ],
+    "remote-tasks": [
+      "domains/automation/claude-code-scheduling"
+    ],
+    "anthropic-cloud": [
+      "domains/automation/claude-code-scheduling"
+    ],
+    "event-driven": [
+      "domains/automation/wiki-event-driven-automation",
+      "domains/knowledge-systems/wiki-ingestion-pipeline"
+    ],
+    "auto-ingest": [
+      "domains/automation/wiki-event-driven-automation"
+    ],
+    "auto-lint": [
+      "domains/automation/wiki-event-driven-automation"
+    ],
+    "crystallization": [
+      "domains/automation/wiki-event-driven-automation"
+    ],
+    "llm-wiki": [
+      "domains/knowledge-systems/llm-wiki-pattern",
+      "domains/knowledge-systems/llm-wiki-vs-rag",
+      "sources/src-karpathy-claude-code-10x",
+      "sources/src-karpathy-llm-wiki-idea-file"
+    ],
+    "knowledge-base": [
+      "domains/knowledge-systems/llm-wiki-pattern",
+      "sources/src-karpathy-claude-code-10x",
+      "sources/src-karpathy-llm-wiki-idea-file"
+    ],
+    "karpathy": [
+      "domains/knowledge-systems/llm-wiki-pattern",
+      "sources/src-karpathy-claude-code-10x",
+      "sources/src-karpathy-llm-wiki-idea-file"
+    ],
+    "second-brain": [
+      "domains/knowledge-systems/llm-wiki-pattern",
+      "domains/tools-and-platforms/obsidian-knowledge-vault",
+      "sources/src-karpathy-claude-code-10x",
+      "sources/src-karpathy-llm-wiki-idea-file",
+      "sources/src-obsidian-claude-code-second-brain"
+    ],
+    "index-files": [
+      "domains/knowledge-systems/llm-wiki-pattern"
+    ],
+    "memex": [
+      "domains/knowledge-systems/llm-wiki-pattern",
+      "sources/src-karpathy-llm-wiki-idea-file"
+    ],
+    "schema": [
+      "domains/knowledge-systems/llm-wiki-pattern"
+    ],
+    "compounding-knowledge": [
+      "domains/knowledge-systems/llm-wiki-pattern"
+    ],
+    "semantic-search": [
+      "domains/knowledge-systems/llm-wiki-vs-rag"
+    ],
+    "vector-database": [
+      "domains/knowledge-systems/llm-wiki-vs-rag"
+    ],
+    "knowledge-graph": [
+      "domains/knowledge-systems/llm-wiki-vs-rag",
+      "domains/knowledge-systems/wiki-knowledge-graph",
+      "sources/src-llm-wiki-v2-agentmemory"
+    ],
+    "memory-lifecycle": [
+      "domains/knowledge-systems/memory-lifecycle-management",
+      "sources/src-llm-wiki-v2-agentmemory"
+    ],
+    "confidence-scoring": [
+      "domains/knowledge-systems/memory-lifecycle-management",
+      "sources/src-llm-wiki-v2-agentmemory"
+    ],
+    "supersession": [
+      "domains/knowledge-systems/memory-lifecycle-management"
+    ],
+    "forgetting": [
+      "domains/knowledge-systems/memory-lifecycle-management"
+    ],
+    "consolidation": [
+      "domains/knowledge-systems/memory-lifecycle-management"
+    ],
+    "knowledge-decay": [
+      "domains/knowledge-systems/memory-lifecycle-management"
+    ],
+    "ebbinghaus": [
+      "domains/knowledge-systems/memory-lifecycle-management"
+    ],
+    "ingestion": [
+      "domains/knowledge-systems/wiki-ingestion-pipeline"
+    ],
+    "pipeline": [
+      "domains/knowledge-systems/wiki-ingestion-pipeline"
+    ],
+    "wiki": [
+      "domains/knowledge-systems/wiki-ingestion-pipeline"
+    ],
+    "data-processing": [
+      "domains/knowledge-systems/wiki-ingestion-pipeline"
+    ],
+    "workflow": [
+      "domains/knowledge-systems/wiki-ingestion-pipeline"
+    ],
+    "entity-extraction": [
+      "domains/knowledge-systems/wiki-ingestion-pipeline",
+      "domains/knowledge-systems/wiki-knowledge-graph"
+    ],
+    "typed-relationships": [
+      "domains/knowledge-systems/wiki-knowledge-graph"
+    ],
+    "graph-traversal": [
+      "domains/knowledge-systems/wiki-knowledge-graph"
+    ],
+    "structured-knowledge": [
+      "domains/knowledge-systems/wiki-knowledge-graph"
+    ],
+    "mcp": [
+      "domains/tools-and-platforms/notebooklm-skills",
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "browser-automation": [
+      "domains/tools-and-platforms/notebooklm-skills",
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "source-grounded": [
+      "domains/tools-and-platforms/notebooklm-skills",
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "google": [
+      "domains/tools-and-platforms/notebooklm",
+      "sources/src-claude-notebooklm-content-team"
+    ],
+    "research": [
+      "domains/tools-and-platforms/notebooklm"
+    ],
+    "free-tools": [
+      "domains/tools-and-platforms/notebooklm"
+    ],
+    "knowledge-vault": [
+      "domains/tools-and-platforms/obsidian-knowledge-vault"
+    ],
+    "graph-view": [
+      "domains/tools-and-platforms/obsidian-knowledge-vault"
+    ],
+    "web-clipper": [
+      "domains/tools-and-platforms/obsidian-knowledge-vault"
+    ],
+    "git-sync": [
+      "domains/tools-and-platforms/obsidian-knowledge-vault",
+      "sources/src-obsidian-claude-code-second-brain"
+    ],
+    "project-management": [
+      "domains/tools-and-platforms/obsidian-knowledge-vault",
+      "sources/src-obsidian-claude-code-second-brain"
+    ],
+    "agent-skills": [
+      "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "sources/src-kepano-obsidian-skills"
+    ],
+    "visual-diagrams": [
+      "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "sources/src-axton-obsidian-visual-skills"
+    ],
+    "cli": [
+      "domains/tools-and-platforms/obsidian-skills-ecosystem",
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "ecosystem": [
+      "domains/tools-and-platforms/obsidian-skills-ecosystem"
+    ],
+    "excalidraw": [
+      "sources/src-axton-obsidian-visual-skills"
+    ],
+    "mermaid": [
+      "sources/src-axton-obsidian-visual-skills"
+    ],
+    "canvas": [
+      "sources/src-axton-obsidian-visual-skills"
+    ],
+    "python": [
+      "sources/src-claude-world-notebooklm-skill",
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "primary-source": [
+      "sources/src-karpathy-llm-wiki-idea-file"
+    ],
+    "codex-cli": [
+      "sources/src-kepano-obsidian-skills"
+    ],
+    "json-canvas": [
+      "sources/src-kepano-obsidian-skills"
+    ],
+    "llm-wiki-v2": [
+      "sources/src-llm-wiki-v2-agentmemory"
+    ],
+    "agentmemory": [
+      "sources/src-llm-wiki-v2-agentmemory"
+    ],
+    "multi-agent": [
+      "sources/src-llm-wiki-v2-agentmemory"
+    ],
+    "scaling": [
+      "sources/src-llm-wiki-v2-agentmemory"
+    ],
+    "skill": [
+      "sources/src-pablo-mano-obsidian-cli-skill",
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "vault-management": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "cross-agent": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "cursor": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "copilot": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "tips": [
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "boris-cherny": [
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "peak-hours": [
+      "sources/src-token-hacks-claude-code"
+    ],
+    "sub-agents": [
+      "sources/src-token-hacks-claude-code"
+    ]
+  },
+  "orphaned_refs": [
+    {
+      "target": "Agent-as-Orchestrator Pattern",
+      "referenced_by": [
+        "AI-Driven Content Pipeline"
+      ]
+    },
+    {
+      "target": "ai-driven-content-pipeline",
+      "referenced_by": [
+        "Synthesis: Claude + NotebookLM Content Automation"
+      ]
+    },
+    {
+      "target": "claude-code-scheduling",
+      "referenced_by": [
+        "Synthesis: Claude + NotebookLM Content Automation"
+      ]
+    },
+    {
+      "target": "claude-code-skills",
+      "referenced_by": [
+        "Synthesis: Claude + NotebookLM Content Automation"
+      ]
+    },
+    {
+      "target": "notebooklm",
+      "referenced_by": [
+        "Synthesis: Claude + NotebookLM Content Automation"
+      ]
+    },
+    {
+      "target": "src-axton-obsidian-visual-skills",
+      "referenced_by": [
+        "Obsidian Skills Ecosystem",
+        "Synthesis: axtonliu/axton-obsidian-visual-skills"
+      ]
+    },
+    {
+      "target": "src-claude-notebooklm-content-team",
+      "referenced_by": [
+        "Claude Code Skills",
+        "AI-Driven Content Pipeline",
+        "Claude Code Scheduling",
+        "NotebookLM",
+        "Synthesis: Claude + NotebookLM Content Automation"
+      ]
+    },
+    {
+      "target": "src-claude-world-notebooklm-skill",
+      "referenced_by": [
+        "NotebookLM Skills",
+        "Synthesis: claude-world/notebooklm-skill",
+        "Synthesis: PleasePrompto/notebooklm-skill"
+      ]
+    },
+    {
+      "target": "src-karpathy-claude-code-10x",
+      "referenced_by": [
+        "LLM Knowledge Linting",
+        "LLM Wiki Pattern",
+        "LLM Wiki vs RAG",
+        "Wiki Ingestion Pipeline",
+        "Obsidian Knowledge Vault",
+        "Synthesis: Karpathy LLM Wiki Method via Claude Code",
+        "Synthesis: Karpathy's LLM Wiki Idea File"
+      ]
+    },
+    {
+      "target": "src-karpathy-llm-wiki-idea-file",
+      "referenced_by": [
+        "LLM Knowledge Linting",
+        "LLM Wiki Pattern",
+        "LLM Wiki vs RAG",
+        "Wiki Ingestion Pipeline",
+        "Obsidian Knowledge Vault",
+        "Synthesis: Karpathy's LLM Wiki Idea File",
+        "Synthesis: LLM Wiki v2 -- Extending Karpathy's Pattern with Agentmemory Lessons"
+      ]
+    },
+    {
+      "target": "src-kepano-obsidian-skills",
+      "referenced_by": [
+        "Obsidian Skills Ecosystem",
+        "Synthesis: axtonliu/axton-obsidian-visual-skills",
+        "Synthesis: kepano/obsidian-skills",
+        "Synthesis: pablo-mano/Obsidian-CLI-skill"
+      ]
+    },
+    {
+      "target": "src-llm-wiki-v2-agentmemory",
+      "referenced_by": [
+        "LLM Knowledge Linting",
+        "Wiki Event-Driven Automation",
+        "LLM Wiki Pattern",
+        "LLM Wiki vs RAG",
+        "Memory Lifecycle Management",
+        "Wiki Ingestion Pipeline",
+        "Wiki Knowledge Graph",
+        "Synthesis: LLM Wiki v2 -- Extending Karpathy's Pattern with Agentmemory Lessons"
+      ]
+    },
+    {
+      "target": "src-obsidian-claude-code-second-brain",
+      "referenced_by": [
+        "Claude Code Skills",
+        "Wiki Event-Driven Automation",
+        "Obsidian Knowledge Vault",
+        "Synthesis: Obsidian + Claude Code Second Brain Setup"
+      ]
+    },
+    {
+      "target": "src-pablo-mano-obsidian-cli-skill",
+      "referenced_by": [
+        "Obsidian Skills Ecosystem",
+        "Synthesis: pablo-mano/Obsidian-CLI-skill"
+      ]
+    },
+    {
+      "target": "src-pleaseprompto-notebooklm-skill",
+      "referenced_by": [
+        "NotebookLM Skills",
+        "Synthesis: PleasePrompto/notebooklm-skill"
+      ]
+    },
+    {
+      "target": "src-shanraisshan-claude-code-best-practice",
+      "referenced_by": [
+        "Claude Code Best Practices",
+        "Claude Code Context Management",
+        "Claude Code Skills",
+        "Synthesis: Claude Code Best Practice (shanraisshan)"
+      ]
+    },
+    {
+      "target": "src-token-hacks-claude-code",
+      "referenced_by": [
+        "Claude Code Best Practices",
+        "Claude Code Context Management",
+        "Claude Code Skills",
+        "Synthesis: 18 Claude Code Token Hacks in 18 Minutes"
+      ]
+    }
+  ]
+}
