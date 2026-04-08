@@ -17,7 +17,9 @@
       "WebFetch(domain:promptengineering.org)",
       "WebFetch(domain:dev.to)",
       "WebFetch(domain:plane.so)",
-      "WebFetch(domain:levelup.gitconnected.com)"
+      "WebFetch(domain:levelup.gitconnected.com)",
+      "WebFetch(domain:www.mindstudio.ai)",
+      "WebFetch(domain:zettelkasten.de)"
     ]
   }
 }
