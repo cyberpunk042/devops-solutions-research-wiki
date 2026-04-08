@@ -121,3 +121,4 @@ Current priorities: security/safe defaults, bug fixes, setup reliability. Next: 
 [[Multi-Channel AI Agent Access]]
 [[Claude Code]]
 [[Research Pipeline Orchestration]]
+[[Four-Project Ecosystem]]

@@ -128,3 +128,4 @@ The current `scripts/sync-obsidian.sh` rsync approach sidesteps this by treating
 [[Claude Code]]
 [[MCP Integration Architecture]]
 [[Research Pipeline Orchestration]]
+[[WSL2 Development Patterns]]

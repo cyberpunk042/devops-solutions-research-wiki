@@ -156,3 +156,4 @@ The Harness Engineering insight that quantifies this: 5.5x planning overhead at 
 [[Claude Code Best Practices]]
 [[Wiki Ingestion Pipeline]]
 [[Research Pipeline Orchestration]]
+[[Immune System Rules]]

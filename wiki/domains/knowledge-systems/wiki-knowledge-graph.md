@@ -85,6 +85,7 @@ The connection to Obsidian is relevant: Obsidian's graph view already visualizes
 [[Agentic Search vs Vector Search]]
 [[Claude Code Context Management]]
 [[Cross-Domain Patterns]]
+[[Four-Project Ecosystem]]
 [[Knowledge Evolution Pipeline]]
 [[LLM-Maintained Wikis Outperform Static Documentation]]
 [[Multi-Stage Ingestion Beats Single-Pass Processing]]

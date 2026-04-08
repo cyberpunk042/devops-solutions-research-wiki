@@ -1,21 +1,21 @@
 {
-  "generated": "2026-04-08T20:46:19.209870+00:00",
+  "generated": "2026-04-08T21:23:24.782309+00:00",
   "stats": {
-    "pages": 80,
+    "pages": 89,
     "domains": 7,
     "sources": 20,
     "comparisons": 5,
-    "relationships": 615,
-    "tags_unique": 319,
+    "relationships": 655,
+    "tags_unique": 343,
     "layers": {
       "6": 1,
       "4": 7,
-      "5": 2,
+      "5": 7,
       "spine": 7
     },
     "maturity": {
       "growing": 14,
-      "seed": 3
+      "seed": 8
     }
   },
   "pages": [
@@ -1899,6 +1899,324 @@
         {
           "verb": "RELATES TO",
           "target": "Claude Code"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Ingestion Pipeline"
+        }
+      ]
+    },
+    {
+      "path": "domains/devops/four-project-ecosystem.md",
+      "slug": "domains/devops/four-project-ecosystem",
+      "title": "Four-Project Ecosystem",
+      "type": "concept",
+      "domain": "devops",
+      "status": "synthesized",
+      "confidence": "authoritative",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "devops",
+        "ecosystem",
+        "openfleet",
+        "aicp",
+        "devops-control-plane",
+        "openarms",
+        "research-wiki",
+        "architecture",
+        "multi-project",
+        "integration"
+      ],
+      "sources": [
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-aicp-local",
+          "type": "documentation",
+          "file": "../devops-expert-local-ai/CLAUDE.md",
+          "title": "AICP \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-openarms-local",
+          "type": "documentation",
+          "file": "raw/articles/openarms-readme.md",
+          "title": "OpenArms \u2014 Project Documentation",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-devops-control-plane-local",
+          "type": "documentation",
+          "file": "../devops-control-plane/README.md",
+          "title": "devops-control-plane \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "ENABLES",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "AICP"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "OpenArms"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "devops-control-plane"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Wiki Knowledge Graph"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "MCP Integration Architecture"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Four-Project Ecosystem"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "WSL2 Development Patterns"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Immune System Rules"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Infrastructure as Code Patterns"
+        }
+      ]
+    },
+    {
+      "path": "domains/devops/immune-system-rules.md",
+      "slug": "domains/devops/immune-system-rules",
+      "title": "Immune System Rules",
+      "type": "concept",
+      "domain": "devops",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "devops",
+        "immune-system",
+        "post-mortem",
+        "doctor.py",
+        "operational-rules",
+        "behavioral-security",
+        "3-strike",
+        "anomaly-detection",
+        "agent-safety",
+        "openfleet"
+      ],
+      "sources": [
+        {
+          "id": "src-devops-control-plane-local",
+          "type": "documentation",
+          "file": "../devops-control-plane/README.md",
+          "title": "devops-control-plane \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "devops-control-plane"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "AICP"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Plan Execute Review Cycle"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Always Plan Before Executing"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Rework Prevention"
+        }
+      ]
+    },
+    {
+      "path": "domains/devops/infrastructure-as-code-patterns.md",
+      "slug": "domains/devops/infrastructure-as-code-patterns",
+      "title": "Infrastructure as Code Patterns",
+      "type": "concept",
+      "domain": "devops",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "devops",
+        "iac",
+        "infrastructure-as-code",
+        "claude-md",
+        "design-md",
+        "schema-yaml",
+        "setup-py",
+        "service-templates",
+        "agent-configuration",
+        "markdown-config"
+      ],
+      "sources": [
+        {
+          "id": "src-devops-control-plane-local",
+          "type": "documentation",
+          "file": "../devops-control-plane/README.md",
+          "title": "devops-control-plane \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-design-md-research",
+          "type": "article",
+          "url": "https://github.com/VoltAgent/awesome-design-md",
+          "file": "raw/articles/design-md-pattern-research.md",
+          "title": "Design.md Pattern Research",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "EXTENDS",
+          "target": "Design.md Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "devops-control-plane"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Skills Architecture Patterns"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Immune System Rules"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Claude Code Best Practices"
+        }
+      ]
+    },
+    {
+      "path": "domains/devops/wsl2-development-patterns.md",
+      "slug": "domains/devops/wsl2-development-patterns",
+      "title": "WSL2 Development Patterns",
+      "type": "concept",
+      "domain": "devops",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "devops",
+        "wsl2",
+        "windows-subsystem-linux",
+        "obsidian-sync",
+        "systemd",
+        "daemon",
+        "cross-platform",
+        "inotify",
+        "sync",
+        "filesystem"
+      ],
+      "sources": [
+        {
+          "id": "src-user-directive-ecosystem",
+          "type": "notes",
+          "file": "raw/notes/2026-04-08-user-directive-ecosystem-connections.md",
+          "title": "User Directive \u2014 Ecosystem Connections & Automation Vision",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-devops-control-plane-local",
+          "type": "documentation",
+          "file": "../devops-control-plane/README.md",
+          "title": "devops-control-plane \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "RELATES TO",
+          "target": "Research Pipeline Orchestration"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "MCP Integration Architecture"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "devops-control-plane"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Infrastructure as Code Patterns"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Obsidian CLI"
         },
         {
           "verb": "RELATES TO",
@@ -4214,6 +4532,151 @@
       ]
     },
     {
+      "path": "patterns/pattern-skills-+-claude-code.md",
+      "slug": "patterns/pattern-skills-+-claude-code",
+      "title": "Pattern: Skills + Claude-Code",
+      "type": "pattern",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [],
+      "sources": [],
+      "layer": 5,
+      "maturity": "seed",
+      "derived_from": [
+        "Claude Code",
+        "Claude Code Best Practices"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Claude Code"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Claude Code Best Practices"
+        }
+      ]
+    },
+    {
+      "path": "patterns/pattern-skills-+-cli.md",
+      "slug": "patterns/pattern-skills-+-cli",
+      "title": "Pattern: Skills + Cli",
+      "type": "pattern",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [],
+      "sources": [],
+      "layer": 5,
+      "maturity": "seed",
+      "derived_from": [
+        "CLI Tools Beat MCP for Token Efficiency",
+        "Context-Aware Tool Loading"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "CLI Tools Beat MCP for Token Efficiency"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Context-Aware Tool Loading"
+        }
+      ]
+    },
+    {
+      "path": "patterns/pattern-skills-+-mcp.md",
+      "slug": "patterns/pattern-skills-+-mcp",
+      "title": "Pattern: Skills + Mcp",
+      "type": "pattern",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [],
+      "sources": [],
+      "layer": 5,
+      "maturity": "seed",
+      "derived_from": [
+        "CLI Tools Beat MCP for Token Efficiency",
+        "Claude Code"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "CLI Tools Beat MCP for Token Efficiency"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Claude Code"
+        }
+      ]
+    },
+    {
+      "path": "patterns/pattern-skills-+-notebooklm.md",
+      "slug": "patterns/pattern-skills-+-notebooklm",
+      "title": "Pattern: Skills + Notebooklm",
+      "type": "pattern",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [],
+      "sources": [],
+      "layer": 5,
+      "maturity": "seed",
+      "derived_from": [
+        "Context-Aware Tool Loading",
+        "NotebookLM Skills"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Context-Aware Tool Loading"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "NotebookLM Skills"
+        }
+      ]
+    },
+    {
+      "path": "patterns/pattern-skills-+-obsidian.md",
+      "slug": "patterns/pattern-skills-+-obsidian",
+      "title": "Pattern: Skills + Obsidian",
+      "type": "pattern",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [],
+      "sources": [],
+      "layer": 5,
+      "maturity": "seed",
+      "derived_from": [
+        "Obsidian Skills Ecosystem",
+        "Skills Architecture Patterns"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Obsidian Skills Ecosystem"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Skills Architecture Patterns"
+        }
+      ]
+    },
+    {
       "path": "patterns/plan-execute-review-cycle.md",
       "slug": "patterns/plan-execute-review-cycle",
       "title": "Plan Execute Review Cycle",
@@ -5819,8 +6282,8 @@
   ],
   "domains": {
     "cross-domain": {
-      "page_count": 6,
-      "relationship_count": 47
+      "page_count": 11,
+      "relationship_count": 57
     },
     "tools-and-platforms": {
       "page_count": 19,
@@ -5839,8 +6302,8 @@
       "relationship_count": 55
     },
     "devops": {
-      "page_count": 2,
-      "relationship_count": 10
+      "page_count": 6,
+      "relationship_count": 40
     },
     "knowledge-systems": {
       "page_count": 17,
@@ -5978,6 +6441,7 @@
     ],
     "architecture": [
       "comparisons/skills-architecture-patterns",
+      "domains/devops/four-project-ecosystem",
       "sources/src-karpathy-llm-wiki-idea-file"
     ],
     "claude-code": [
@@ -6126,6 +6590,8 @@
       "domains/ai-agents/agent-orchestration-patterns",
       "domains/ai-agents/openfleet",
       "domains/ai-agents/rework-prevention",
+      "domains/devops/four-project-ecosystem",
+      "domains/devops/immune-system-rules",
       "domains/knowledge-systems/lightrag",
       "lessons/always-plan-before-executing",
       "patterns/plan-execute-review-cycle"
@@ -6221,6 +6687,7 @@
     ],
     "agent-configuration": [
       "domains/ai-agents/claude-code-skills",
+      "domains/devops/infrastructure-as-code-patterns",
       "lessons/lesson-convergence-on-claude-code-skills"
     ],
     "extensibility": [
@@ -6270,20 +6737,23 @@
       "spine/domain-overviews/automation-\u2014-domain-overview"
     ],
     "design-md": [
-      "domains/ai-agents/design-md-pattern"
+      "domains/ai-agents/design-md-pattern",
+      "domains/devops/infrastructure-as-code-patterns"
     ],
     "design-system": [
       "domains/ai-agents/design-md-pattern"
     ],
     "claude-md": [
       "domains/ai-agents/design-md-pattern",
+      "domains/devops/infrastructure-as-code-patterns",
       "sources/src-playwright-mcp-visual-testing"
     ],
     "google-stitch": [
       "domains/ai-agents/design-md-pattern"
     ],
     "markdown-config": [
-      "domains/ai-agents/design-md-pattern"
+      "domains/ai-agents/design-md-pattern",
+      "domains/devops/infrastructure-as-code-patterns"
     ],
     "ui-consistency": [
       "domains/ai-agents/design-md-pattern"
@@ -6472,13 +6942,15 @@
       "domains/automation/mcp-integration-architecture"
     ],
     "integration": [
-      "domains/automation/mcp-integration-architecture"
+      "domains/automation/mcp-integration-architecture",
+      "domains/devops/four-project-ecosystem"
     ],
     "services": [
       "domains/automation/mcp-integration-architecture"
     ],
     "daemon": [
-      "domains/automation/mcp-integration-architecture"
+      "domains/automation/mcp-integration-architecture",
+      "domains/devops/wsl2-development-patterns"
     ],
     "watcher": [
       "domains/automation/mcp-integration-architecture"
@@ -6535,6 +7007,10 @@
     ],
     "devops": [
       "domains/devops/devops-control-plane",
+      "domains/devops/four-project-ecosystem",
+      "domains/devops/immune-system-rules",
+      "domains/devops/infrastructure-as-code-patterns",
+      "domains/devops/wsl2-development-patterns",
       "spine/domain-overviews/devops-\u2014-domain-overview"
     ],
     "control-plane": [
@@ -6566,6 +7042,91 @@
     ],
     "infrastructure": [
       "domains/devops/devops-control-plane"
+    ],
+    "ecosystem": [
+      "domains/devops/four-project-ecosystem",
+      "domains/tools-and-platforms/obsidian-skills-ecosystem"
+    ],
+    "aicp": [
+      "domains/devops/four-project-ecosystem",
+      "domains/tools-and-platforms/aicp"
+    ],
+    "devops-control-plane": [
+      "domains/devops/four-project-ecosystem"
+    ],
+    "openarms": [
+      "domains/devops/four-project-ecosystem",
+      "domains/tools-and-platforms/multi-channel-ai-agent-access",
+      "domains/tools-and-platforms/openarms"
+    ],
+    "research-wiki": [
+      "domains/devops/four-project-ecosystem"
+    ],
+    "multi-project": [
+      "domains/devops/four-project-ecosystem"
+    ],
+    "immune-system": [
+      "domains/devops/immune-system-rules"
+    ],
+    "post-mortem": [
+      "domains/devops/immune-system-rules"
+    ],
+    "doctor.py": [
+      "domains/devops/immune-system-rules"
+    ],
+    "operational-rules": [
+      "domains/devops/immune-system-rules"
+    ],
+    "behavioral-security": [
+      "domains/devops/immune-system-rules"
+    ],
+    "3-strike": [
+      "domains/devops/immune-system-rules"
+    ],
+    "anomaly-detection": [
+      "domains/devops/immune-system-rules"
+    ],
+    "agent-safety": [
+      "domains/devops/immune-system-rules"
+    ],
+    "iac": [
+      "domains/devops/infrastructure-as-code-patterns"
+    ],
+    "infrastructure-as-code": [
+      "domains/devops/infrastructure-as-code-patterns"
+    ],
+    "schema-yaml": [
+      "domains/devops/infrastructure-as-code-patterns"
+    ],
+    "setup-py": [
+      "domains/devops/infrastructure-as-code-patterns"
+    ],
+    "service-templates": [
+      "domains/devops/infrastructure-as-code-patterns"
+    ],
+    "wsl2": [
+      "domains/devops/wsl2-development-patterns"
+    ],
+    "windows-subsystem-linux": [
+      "domains/devops/wsl2-development-patterns"
+    ],
+    "obsidian-sync": [
+      "domains/devops/wsl2-development-patterns"
+    ],
+    "systemd": [
+      "domains/devops/wsl2-development-patterns"
+    ],
+    "cross-platform": [
+      "domains/devops/wsl2-development-patterns"
+    ],
+    "inotify": [
+      "domains/devops/wsl2-development-patterns"
+    ],
+    "sync": [
+      "domains/devops/wsl2-development-patterns"
+    ],
+    "filesystem": [
+      "domains/devops/wsl2-development-patterns"
     ],
     "evolution": [
       "domains/knowledge-systems/knowledge-evolution-pipeline"
@@ -6754,9 +7315,6 @@
     "emergence": [
       "domains/knowledge-systems/zettelkasten-methodology"
     ],
-    "aicp": [
-      "domains/tools-and-platforms/aicp"
-    ],
     "localai": [
       "domains/tools-and-platforms/aicp"
     ],
@@ -6781,10 +7339,6 @@
       "domains/tools-and-platforms/openarms"
     ],
     "ai-assistant": [
-      "domains/tools-and-platforms/multi-channel-ai-agent-access",
-      "domains/tools-and-platforms/openarms"
-    ],
-    "openarms": [
       "domains/tools-and-platforms/multi-channel-ai-agent-access",
       "domains/tools-and-platforms/openarms"
     ],
@@ -6887,9 +7441,6 @@
     "visual-diagrams": [
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "sources/src-axton-obsidian-visual-skills"
-    ],
-    "ecosystem": [
-      "domains/tools-and-platforms/obsidian-skills-ecosystem"
     ],
     "plugin-sdk": [
       "domains/tools-and-platforms/openarms"

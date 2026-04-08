@@ -82,4 +82,8 @@ The devops-control-plane occupies a foundational role:
 [[Plane]]
 [[Claude Code]]
 [[Wiki Ingestion Pipeline]]
+[[Four-Project Ecosystem]]
+[[Immune System Rules]]
+[[Infrastructure as Code Patterns]]
 [[OpenArms]]
+[[WSL2 Development Patterns]]

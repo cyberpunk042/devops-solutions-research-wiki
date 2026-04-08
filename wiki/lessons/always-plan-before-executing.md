@@ -104,3 +104,4 @@ Even at the individual agent level, Claude Code's best practices recommend using
 [[Rework Prevention]]
 [[Agent Orchestration Patterns]]
 [[Context Management Is the Primary LLM Productivity Lever]]
+[[Immune System Rules]]

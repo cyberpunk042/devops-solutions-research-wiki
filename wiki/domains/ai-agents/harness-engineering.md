@@ -101,6 +101,8 @@ However, MCP has advantages for programmatic composition (chain/group/tree) that
 [[Agent Orchestration Patterns]]
 [[Always Plan Before Executing]]
 [[Context Management Is the Primary LLM Productivity Lever]]
+[[Immune System Rules]]
+[[Infrastructure as Code Patterns]]
 [[Plan Execute Review Cycle]]
 [[Rework Prevention]]
 [[Skills Architecture Is the Dominant LLM Extension Pattern]]

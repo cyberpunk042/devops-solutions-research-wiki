@@ -120,5 +120,6 @@ A key architectural decision is that the raw source is preserved in the `raw/` f
 [[Synthesis: LLM Wiki v2 -- Extending Karpathy's Pattern with Agentmemory Lessons]]
 [[Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py]]
 [[Synthesis: Obsidian + Claude Code Second Brain Setup]]
+[[WSL2 Development Patterns]]
 [[Zettelkasten Methodology]]
 [[devops-control-plane]]

@@ -88,3 +88,4 @@ Design.md files are static context (loaded at session start). Skills are dynamic
 [[Claude Code Context Management (context budget considerations)]]
 [[MCP Integration Architecture (Design.md + MCP Stitch server)]]
 [[LLM Wiki Pattern (markdown as AI-native knowledge format)]]
+[[Infrastructure as Code Patterns]]

@@ -129,6 +129,8 @@ The research wiki creates a feedback loop:
 [[Local LLM Quantization]]
 [[MCP Integration Architecture]]
 [[OpenArms]]
+[[Pattern: Skills + Claude-Code]]
+[[Pattern: Skills + Mcp]]
 [[Plan Execute Review Cycle]]
 [[Skills Architecture Is the Dominant LLM Extension Pattern]]
 [[Synthesis: Claude Code Harness Engineering]]

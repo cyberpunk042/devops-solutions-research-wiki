@@ -1,0 +1,142 @@
+---
+title: "Immune System Rules"
+type: concept
+domain: devops
+status: synthesized
+confidence: high
+created: 2026-04-08
+updated: 2026-04-08
+sources:
+  - id: src-devops-control-plane-local
+    type: documentation
+    file: ../devops-control-plane/README.md
+    title: "devops-control-plane — Local Project Documentation"
+    ingested: 2026-04-08
+  - id: src-openfleet-local
+    type: documentation
+    file: ../openfleet/CLAUDE.md
+    title: "OpenFleet — Local Project Documentation"
+    ingested: 2026-04-08
+tags: [devops, immune-system, post-mortem, doctor.py, operational-rules, behavioral-security, 3-strike, anomaly-detection, agent-safety, openfleet]
+---
+
+# Immune System Rules
+
+## Summary
+
+The Immune System Rules are 24 operational governance rules derived from 16 post-mortems and agent death analyses, codified in OpenFleet's doctor.py. They implement the 3-strike rule, task state anomaly detection, and behavioral security — turning hard-won failure modes into automated, deterministic guardrails that run on every 30-second orchestrator cycle. These rules are a transferable devops pattern: any agent harness or orchestration system benefits from a codified set of operational invariants enforced at the infrastructure level rather than the model level.
+
+## Key Insights
+
+- **Origin: 16 post-mortems, not intuition**: The 24 rules were extracted from real incident analysis in the devops-control-plane project. Each rule has a known failure mode behind it. This provenance makes them high-confidence operational knowledge, not theoretical best practices.
+
+- **3-strike rule as the core enforcement mechanism**: An agent or task that violates an operational invariant is not immediately killed. Three violations within a window trigger escalation. This tolerates transient anomalies (network blips, brief loop spikes) while catching persistent failures. The strike window prevents both false positives and silent degradation.
+
+- **Task state anomaly detection**: doctor.py monitors the multi-dimensional state of every task across 6 axes (lifecycle, execution, progress, readiness, validation, context). Impossible state combinations (e.g., task marked "complete" but children still pending, or task in execution for more than N cycles) trigger anomaly flags.
+
+- **Behavioral security as a rule category**: Beyond health checks, a subset of the rules covers behavioral violations — agents acquiring permissions beyond their role, tasks writing to paths they should not access, cost spikes from runaway loops. These rules treat agent behavior like network traffic: expected patterns are allowed, anomalies are flagged and rate-limited.
+
+- **Deterministic, not LLM-driven**: doctor.py runs with zero LLM calls. Rules are pure Python: state comparisons, threshold checks, counter increments. This makes the immune system fast (microseconds per check), cheap (no token cost), and auditable (no inference variability). An LLM immune system would be unreliable by design.
+
+- **Integrated into the orchestrator cycle**: doctor.py runs at step 6 of the 9-step orchestration cycle, after security scan and before review approvals. This ensures every dispatch decision is preceded by a health sweep — no task is dispatched to an agent currently in violation.
+
+- **Transferable beyond OpenFleet**: The same rule categories apply to any orchestration system managing long-running agents: runaway loop detection, stale state reads, permission drift, cost spike detection, heartbeat timeouts. The specific thresholds vary per system; the rule categories are universal.
+
+## Deep Analysis
+
+### Rule Categories (Synthesized from Post-Mortem Analysis)
+
+Based on the documented origin and implementation, the 24 rules cluster into at least 5 categories:
+
+**1. Liveness Rules** — Detect agents or tasks that are alive in state but dead in practice:
+- Heartbeat timeout (no checkin within N cycles)
+- Task stuck in execution with no progress markers
+- Agent registered but session ID stale
+
+**2. Loop Detection Rules** — Detect runaway cycles and retry storms:
+- Task retry count exceeding threshold
+- Task dispatched more than N times without completion
+- Circular dependency chains detected in task graph
+
+**3. State Integrity Rules** — Detect impossible or inconsistent state combinations:
+- Parent task complete but child tasks unresolved
+- Task in "review" state with no reviewer assigned
+- Task marked "blocked" with no blocking dependency recorded
+
+**4. Behavioral Security Rules** — Detect permission and scope violations:
+- Agent writing to paths outside its declared access scope
+- Cost spike: LLM calls per cycle exceeding budget threshold
+- Task acquiring capabilities not in its original specification
+
+**5. Resource Rules** — Detect resource exhaustion and degraded conditions:
+- LLM backend circuit breaker open (AICP pattern applied at fleet level)
+- External service (Plane, GitHub, LocalAI) unresponsive for N cycles
+- Disk or memory pressure crossing operational thresholds
+
+### Integration Point: doctor.py in the Orchestrator Cycle
+
+```
+Orchestrator 30-second cycle:
+  1. Storm monitor evaluation
+  2. Gateway duplication check
+  3. Fleet mode gate
+  4. Refresh agent contexts
+  5. Security scan (behavioral security on new/changed tasks)
+  6. Doctor run ← immune system sweep HERE
+  7. Ensure review approvals
+  8. Wake drivers
+  9. Dispatch ready tasks
+ 10. Process directives
+ 11. Evaluate parents
+ 12. Health check
+```
+
+The placement matters: doctor.py runs after the security scan has flagged behavioral anomalies (step 5) and before any dispatch (step 9). A task flagged by the doctor accumulates a strike; at 3 strikes it is quarantined before ever reaching dispatch. This is a preemptive immune response, not a reactive one.
+
+### Why Post-Mortem-Derived Rules Are Superior
+
+The standard approach to agent safety is prompt-level guardrails: "don't do X" in the system prompt. This fails because:
+1. LLMs can be distracted out of prompt-level constraints under adversarial inputs
+2. Prompt-level guardrails apply per-call, not per-session — state drift accumulates across calls
+3. No audit trail: a bypassed prompt constraint leaves no record
+
+Post-mortem-derived rules codified in Python provide:
+1. Infrastructure-level enforcement — cannot be bypassed by any model
+2. Session-level tracking — counters persist across the entire task lifecycle
+3. Full audit trail — every rule check writes to the append-only ledger
+
+### From devops-control-plane to OpenFleet
+
+The transfer path is documented: devops-control-plane is where operational incidents were analyzed and rules were written. OpenFleet adopted them via doctor.py. This represents the ecosystem's knowledge transfer mechanism for operational wisdom: the control-plane serves as an incident laboratory; OpenFleet operationalizes the resulting rules at scale.
+
+This is a model for how operational knowledge should flow in any multi-project ecosystem: centralize incident analysis in one place, extract transferable rules, implement them as shared infrastructure code.
+
+## Open Questions
+
+- What is the full text of all 24 rules? The number is documented but the specific rule definitions are not yet in the wiki.
+- How does the 3-strike window duration scale with the orchestrator cycle speed (turbo=5s vs economic=60s)?
+- Can the immune system rules be expressed as a shared library usable by both OpenFleet and AICP's circuit breaker pattern?
+- What is the median time-to-detection for each rule category? This would quantify the operational value.
+- Should the rules evolve automatically (ML on incident data) or remain statically maintained via human post-mortem review?
+
+## Relationships
+
+- DERIVED FROM: devops-control-plane
+- IMPLEMENTS: OpenFleet
+- RELATES TO: Harness Engineering
+- RELATES TO: AICP
+- ENABLES: Plan Execute Review Cycle
+- RELATES TO: Always Plan Before Executing
+- BUILDS ON: Rework Prevention
+
+## Backlinks
+
+[[devops-control-plane]]
+[[OpenFleet]]
+[[Harness Engineering]]
+[[AICP]]
+[[Plan Execute Review Cycle]]
+[[Always Plan Before Executing]]
+[[Rework Prevention]]
+[[Four-Project Ecosystem]]
+[[Infrastructure as Code Patterns]]

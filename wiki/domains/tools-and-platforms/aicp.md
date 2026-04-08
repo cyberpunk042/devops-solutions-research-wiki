@@ -98,6 +98,8 @@ Shared: Plane, GitHub, ntfy
 [[Wiki Knowledge Graph]]
 [[devops-control-plane]]
 [[Context Management Is the Primary LLM Productivity Lever]]
+[[Four-Project Ecosystem]]
+[[Immune System Rules]]
 [[Knowledge Evolution Pipeline]]
 [[Local LLM Quantization]]
 [[MCP Integration Architecture]]
