@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-08T14:48:17.800184+00:00",
+  "generated": "2026-04-08T15:03:55.188851+00:00",
   "stats": {
-    "pages": 42,
-    "domains": 6,
-    "sources": 12,
+    "pages": 48,
+    "domains": 7,
+    "sources": 16,
     "comparisons": 3,
-    "relationships": 323,
-    "tags_unique": 190
+    "relationships": 356,
+    "tags_unique": 217
   },
   "pages": [
     {
@@ -589,6 +589,82 @@
       ]
     },
     {
+      "path": "domains/ai-agents/harness-engineering.md",
+      "slug": "domains/ai-agents/harness-engineering",
+      "title": "Harness Engineering",
+      "type": "concept",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "harness-engineering",
+        "guardrails",
+        "plan-work-review",
+        "runtime-safety",
+        "agent-orchestration",
+        "claude-code",
+        "spec-driven",
+        "typescript"
+      ],
+      "sources": [
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "file": "raw/articles/building-claude-code-harness-engineering.md",
+          "title": "Building Claude Code with Harness Engineering",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-harness-engineering-github",
+          "type": "documentation",
+          "url": "https://github.com/Chachamaru127/claude-code-harness",
+          "title": "claude-code-harness GitHub",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-claude-code-accuracy-tips",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
+          "file": "raw/transcripts/claude-code-works-better-when-you-do-this.txt",
+          "title": "Claude Code Works Better When You Do This",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code"
+        },
+        {
+          "verb": "PARALLELS",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Research Pipeline Orchestration"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "MCP Integration Architecture"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "OpenClaw"
+        }
+      ]
+    },
+    {
       "path": "domains/ai-agents/llm-knowledge-linting.md",
       "slug": "domains/ai-agents/llm-knowledge-linting",
       "title": "LLM Knowledge Linting",
@@ -812,6 +888,69 @@
         {
           "verb": "FEEDS INTO",
           "target": "Wiki Knowledge Graph"
+        }
+      ]
+    },
+    {
+      "path": "domains/ai-models/local-llm-quantization.md",
+      "slug": "domains/ai-models/local-llm-quantization",
+      "title": "Local LLM Quantization",
+      "type": "concept",
+      "domain": "ai-models",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "quantization",
+        "local-llm",
+        "mlx",
+        "ollama",
+        "apple-silicon",
+        "moe",
+        "turboquant",
+        "gemma4",
+        "consumer-hardware",
+        "local-first"
+      ],
+      "sources": [
+        {
+          "id": "src-turboquant-122b-macbook",
+          "type": "article",
+          "url": "https://medium.com/data-science-collective/how-i-run-122b-parameter-llms-on-a-macbook-outperforming-mxfp4-and-standard-quantization-on-apple-0552ee3da1f7",
+          "file": "raw/articles/turboquant-122b-llm-macbook-mlx.md",
+          "title": "How I Run 122B Parameter LLMs on a MacBook",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-gemma4-searxng-openclaw",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=T0CKsU0hQx4",
+          "file": "raw/transcripts/gemma-4-searxng-100-free-amp-private-openclaw-full-setup.txt",
+          "title": "Gemma 4 + SearXNG for OpenClaw",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "RELATES TO",
+          "target": "AICP"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "OpenClaw"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "LightRAG"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code"
         }
       ]
     },
@@ -2370,6 +2509,64 @@
       ]
     },
     {
+      "path": "sources/src-claude-code-accuracy-tips.md",
+      "slug": "sources/src-claude-code-accuracy-tips",
+      "title": "Synthesis: Claude Code Accuracy Tips",
+      "type": "source-synthesis",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "claude-code",
+        "accuracy",
+        "context-management",
+        "subagents",
+        "superpowers",
+        "agent-teams",
+        "context7",
+        "notebooklm",
+        "cli-over-mcp"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-code-accuracy-tips",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
+          "file": "raw/transcripts/claude-code-works-better-when-you-do-this.txt",
+          "title": "Claude Code Works Better When You Do This",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-claude-code-accuracy-tips"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "NotebookLM"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "OpenClaw"
+        }
+      ]
+    },
+    {
       "path": "sources/src-claude-notebooklm-content-team.md",
       "slug": "sources/src-claude-notebooklm-content-team",
       "title": "Synthesis: Claude + NotebookLM Content Automation",
@@ -2463,6 +2660,129 @@
         {
           "verb": "RELATES TO",
           "target": "NotebookLM"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-gemma4-searxng-openclaw.md",
+      "slug": "sources/src-gemma4-searxng-openclaw",
+      "title": "Synthesis: Gemma 4 + SearXNG for Free Private OpenClaw",
+      "type": "source-synthesis",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "gemma4",
+        "openclaw",
+        "ollama",
+        "searxng",
+        "local-first",
+        "privacy",
+        "self-hosted",
+        "web-search",
+        "free-ai",
+        "tool-calling"
+      ],
+      "sources": [
+        {
+          "id": "src-gemma4-searxng-openclaw",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=T0CKsU0hQx4",
+          "file": "raw/transcripts/gemma-4-searxng-100-free-amp-private-openclaw-full-setup.txt",
+          "title": "Gemma 4 + SearXNG = 100% FREE & PRIVATE OpenClaw (Full Setup)",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-gemma4-searxng-openclaw"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "OpenClaw"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "AICP"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LightRAG"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-harness-engineering.md",
+      "slug": "sources/src-harness-engineering",
+      "title": "Synthesis: Claude Code Harness Engineering",
+      "type": "source-synthesis",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "harness-engineering",
+        "claude-code",
+        "guardrails",
+        "plan-work-review",
+        "agent-teams",
+        "typescript",
+        "runtime-safety",
+        "spec-driven"
+      ],
+      "sources": [
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "file": "raw/articles/building-claude-code-harness-engineering.md",
+          "title": "Building Claude Code with Harness Engineering",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-harness-engineering-github",
+          "type": "documentation",
+          "url": "https://github.com/Chachamaru127/claude-code-harness",
+          "title": "claude-code-harness GitHub",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-harness-engineering-article"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-harness-engineering-github"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "OpenClaw"
         }
       ]
     },
@@ -2957,6 +3277,51 @@
           "target": "Claude Code Best Practices"
         }
       ]
+    },
+    {
+      "path": "sources/src-turboquant-122b-macbook.md",
+      "slug": "sources/src-turboquant-122b-macbook",
+      "title": "Synthesis: TurboQuant 122B LLM on MacBook",
+      "type": "source-synthesis",
+      "domain": "ai-models",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-08",
+      "updated": "2026-04-08",
+      "tags": [
+        "quantization",
+        "turboquant",
+        "mlx",
+        "apple-silicon",
+        "moe",
+        "local-llm",
+        "m4-max",
+        "122b-parameters"
+      ],
+      "sources": [
+        {
+          "id": "src-turboquant-122b-macbook",
+          "type": "article",
+          "url": "https://medium.com/data-science-collective/how-i-run-122b-parameter-llms-on-a-macbook-outperforming-mxfp4-and-standard-quantization-on-apple-0552ee3da1f7",
+          "file": "raw/articles/turboquant-122b-llm-macbook-mlx.md",
+          "title": "How I Run 122B Parameter LLMs on a MacBook",
+          "ingested": "2026-04-08"
+        }
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "src-turboquant-122b-macbook"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "AICP"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LightRAG"
+        }
+      ]
     }
   ],
   "domains": {
@@ -2965,8 +3330,12 @@
       "relationship_count": 14
     },
     "ai-agents": {
-      "page_count": 9,
-      "relationship_count": 82
+      "page_count": 13,
+      "relationship_count": 107
+    },
+    "ai-models": {
+      "page_count": 2,
+      "relationship_count": 8
     },
     "automation": {
       "page_count": 6,
@@ -3048,14 +3417,17 @@
       "domains/ai-agents/claude-code-context-management",
       "domains/ai-agents/claude-code-skills",
       "domains/ai-agents/claude-code",
+      "domains/ai-agents/harness-engineering",
       "domains/automation/ai-driven-content-pipeline",
       "domains/automation/claude-code-scheduling",
       "domains/knowledge-systems/wiki-ingestion-pipeline",
       "domains/tools-and-platforms/notebooklm-skills",
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "sources/src-axton-obsidian-visual-skills",
+      "sources/src-claude-code-accuracy-tips",
       "sources/src-claude-notebooklm-content-team",
       "sources/src-claude-world-notebooklm-skill",
+      "sources/src-harness-engineering",
       "sources/src-karpathy-claude-code-10x",
       "sources/src-kepano-obsidian-skills",
       "sources/src-obsidian-claude-code-second-brain",
@@ -3081,6 +3453,7 @@
       "domains/tools-and-platforms/notebooklm-py-cli",
       "domains/tools-and-platforms/notebooklm-skills",
       "domains/tools-and-platforms/notebooklm",
+      "sources/src-claude-code-accuracy-tips",
       "sources/src-claude-notebooklm-content-team",
       "sources/src-claude-world-notebooklm-skill",
       "sources/src-pleaseprompto-notebooklm-skill"
@@ -3111,6 +3484,7 @@
     "subagents": [
       "domains/ai-agents/claude-code-best-practices",
       "domains/ai-agents/claude-code",
+      "sources/src-claude-code-accuracy-tips",
       "sources/src-shanraisshan-claude-code-best-practice"
     ],
     "commands": [
@@ -3225,7 +3599,8 @@
       "sources/src-claude-world-notebooklm-skill"
     ],
     "context-management": [
-      "domains/ai-agents/claude-code"
+      "domains/ai-agents/claude-code",
+      "sources/src-claude-code-accuracy-tips"
     ],
     "automation": [
       "domains/ai-agents/claude-code",
@@ -3238,6 +3613,34 @@
       "sources/src-claude-notebooklm-content-team",
       "sources/src-claude-world-notebooklm-skill",
       "sources/src-llm-wiki-v2-agentmemory"
+    ],
+    "harness-engineering": [
+      "domains/ai-agents/harness-engineering",
+      "sources/src-harness-engineering"
+    ],
+    "guardrails": [
+      "domains/ai-agents/harness-engineering",
+      "domains/tools-and-platforms/aicp",
+      "sources/src-harness-engineering"
+    ],
+    "plan-work-review": [
+      "domains/ai-agents/harness-engineering",
+      "sources/src-harness-engineering"
+    ],
+    "runtime-safety": [
+      "domains/ai-agents/harness-engineering",
+      "sources/src-harness-engineering"
+    ],
+    "agent-orchestration": [
+      "domains/ai-agents/harness-engineering"
+    ],
+    "spec-driven": [
+      "domains/ai-agents/harness-engineering",
+      "sources/src-harness-engineering"
+    ],
+    "typescript": [
+      "domains/ai-agents/harness-engineering",
+      "sources/src-harness-engineering"
     ],
     "linting": [
       "domains/ai-agents/llm-knowledge-linting"
@@ -3266,7 +3669,8 @@
     ],
     "openclaw": [
       "domains/ai-agents/openclaw",
-      "domains/ai-agents/openfleet"
+      "domains/ai-agents/openfleet",
+      "sources/src-gemma4-searxng-openclaw"
     ],
     "agent-framework": [
       "domains/ai-agents/openclaw"
@@ -3311,6 +3715,46 @@
     "lightrag": [
       "domains/ai-agents/openfleet",
       "domains/knowledge-systems/lightrag"
+    ],
+    "quantization": [
+      "domains/ai-models/local-llm-quantization",
+      "sources/src-turboquant-122b-macbook"
+    ],
+    "local-llm": [
+      "domains/ai-models/local-llm-quantization",
+      "sources/src-turboquant-122b-macbook"
+    ],
+    "mlx": [
+      "domains/ai-models/local-llm-quantization",
+      "sources/src-turboquant-122b-macbook"
+    ],
+    "ollama": [
+      "domains/ai-models/local-llm-quantization",
+      "sources/src-gemma4-searxng-openclaw"
+    ],
+    "apple-silicon": [
+      "domains/ai-models/local-llm-quantization",
+      "sources/src-turboquant-122b-macbook"
+    ],
+    "moe": [
+      "domains/ai-models/local-llm-quantization",
+      "sources/src-turboquant-122b-macbook"
+    ],
+    "turboquant": [
+      "domains/ai-models/local-llm-quantization",
+      "sources/src-turboquant-122b-macbook"
+    ],
+    "gemma4": [
+      "domains/ai-models/local-llm-quantization",
+      "sources/src-gemma4-searxng-openclaw"
+    ],
+    "consumer-hardware": [
+      "domains/ai-models/local-llm-quantization"
+    ],
+    "local-first": [
+      "domains/ai-models/local-llm-quantization",
+      "domains/tools-and-platforms/aicp",
+      "sources/src-gemma4-searxng-openclaw"
     ],
     "content-pipeline": [
       "domains/automation/ai-driven-content-pipeline",
@@ -3541,18 +3985,12 @@
     "think-edit-act": [
       "domains/tools-and-platforms/aicp"
     ],
-    "guardrails": [
-      "domains/tools-and-platforms/aicp"
-    ],
     "circuit-breaker": [
       "domains/tools-and-platforms/aicp"
     ],
     "fleet-integration": [
       "domains/tools-and-platforms/aicp",
       "domains/tools-and-platforms/plane"
-    ],
-    "local-first": [
-      "domains/tools-and-platforms/aicp"
     ],
     "cli": [
       "domains/tools-and-platforms/notebooklm-py-cli",
@@ -3648,7 +4086,8 @@
       "domains/tools-and-platforms/plane"
     ],
     "self-hosted": [
-      "domains/tools-and-platforms/plane"
+      "domains/tools-and-platforms/plane",
+      "sources/src-gemma4-searxng-openclaw"
     ],
     "docker": [
       "domains/tools-and-platforms/plane"
@@ -3664,6 +4103,37 @@
     ],
     "canvas": [
       "sources/src-axton-obsidian-visual-skills"
+    ],
+    "accuracy": [
+      "sources/src-claude-code-accuracy-tips"
+    ],
+    "superpowers": [
+      "sources/src-claude-code-accuracy-tips"
+    ],
+    "agent-teams": [
+      "sources/src-claude-code-accuracy-tips",
+      "sources/src-harness-engineering"
+    ],
+    "context7": [
+      "sources/src-claude-code-accuracy-tips"
+    ],
+    "cli-over-mcp": [
+      "sources/src-claude-code-accuracy-tips"
+    ],
+    "searxng": [
+      "sources/src-gemma4-searxng-openclaw"
+    ],
+    "privacy": [
+      "sources/src-gemma4-searxng-openclaw"
+    ],
+    "web-search": [
+      "sources/src-gemma4-searxng-openclaw"
+    ],
+    "free-ai": [
+      "sources/src-gemma4-searxng-openclaw"
+    ],
+    "tool-calling": [
+      "sources/src-gemma4-searxng-openclaw"
     ],
     "primary-source": [
       "sources/src-karpathy-llm-wiki-idea-file"
@@ -3707,6 +4177,12 @@
     ],
     "sub-agents": [
       "sources/src-token-hacks-claude-code"
+    ],
+    "m4-max": [
+      "sources/src-turboquant-122b-macbook"
+    ],
+    "122b-parameters": [
+      "sources/src-turboquant-122b-macbook"
     ]
   },
   "orphaned_refs": [
@@ -3742,6 +4218,12 @@
       ]
     },
     {
+      "target": "src-claude-code-accuracy-tips",
+      "referenced_by": [
+        "Synthesis: Claude Code Accuracy Tips"
+      ]
+    },
+    {
       "target": "src-claude-notebooklm-content-team",
       "referenced_by": [
         "Claude Code Skills",
@@ -3757,6 +4239,24 @@
         "NotebookLM Skills",
         "Synthesis: claude-world/notebooklm-skill",
         "Synthesis: PleasePrompto/notebooklm-skill"
+      ]
+    },
+    {
+      "target": "src-gemma4-searxng-openclaw",
+      "referenced_by": [
+        "Synthesis: Gemma 4 + SearXNG for Free Private OpenClaw"
+      ]
+    },
+    {
+      "target": "src-harness-engineering-article",
+      "referenced_by": [
+        "Synthesis: Claude Code Harness Engineering"
+      ]
+    },
+    {
+      "target": "src-harness-engineering-github",
+      "referenced_by": [
+        "Synthesis: Claude Code Harness Engineering"
       ]
     },
     {
@@ -3844,6 +4344,12 @@
         "Claude Code Context Management",
         "Claude Code Skills",
         "Synthesis: 18 Claude Code Token Hacks in 18 Minutes"
+      ]
+    },
+    {
+      "target": "src-turboquant-122b-macbook",
+      "referenced_by": [
+        "Synthesis: TurboQuant 122B LLM on MacBook"
       ]
     }
   ]

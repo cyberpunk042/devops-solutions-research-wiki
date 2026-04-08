@@ -120,3 +120,4 @@ The gap between current state and the vision:
 [[MCP Integration Architecture]]
 [[Obsidian CLI]]
 [[notebooklm-py CLI]]
+[[Harness Engineering]]

@@ -97,5 +97,8 @@ Shared: Plane, GitHub, ntfy
 [[Claude Code Skills]]
 [[Wiki Knowledge Graph]]
 [[devops-control-plane]]
+[[Local LLM Quantization]]
 [[MCP Integration Architecture]]
 [[Plane]]
+[[Synthesis: Gemma 4 + SearXNG for Free Private OpenClaw]]
+[[Synthesis: TurboQuant 122B LLM on MacBook]]

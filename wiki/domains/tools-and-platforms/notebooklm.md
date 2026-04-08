@@ -76,6 +76,7 @@ The breadth of output formats — from visual (slides, mind maps, infographics) 
 [[LLM Wiki vs RAG]]
 [[LLM Wiki Pattern]]
 [[Agentic Search vs Vector Search]]
+[[Synthesis: Claude Code Accuracy Tips]]
 [[Synthesis: PleasePrompto/notebooklm-skill]]
 [[Synthesis: claude-world/notebooklm-skill]]
 [[notebooklm-py CLI]]

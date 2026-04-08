@@ -16,7 +16,8 @@
       "WebFetch(domain:neo4j.com)",
       "WebFetch(domain:promptengineering.org)",
       "WebFetch(domain:dev.to)",
-      "WebFetch(domain:plane.so)"
+      "WebFetch(domain:plane.so)",
+      "WebFetch(domain:levelup.gitconnected.com)"
     ]
   }
 }

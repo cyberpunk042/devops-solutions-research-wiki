@@ -99,5 +99,8 @@ The unsolved "billion-dollar questions" reveal the current frontier: why do mode
 [[Skills Architecture Patterns]]
 [[Claude Code]]
 [[Agentic Search vs Vector Search]]
+[[Harness Engineering]]
 [[Synthesis: 18 Claude Code Token Hacks in 18 Minutes]]
+[[Synthesis: Claude Code Accuracy Tips]]
 [[Synthesis: Claude Code Best Practice (shanraisshan)]]
+[[Synthesis: Claude Code Harness Engineering]]

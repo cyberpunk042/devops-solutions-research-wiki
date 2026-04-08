@@ -107,4 +107,5 @@ The 5-minute prompt cache TTL is a subtle but important operational detail. It m
 [[Skills Architecture Patterns]]
 [[Claude Code]]
 [[Synthesis: 18 Claude Code Token Hacks in 18 Minutes]]
+[[Synthesis: Claude Code Accuracy Tips]]
 [[Synthesis: Claude Code Best Practice (shanraisshan)]]

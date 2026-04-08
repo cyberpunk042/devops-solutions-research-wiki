@@ -96,3 +96,6 @@ The wiki's relationship format (`- VERB: Target Name`) is directly compatible wi
 [[Wiki Ingestion Pipeline]]
 [[AICP]]
 [[LLM Wiki Pattern]]
+[[Local LLM Quantization]]
+[[Synthesis: Gemma 4 + SearXNG for Free Private OpenClaw]]
+[[Synthesis: TurboQuant 122B LLM on MacBook]]

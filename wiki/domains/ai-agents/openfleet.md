@@ -118,4 +118,8 @@ Every 30 seconds (configurable: turbo=5s, standard=30s, economic=60s):
 [[Wiki Knowledge Graph]]
 [[Claude Code]]
 [[Claude Code Scheduling]]
+[[Harness Engineering]]
+[[Local LLM Quantization]]
 [[MCP Integration Architecture]]
+[[Synthesis: Claude Code Harness Engineering]]
+[[Synthesis: Gemma 4 + SearXNG for Free Private OpenClaw]]

@@ -122,5 +122,8 @@ The research wiki creates a feedback loop:
 [[Obsidian CLI]]
 [[notebooklm-py CLI]]
 [[LLM Wiki Pattern]]
+[[Harness Engineering]]
+[[Local LLM Quantization]]
 [[MCP Integration Architecture]]
+[[Synthesis: Claude Code Harness Engineering]]
 [[devops-control-plane]]
