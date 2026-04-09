@@ -14,7 +14,8 @@ Recurring structures observed across sources
 - [Pattern: Skills + Obsidian](pattern-skills-+-obsidian.md) — <!-- 2-3 sentences: what recurs and why it matters -->
 - [Plan Execute Review Cycle](plan-execute-review-cycle.md) — The Plan→Execute→Review cycle is a recurring structural pattern observed independently across AI agent orchestration ...
 - [Progressive Distillation](progressive-distillation.md) — Progressive Distillation is the pattern of processing raw material through successive layers of increasing density an...
+- [Scaffold → Foundation → Infrastructure → Features](scaffold-foundation-infrastructure-features.md) — Scaffold → Foundation → Infrastructure → Features (SFIF) is the universal 4-stage build lifecycle that repeats at eve...
 
 ## Tags
 
-`orchestration`, `openfleet`, `mcp`, `agent-architecture`, `deterministic`, `guardrails`, `context-management`, `token-efficiency`, `deferred-loading`, `skills`, `cli`, `tool-design`, `accuracy`, `notebooklm`, `playwright`, `context7`, `llm-core`, `shell-pattern`, `harness`, `aicp`
+`orchestration`, `openfleet`, `mcp`, `agent-architecture`, `deterministic`, `guardrails`, `cross-domain`, `context-management`, `token-efficiency`, `deferred-loading`, `skills`, `cli`, `tool-design`, `accuracy`, `notebooklm`, `playwright`, `context7`, `llm-core`, `shell-pattern`, `harness`

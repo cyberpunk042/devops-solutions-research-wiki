@@ -159,5 +159,7 @@ Cross-referencing `Zettelkasten Methodology`, `Wiki Knowledge Graph`, and `LLM K
 [[Lesson: Schema Is the Real Product — Not the Content]]
 [[PARA Methodology]]
 [[Progressive Distillation]]
+[[Scaffold → Foundation → Infrastructure → Features]]
+[[Skyscraper, Pyramid, Mountain]]
 [[The Wiki Maintenance Problem Is Solved by LLM Automation]]
 [[Zettelkasten Methodology]]

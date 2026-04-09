@@ -1,20 +1,20 @@
 {
-  "generated": "2026-04-09T16:10:25.631380+00:00",
+  "generated": "2026-04-09T17:18:52.119300+00:00",
   "stats": {
-    "pages": 106,
+    "pages": 108,
     "domains": 7,
     "sources": 21,
     "comparisons": 5,
-    "relationships": 804,
-    "tags_unique": 427,
+    "relationships": 823,
+    "tags_unique": 447,
     "layers": {
       "6": 5,
       "4": 16,
-      "5": 10,
+      "5": 11,
       "spine": 7
     },
     "maturity": {
-      "growing": 33,
+      "growing": 35,
       "seed": 5
     }
   },
@@ -2160,6 +2160,76 @@
         {
           "verb": "RELATES TO",
           "target": "Claude Code Best Practices"
+        }
+      ]
+    },
+    {
+      "path": "domains/cross-domain/skyscraper-pyramid-mountain.md",
+      "slug": "domains/cross-domain/skyscraper-pyramid-mountain",
+      "title": "Skyscraper, Pyramid, Mountain",
+      "type": "concept",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "authoritative",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "architecture",
+        "quality",
+        "refactoring",
+        "legacy",
+        "technical-debt",
+        "skyscraper",
+        "pyramid",
+        "mountain",
+        "spaghetti-code",
+        "pragmatism",
+        "cross-domain",
+        "systems-course"
+      ],
+      "sources": [
+        {
+          "id": "src-user-articulation-spm",
+          "type": "note",
+          "file": "raw/notes/skyscraper-pyramid-mountain.md",
+          "title": "User articulation of Skyscraper-Pyramid-Mountain architectural quality analogy"
+        }
+      ],
+      "layer": "",
+      "maturity": "growing",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "RELATES TO",
+          "target": "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Progressive Distillation"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Deterministic Shell"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Core"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Four-Project Ecosystem"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Plan Execute Review Cycle"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Infrastructure as Code Patterns"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Knowledge Evolution Pipeline"
         }
       ]
     },
@@ -6068,6 +6138,98 @@
       ]
     },
     {
+      "path": "patterns/scaffold-foundation-infrastructure-features.md",
+      "slug": "patterns/scaffold-foundation-infrastructure-features",
+      "title": "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features",
+      "type": "pattern",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "authoritative",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "scaffold",
+        "foundation",
+        "infrastructure",
+        "features",
+        "build-lifecycle",
+        "architecture",
+        "cross-domain",
+        "sfif",
+        "recursive",
+        "poc",
+        "mvp",
+        "project-structure",
+        "design-lifecycle"
+      ],
+      "sources": [
+        {
+          "id": "src-four-project-ecosystem",
+          "type": "documentation",
+          "file": "wiki/domains/devops/four-project-ecosystem.md",
+          "title": "Four-Project Ecosystem"
+        },
+        {
+          "id": "src-user-articulation",
+          "type": "note",
+          "file": "raw/notes/scaffold-foundation-infrastructure-features.md",
+          "title": "User articulation of SFIF build lifecycle pattern"
+        }
+      ],
+      "layer": 5,
+      "maturity": "growing",
+      "derived_from": [
+        "Four-Project Ecosystem",
+        "Progressive Distillation"
+      ],
+      "relationships": [
+        {
+          "verb": "RELATES TO",
+          "target": "Skyscraper-Pyramid-Mountain"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Progressive Distillation"
+        },
+        {
+          "verb": "IMPLEMENTED BY",
+          "target": "Research Wiki"
+        },
+        {
+          "verb": "IMPLEMENTED BY",
+          "target": "OpenFleet"
+        },
+        {
+          "verb": "IMPLEMENTED BY",
+          "target": "AICP"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Four-Project Ecosystem"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Deterministic Shell"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Core"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Plan Execute Review Cycle"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Knowledge Evolution Pipeline"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Infrastructure as Code Patterns"
+        }
+      ]
+    },
+    {
       "path": "sources/src-axton-obsidian-visual-skills.md",
       "slug": "sources/src-axton-obsidian-visual-skills",
       "title": "Synthesis: axtonliu/axton-obsidian-visual-skills",
@@ -7706,8 +7868,8 @@
   ],
   "domains": {
     "cross-domain": {
-      "page_count": 16,
-      "relationship_count": 96
+      "page_count": 18,
+      "relationship_count": 115
     },
     "ai-agents": {
       "page_count": 29,
@@ -7780,10 +7942,12 @@
       "comparisons/cross-domain-patterns",
       "comparisons/llm-wiki-vs-rag",
       "comparisons/skills-architecture-patterns",
+      "domains/cross-domain/skyscraper-pyramid-mountain",
       "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
       "lessons/lesson-hub-\u2014-automation",
       "lessons/lesson-hub-\u2014-knowledge-systems",
       "patterns/plan-execute-review-cycle",
+      "patterns/scaffold-foundation-infrastructure-features",
       "spine/domain-overviews/cross-domain-\u2014-domain-overview"
     ],
     "patterns": [
@@ -7888,7 +8052,9 @@
     "architecture": [
       "comparisons/skills-architecture-patterns",
       "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
+      "domains/cross-domain/skyscraper-pyramid-mountain",
       "domains/devops/four-project-ecosystem",
+      "patterns/scaffold-foundation-infrastructure-features",
       "sources/src-karpathy-llm-wiki-idea-file"
     ],
     "claude-code": [
@@ -7977,7 +8143,8 @@
     ],
     "infrastructure": [
       "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
-      "domains/devops/devops-control-plane"
+      "domains/devops/devops-control-plane",
+      "patterns/scaffold-foundation-infrastructure-features"
     ],
     "aicp": [
       "decisions/local-model-vs-cloud-api-for-routine-operations",
@@ -8591,6 +8758,36 @@
     "crystallization": [
       "domains/automation/wiki-event-driven-automation"
     ],
+    "quality": [
+      "domains/cross-domain/skyscraper-pyramid-mountain"
+    ],
+    "refactoring": [
+      "domains/cross-domain/skyscraper-pyramid-mountain"
+    ],
+    "legacy": [
+      "domains/cross-domain/skyscraper-pyramid-mountain"
+    ],
+    "technical-debt": [
+      "domains/cross-domain/skyscraper-pyramid-mountain"
+    ],
+    "skyscraper": [
+      "domains/cross-domain/skyscraper-pyramid-mountain"
+    ],
+    "pyramid": [
+      "domains/cross-domain/skyscraper-pyramid-mountain"
+    ],
+    "mountain": [
+      "domains/cross-domain/skyscraper-pyramid-mountain"
+    ],
+    "spaghetti-code": [
+      "domains/cross-domain/skyscraper-pyramid-mountain"
+    ],
+    "pragmatism": [
+      "domains/cross-domain/skyscraper-pyramid-mountain"
+    ],
+    "systems-course": [
+      "domains/cross-domain/skyscraper-pyramid-mountain"
+    ],
     "control-plane": [
       "domains/devops/devops-control-plane"
     ],
@@ -9196,6 +9393,36 @@
     "distillation": [
       "patterns/progressive-distillation"
     ],
+    "scaffold": [
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "foundation": [
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "features": [
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "build-lifecycle": [
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "sfif": [
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "recursive": [
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "poc": [
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "mvp": [
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "project-structure": [
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "design-lifecycle": [
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
     "excalidraw": [
       "sources/src-axton-obsidian-visual-skills"
     ],
@@ -9505,9 +9732,11 @@
     {
       "target": "Deterministic Shell",
       "referenced_by": [
+        "Skyscraper, Pyramid, Mountain",
         "Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki",
         "Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki",
-        "Gateway-Centric Routing"
+        "Gateway-Centric Routing",
+        "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features"
       ]
     },
     {
@@ -9541,15 +9770,29 @@
     {
       "target": "LLM Core",
       "referenced_by": [
+        "Skyscraper, Pyramid, Mountain",
         "Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki",
         "Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki",
-        "Gateway-Centric Routing"
+        "Gateway-Centric Routing",
+        "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features"
       ]
     },
     {
       "target": "PARA methodology",
       "referenced_by": [
         "Second Brain Architecture"
+      ]
+    },
+    {
+      "target": "Research Wiki",
+      "referenced_by": [
+        "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features"
+      ]
+    },
+    {
+      "target": "Skyscraper-Pyramid-Mountain",
+      "referenced_by": [
+        "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features"
       ]
     },
     {

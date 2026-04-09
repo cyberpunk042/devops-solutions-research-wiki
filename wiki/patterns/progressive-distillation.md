@@ -138,3 +138,5 @@ Avoid or simplify Progressive Distillation when:
 [[Wiki Knowledge Graph]]
 [[NotebookLM]]
 [[Multi-Stage Ingestion Beats Single-Pass Processing]]
+[[Scaffold → Foundation → Infrastructure → Features]]
+[[Skyscraper, Pyramid, Mountain]]

@@ -146,4 +146,6 @@ Avoid or simplify this pattern when:
 [[Immune System Rules]]
 [[Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki]]
 [[Rework Prevention]]
+[[Scaffold → Foundation → Infrastructure → Features]]
+[[Skyscraper, Pyramid, Mountain]]
 [[Synthesis: Superpowers Plugin — End of Vibe Coding (Full Tutorial)]]

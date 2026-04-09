@@ -206,3 +206,5 @@ Cross-referencing `OpenArms` and `MCP Integration Architecture`: yes — both pa
 [[WSL2 Development Patterns]]
 [[Immune System Rules]]
 [[Infrastructure as Code Patterns]]
+[[Scaffold → Foundation → Infrastructure → Features]]
+[[Skyscraper, Pyramid, Mountain]]

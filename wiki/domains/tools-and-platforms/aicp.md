@@ -117,6 +117,7 @@ Cross-referencing `Knowledge Evolution Pipeline` and `Immune System Rules`: the 
 [[Multi-Channel AI Agent Access]]
 [[OpenArms]]
 [[Plane]]
+[[Scaffold → Foundation → Infrastructure → Features]]
 [[Skills Architecture Is the Dominant LLM Extension Pattern]]
 [[Synthesis: Gemma 4 + SearXNG for Free Private OpenClaw]]
 [[Synthesis: TurboQuant 122B LLM on MacBook]]
