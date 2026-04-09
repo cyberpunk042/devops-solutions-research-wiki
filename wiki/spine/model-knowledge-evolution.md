@@ -181,5 +181,5 @@ This cadence is codified in `python3 -m tools.pipeline chain review`.
 [[Model: Automation and Pipelines]]
 [[Decision: Wiki-First with LightRAG Upgrade Path]]
 [[Decision: Local Model vs Cloud API for Routine Operations]]
-[[Model: Automation + Pipelines]]
 [[Model: NotebookLM]]
+[[Model: Second Brain]]

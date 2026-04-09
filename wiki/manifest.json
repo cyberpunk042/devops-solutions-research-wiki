@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-09T22:49:13.107287+00:00",
+  "generated": "2026-04-09T22:55:26.501591+00:00",
   "stats": {
     "pages": 154,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1149,
-    "tags_unique": 597,
+    "relationships": 1156,
+    "tags_unique": 598,
     "layers": {
       "3": 5,
       "6": 5,
@@ -9751,8 +9751,8 @@
     {
       "path": "spine/model-automation-pipelines.md",
       "slug": "spine/model-automation-pipelines",
-      "title": "Model: Automation + Pipelines",
-      "type": "learning-path",
+      "title": "Model: Automation and Pipelines",
+      "type": "concept",
       "domain": "cross-domain",
       "status": "synthesized",
       "confidence": "high",
@@ -9760,11 +9760,13 @@
       "updated": "2026-04-09",
       "tags": [
         "model",
-        "learning-path",
+        "concept",
         "spine",
         "automation",
         "pipelines",
-        "orchestration"
+        "orchestration",
+        "event-driven",
+        "post-chain"
       ],
       "sources": [],
       "layer": "spine",
@@ -9785,7 +9787,7 @@
         },
         {
           "verb": "RELATES TO",
-          "target": "Model: Quality + Failure Prevention"
+          "target": "Model: Quality and Failure Prevention"
         },
         {
           "verb": "FEEDS INTO",
@@ -9794,6 +9796,14 @@
         {
           "verb": "RELATES TO",
           "target": "Model: NotebookLM"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Plan Execute Review Cycle"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Decision: Polling vs Event-Driven Change Detection"
         }
       ]
     },
@@ -10258,7 +10268,7 @@
       "path": "spine/model-local-ai.md",
       "slug": "spine/model-local-ai",
       "title": "Model: Local AI ($0 Target)",
-      "type": "learning-path",
+      "type": "concept",
       "domain": "cross-domain",
       "status": "synthesized",
       "confidence": "high",
@@ -10266,12 +10276,14 @@
       "updated": "2026-04-09",
       "tags": [
         "model",
-        "learning-path",
+        "concept",
         "spine",
         "local-ai",
         "aicp",
         "zero-cost",
-        "backend-routing"
+        "backend-routing",
+        "complexity-scoring",
+        "vram"
       ],
       "sources": [],
       "layer": "spine",
@@ -10288,19 +10300,23 @@
         },
         {
           "verb": "FEEDS INTO",
-          "target": "Model: Automation + Pipelines"
+          "target": "Model: Automation and Pipelines"
         },
         {
           "verb": "FEEDS INTO",
-          "target": "Model: Quality + Failure Prevention"
+          "target": "Model: Quality and Failure Prevention"
         },
         {
           "verb": "RELATES TO",
-          "target": "Model: SFIF + Architecture"
+          "target": "Model: SFIF and Architecture"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Decision: Local Model vs Cloud API for Routine Operations"
         },
         {
           "verb": "COMPARES TO",
-          "target": "Decision: Local Model vs Cloud API for Routine Operations"
+          "target": "Gateway-Centric Routing"
         }
       ]
     },
@@ -10504,7 +10520,7 @@
       "path": "spine/model-notebooklm.md",
       "slug": "spine/model-notebooklm",
       "title": "Model: NotebookLM",
-      "type": "learning-path",
+      "type": "concept",
       "domain": "cross-domain",
       "status": "synthesized",
       "confidence": "high",
@@ -10512,11 +10528,13 @@
       "updated": "2026-04-09",
       "tags": [
         "model",
-        "learning-path",
+        "concept",
         "spine",
         "notebooklm",
         "research",
-        "content-pipeline"
+        "content-pipeline",
+        "notebooklm-py",
+        "grounded-research"
       ],
       "sources": [],
       "layer": "spine",
@@ -10533,7 +10551,7 @@
         },
         {
           "verb": "RELATES TO",
-          "target": "Model: Automation + Pipelines"
+          "target": "Model: Automation and Pipelines"
         },
         {
           "verb": "RELATES TO",
@@ -10544,8 +10562,16 @@
           "target": "Model: Local AI ($0 Target)"
         },
         {
+          "verb": "FEEDS INTO",
+          "target": "AI-Driven Content Pipeline"
+        },
+        {
           "verb": "COMPARES TO",
-          "target": "Model: Design.md + IaC"
+          "target": "LLM Wiki vs RAG"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "NotebookLM as Grounded Research Engine Not Just Note Storage"
         }
       ]
     },
@@ -10667,33 +10693,30 @@
     {
       "path": "spine/model-second-brain.md",
       "slug": "spine/model-second-brain",
-      "title": "Model Guide: Second Brain",
-      "type": "learning-path",
+      "title": "Model: Second Brain",
+      "type": "concept",
       "domain": "cross-domain",
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-09",
       "updated": "2026-04-09",
       "tags": [
+        "model",
+        "concept",
+        "spine",
         "second-brain",
         "pkm",
-        "model-guide",
-        "learning-path",
-        "obsidian",
         "zettelkasten",
         "para",
+        "obsidian",
         "knowledge-management",
-        "spine"
+        "progressive-distillation"
       ],
       "sources": [],
       "layer": "spine",
       "maturity": "growing",
       "derived_from": [],
       "relationships": [
-        {
-          "verb": "FEEDS INTO",
-          "target": "Model Guide: LLM Wiki"
-        },
         {
           "verb": "BUILDS ON",
           "target": "Second Brain Architecture"
@@ -10708,15 +10731,27 @@
         },
         {
           "verb": "RELATES TO",
-          "target": "Model Guide: Claude Code"
+          "target": "Model: Knowledge Evolution"
         },
         {
           "verb": "RELATES TO",
-          "target": "Model Guide: Methodology"
+          "target": "Model: Automation and Pipelines"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Model: NotebookLM"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Model: LLM Wiki"
         },
         {
           "verb": "ENABLES",
-          "target": "Model Guide: Ecosystem Architecture"
+          "target": "Progressive Distillation"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "LLM Wiki vs RAG"
         }
       ]
     },
@@ -10910,7 +10945,7 @@
     },
     "cross-domain": {
       "page_count": 40,
-      "relationship_count": 328
+      "relationship_count": 335
     },
     "ai-agents": {
       "page_count": 34,
@@ -11106,7 +11141,8 @@
       "comparisons/cross-domain-patterns",
       "domains/knowledge-systems/second-brain-architecture",
       "patterns/progressive-distillation",
-      "spine/model-knowledge-evolution"
+      "spine/model-knowledge-evolution",
+      "spine/model-second-brain"
     ],
     "deferred-loading": [
       "comparisons/cross-domain-patterns",
@@ -11324,7 +11360,8 @@
       "decisions/local-model-vs-cloud-api-for-routine-operations"
     ],
     "complexity-scoring": [
-      "decisions/local-model-vs-cloud-api-for-routine-operations"
+      "decisions/local-model-vs-cloud-api-for-routine-operations",
+      "spine/model-local-ai"
     ],
     "wiki-pipeline": [
       "decisions/local-model-vs-cloud-api-for-routine-operations"
@@ -11460,7 +11497,8 @@
       "decisions/polling-vs-event-driven-change-detection",
       "domains/automation/wiki-event-driven-automation",
       "domains/knowledge-systems/wiki-ingestion-pipeline",
-      "lessons/lesson-hub-\u2014-automation"
+      "lessons/lesson-hub-\u2014-automation",
+      "spine/model-automation-pipelines"
     ],
     "filesystem": [
       "decisions/polling-vs-event-driven-change-detection",
@@ -12796,7 +12834,8 @@
       "lessons/lesson-convergence-on-src-karpathy-claude-code-10x"
     ],
     "post-chain": [
-      "lessons/lesson-convergence-on-llm-knowledge-linting"
+      "lessons/lesson-convergence-on-llm-knowledge-linting",
+      "spine/model-automation-pipelines"
     ],
     "maintenance": [
       "lessons/lesson-convergence-on-llm-knowledge-linting",
@@ -13169,7 +13208,8 @@
       "sources/src-notebooklm-claude-code-workflow"
     ],
     "notebooklm-py": [
-      "sources/src-notebooklm-claude-code-workflow"
+      "sources/src-notebooklm-claude-code-workflow",
+      "spine/model-notebooklm"
     ],
     "cross-agent": [
       "sources/src-pablo-mano-obsidian-cli-skill"
@@ -13335,9 +13375,10 @@
       "spine/model-methodology",
       "spine/model-notebooklm",
       "spine/model-quality-failure-prevention",
+      "spine/model-second-brain",
       "spine/model-sfif-architecture"
     ],
-    "learning-path": [
+    "concept": [
       "spine/model-automation-pipelines",
       "spine/model-local-ai",
       "spine/model-notebooklm",
@@ -13401,14 +13442,17 @@
     "local-ai": [
       "spine/model-local-ai"
     ],
+    "vram": [
+      "spine/model-local-ai"
+    ],
+    "grounded-research": [
+      "spine/model-notebooklm"
+    ],
     "failure-prevention": [
       "spine/model-quality-failure-prevention"
     ],
     "rework": [
       "spine/model-quality-failure-prevention"
-    ],
-    "model-guide": [
-      "spine/model-second-brain"
     ],
     "quality-tiers": [
       "spine/model-sfif-architecture"
@@ -13562,7 +13606,6 @@
       "target": "Model Guide: Claude Code",
       "referenced_by": [
         "Model: LLM Wiki",
-        "Model Guide: Second Brain",
         "Model: Skills, Commands, and Hooks"
       ]
     },
@@ -13570,15 +13613,13 @@
       "target": "Model Guide: Ecosystem Architecture",
       "referenced_by": [
         "Model: Claude Code",
-        "Model: LLM Wiki",
-        "Model Guide: Second Brain"
+        "Model: LLM Wiki"
       ]
     },
     {
       "target": "Model Guide: LLM Wiki",
       "referenced_by": [
-        "Model: Claude Code",
-        "Model Guide: Second Brain"
+        "Model: Claude Code"
       ]
     },
     {
@@ -13593,7 +13634,6 @@
       "referenced_by": [
         "Model: Claude Code",
         "Model: LLM Wiki",
-        "Model Guide: Second Brain",
         "Model: Skills, Commands, and Hooks"
       ]
     },
@@ -13604,47 +13644,30 @@
       ]
     },
     {
-      "target": "Model: Automation and Pipelines",
+      "target": "Model: Automation + Pipelines",
       "referenced_by": [
-        "Model: Design.md and IaC",
-        "Model: Knowledge Evolution"
+        "Model: Quality and Failure Prevention"
       ]
     },
     {
       "target": "Model: Design.md + IaC",
       "referenced_by": [
-        "Model: NotebookLM",
         "Model: Quality and Failure Prevention"
       ]
     },
     {
       "target": "Model: Local AI",
       "referenced_by": [
-        "Model: Automation + Pipelines",
+        "Model: Automation and Pipelines",
         "Model: NotebookLM",
         "Model: Quality and Failure Prevention",
         "Model: SFIF and Architecture"
       ]
     },
     {
-      "target": "Model: Quality + Failure Prevention",
-      "referenced_by": [
-        "Model: Automation + Pipelines",
-        "Model: Local AI ($0 Target)"
-      ]
-    },
-    {
       "target": "Model: SFIF + Architecture",
       "referenced_by": [
-        "Model: Local AI ($0 Target)",
         "Model: Quality and Failure Prevention"
-      ]
-    },
-    {
-      "target": "Model: Second Brain",
-      "referenced_by": [
-        "Model: LLM Wiki",
-        "Model: Methodology"
       ]
     },
     {

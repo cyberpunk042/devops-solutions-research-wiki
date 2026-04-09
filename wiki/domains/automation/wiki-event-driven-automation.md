@@ -110,7 +110,7 @@ The hooks architecture for wiki event automation maps directly to Claude Code's 
 [[Decision: Polling vs Event-Driven Change Detection]]
 [[Lesson: Automation Is the Bridge Between Knowledge and Action]]
 [[Lesson: Knowledge Systems Is the Foundational Domain for the Entire Wiki]]
-[[Model: Automation + Pipelines]]
+[[Model: Automation and Pipelines]]
 [[Multi-Stage Ingestion Beats Single-Pass Processing]]
 [[Obsidian CLI]]
 [[Plan Execute Review Cycle]]

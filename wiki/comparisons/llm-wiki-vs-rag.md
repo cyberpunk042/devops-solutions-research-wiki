@@ -172,6 +172,8 @@ Cross-referencing `LightRAG` and `Knowledge Evolution Pipeline`: the migration p
 [[LLM-Maintained Wikis Outperform Static Documentation]]
 [[Lesson: Knowledge Systems Is the Foundational Domain for the Entire Wiki]]
 [[Lesson: Schema Is the Real Product — Not the Content]]
+[[Model: NotebookLM]]
+[[Model: Second Brain]]
 [[NotebookLM as Grounded Research Engine Not Just Note Storage]]
 [[Second Brain Architecture]]
 [[Synthesis: Karpathy LLM Wiki Method via Claude Code]]

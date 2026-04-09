@@ -110,3 +110,4 @@ The current polling implementation can run indefinitely without degradation — 
 [[Infrastructure as Code Patterns]]
 [[devops-control-plane]]
 [[Obsidian Knowledge Vault]]
+[[Model: Automation and Pipelines]]

@@ -155,5 +155,5 @@ Cross-referencing `Wiki Knowledge Graph` and `AICP`: the scale threshold is appr
 [[Knowledge Evolution Pipeline]]
 [[Obsidian Knowledge Vault]]
 [[Cross-Domain Patterns]]
-[[Model Guide: Second Brain]]
+[[Model: Second Brain]]
 [[Progressive Distillation]]

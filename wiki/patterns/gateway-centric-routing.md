@@ -136,3 +136,4 @@ Avoid Gateway-Centric Routing when:
 [[Research Pipeline Orchestration]]
 [[Deterministic Shell, LLM Core]]
 [[Model: Ecosystem Architecture]]
+[[Model: Local AI ($0 Target)]]

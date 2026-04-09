@@ -126,6 +126,8 @@ The LLM Wiki v2 document proposes that the binary choice between wiki and RAG is
 [[Lesson: Knowledge Systems Is the Foundational Domain for the Entire Wiki]]
 [[Lesson: Schema Is the Real Product — Not the Content]]
 [[Memory Lifecycle Management]]
+[[Model: NotebookLM]]
+[[Model: Second Brain]]
 [[NotebookLM as Grounded Research Engine Not Just Note Storage]]
 [[Second Brain Architecture]]
 [[Synthesis: Karpathy LLM Wiki Method via Claude Code]]

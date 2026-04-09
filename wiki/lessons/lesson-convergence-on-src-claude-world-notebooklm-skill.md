@@ -90,3 +90,4 @@ This lesson applies to:
 [[LLM Wiki Pattern]]
 [[AI-Driven Content Pipeline]]
 [[Agentic Search vs Vector Search]]
+[[Model: NotebookLM]]

@@ -139,5 +139,6 @@ Avoid or simplify Progressive Distillation when:
 [[NotebookLM]]
 [[Multi-Stage Ingestion Beats Single-Pass Processing]]
 [[Model: Knowledge Evolution]]
+[[Model: Second Brain]]
 [[Scaffold → Foundation → Infrastructure → Features]]
 [[Skyscraper, Pyramid, Mountain]]

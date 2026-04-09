@@ -1,6 +1,6 @@
 ---
 title: "Model: NotebookLM"
-type: learning-path
+type: concept
 domain: cross-domain
 layer: spine
 status: synthesized
@@ -9,72 +9,164 @@ maturity: growing
 created: 2026-04-09
 updated: 2026-04-09
 sources: []
-tags: [model, learning-path, spine, notebooklm, research, content-pipeline]
+tags: [model, concept, spine, notebooklm, research, content-pipeline, notebooklm-py, grounded-research]
 ---
 
 # Model: NotebookLM
 
 ## Summary
 
-The NotebookLM model describes how Google's free, source-grounded AI research tool fits into the wiki ecosystem as a complementary research engine alongside Claude Code. NotebookLM constrains all outputs to user-uploaded sources — making it reliable for "what do these sources say" questions where Claude's training data would introduce noise. The notebooklm-py Python package (9.5k stars) exposes the full NotebookLM API as a CLI, enabling programmatic notebook management, batch source ingestion, source-grounded Q&A, and generation of 10 artifact types (audio, video, slide decks, mind maps, reports). The model positions NotebookLM as the fact-checking and content-generation layer, with the wiki as the long-term compounding synthesis layer.
+The NotebookLM model describes how Google's free, source-grounded AI research tool functions as a complementary research engine alongside Claude Code in the wiki ecosystem. NotebookLM constrains all outputs to user-uploaded sources — making it reliable for "what do these sources say" questions where Claude's training data would introduce noise or hallucination. The `notebooklm-py` Python package (9.5K stars) exposes the full NotebookLM API as a CLI, enabling programmatic notebook management, batch source ingestion, source-grounded Q&A, and generation of 10 artifact types (audio, slide decks, reports, mind maps, quizzes). The model positions NotebookLM as the grounded research and fact-checking layer, with the wiki as the long-term synthesis and compounding layer. The division of labor is precise: NotebookLM is the brain (grounded knowledge retrieval), Claude Code is the hands (execution and judgment).
 
-## Prerequisites
+## Key Insights
 
-- Basic understanding of the wiki's ingestion pipeline (how raw sources become wiki pages)
-- Familiarity with the LLM Wiki vs RAG tradeoff (why grounding matters for verification)
-- Python async familiarity helpful for the API integration path
+- **Source grounding is the defining property.** NotebookLM generates all outputs from user-uploaded sources only, not from training data. This makes it qualitatively different from Claude for verification tasks: if you want to know what 35 competitors actually do (not what an LLM thinks they do), NotebookLM grounded on 250 competitor pages is the right tool.
 
-## Sequence
+- **The brain + executor division maps cleanly to the ecosystem.** NotebookLM does what it does better than Claude: structured retrieval, citation tracking, synthesis bounded to known sources. Claude Code does what it does better than NotebookLM: multi-step execution, file writes, pipeline orchestration, architectural reasoning. The two tools do not overlap — they compose.
 
-### Layer 2 — Core Concepts
+- **notebooklm-py makes the CLI the integration point.** The library wraps all of NotebookLM's web UI into Python CLI commands (`notebooklm notebooks create`, `sources add`, `chat ask`, `generate audio`, `download report`). The skill install (`notebooklm skill install`) makes these commands available inside any Claude Code session. This is the mechanism that eliminates manual browser interaction.
 
-1. **NotebookLM** ([[NotebookLM]])
-   Entry point. Explains the notebook paradigm, source-grounded generation, 10 output formats, and the distinction between NotebookLM (retrieval-grounded) and Claude (synthesis-capable). Covers the manual workflow and where programmatic automation changes the picture.
+- **The 300-source limit per notebook is an architectural constraint, not a bug.** Large research projects (e.g., 35-competitor analysis) require two notebooks: one for deep research targets (~250 sources), one for market landscape (~136 sources). Understanding the 300-source boundary early determines multi-notebook architecture before you hit it mid-project.
 
-2. **notebooklm-py CLI** ([[notebooklm-py CLI]])
-   The automation layer. Full CLI command reference organized by group: notebooks, sources, chat, generate, download, sharing, agent. Async Python API for pipeline integration. Covers authentication (browser-based OAuth), the `add-research` deep mode for autonomous source discovery, structured artifact downloads (JSON quizzes, CSV data tables, PPTX slides), and the `skill install` command for Claude Code integration.
+- **The content pipeline produces 10 artifact types from one source set.** A single notebook with 50 well-curated sources can generate: slide decks (PPTX, prompt-guided), podcast audio (MP3), cinematic video summaries, mind maps, flashcards, quizzes, structured reports (Markdown), infographic outlines, FAQ documents, and study guides. The `notebooklm-py` CLI downloads these artifacts programmatically for downstream use.
 
-3. **NotebookLM Skills** ([[NotebookLM Skills]])
-   How NotebookLM integrates with Claude Code's skill system. The `notebooklm skill install` command and how the skill is loaded contextually rather than as an MCP server (preserving token efficiency).
+- **Research flows back into the wiki.** Generated reports and synthesized summaries are not terminal artifacts — they are inputs to the wiki ingestion pipeline. The flow: research question → NotebookLM notebook with sources → download generated report → drop in `raw/` → `python3 -m tools.pipeline post` → synthesized wiki page with provenance.
 
-4. **AI-Driven Content Pipeline** ([[AI-Driven Content Pipeline]])
-   The broader automation pattern: Claude Code orchestrates NotebookLM for content generation (slides, audio overviews, reports), feeds outputs to downstream distribution. Shows the multiplier effect: one source set → 10 artifact types.
+## Deep Analysis
 
-### Layer 4 — Lessons
+### What NotebookLM Is and Is Not
 
-5. **NotebookLM as Grounded Research Engine Not Just Note Storage** ([[NotebookLM as Grounded Research Engine Not Just Note Storage]])
-   The distilled lesson: NotebookLM's source grounding makes it qualitatively different from a general-purpose chatbot. Its value is verification and synthesis bounded to known sources — not open-ended reasoning. Use it for competitive analysis, source cross-validation, and structured content generation where provenance matters.
+[[NotebookLM]] is not:
+- A general-purpose chatbot (outputs are bounded to uploaded sources)
+- A note-storage tool (it is a research and generation engine)
+- A replacement for the wiki (its artifacts are inputs to the wiki, not the store itself)
+- A RAG implementation you maintain (Google manages the retrieval infrastructure)
 
-### Layer 6 — Decisions
+NotebookLM is:
+- A source-grounded synthesis and content generation engine
+- A fact-checking layer that can validate what specific sources actually say
+- A batch artifact producer (one source set → 10 output formats)
+- An autonomous research agent (the `add-research` deep mode discovers sources itself)
 
-6. **Decision: Obsidian vs NotebookLM as Knowledge Interface** ([[Decision: Obsidian vs NotebookLM as Knowledge Interface]])
-   Where each tool fits in the stack: Obsidian for graph navigation and local-first editing, NotebookLM for source-grounded research queries and artifact generation. Complementary, not competing.
+The conceptual error to avoid is treating NotebookLM as a knowledge store. Its notebooks are ephemeral research workspaces, not the persistent graph. The wiki is the persistent graph; NotebookLM is the research environment that feeds it.
 
-## Outcomes
+### The notebooklm-py Integration Stack
 
-After completing this path you understand:
+The CLI integration follows a three-layer model:
 
-- What NotebookLM does that Claude cannot reliably do (source-grounded, citation-tracked retrieval)
-- How notebooklm-py exposes the full NotebookLM API for pipeline automation
-- The `add-research` deep mode as an automated source discovery mechanism
-- How to bridge NotebookLM and the wiki: ingest wiki sources into notebooks, download generated reports back into `raw/`, ingest as synthesized source pages
-- Why the CLI+Skill pattern is preferred over an MCP server for NotebookLM integration
-- The 300-source-per-notebook limit and how to architect multi-notebook workflows
+```
+Claude Code session
+  ↓ skill loaded via: notebooklm skill install
+notebooklm-py CLI
+  ↓ Python async API wrapping
+NotebookLM web API (browser-based OAuth, credentials saved)
+  ↓
+Google's NotebookLM backend (free, source-grounded)
+```
+
+Key CLI command groups:
+- **notebooks** — create, list, rename, delete, share
+- **sources** — add (URL, file, YouTube), list, delete
+- **chat** — ask (source-grounded Q&A), stream
+- **generate** — audio, video, slides, mindmap, report, quiz, flashcard
+- **download** — artifact retrieval (`.md`, `.json`, `.pptx`, `.mp3`)
+- **agent** — `add-research` deep mode for autonomous source discovery
+
+Authentication uses browser-based Google OAuth — no API key required, no cost. The `notebooklm skill install` command registers the full CLI as a Claude Code skill, making all commands available in conversation without shell context switching.
+
+### The Content Pipeline: Research to Wiki Page
+
+The full pipeline from research question to wiki page:
+
+1. **Identify research target** — a technology, competitor, or concept to understand deeply
+2. **Create notebook** — `notebooklm notebooks create "Research: <topic>"`
+3. **Ingest sources** — batch add URLs, PDFs, YouTube transcripts via `sources add`
+4. **Optional: deep mode** — `notebooklm agent add-research "<topic>"` discovers additional sources autonomously
+5. **Generate report** — `notebooklm generate report --notebook <id>` produces structured Markdown
+6. **Download artifact** — `notebooklm download report --output raw/reports/<topic>.md`
+7. **Wiki ingestion** — `python3 -m tools.pipeline post` processes the report into a synthesized page
+8. **Cross-reference** — `python3 -m tools.pipeline crossref` connects the new page to existing knowledge
+
+The `notebooklm-py` CLI can be composed into a named pipeline chain. The entire flow from step 2–7 is automatable with no manual browser interaction.
+
+### The Division of Labor: Brain and Hands
+
+The [[Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py]] source describes this as the "brain + hands" model:
+
+**NotebookLM (brain):**
+- Holds grounded knowledge of uploaded sources
+- Answers "what do these sources say about X"
+- Generates structured artifacts from source synthesis
+- Prevents hallucination by bounding output to known content
+
+**Claude Code (hands):**
+- Executes the pipeline steps (file writes, CLI calls, git operations)
+- Makes product and architectural decisions based on NotebookLM's findings
+- Synthesizes across multiple notebooks and the wiki graph
+- Handles tasks that require code execution, not just text generation
+
+The practical workflow for competitive analysis: NotebookLM holds 250+ competitor sources and synthesizes what competitors actually offer. Claude Code queries the notebook via the skill, extracts product gaps, writes Jira tickets, and generates wiki pages — all grounded in what the sources actually say.
+
+### The 300-Source Architecture
+
+The 300-source per notebook limit is a hard constraint. Large research projects require pre-planned multi-notebook architecture:
+
+**Single-notebook pattern (< 200 sources):**
+- Topic is bounded and well-defined
+- One notebook covers the full source set
+- Single download path → single wiki ingestion
+
+**Two-notebook pattern (200–550 sources):**
+- Split by depth tier: deep research targets in Notebook A, market landscape in Notebook B
+- Claude Code queries both notebooks, synthesizes across them
+- Two download artifacts → two separate wiki pages or one merged synthesis
+
+**Three-notebook pattern (550+ sources):**
+- Split by domain cluster (competitors, technical docs, market data)
+- Each notebook generates its own report
+- Final synthesis page integrates all three reports
+
+Failing to plan for the 300-source limit mid-project means rebuilding notebook architecture under pressure. The limit should be a first-pass architectural consideration, not a surprise discovery.
+
+### NotebookLM vs the Wiki: Complementary, Not Competing
+
+| Dimension | NotebookLM | This Wiki |
+|-----------|------------|-----------|
+| Persistence | Session-scoped notebooks | Permanent pages |
+| Grounding | User-uploaded sources | Synthesized knowledge |
+| Relationships | None (flat source list) | Typed wikilinks graph |
+| Evolution | Does not evolve | Maturity ladder (seed → canonical) |
+| Cost | Free (Google-hosted) | Free (local tooling) |
+| Integration | Generates inputs to wiki | Exports to openfleet, AICP |
+
+The two tools occupy different positions in the knowledge lifecycle: NotebookLM handles the research phase; the wiki handles the synthesis and retention phase.
+
+## Open Questions
+
+- **Can `add-research` deep mode be invoked programmatically without supervision?** The autonomous source discovery mode is powerful but potentially runaway — what is the right bound?
+- **Notebook lifecycle management.** After a research project is complete and its outputs are in the wiki, should the notebook be archived, deleted, or kept? No formal policy exists.
+- **Bidirectional sync.** Can the wiki export domain pages as a notebook source set, enabling NotebookLM to answer questions grounded in the wiki itself? This would close the loop between the two systems.
+- **Artifact quality variation.** NotebookLM's generated reports vary in quality with source density and diversity. What is the minimum source count for a reliable report?
 
 ## Relationships
 
 - BUILDS ON: [[NotebookLM]]
 - BUILDS ON: [[notebooklm-py CLI]]
-- RELATES TO: [[Model: Automation + Pipelines]]
+- RELATES TO: [[Model: Automation and Pipelines]]
 - RELATES TO: [[Model: Knowledge Evolution]]
-- RELATES TO: Model: Local AI ($0 Target)
-- COMPARES TO: [[Model: Design.md + IaC]]
+- RELATES TO: [[Model: Local AI ($0 Target)]]
+- FEEDS INTO: [[AI-Driven Content Pipeline]]
+- COMPARES TO: [[LLM Wiki vs RAG]]
+- IMPLEMENTS: [[NotebookLM as Grounded Research Engine Not Just Note Storage]]
 
 ## Backlinks
 
 [[NotebookLM]]
 [[notebooklm-py CLI]]
-[[Model: Automation + Pipelines]]
+[[Model: Automation and Pipelines]]
 [[Model: Knowledge Evolution]]
 [[Model: Local AI ($0 Target)]]
-[[Model: Design.md + IaC]]
+[[AI-Driven Content Pipeline]]
+[[LLM Wiki vs RAG]]
+[[NotebookLM as Grounded Research Engine Not Just Note Storage]]
+[[Model: Second Brain]]

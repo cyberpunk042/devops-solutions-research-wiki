@@ -160,7 +160,7 @@ Cross-referencing `Zettelkasten Methodology` and the schema (`config/schema.yaml
 [[Decision: Obsidian vs NotebookLM as Knowledge Interface]]
 [[Lesson: Knowledge Systems Is the Foundational Domain for the Entire Wiki]]
 [[Lesson: Schema Is the Real Product — Not the Content]]
-[[Model Guide: Second Brain]]
+[[Model: Second Brain]]
 [[PARA Methodology]]
 [[Progressive Distillation]]
 [[The Wiki Maintenance Problem Is Solved by LLM Automation]]
