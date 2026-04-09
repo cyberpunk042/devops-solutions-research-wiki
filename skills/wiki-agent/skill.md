@@ -14,11 +14,15 @@ Trigger: user says "ingest", provides a URL, drops a file, or pastes content.
 Mode: auto | guided | smart (default: smart)
 
 Pipeline:
-1. EXTRACT — read raw source, classify type, normalize formatting
+1. EXTRACT — read raw source IN FULL (multiple offset reads for files >200 lines), classify type, normalize formatting
 2. ANALYZE — identify domains, concepts, claims, relationships to existing pages
 3. SYNTHESIZE — generate wiki pages with full frontmatter and all sections
 4. WRITE — save pages to wiki/ (source-synthesis in sources/, concepts in domains/)
 5. INTEGRATE — update _index.md files, rebuild manifest.json, validate
+
+CRITICAL: Always read the ENTIRE raw file before synthesizing. Large files (300+ lines)
+require multiple Read calls with offset. Check `wc -l` first. Wiki page must be ≥0.25
+ratio to raw file length — if it's shorter, you missed content.
 
 For guided mode: present the full extraction plan between ANALYZE and SYNTHESIZE.
 Include: source page name, concept pages to create (with domains), concept pages
