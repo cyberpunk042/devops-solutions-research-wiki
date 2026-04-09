@@ -49,11 +49,23 @@ The Telegram notification integration mentioned in passing is significant becaus
 
 The "bypass permissions mode" for low-risk tasks is a trust calibration mechanism. It acknowledges that not all automated actions carry the same risk, and that requiring manual approval for every scheduled action would defeat the purpose of scheduling. However, this raises questions about what constitutes "low risk" and whether there are guardrails to prevent a scheduled task from taking unexpected actions.
 
+## Preferred Work Window / Off-Peak Usage
+
+Anthropic offers usage multipliers based on time of day. From a scheduling perspective, this is critical for cost optimization:
+
+- **Peak hours**: 8 AM – 2 PM ET / 5 – 11 AM PT / 12 – 6 PM GMT (weekdays) — standard usage limits
+- **Off-peak hours**: outside the above window — 2x usage limits (during promotions, potentially permanent)
+
+**Scheduling implication**: heavy automated workloads (batch evolution, ingestion pipelines, full health chains) should be scheduled for off-peak windows to maximize throughput within the same subscription tier. This applies across Claude Code, API, and all Claude surfaces.
+
+**For this wiki**: `pipeline chain continue`, `pipeline evolve --auto`, and batch ingestion should be scheduled during off-peak hours when running as remote tasks.
+
 ## Open Questions
 
 - How does the remote task feature handle secrets and authentication (e.g., the NotebookLM Google account login) when running on Anthropic Cloud? (Requires: Anthropic remote tasks documentation or direct testing; authentication in headless cloud environments is not covered by existing wiki pages)
 - What are the cost implications of remote tasks on Anthropic Cloud? (Requires: Anthropic pricing documentation for remote task execution)
 - What is the maximum frequency for scheduled tasks, and are there rate limits? (Requires: Anthropic documentation on scheduling constraints)
+- Will the off-peak 2x usage become permanent or remain promotional? (Requires: Anthropic pricing updates)
 
 ## Answered Open Questions
 
