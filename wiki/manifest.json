@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-09T15:26:49.453282+00:00",
+  "generated": "2026-04-09T16:10:25.631380+00:00",
   "stats": {
     "pages": 106,
     "domains": 7,
     "sources": 21,
     "comparisons": 5,
-    "relationships": 800,
-    "tags_unique": 396,
+    "relationships": 804,
+    "tags_unique": 427,
     "layers": {
       "6": 5,
       "4": 16,
@@ -6257,14 +6257,25 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-09",
       "tags": [
         "notebooklm",
         "claude-code",
         "mcp",
         "content-pipeline",
         "automation",
-        "python"
+        "python",
+        "trending-topics",
+        "artifact-generation",
+        "social-publishing",
+        "rss",
+        "batch",
+        "skill",
+        "mcp-server",
+        "trend-pulse",
+        "threads-viral-agent",
+        "uvx",
+        "pypi"
       ],
       "sources": [
         {
@@ -6295,6 +6306,10 @@
         {
           "verb": "RELATES TO",
           "target": "NotebookLM"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "src-pleaseprompto-notebooklm-skill"
         }
       ]
     },
@@ -6881,7 +6896,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-09",
       "tags": [
         "obsidian",
         "cli",
@@ -6890,7 +6905,17 @@
         "vault-management",
         "cross-agent",
         "cursor",
-        "copilot"
+        "copilot",
+        "cortex-code",
+        "windsurf",
+        "nanoclaw",
+        "openclaw",
+        "ipc",
+        "headless",
+        "troubleshooting",
+        "marketplace",
+        "plugin",
+        "skill-portability"
       ],
       "sources": [
         {
@@ -7068,14 +7093,22 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-09",
       "tags": [
         "notebooklm",
         "claude-code",
         "skill",
         "source-grounded",
         "browser-automation",
-        "python"
+        "python",
+        "patchright",
+        "anti-hallucination",
+        "library-management",
+        "stateless",
+        "rag-alternative",
+        "local-only",
+        "quick-start",
+        "mcp-alternative"
       ],
       "sources": [
         {
@@ -7122,7 +7155,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-09",
       "tags": [
         "claude-code",
         "best-practices",
@@ -7135,7 +7168,14 @@
         "CLAUDE-md",
         "tips",
         "boris-cherny",
-        "context-engineering"
+        "context-engineering",
+        "git",
+        "debugging",
+        "planning",
+        "specs",
+        "hot-features",
+        "billion-dollar-questions",
+        "development-workflows"
       ],
       "sources": [
         {
@@ -7170,6 +7210,18 @@
         {
           "verb": "RELATES TO",
           "target": "LLM Wiki Pattern"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Hooks"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "Everything Claude Code"
+        },
+        {
+          "verb": "COMPARES TO",
+          "target": "Superpowers Skills Framework"
         }
       ]
     },
@@ -7659,11 +7711,11 @@
     },
     "ai-agents": {
       "page_count": 29,
-      "relationship_count": 249
+      "relationship_count": 252
     },
     "tools-and-platforms": {
       "page_count": 21,
-      "relationship_count": 148
+      "relationship_count": 149
     },
     "devops": {
       "page_count": 7,
@@ -8177,10 +8229,12 @@
       "domains/ai-agents/claude-code-best-practices"
     ],
     "git": [
-      "domains/ai-agents/claude-code-best-practices"
+      "domains/ai-agents/claude-code-best-practices",
+      "sources/src-shanraisshan-claude-code-best-practice"
     ],
     "debugging": [
-      "domains/ai-agents/claude-code-best-practices"
+      "domains/ai-agents/claude-code-best-practices",
+      "sources/src-shanraisshan-claude-code-best-practice"
     ],
     "development-workflow": [
       "domains/ai-agents/claude-code-best-practices"
@@ -8364,7 +8418,8 @@
       "domains/ai-agents/openclaw",
       "domains/ai-agents/openfleet",
       "patterns/gateway-centric-routing",
-      "sources/src-gemma4-searxng-openclaw"
+      "sources/src-gemma4-searxng-openclaw",
+      "sources/src-pablo-mano-obsidian-cli-skill"
     ],
     "agent-framework": [
       "domains/ai-agents/openclaw"
@@ -8401,6 +8456,7 @@
       "domains/ai-agents/rework-prevention",
       "lessons/always-plan-before-executing",
       "lessons/lesson-convergence-on-claude-code-best-practices",
+      "sources/src-shanraisshan-claude-code-best-practice",
       "sources/src-superpowers-end-of-vibe-coding"
     ],
     "quality-gates": [
@@ -9160,6 +9216,41 @@
     "cli-over-mcp": [
       "sources/src-claude-code-accuracy-tips"
     ],
+    "trending-topics": [
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "artifact-generation": [
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "social-publishing": [
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "rss": [
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "batch": [
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "skill": [
+      "sources/src-claude-world-notebooklm-skill",
+      "sources/src-pablo-mano-obsidian-cli-skill",
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "mcp-server": [
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "trend-pulse": [
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "threads-viral-agent": [
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "uvx": [
+      "sources/src-claude-world-notebooklm-skill"
+    ],
+    "pypi": [
+      "sources/src-claude-world-notebooklm-skill"
+    ],
     "context-mode": [
       "sources/src-context-mode"
     ],
@@ -9220,10 +9311,6 @@
     "notebooklm-py": [
       "sources/src-notebooklm-claude-code-workflow"
     ],
-    "skill": [
-      "sources/src-pablo-mano-obsidian-cli-skill",
-      "sources/src-pleaseprompto-notebooklm-skill"
-    ],
     "cross-agent": [
       "sources/src-pablo-mano-obsidian-cli-skill"
     ],
@@ -9231,6 +9318,33 @@
       "sources/src-pablo-mano-obsidian-cli-skill"
     ],
     "copilot": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "cortex-code": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "windsurf": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "nanoclaw": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "ipc": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "headless": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "troubleshooting": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "marketplace": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "plugin": [
+      "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "skill-portability": [
       "sources/src-pablo-mano-obsidian-cli-skill"
     ],
     "qa-automation": [
@@ -9254,10 +9368,46 @@
     "qa": [
       "sources/src-playwright-mcp-visual-testing"
     ],
+    "patchright": [
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "anti-hallucination": [
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "library-management": [
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "stateless": [
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "rag-alternative": [
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "local-only": [
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "quick-start": [
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
+    "mcp-alternative": [
+      "sources/src-pleaseprompto-notebooklm-skill"
+    ],
     "tips": [
       "sources/src-shanraisshan-claude-code-best-practice"
     ],
     "boris-cherny": [
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "specs": [
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "hot-features": [
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "billion-dollar-questions": [
+      "sources/src-shanraisshan-claude-code-best-practice"
+    ],
+    "development-workflows": [
       "sources/src-shanraisshan-claude-code-best-practice"
     ],
     "tdd": [
@@ -9338,6 +9488,12 @@
       ]
     },
     {
+      "target": "Claude Code Hooks",
+      "referenced_by": [
+        "Synthesis: Claude Code Best Practice (shanraisshan)"
+      ]
+    },
+    {
       "target": "Cross-Domain",
       "referenced_by": [
         "AI Agents \u2014 Domain Overview",
@@ -9366,6 +9522,12 @@
       ]
     },
     {
+      "target": "Everything Claude Code",
+      "referenced_by": [
+        "Synthesis: Claude Code Best Practice (shanraisshan)"
+      ]
+    },
+    {
       "target": "Knowledge Systems",
       "referenced_by": [
         "AI Agents \u2014 Domain Overview",
@@ -9388,6 +9550,12 @@
       "target": "PARA methodology",
       "referenced_by": [
         "Second Brain Architecture"
+      ]
+    },
+    {
+      "target": "Superpowers Skills Framework",
+      "referenced_by": [
+        "Synthesis: Claude Code Best Practice (shanraisshan)"
       ]
     },
     {
@@ -9584,6 +9752,7 @@
       "target": "src-pleaseprompto-notebooklm-skill",
       "referenced_by": [
         "NotebookLM Skills",
+        "Synthesis: claude-world/notebooklm-skill",
         "Synthesis: PleasePrompto/notebooklm-skill"
       ]
     },
