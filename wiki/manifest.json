@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-09T21:31:48.328275+00:00",
+  "generated": "2026-04-09T21:34:42.670186+00:00",
   "stats": {
     "pages": 152,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1096,
-    "tags_unique": 587,
+    "relationships": 1097,
+    "tags_unique": 588,
     "layers": {
       "3": 5,
       "6": 5,
@@ -10006,31 +10006,39 @@
     {
       "path": "spine/model-llm-wiki.md",
       "slug": "spine/model-llm-wiki",
-      "title": "Model Guide: LLM Wiki",
-      "type": "learning-path",
+      "title": "Model: LLM Wiki",
+      "type": "concept",
       "domain": "cross-domain",
       "status": "synthesized",
-      "confidence": "high",
+      "confidence": "authoritative",
       "created": "2026-04-09",
       "updated": "2026-04-09",
       "tags": [
         "llm-wiki",
-        "model-guide",
-        "learning-path",
-        "knowledge-systems",
-        "ingestion-pipeline",
-        "knowledge-graph",
-        "maintenance",
-        "spine"
+        "model",
+        "knowledge-system",
+        "repository-structure",
+        "schema",
+        "ingestion",
+        "evolution",
+        "standards"
       ],
-      "sources": [],
+      "sources": [
+        {
+          "id": "src-karpathy-llm-wiki-idea-file",
+          "type": "documentation",
+          "file": "raw/articles/karpathy-llm-wiki-idea-file.md",
+          "title": "Karpathy LLM Wiki Idea File",
+          "ingested": "2026-04-08"
+        }
+      ],
       "layer": "spine",
       "maturity": "growing",
       "derived_from": [],
       "relationships": [
         {
           "verb": "FEEDS INTO",
-          "target": "[[Model Guide: Second Brain]]"
+          "target": "[[Model: Second Brain]]"
         },
         {
           "verb": "FEEDS INTO",
@@ -10055,6 +10063,10 @@
         {
           "verb": "RELATES TO",
           "target": "[[Model Guide: Methodology]]"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "[[Model: Knowledge Evolution]]"
         }
       ]
     },
@@ -10516,7 +10528,7 @@
     },
     "cross-domain": {
       "page_count": 39,
-      "relationship_count": 275
+      "relationship_count": 276
     },
     "ai-agents": {
       "page_count": 34,
@@ -10577,7 +10589,8 @@
     "evolution": [
       "backlog/epics/E001-local-inference-engine",
       "domains/knowledge-systems/knowledge-evolution-pipeline",
-      "patterns/progressive-distillation"
+      "patterns/progressive-distillation",
+      "spine/model-llm-wiki"
     ],
     "ecosystem": [
       "backlog/epics/E002-ecosystem-integration",
@@ -10742,8 +10755,7 @@
       "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file",
       "lessons/lesson-hub-\u2014-knowledge-systems",
       "patterns/progressive-distillation",
-      "spine/domain-overviews/knowledge-systems-\u2014-domain-overview",
-      "spine/model-llm-wiki"
+      "spine/domain-overviews/knowledge-systems-\u2014-domain-overview"
     ],
     "ai-agents": [
       "comparisons/cross-domain-patterns",
@@ -11662,7 +11674,8 @@
       "domains/knowledge-systems/wiki-ingestion-pipeline",
       "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
       "lessons/never-synthesize-from-descriptions-alone",
-      "log/2026-04-09-ingest-awesome-design-md"
+      "log/2026-04-09-ingest-awesome-design-md",
+      "spine/model-llm-wiki"
     ],
     "multi-pass": [
       "domains/automation/research-pipeline-orchestration",
@@ -11998,8 +12011,7 @@
       "domains/knowledge-systems/wiki-knowledge-graph",
       "lessons/lesson-convergence-on-lightrag",
       "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
-      "sources/src-llm-wiki-v2-agentmemory",
-      "spine/model-llm-wiki"
+      "sources/src-llm-wiki-v2-agentmemory"
     ],
     "entity-extraction": [
       "domains/knowledge-systems/lightrag",
@@ -12033,7 +12045,8 @@
     ],
     "schema": [
       "domains/knowledge-systems/llm-wiki-pattern",
-      "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file"
+      "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file",
+      "spine/model-llm-wiki"
     ],
     "compounding-knowledge": [
       "domains/knowledge-systems/llm-wiki-pattern",
@@ -12387,8 +12400,7 @@
     "maintenance": [
       "lessons/lesson-convergence-on-llm-knowledge-linting",
       "lessons/lesson-convergence-on-llm-wiki-pattern",
-      "lessons/lesson-convergence-on-src-karpathy-claude-code-10x",
-      "spine/model-llm-wiki"
+      "lessons/lesson-convergence-on-src-karpathy-claude-code-10x"
     ],
     "static-docs": [
       "lessons/lesson-convergence-on-llm-wiki-pattern"
@@ -12422,7 +12434,8 @@
     ],
     "standards": [
       "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
-      "spine/adoption-guide"
+      "spine/adoption-guide",
+      "spine/model-llm-wiki"
     ],
     "cross-reference": [
       "lessons/lesson-convergence-on-wiki-ingestion-pipeline"
@@ -12904,6 +12917,7 @@
       "spine/model-automation-pipelines",
       "spine/model-design-md",
       "spine/model-knowledge-evolution",
+      "spine/model-llm-wiki",
       "spine/model-local-ai",
       "spine/model-notebooklm",
       "spine/model-quality-failure-prevention",
@@ -12915,7 +12929,6 @@
       "spine/model-design-md",
       "spine/model-ecosystem",
       "spine/model-knowledge-evolution",
-      "spine/model-llm-wiki",
       "spine/model-local-ai",
       "spine/model-mcp-cli-integration",
       "spine/model-methodology",
@@ -12931,7 +12944,6 @@
       "spine/model-design-md",
       "spine/model-ecosystem",
       "spine/model-knowledge-evolution",
-      "spine/model-llm-wiki",
       "spine/model-local-ai",
       "spine/model-mcp-cli-integration",
       "spine/model-methodology",
@@ -12947,7 +12959,6 @@
     "model-guide": [
       "spine/model-claude-code",
       "spine/model-ecosystem",
-      "spine/model-llm-wiki",
       "spine/model-mcp-cli-integration",
       "spine/model-methodology",
       "spine/model-second-brain",
@@ -12962,7 +12973,10 @@
     "wiki-lifecycle": [
       "spine/model-knowledge-evolution"
     ],
-    "ingestion-pipeline": [
+    "knowledge-system": [
+      "spine/model-llm-wiki"
+    ],
+    "repository-structure": [
       "spine/model-llm-wiki"
     ],
     "local-ai": [
@@ -13619,7 +13633,7 @@
         "Progressive Distillation",
         "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features",
         "Model: Knowledge Evolution",
-        "Model Guide: LLM Wiki"
+        "Model: LLM Wiki"
       ]
     },
     {
@@ -13699,7 +13713,7 @@
         "Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py",
         "Synthesis: Obsidian + Claude Code Second Brain Setup",
         "Synthesis: Claude Code Best Practice (shanraisshan)",
-        "Model Guide: LLM Wiki"
+        "Model: LLM Wiki"
       ]
     },
     {
@@ -13831,7 +13845,7 @@
       "target": "[[Model Guide: Claude Code]]",
       "referenced_by": [
         "Model Guide: Ecosystem Architecture",
-        "Model Guide: LLM Wiki",
+        "Model: LLM Wiki",
         "Model Guide: MCP + CLI Integration",
         "Model Guide: Methodology",
         "Model Guide: Second Brain",
@@ -13842,7 +13856,7 @@
       "target": "[[Model Guide: Ecosystem Architecture]]",
       "referenced_by": [
         "Model Guide: Claude Code",
-        "Model Guide: LLM Wiki",
+        "Model: LLM Wiki",
         "Model Guide: MCP + CLI Integration",
         "Model Guide: Methodology",
         "Model Guide: Second Brain"
@@ -13871,15 +13885,9 @@
       "referenced_by": [
         "Model Guide: Claude Code",
         "Model Guide: Ecosystem Architecture",
-        "Model Guide: LLM Wiki",
+        "Model: LLM Wiki",
         "Model Guide: Second Brain",
         "Model Guide: Skills + Commands + Hooks"
-      ]
-    },
-    {
-      "target": "[[Model Guide: Second Brain]]",
-      "referenced_by": [
-        "Model Guide: LLM Wiki"
       ]
     },
     {
@@ -13912,6 +13920,7 @@
       "target": "[[Model: Knowledge Evolution]]",
       "referenced_by": [
         "Model: Automation + Pipelines",
+        "Model: LLM Wiki",
         "Model: NotebookLM",
         "Model: SFIF + Architecture"
       ]
@@ -13939,6 +13948,12 @@
         "Model: Knowledge Evolution",
         "Model: Local AI ($0 Target)",
         "Model: Quality + Failure Prevention"
+      ]
+    },
+    {
+      "target": "[[Model: Second Brain]]",
+      "referenced_by": [
+        "Model: LLM Wiki"
       ]
     },
     {
@@ -14526,7 +14541,7 @@
         "Synthesis: LLM Wiki v2 -- Extending Karpathy's Pattern with Agentmemory Lessons",
         "Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py",
         "Synthesis: Obsidian + Claude Code Second Brain Setup",
-        "Model Guide: LLM Wiki"
+        "Model: LLM Wiki"
       ]
     },
     {
