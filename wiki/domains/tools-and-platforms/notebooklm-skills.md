@@ -111,7 +111,6 @@ A practical user might reasonably install both: PleasePrompto for daily coding a
 [[Agentic Search vs Vector Search]]
 [[NotebookLM as Grounded Research Engine Not Just Note Storage]]
 [[OpenClaw]]
-[[Pattern: Skills + Notebooklm]]
 [[Skill Specification Is the Key to Ecosystem Interoperability]]
 [[Synthesis: PleasePrompto/notebooklm-skill]]
 [[Synthesis: claude-world/notebooklm-skill]]

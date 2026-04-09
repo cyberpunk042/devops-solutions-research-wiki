@@ -126,7 +126,6 @@ Confirmed by cross-referencing the Context-Aware Tool Loading pattern and the Ha
 [[Hooks Lifecycle Architecture]]
 [[Infrastructure as Code Patterns]]
 [[Model: Design.md + IaC]]
-[[Pattern: Skills + Claude-Code]]
 [[Per-Role Command Architecture]]
 [[Plan Execute Review Cycle]]
 [[Rework Prevention]]

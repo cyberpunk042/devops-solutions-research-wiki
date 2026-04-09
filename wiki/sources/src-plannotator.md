@@ -2,7 +2,7 @@
 title: "Plannotator — Interactive Plan & Code Review for AI Agents"
 type: source-synthesis
 layer: 1
-maturity: seed
+maturity: growing
 domain: tools-and-platforms
 status: synthesized
 confidence: high

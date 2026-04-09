@@ -116,7 +116,5 @@ The emerging practitioner consensus captured across multiple independent sources
 [[Context Management Is the Primary LLM Productivity Lever]]
 [[Context-Aware Tool Loading]]
 [[Model Guide: MCP + CLI Integration]]
-[[Pattern: Skills + Cli]]
-[[Pattern: Skills + Mcp]]
 [[Skills Architecture Is the Dominant LLM Extension Pattern]]
 [[Synthesis: Context Mode — MCP Sandbox for Context Saving]]
