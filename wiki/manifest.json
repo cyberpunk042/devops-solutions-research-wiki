@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-09T17:18:52.119300+00:00",
+  "generated": "2026-04-09T17:26:13.505627+00:00",
   "stats": {
-    "pages": 108,
+    "pages": 110,
     "domains": 7,
-    "sources": 21,
+    "sources": 23,
     "comparisons": 5,
-    "relationships": 823,
-    "tags_unique": 447,
+    "relationships": 834,
+    "tags_unique": 453,
     "layers": {
       "6": 5,
       "4": 16,
@@ -6411,6 +6411,58 @@
       ]
     },
     {
+      "path": "sources/src-claude-slash-commands.md",
+      "slug": "sources/src-claude-slash-commands",
+      "title": "Claude Code Slash Commands (artemgetmann)",
+      "type": "source-synthesis",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "claude-code",
+        "slash-commands",
+        "commands",
+        "cli",
+        "automation",
+        "workflow"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-slash-commands",
+          "type": "github-repo",
+          "url": "https://github.com/artemgetmann/claude-slash-commands",
+          "file": "raw/articles/artemgetmannclaude-slash-commands.md"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "EXTENDS",
+          "target": "Claude Code Skills (adds concrete command examples to the skills architecture)"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Skills Architecture Patterns (demonstrates per-command tool scoping and argument patterns)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices (command authoring is an extension of best practice guidance)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code (core platform this builds on)"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Claude Code Scheduling (personal automation commands can be chained with scheduling)"
+        }
+      ]
+    },
+    {
       "path": "sources/src-claude-world-notebooklm-skill.md",
       "slug": "sources/src-claude-world-notebooklm-skill",
       "title": "Synthesis: claude-world/notebooklm-skill",
@@ -7112,6 +7164,62 @@
         {
           "verb": "COMPARES TO",
           "target": "src-kepano-obsidian-skills"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-plannotator.md",
+      "slug": "sources/src-plannotator",
+      "title": "Plannotator \u2014 Interactive Plan & Code Review for AI Agents",
+      "type": "source-synthesis",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "plannotator",
+        "plan-annotation",
+        "code-review",
+        "implementation-plans",
+        "claude-code-plugin",
+        "pm"
+      ],
+      "sources": [
+        {
+          "id": "src-plannotator",
+          "type": "github-repo",
+          "url": "https://github.com/backnotprop/plannotator",
+          "file": "raw/articles/backnotpropplannotator.md"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Plan Execute Review Cycle (provides the tooling layer that makes plan-gate-review a concrete workflow)"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Agent Orchestration Patterns (adds structured human oversight as a first-class hook in multi-step agent flows)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "SFIF Pattern (operationalizes the speculate \u2192 feedback \u2192 iterate loop with UI tooling)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices (plan-mode review is a best practice; Plannotator makes it frictionless)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills (integrates as a Claude Code plugin, complements slash-command patterns)"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Always Plan Before Executing (provides tooling that enforces the planning gate lesson)"
         }
       ]
     },
@@ -7872,12 +7980,12 @@
       "relationship_count": 115
     },
     "ai-agents": {
-      "page_count": 29,
-      "relationship_count": 252
+      "page_count": 30,
+      "relationship_count": 257
     },
     "tools-and-platforms": {
-      "page_count": 21,
-      "relationship_count": 149
+      "page_count": 22,
+      "relationship_count": 155
     },
     "devops": {
       "page_count": 7,
@@ -8076,6 +8184,7 @@
       "sources/src-axton-obsidian-visual-skills",
       "sources/src-claude-code-accuracy-tips",
       "sources/src-claude-notebooklm-content-team",
+      "sources/src-claude-slash-commands",
       "sources/src-claude-world-notebooklm-skill",
       "sources/src-harness-engineering",
       "sources/src-karpathy-claude-code-10x",
@@ -8205,6 +8314,7 @@
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "patterns/context-aware-tool-loading",
+      "sources/src-claude-slash-commands",
       "sources/src-notebooklm-claude-code-workflow",
       "sources/src-pablo-mano-obsidian-cli-skill",
       "sources/src-playwright-cli-vs-mcp"
@@ -8378,6 +8488,7 @@
     ],
     "commands": [
       "domains/ai-agents/claude-code-best-practices",
+      "sources/src-claude-slash-commands",
       "sources/src-shanraisshan-claude-code-best-practice"
     ],
     "hooks": [
@@ -8496,6 +8607,7 @@
       "lessons/lesson-convergence-on-src-karpathy-claude-code-10x",
       "lessons/lesson-hub-\u2014-automation",
       "sources/src-claude-notebooklm-content-team",
+      "sources/src-claude-slash-commands",
       "sources/src-claude-world-notebooklm-skill",
       "sources/src-llm-wiki-v2-agentmemory",
       "sources/src-notebooklm-claude-code-workflow",
@@ -9044,6 +9156,7 @@
     ],
     "workflow": [
       "domains/knowledge-systems/wiki-ingestion-pipeline",
+      "sources/src-claude-slash-commands",
       "sources/src-superpowers-end-of-vibe-coding"
     ],
     "typed-relationships": [
@@ -9443,6 +9556,9 @@
     "cli-over-mcp": [
       "sources/src-claude-code-accuracy-tips"
     ],
+    "slash-commands": [
+      "sources/src-claude-slash-commands"
+    ],
     "trending-topics": [
       "sources/src-claude-world-notebooklm-skill"
     ],
@@ -9494,7 +9610,8 @@
       "sources/src-context-mode"
     ],
     "claude-code-plugin": [
-      "sources/src-context-mode"
+      "sources/src-context-mode",
+      "sources/src-plannotator"
     ],
     "12-platform": [
       "sources/src-context-mode"
@@ -9573,6 +9690,21 @@
     ],
     "skill-portability": [
       "sources/src-pablo-mano-obsidian-cli-skill"
+    ],
+    "plannotator": [
+      "sources/src-plannotator"
+    ],
+    "plan-annotation": [
+      "sources/src-plannotator"
+    ],
+    "code-review": [
+      "sources/src-plannotator"
+    ],
+    "implementation-plans": [
+      "sources/src-plannotator"
+    ],
+    "pm": [
+      "sources/src-plannotator"
     ],
     "qa-automation": [
       "sources/src-playwright-cli-vs-mcp"
@@ -9787,6 +9919,12 @@
       "target": "Research Wiki",
       "referenced_by": [
         "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features"
+      ]
+    },
+    {
+      "target": "SFIF Pattern",
+      "referenced_by": [
+        "Plannotator \u2014 Interactive Plan & Code Review for AI Agents"
       ]
     },
     {
