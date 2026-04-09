@@ -18,4 +18,4 @@ Operator directives, session summaries, and task completion notes.
 
 | Date | Title | Type | Tags |
 |------|-------|------|------|
-<!-- Auto-populated by pipeline -->
+| 2026-04-09 | [Ingest awesome-design-md repository](2026-04-09-ingest-awesome-design-md.md) | directive | `log`, `directive`, `ingestion`, `design-md` |

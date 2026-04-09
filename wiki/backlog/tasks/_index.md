@@ -14,4 +14,4 @@ tags: [backlog, tasks]
 
 | ID | Task | Priority | Status | Stage | Readiness | Epic |
 |----|------|----------|--------|-------|-----------|------|
-<!-- Auto-populated by pipeline -->
+<!-- No tasks yet -->

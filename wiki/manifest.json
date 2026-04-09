@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-09T19:41:25.885279+00:00",
+  "generated": "2026-04-09T19:54:24.991633+00:00",
   "stats": {
-    "pages": 121,
-    "domains": 7,
-    "sources": 23,
+    "pages": 123,
+    "domains": 8,
+    "sources": 24,
     "comparisons": 5,
-    "relationships": 936,
-    "tags_unique": 534,
+    "relationships": 942,
+    "tags_unique": 538,
     "layers": {
       "6": 5,
       "2": 2,
@@ -1321,6 +1321,14 @@
           "url": "https://www.mindstudio.ai/blog/what-is-google-stitch-design-md-file",
           "title": "What Is Google Stitch's Design.md File?",
           "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-awesome-design-md",
+          "type": "documentation",
+          "url": "https://github.com/VoltAgent/awesome-design-md",
+          "file": "raw/articles/voltagentawesome-design-md.md",
+          "title": "VoltAgent/awesome-design-md \u2014 58 Design Systems",
+          "ingested": "2026-04-09"
         }
       ],
       "layer": "",
@@ -6433,6 +6441,28 @@
       ]
     },
     {
+      "path": "log/2026-04-09-ingest-awesome-design-md.md",
+      "slug": "log/2026-04-09-ingest-awesome-design-md",
+      "title": "Ingest awesome-design-md repository",
+      "type": "note",
+      "domain": "log",
+      "status": "active",
+      "confidence": "high",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "log",
+        "directive",
+        "ingestion",
+        "design-md"
+      ],
+      "sources": [],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": []
+    },
+    {
       "path": "patterns/context-aware-tool-loading.md",
       "slug": "patterns/context-aware-tool-loading",
       "title": "Context-Aware Tool Loading",
@@ -7149,6 +7179,66 @@
         {
           "verb": "RELATES TO",
           "target": "Infrastructure as Code Patterns"
+        }
+      ]
+    },
+    {
+      "path": "sources/src-awesome-design-md.md",
+      "slug": "sources/src-awesome-design-md",
+      "title": "Synthesis: awesome-design-md \u2014 58 Design Systems for AI Agents",
+      "type": "source-synthesis",
+      "domain": "tools-and-platforms",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "design-md",
+        "design-system",
+        "ai-agents",
+        "google-stitch",
+        "markdown-config",
+        "ui-consistency",
+        "awesome-list",
+        "voltagent"
+      ],
+      "sources": [
+        {
+          "id": "src-awesome-design-md",
+          "type": "documentation",
+          "url": "https://github.com/VoltAgent/awesome-design-md",
+          "file": "raw/articles/voltagentawesome-design-md.md",
+          "title": "VoltAgent/awesome-design-md",
+          "ingested": "2026-04-09"
+        }
+      ],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "EXTENDS",
+          "target": "Design.md Pattern (this is the empirical evidence for that concept)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Infrastructure as Code Patterns (DESIGN.md as part of the IaC spectrum)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Skills Architecture Patterns (static design context vs dynamic skill invocation)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices (CLAUDE.md + DESIGN.md + AGENTS.md as context stack)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Context-Aware Tool Loading (DESIGN.md is eager-loaded static context \u2014 same tradeoff)"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Methodology Framework (DESIGN.md as a required artifact in the design stage)"
         }
       ]
     },
@@ -8907,8 +8997,8 @@
       "relationship_count": 295
     },
     "tools-and-platforms": {
-      "page_count": 22,
-      "relationship_count": 155
+      "page_count": 23,
+      "relationship_count": 161
     },
     "devops": {
       "page_count": 11,
@@ -8925,6 +9015,10 @@
     "knowledge-systems": {
       "page_count": 23,
       "relationship_count": 201
+    },
+    "log": {
+      "page_count": 1,
+      "relationship_count": 0
     }
   },
   "tags": {
@@ -9036,6 +9130,7 @@
       "domains/ai-agents/design-md-pattern",
       "domains/ai-agents/openfleet",
       "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
+      "sources/src-awesome-design-md",
       "spine/domain-overviews/ai-agents-\u2014-domain-overview"
     ],
     "llm-wiki": [
@@ -9555,10 +9650,13 @@
     ],
     "design-md": [
       "domains/ai-agents/design-md-pattern",
-      "domains/devops/infrastructure-as-code-patterns"
+      "domains/devops/infrastructure-as-code-patterns",
+      "log/2026-04-09-ingest-awesome-design-md",
+      "sources/src-awesome-design-md"
     ],
     "design-system": [
-      "domains/ai-agents/design-md-pattern"
+      "domains/ai-agents/design-md-pattern",
+      "sources/src-awesome-design-md"
     ],
     "claude-md": [
       "domains/ai-agents/design-md-pattern",
@@ -9566,14 +9664,17 @@
       "sources/src-playwright-mcp-visual-testing"
     ],
     "google-stitch": [
-      "domains/ai-agents/design-md-pattern"
+      "domains/ai-agents/design-md-pattern",
+      "sources/src-awesome-design-md"
     ],
     "markdown-config": [
       "domains/ai-agents/design-md-pattern",
-      "domains/devops/infrastructure-as-code-patterns"
+      "domains/devops/infrastructure-as-code-patterns",
+      "sources/src-awesome-design-md"
     ],
     "ui-consistency": [
-      "domains/ai-agents/design-md-pattern"
+      "domains/ai-agents/design-md-pattern",
+      "sources/src-awesome-design-md"
     ],
     "agent-context": [
       "domains/ai-agents/design-md-pattern"
@@ -9940,7 +10041,8 @@
     "ingestion": [
       "domains/automation/research-pipeline-orchestration",
       "domains/knowledge-systems/wiki-ingestion-pipeline",
-      "lessons/lesson-convergence-on-wiki-ingestion-pipeline"
+      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
+      "log/2026-04-09-ingest-awesome-design-md"
     ],
     "multi-pass": [
       "domains/automation/research-pipeline-orchestration",
@@ -10689,6 +10791,12 @@
     "self-referential": [
       "lessons/lesson-hub-\u2014-knowledge-systems"
     ],
+    "log": [
+      "log/2026-04-09-ingest-awesome-design-md"
+    ],
+    "directive": [
+      "log/2026-04-09-ingest-awesome-design-md"
+    ],
     "tool-design": [
       "patterns/context-aware-tool-loading"
     ],
@@ -10768,6 +10876,12 @@
     ],
     "design-lifecycle": [
       "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "awesome-list": [
+      "sources/src-awesome-design-md"
+    ],
+    "voltagent": [
+      "sources/src-awesome-design-md"
     ],
     "excalidraw": [
       "sources/src-axton-obsidian-visual-skills"

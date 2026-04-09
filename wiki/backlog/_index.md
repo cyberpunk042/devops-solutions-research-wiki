@@ -18,7 +18,7 @@ All planned work, organized by epics, modules, and tasks.
 
 | ID | Epic | Priority | Status | Readiness |
 |----|------|----------|--------|-----------|
-<!-- Auto-populated by pipeline -->
+<!-- No epics yet -->
 
 ## Modules
 

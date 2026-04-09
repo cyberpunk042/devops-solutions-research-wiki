@@ -18,6 +18,12 @@ sources:
     url: "https://www.mindstudio.ai/blog/what-is-google-stitch-design-md-file"
     title: "What Is Google Stitch's Design.md File?"
     ingested: 2026-04-08
+  - id: src-awesome-design-md
+    type: documentation
+    url: "https://github.com/VoltAgent/awesome-design-md"
+    file: raw/articles/voltagentawesome-design-md.md
+    title: "VoltAgent/awesome-design-md — 58 Design Systems"
+    ingested: 2026-04-09
 tags: [design-md, design-system, ai-agents, claude-md, google-stitch, markdown-config, ui-consistency, agent-context]
 ---
 
