@@ -103,11 +103,25 @@ New channel integrations are developed as npm-distributed plugins via the OpenAr
 
 ## Open Questions
 
-- How should conversation context be shared or isolated when the same user contacts the agent via two channels in parallel?
-- What is the canonical approach for per-channel capability negotiation when a tool is available in some sessions but not others?
-- Should multi-channel access be designed for a single user (personal AI assistant) or for team-scale deployment (multiple owners, role-based access)?
-- How does the agent communicate its capability limitations when asked to perform an action unavailable in the current channel context?
-- What is the right architecture for bridging OpenArms channel access with OpenFleet agent tasking — can a Telegram message trigger a fleet task dispatch?
+- How should conversation context be shared or isolated when the same user contacts the agent via two channels in parallel? (Requires: empirical data on OpenArms multi-session state behavior when the same identity contacts from two channels simultaneously; not yet documented in existing wiki pages)
+
+### Answered Open Questions
+
+**Q: What is the canonical approach for per-channel capability negotiation when a tool is available in some sessions but not others?**
+
+Cross-referencing `OpenArms`: the canonical approach is documented in the OpenArms session model. The agent's tool registry is defined at the runtime level, not per-channel. The gateway filters capabilities per session security tier — main sessions (owner DMs) get full host tools; non-main sessions (groups, unknown senders) get a sandboxed subset (bash/process/read/write/edit/sessions tools, blocking browser/canvas/nodes/cron/gateway). Per-session toggles (`thinkingLevel`, `verboseLevel`, `model`, `sendPolicy`, `/elevated on|off`) allow further per-session tuning within the allowed tier. The architectural answer: capability negotiation happens at the session-security-tier boundary, not at the channel boundary. A Telegram group and a Discord server both receive the sandbox tier regardless of which platform they originate from. This is the "channel-transparent tool registry" pattern — tools are defined once at runtime, filtered at the gateway per session trust level.
+
+**Q: Should multi-channel access be designed for a single user (personal AI assistant) or for team-scale deployment (multiple owners, role-based access)?**
+
+Cross-referencing `OpenArms`: OpenArms's canonical design is explicitly single-owner. The documentation defines a `main` session for direct DMs from the owner and non-main sessions for all other contacts. Unknown senders go through DM pairing (`openarms pairing approve`) — there is no concept of multiple co-equal owners. The `openarms doctor` surfaces risky DM policies as a safety check. The ecosystem position confirms this: OpenArms is documented as "the personal AI assistant layer of the 4-project ecosystem." Team-scale deployment with multiple owners and role-based access would require a different architecture; OpenArms's access control model (single trusted owner, allowlisted contacts, untrusted public) is explicitly designed for personal, not organizational, use.
+
+**Q: How does the agent communicate its capability limitations when asked to perform an action unavailable in the current channel context?**
+
+Cross-referencing `OpenArms`: the session model documents two behavioral signals for capability boundaries. First, the `REPLY_SKIP` and `ANNOUNCE_SKIP` flags in cross-session communication control whether the agent replies back or announces steps — these are the mechanism for signaling that an action was not taken. Second, sandbox mode explicitly blocks browser/canvas/nodes/cron/gateway tools in non-main sessions, meaning the agent will fail to invoke those tools rather than silently proceeding. In practice, the agent communicates limitations through the tool invocation failure path and through the session's `sendPolicy` setting. The deep solution from the OpenArms architecture is that capability limitations should be encoded in the tool registry filtering at the gateway tier — tools that are unavailable simply do not appear in the session's available tool set, so the model cannot attempt to use them (as opposed to attempting and failing).
+
+**Q: What is the right architecture for bridging OpenArms channel access with OpenFleet agent tasking — can a Telegram message trigger a fleet task dispatch?**
+
+Cross-referencing `OpenArms` and `OpenFleet`: both pages document the relevant integration points. OpenArms provides `sessions_send` for cross-session messaging and the gateway WebSocket control plane (`ws://127.0.0.1:18789`). OpenFleet provides the Mission Control API (port 8000, FastAPI) as its external interface and IRC channels (#fleet, #alerts) for agent communication. The architectural path for a Telegram message triggering a fleet task: (1) Telegram message arrives at the OpenArms gateway → (2) OpenArms agent processes the message → (3) agent calls an OpenArms skill that invokes the Mission Control API (via HTTP POST to port 8000) or sends a message to OpenFleet's IRC #fleet channel → (4) OpenFleet orchestrator picks up the task on its 30-second cycle. The `OpenArms` page notes that mcporter bridges MCP tool exposure to OpenArms agents — and OpenFleet's Mission Control exposes tools via its own API. A wiki MCP server or direct HTTP skill could bridge the two. This is architecturally feasible within the documented system; no new protocol is required.
 
 ## Relationships
 

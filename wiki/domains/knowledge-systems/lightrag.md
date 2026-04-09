@@ -72,10 +72,21 @@ The wiki's relationship format (`- VERB: Target Name`) is directly compatible wi
 
 ## Open Questions
 
-- Should the research wiki maintain its own LightRAG instance separate from OpenFleet's, or share one?
-- Can LightRAG's incremental updates handle the wiki's update-in-place model (editing existing pages vs only adding new ones)?
-- What is the optimal chunk size for wiki pages that are already structured with sections?
-- How does query latency scale with graph size beyond 10K entities?
+- How does query latency scale with graph size beyond 10K entities? (Requires: external benchmarking data or LightRAG documentation on graph traversal performance at scale; existing wiki pages document the current 1,545 entity / 2,295 relationship state in OpenFleet but do not project latency beyond 10K entities)
+
+### Answered Open Questions
+
+**Q: Should the research wiki maintain its own LightRAG instance separate from OpenFleet's, or share one?**
+
+Cross-referencing `OpenFleet` and `AICP`: the OpenFleet page documents LightRAG running at port 9621 as part of the OpenFleet service stack, indexed with 1,545 entities and 2,295 relationships from 219 KB entries from OpenFleet's own knowledge base and AICP SKILL.md files. The research wiki's relationship format is compatible with `kb_sync.py`'s regex parser and could be loaded into the same instance. However, AICP documents a dual-machine target architecture where each machine runs its own LocalAI cluster and Mission Control stack — implying service separation rather than sharing. The `LightRAG` page itself documents that storage backends include JSON, making a lightweight per-project instance feasible without full Neo4j infrastructure. The practical answer from existing wiki knowledge: a shared instance is simpler operationally but couples the wiki's graph to OpenFleet's operational concerns (their entities, their KB structure). A separate wiki LightRAG instance allows independent indexing, independent query tuning, and clean separation of domains. The LightRAG `--storage-type json` backend makes a lightweight wiki-only instance viable with no database dependency — the same `kb_sync.py` approach works against any LightRAG instance.
+
+**Q: Can LightRAG's incremental updates handle the wiki's update-in-place model (editing existing pages vs only adding new ones)?**
+
+Cross-referencing `LightRAG` and `Wiki Knowledge Graph`: the LightRAG page documents that "incremental updates" work by processing new document D' and combining via graph union — "No full community hierarchy reconstruction required (unlike GraphRAG)." However, this describes the case of *adding* new documents. The wiki's update-in-place model (editing an existing page's relationships, updating its summary) is a different operation: it requires identifying that entity/relationship records already exist for that page, deleting the old records, and inserting the updated ones. The LightRAG page documents REST API endpoints for "entity/relation CRUD, deletion" — confirming that delete+reinsert is available. The `Wiki Knowledge Graph` page documents that kb_sync.py "inserts directly via REST API" — the implementation would need to first delete existing records for a changed page, then re-parse and re-insert. This is feasible using LightRAG's deletion API, though `kb_sync.py` as documented for OpenFleet appears to be a full-rebuild sync rather than incremental. The answer: LightRAG's API supports the update-in-place pattern via delete+reinsert, but kb_sync.py would need to be extended with change detection (comparing manifest.json timestamps) to avoid full rebuilds on every sync.
+
+**Q: What is the optimal chunk size for wiki pages that are already structured with sections?**
+
+Cross-referencing `LLM Wiki vs RAG` and `Wiki Knowledge Graph`: the LightRAG page documents that LightRAG's indexing pipeline extracts entities and relationships from document chunks via LLM — but critically, the OpenFleet integration bypasses this entirely via `kb_sync.py`, which "extracts relationships from the KB's explicit `## Relationships` sections and inserts directly via REST API." This bypass was adopted precisely because LLM-based extraction "produced inconsistent results (32/0, 15/7, 21/21 entities/relations across runs)." For wiki pages, which are already structured with sections and explicit relationship declarations, the answer is: chunking is largely irrelevant when using the `kb_sync.py` direct-insert approach. Each wiki page becomes one entity, and its `## Relationships` section provides the edges — no chunking or LLM extraction step is needed. If using LightRAG's native LLM extraction path (not recommended for structured wiki pages), the optimal chunk size would align with section boundaries (one section per chunk), preserving the `## Summary`, `## Key Insights`, and `## Deep Analysis` sections as coherent semantic units rather than splitting mid-section.
 
 ## Relationships
 

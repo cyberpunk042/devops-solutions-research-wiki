@@ -64,11 +64,22 @@ The document's deliberate abstraction is itself a design choice. By refusing to 
 
 ## Open Questions
 
-- How does the schema document evolve in practice -- are there examples of mature schemas after months of use?
-- What is the practical upper bound of index-driven navigation before search tooling like qmd becomes necessary?
-- How does the pattern handle multi-modal sources (images, audio) beyond the workaround of having the LLM view images separately?
-- Is there a recommended approach for merging multiple single-user wikis into a shared team wiki?
-- How does the pattern handle source authority -- should a peer-reviewed paper carry more weight than a blog post during lint?
+- How does the pattern handle multi-modal sources (images, audio) beyond the workaround of having the LLM view images separately? (Requires: external research on multimodal ingestion pipelines; existing wiki pages document images via local download and LLM viewing but do not address audio/video as first-class source types)
+- How does the pattern handle source authority -- should a peer-reviewed paper carry more weight than a blog post during lint? (Requires: external research or implementation experience; the existing wiki pages do not define a source-authority scoring mechanism, though the LLM Wiki Pattern documents multi-source corroboration as the mechanism for confidence — more sources = higher confidence regardless of individual source type)
+
+### Answered Open Questions
+
+**Q: How does the schema document evolve in practice -- are there examples of mature schemas after months of use?**
+
+Cross-referencing `LLM Wiki Pattern`: the LLM Wiki Pattern page documents this project's own CLAUDE.md as a concrete example of a mature schema. It started as a simple set of frontmatter fields and was progressively extended to include explicit page types (concept, source-synthesis, comparison, reference, deep-dive, index, lesson, pattern, decision, domain-overview, learning-path, evolution), a defined status lifecycle (raw → processing → synthesized → verified → stale), confidence levels, maturity levels (seed → growing → mature → canonical), an ingestion mode system (auto, guided, smart), and relationship verb conventions. The LLM Wiki Pattern page states: "This is a concrete example of a mature schema: it started as a simple set of frontmatter fields and was progressively extended to encode evolved page types, relationship verb conventions, and quality gates. The schema co-evolution described in the LLM Wiki v2 document is clearly visible by comparing early Karpathy prompts (minimal structure) with this project's current CLAUDE.md (comprehensive operational knowledge)." The operational CLAUDE.md in this repository is itself the evidence of how a schema evolves — from minimal to comprehensive over time, with each addition encoding a lesson learned from operating the wiki.
+
+**Q: What is the practical upper bound of index-driven navigation before search tooling like qmd becomes necessary?**
+
+Cross-referencing `LLM Wiki vs RAG` and `LLM Wiki Pattern`: both pages document the boundary at approximately 200 pages / 500K words. The `LLM Wiki vs RAG` comparison matrix states the scale ceiling for the LLM Wiki Pattern is "~200 pages / ~500K words" and that below this "wiki navigation is cheaper and more accurate" while above it "vector search is necessary." The `LLM Wiki Pattern` page confirms: "The LLM Wiki v2 document identifies the boundary at ~100-200 pages for index-only navigation and proposes hybrid search (BM25 + vector + graph traversal) as the solution." The practical answer: qmd (or equivalent hybrid search) becomes necessary when the wiki exceeds approximately 200 pages — at that point the master index itself becomes too large to fit in a context window for single-pass navigation, requiring either hierarchical sub-indexes (which this wiki implements via per-domain `_index.md` files) or a vector search pre-filter. Hierarchical sub-indexes extend the ceiling: a master index pointing to domain indexes, each scannable independently, pushes the effective ceiling considerably beyond 200 flat pages.
+
+**Q: Is there a recommended approach for merging multiple single-user wikis into a shared team wiki?**
+
+Cross-referencing `LLM Wiki Pattern`: the LLM Wiki Pattern page documents the state of this question: "The v2 document proposes mesh sync with last-write-wins, but details are sparse. Requires: external research or implementation experience." The LLM Wiki Pattern page also notes that Karpathy mentions "multiple vaults for different purposes" but frames these as separate rather than merged. The `Knowledge Evolution Pipeline` page's scored evolution mechanism provides a partial answer for the internal case: pages from different source wikis could be ingested as raw sources, then the evolution pipeline would synthesize canonical cross-source pages through the seed → growing → mature → canonical promotion path. This treats merging as a re-ingestion problem rather than a file merge problem. For true bidirectional team merges with concurrent edits, the wiki pages do not document a canonical approach — the existing architecture assumes WSL2 as a single source of truth with the `--reverse` flag for one-off reverse syncs.
 
 ## Relationships
 

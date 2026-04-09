@@ -98,11 +98,19 @@ The current `scripts/sync-obsidian.sh` rsync approach sidesteps this by treating
 
 ## Open Questions
 
-- Can the Obsidian CLI be invoked from WSL2 targeting a Windows Obsidian instance, or does it require running on the same OS as the app?
-- What is the latency overhead of CLI commands vs direct file manipulation for bulk operations (e.g., updating properties on 100+ pages)?
-- Does `obsidian eval` have access to community plugin APIs, enabling automation of Dataview queries, Templater scripts, and other plugin-specific operations?
-- Can the CLI's `base:query` command replace or augment `tools/manifest.py` for structured wiki querying?
-- How does the CLI handle concurrent access — can multiple scripts issue commands simultaneously without conflicts?
+- What is the latency overhead of CLI commands vs direct file manipulation for bulk operations (e.g., updating properties on 100+ pages)? (Requires: empirical benchmarking; no existing wiki page documents CLI IPC latency vs direct filesystem access latency)
+- Does `obsidian eval` have access to community plugin APIs, enabling automation of Dataview queries, Templater scripts, and other plugin-specific operations? (Requires: external testing against community plugin APIs; the Obsidian Skills Ecosystem page describes what community plugins expose but does not document whether `eval` can invoke their APIs)
+- How does the CLI handle concurrent access — can multiple scripts issue commands simultaneously without conflicts? (Requires: external testing or Obsidian documentation on IPC concurrency; no existing wiki page covers this)
+
+### Answered Open Questions
+
+**Q: Can the Obsidian CLI be invoked from WSL2 targeting a Windows Obsidian instance, or does it require running on the same OS as the app?**
+
+Cross-referencing `WSL2 Development Patterns`: the WSL2 page documents this constraint directly. Obsidian runs on Windows and reads from a Windows filesystem path (`C:\Users\<user>\<obsidian-vault>\`). The wiki lives in WSL2 on the Linux filesystem. The current architecture treats Obsidian as a "read-only viewer" — wiki edits happen in WSL2, a sync daemon (`tools/sync.py`) bridges files to the Windows path, and Obsidian reads the synced output. The CLI communicates via IPC with the Obsidian app, so it must run on the same OS as the running instance. From WSL2, invoking the Windows Obsidian CLI would require using the Windows-side binary via WSL interop (`/mnt/c/.../Obsidian.com`), which the `Obsidian CLI` page itself mentions as a platform option. The practical answer: CLI-based vault operations are reserved for Windows-side scripts or a native Linux Obsidian instance running under WSLg; the primary wiki management workflow (direct file ops in WSL2 + rsync to Windows) is unaffected and remains the recommended approach for headless automation.
+
+**Q: Can the CLI's `base:query` command replace or augment `tools/manifest.py` for structured wiki querying?**
+
+Cross-referencing `Obsidian Skills Ecosystem` and `WSL2 Development Patterns`: the Obsidian Skills Ecosystem page documents `base:query`, `base:views`, and `base:create` as part of pablo-mano's comprehensive CLI skill, which covers "structured data" operations via Obsidian's Bases feature. `tools/manifest.py` generates `wiki/manifest.json` by parsing markdown frontmatter directly — it runs on the Linux-side wiki files with no Obsidian dependency. `base:query` requires the Obsidian app to be running (IPC-based), making it unavailable in headless CI/CD or automated pipeline contexts on WSL2 without a display server. The two tools target different contexts: `tools/manifest.py` is the correct tool for automated pipeline queries (no UI dependency, runs during post-chain); `base:query` would be appropriate for interactive queries in a Windows-side Obsidian session. `base:query` cannot replace `tools/manifest.py` for pipeline use, but it can augment it for interactive exploration, especially for queries involving Bases (structured database views) that go beyond what the manifest JSON provides.
 
 ## Relationships
 

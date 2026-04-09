@@ -94,11 +94,25 @@ Current priorities: security/safe defaults, bug fixes, setup reliability. Next: 
 
 ## Open Questions
 
-- How does OpenArms session memory integrate with the devops-solutions-research-wiki LightRAG knowledge graph?
-- Can wiki MCP tools be exposed to OpenArms agents via mcporter for in-chat knowledge queries?
-- What is the recommended skill structure for bridging OpenArms ↔ openfleet agent coordination?
-- How does the `sessions_send` cross-session mechanism compare to OpenFleet's agent messaging patterns?
-- Is there a canonical approach for syncing OpenArms workspace skills with the AICP skills directory?
+- Is there a canonical approach for syncing OpenArms workspace skills with the AICP skills directory? (Requires: direct inspection of AICP's agent-tooling.yaml and OpenArms workspace structure; the AICP page documents 78 skills and 18 referenced in fleet's agent-tooling.yaml but does not document a sync mechanism with OpenArms's `~/.openarms/workspace/skills/` path)
+
+### Answered Open Questions
+
+**Q: How does OpenArms session memory integrate with the devops-solutions-research-wiki LightRAG knowledge graph?**
+
+Cross-referencing `LightRAG` and `OpenFleet`: LightRAG runs as a REST API server at `localhost:9621` and exposes an MCP server (via `daniel-lightrag-mcp`, 22 tools). OpenArms supports MCP tool exposure via the `mcporter` bridge. The integration path is: (1) LightRAG server runs with the wiki's knowledge graph loaded (via `kb_sync.py` parsing the wiki's `## Relationships` sections), (2) mcporter bridges the LightRAG MCP server to the OpenArms gateway, (3) OpenArms agents can query the LightRAG graph in-session via the exposed MCP tools. The `LightRAG` page confirms the wiki's relationship format (`- VERB: Target Name`) is directly compatible with `kb_sync.py`'s regex parser, so the research wiki's own relationship structure is LightRAG-ingestible. OpenArms session memory (per-session conversation history) and the LightRAG knowledge graph are complementary — session memory is ephemeral per-conversation context; LightRAG provides persistent cross-session knowledge retrieval.
+
+**Q: Can wiki MCP tools be exposed to OpenArms agents via mcporter for in-chat knowledge queries?**
+
+Cross-referencing `OpenArms` and `AICP`: the OpenArms page documents that `mcporter` (`github.com/steipete/mcporter`) "provides MCP server connectivity without restarting the gateway, keeping core lean." AICP documents 11 MCP tools (including `kb search`) exposed as an MCP server for IDE clients and fleet agents. This wiki runs its own MCP server (`tools/mcp_server.py`) with 15 tools (`wiki_status`, `wiki_search`, `wiki_read_page`, etc.) registered in `.mcp.json`. The path to in-chat knowledge queries: connect the research-wiki MCP server to OpenArms via mcporter. The architecture is: `wiki MCP server → mcporter bridge → OpenArms gateway → agent session`. No new protocol is required; mcporter is the existing bridge for exactly this pattern. The feasibility is confirmed by AICP's documented pattern of exposing its own MCP tools to fleet agents.
+
+**Q: What is the recommended skill structure for bridging OpenArms ↔ OpenFleet agent coordination?**
+
+Cross-referencing `OpenArms` and `OpenFleet`: OpenArms skills are SKILL.md markdown files installed in `~/.openarms/workspace/skills/<skill>/SKILL.md`. OpenFleet agents have SOUL.md (identity) and HEARTBEAT.md (periodic checklist) files. The coordination surface is documented: OpenFleet exposes the Mission Control API (port 8000) and IRC channels (#fleet, #alerts, #reviews). An OpenArms bridge skill would contain: (1) instructions for invoking Mission Control API endpoints (task creation, status query), (2) IRC messaging patterns for the fleet channels, (3) the fleet's task state model (6-axis state, dispatch rules). The OpenArms `sessions_send` mechanism enables cross-session coordination internally, but for fleet dispatch, the skill would make direct HTTP calls to Mission Control API or messages to the fleet's IRC #fleet channel. The skill structure mirrors other OpenArms integration skills: one SKILL.md file per integration target, containing the relevant API surface and protocol notes.
+
+**Q: How does the `sessions_send` cross-session mechanism compare to OpenFleet's agent messaging patterns?**
+
+Cross-referencing `OpenFleet`: OpenArms's `sessions_send` is a synchronous within-gateway cross-session message: one agent session sends a message to another session over the same WebSocket gateway. This is primarily used for agent-to-agent coordination within a single OpenArms deployment. OpenFleet's messaging patterns are asynchronous and infrastructure-level: agents communicate via IRC channels (#fleet, #alerts, #reviews) on miniircd (port 6667), and the orchestrator dispatches tasks via the Mission Control API on a 30-second cycle. The key difference: `sessions_send` is ephemeral and session-scoped (no persistent task queue), while OpenFleet's IRC+orchestrator pattern is persistent (tasks survive agent restarts) and auditable (all channel messages are logged). For triggering fleet tasks from OpenArms, the correct approach is the Mission Control API (HTTP POST), not `sessions_send` — `sessions_send` is for coordinating within the OpenArms gateway, not for crossing into the OpenFleet boundary.
 
 ## Relationships
 
