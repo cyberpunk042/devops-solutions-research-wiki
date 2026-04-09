@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-09T17:49:05.299848+00:00",
+  "generated": "2026-04-09T18:32:40.894387+00:00",
   "stats": {
-    "pages": 113,
+    "pages": 117,
     "domains": 7,
     "sources": 23,
     "comparisons": 5,
-    "relationships": 863,
-    "tags_unique": 479,
+    "relationships": 900,
+    "tags_unique": 517,
     "layers": {
       "6": 5,
       "4": 16,
@@ -14,7 +14,7 @@
       "spine": 7
     },
     "maturity": {
-      "growing": 35,
+      "growing": 39,
       "seed": 5
     }
   },
@@ -2418,6 +2418,88 @@
       ]
     },
     {
+      "path": "domains/devops/backlog-hierarchy-rules.md",
+      "slug": "domains/devops/backlog-hierarchy-rules",
+      "title": "Backlog Hierarchy Rules",
+      "type": "concept",
+      "domain": "devops",
+      "status": "synthesized",
+      "confidence": "authoritative",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "backlog",
+        "epic",
+        "module",
+        "task",
+        "hierarchy",
+        "readiness",
+        "status-propagation",
+        "wiki-backlog",
+        "openarms",
+        "openfleet",
+        "task-management",
+        "decomposition",
+        "upward-aggregation"
+      ],
+      "sources": [
+        {
+          "id": "src-openarms-methodology-yaml-full",
+          "type": "documentation",
+          "file": "raw/articles/openarms-methodology-yaml-full.md",
+          "title": "OpenArms Methodology YAML + Agent Directive \u2014 Full Reference",
+          "ingested": "2026-04-09"
+        },
+        {
+          "id": "src-openfleet-methodology-scan",
+          "type": "documentation",
+          "file": "raw/articles/openfleet-methodology-scan.md",
+          "title": "OpenFleet Methodology Scan \u2014 Deep Research Findings",
+          "ingested": "2026-04-09"
+        }
+      ],
+      "layer": "",
+      "maturity": "growing",
+      "derived_from": [
+        "Stage-Gate Methodology",
+        "Wiki Backlog Pattern"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Stage-Gate Methodology (the hierarchy enforces stage-gating at the container level)"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Wiki Backlog Pattern (the file-based hierarchy IS the wiki backlog)"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Plan Execute Review Cycle (the review ceiling for epics/modules IS the review phase)"
+        },
+        {
+          "verb": "USED BY",
+          "target": "Task Type Artifact Matrix (epic and module types follow all 5 stages; the hierarchy rules define how they relate)"
+        },
+        {
+          "verb": "USED BY",
+          "target": "Execution Modes and End Conditions (the work loop picks tasks from the hierarchy; end conditions reference backlog-empty)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Four-Project Ecosystem (all four projects organize work in this hierarchy \u2014 Plane issues in OpenFleet, wiki backlog in OpenArms)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Spec-Driven Development (epics/modules always have design docs; their stage requirements enforce spec-first)"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Immune System Rules (hierarchy violations \u2014 manual readiness, premature done status \u2014 are detectable anti-patterns)"
+        }
+      ]
+    },
+    {
       "path": "domains/devops/devops-control-plane.md",
       "slug": "domains/devops/devops-control-plane",
       "title": "devops-control-plane",
@@ -2471,6 +2553,96 @@
         {
           "verb": "RELATES TO",
           "target": "Wiki Ingestion Pipeline"
+        }
+      ]
+    },
+    {
+      "path": "domains/devops/execution-modes-and-end-conditions.md",
+      "slug": "domains/devops/execution-modes-and-end-conditions",
+      "title": "Execution Modes and End Conditions",
+      "type": "concept",
+      "domain": "devops",
+      "status": "synthesized",
+      "confidence": "authoritative",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "execution-modes",
+        "end-conditions",
+        "autonomous",
+        "full-autonomous",
+        "semi-autonomous",
+        "work-loop",
+        "git-management",
+        "quality-gates",
+        "openarms",
+        "backlog-empty",
+        "stage-reached",
+        "cost-limit",
+        "time-limit"
+      ],
+      "sources": [
+        {
+          "id": "src-openarms-methodology-yaml-full",
+          "type": "documentation",
+          "file": "raw/articles/openarms-methodology-yaml-full.md",
+          "title": "OpenArms Methodology YAML + Agent Directive \u2014 Full Reference",
+          "ingested": "2026-04-09"
+        },
+        {
+          "id": "src-openfleet-methodology-scan",
+          "type": "documentation",
+          "file": "raw/articles/openfleet-methodology-scan.md",
+          "title": "OpenFleet Methodology Scan \u2014 Deep Research Findings",
+          "ingested": "2026-04-09"
+        }
+      ],
+      "layer": "",
+      "maturity": "growing",
+      "derived_from": [
+        "Stage-Gate Methodology",
+        "Task Lifecycle Stage-Gating"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Stage-Gate Methodology (execution modes control which stages run; quality gates are stage transition requirements)"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Task Lifecycle Stage-Gating (the work loop implements the stage-by-stage execution pattern)"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Backlog Hierarchy Rules (the work loop reads the hierarchy to find the next task)"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Task Type Artifact Matrix (type determines which stages the loop executes)"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Plan Execute Review Cycle (semi-autonomous mode implements review as a first-class phase; autonomous mode implements continuous execute cycle)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Infrastructure as Code Patterns (git management rules as infrastructure \u2014 the commit convention IS the enforcement layer)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Backlog Pattern (the work loop writes to the wiki backlog \u2014 step 6, 8, 11, 12)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Four-Project Ecosystem (OpenFleet uses work_mode + budget monitor as the parallel system; OpenArms uses execution modes + end conditions)"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Immune System Rules (the work loop structure defines what \"correct behavior\" looks like; deviations are the diseases the immune system detects)"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Continuous Evolution (autonomous + backlog-empty enables the self-sustaining loop that continuously improves the system)"
         }
       ]
     },
@@ -2721,6 +2893,188 @@
         {
           "verb": "ENABLES",
           "target": "Claude Code Best Practices"
+        }
+      ]
+    },
+    {
+      "path": "domains/devops/stage-gate-methodology.md",
+      "slug": "domains/devops/stage-gate-methodology",
+      "title": "Stage-Gate Methodology",
+      "type": "concept",
+      "domain": "devops",
+      "status": "synthesized",
+      "confidence": "authoritative",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "stage-gate",
+        "methodology",
+        "openarms",
+        "openfleet",
+        "document",
+        "design",
+        "scaffold",
+        "implement",
+        "test",
+        "hard-boundaries",
+        "artifacts",
+        "quality-gates",
+        "readiness",
+        "work-modes",
+        "knowledge-work",
+        "devops",
+        "autonomous-agents"
+      ],
+      "sources": [
+        {
+          "id": "src-openarms-methodology-yaml-full",
+          "type": "documentation",
+          "file": "raw/articles/openarms-methodology-yaml-full.md",
+          "title": "OpenArms Methodology YAML + Agent Directive \u2014 Full Reference",
+          "ingested": "2026-04-09"
+        },
+        {
+          "id": "src-openfleet-methodology-scan",
+          "type": "documentation",
+          "file": "raw/articles/openfleet-methodology-scan.md",
+          "title": "OpenFleet Methodology Scan \u2014 Deep Research Findings",
+          "ingested": "2026-04-09"
+        }
+      ],
+      "layer": "",
+      "maturity": "growing",
+      "derived_from": [
+        "Task Lifecycle Stage-Gating",
+        "Spec-Driven Development"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Task Lifecycle Stage-Gating (this page operationalizes the stage-gating concept for the devops domain)"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Spec-Driven Development (stages enforce the spec-before-implementation principle)"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Plan Execute Review Cycle (stage gates implement the phase separation that PER describes)"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features (SFIF is the architectural expression of the same staged progression principle)"
+        },
+        {
+          "verb": "USED BY",
+          "target": "Task Type Artifact Matrix (each task type selects a subset of stages based on complexity)"
+        },
+        {
+          "verb": "USED BY",
+          "target": "Backlog Hierarchy Rules (tasks are the unit that stages apply to; epics and modules aggregate stage completion upward)"
+        },
+        {
+          "verb": "USED BY",
+          "target": "Execution Modes and End Conditions (execution modes control which stages run and in what order)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Backlog Pattern (the wiki IS the Document/Design stage artifact system)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Four-Project Ecosystem (all four projects in the ecosystem apply this methodology)"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Immune System Rules (violations of stage hard boundaries are the diseases the immune system detects)"
+        },
+        {
+          "verb": "CONTRADICTS",
+          "target": "Vibe Coding (unstructured generation without stage boundaries \u2014 the failure mode this methodology exists to prevent)"
+        }
+      ]
+    },
+    {
+      "path": "domains/devops/task-type-artifact-matrix.md",
+      "slug": "domains/devops/task-type-artifact-matrix",
+      "title": "Task Type Artifact Matrix",
+      "type": "concept",
+      "domain": "devops",
+      "status": "synthesized",
+      "confidence": "authoritative",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "task-types",
+        "artifact-matrix",
+        "epic",
+        "module",
+        "task",
+        "bug",
+        "spike",
+        "docs",
+        "refactor",
+        "stage-requirements",
+        "exit-criteria",
+        "methodology",
+        "openarms",
+        "per-type",
+        "complexity-scaling"
+      ],
+      "sources": [
+        {
+          "id": "src-openarms-methodology-yaml-full",
+          "type": "documentation",
+          "file": "raw/articles/openarms-methodology-yaml-full.md",
+          "title": "OpenArms Methodology YAML + Agent Directive \u2014 Full Reference",
+          "ingested": "2026-04-09"
+        },
+        {
+          "id": "src-openfleet-methodology-scan",
+          "type": "documentation",
+          "file": "raw/articles/openfleet-methodology-scan.md",
+          "title": "OpenFleet Methodology Scan \u2014 Deep Research Findings",
+          "ingested": "2026-04-09"
+        }
+      ],
+      "layer": "",
+      "maturity": "growing",
+      "derived_from": [
+        "Stage-Gate Methodology",
+        "Task Lifecycle Stage-Gating"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Stage-Gate Methodology (the type matrix selects stage subsets from the full 5-stage system)"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Task Lifecycle Stage-Gating (per-type stage selection is the flexibility layer of stage gating)"
+        },
+        {
+          "verb": "USED BY",
+          "target": "Backlog Hierarchy Rules (epics and modules follow the full 5-stage path; tasks use the 3-stage path)"
+        },
+        {
+          "verb": "USED BY",
+          "target": "Execution Modes and End Conditions (execution modes interact with type requirements \u2014 e.g., full-autonomous behavior differs by type)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Spec-Driven Development (spike type formalizes research-without-implementation; docs type formalizes documentation-as-work)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Backlog Pattern (all 7 types appear in wiki backlog; type determines which stages are tracked in frontmatter)"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Four-Project Ecosystem (all four projects use task types \u2014 spike for research, docs for wiki, task/module/epic for features)"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Immune System Rules (type violations \u2014 e.g., code produced during a spike \u2014 are detectable diseases)"
         }
       ]
     },
@@ -8261,8 +8615,8 @@
       "relationship_count": 155
     },
     "devops": {
-      "page_count": 7,
-      "relationship_count": 48
+      "page_count": 11,
+      "relationship_count": 85
     },
     "ai-models": {
       "page_count": 3,
@@ -8699,6 +9053,7 @@
       "domains/devops/four-project-ecosystem",
       "domains/devops/immune-system-rules",
       "domains/devops/infrastructure-as-code-patterns",
+      "domains/devops/stage-gate-methodology",
       "domains/devops/wsl2-development-patterns",
       "spine/domain-overviews/devops-\u2014-domain-overview"
     ],
@@ -8738,8 +9093,10 @@
       "domains/ai-agents/rework-prevention",
       "domains/ai-agents/spec-driven-development",
       "domains/ai-agents/task-lifecycle-stage-gating",
+      "domains/devops/backlog-hierarchy-rules",
       "domains/devops/four-project-ecosystem",
       "domains/devops/immune-system-rules",
+      "domains/devops/stage-gate-methodology",
       "domains/knowledge-systems/lightrag",
       "domains/knowledge-systems/wiki-backlog-pattern",
       "lessons/always-plan-before-executing",
@@ -9020,6 +9377,8 @@
     ],
     "quality-gates": [
       "domains/ai-agents/rework-prevention",
+      "domains/devops/execution-modes-and-end-conditions",
+      "domains/devops/stage-gate-methodology",
       "lessons/lesson-convergence-on-llm-wiki-pattern"
     ],
     "spec-compliance": [
@@ -9051,7 +9410,8 @@
       "sources/src-superpowers-end-of-vibe-coding"
     ],
     "artifacts": [
-      "domains/ai-agents/spec-driven-development"
+      "domains/ai-agents/spec-driven-development",
+      "domains/devops/stage-gate-methodology"
     ],
     "immutable-checkpoints": [
       "domains/ai-agents/spec-driven-development"
@@ -9075,7 +9435,9 @@
       "domains/ai-agents/task-lifecycle-stage-gating"
     ],
     "methodology": [
-      "domains/ai-agents/task-lifecycle-stage-gating"
+      "domains/ai-agents/task-lifecycle-stage-gating",
+      "domains/devops/stage-gate-methodology",
+      "domains/devops/task-type-artifact-matrix"
     ],
     "phase-boundaries": [
       "domains/ai-agents/task-lifecycle-stage-gating"
@@ -9092,7 +9454,11 @@
     ],
     "openarms": [
       "domains/ai-agents/task-lifecycle-stage-gating",
+      "domains/devops/backlog-hierarchy-rules",
+      "domains/devops/execution-modes-and-end-conditions",
       "domains/devops/four-project-ecosystem",
+      "domains/devops/stage-gate-methodology",
+      "domains/devops/task-type-artifact-matrix",
       "domains/knowledge-systems/wiki-backlog-pattern",
       "domains/tools-and-platforms/multi-channel-ai-agent-access",
       "domains/tools-and-platforms/openarms",
@@ -9100,6 +9466,7 @@
     ],
     "autonomous-agents": [
       "domains/ai-agents/task-lifecycle-stage-gating",
+      "domains/devops/stage-gate-methodology",
       "domains/knowledge-systems/wiki-backlog-pattern"
     ],
     "readiness-score": [
@@ -9109,7 +9476,8 @@
       "domains/ai-agents/task-lifecycle-stage-gating"
     ],
     "work-modes": [
-      "domains/ai-agents/task-lifecycle-stage-gating"
+      "domains/ai-agents/task-lifecycle-stage-gating",
+      "domains/devops/stage-gate-methodology"
     ],
     "quantization": [
       "domains/ai-models/local-llm-quantization",
@@ -9256,6 +9624,44 @@
     "systems-course": [
       "domains/cross-domain/skyscraper-pyramid-mountain"
     ],
+    "backlog": [
+      "domains/devops/backlog-hierarchy-rules"
+    ],
+    "epic": [
+      "domains/devops/backlog-hierarchy-rules",
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "module": [
+      "domains/devops/backlog-hierarchy-rules",
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "task": [
+      "domains/devops/backlog-hierarchy-rules",
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "hierarchy": [
+      "domains/devops/backlog-hierarchy-rules"
+    ],
+    "readiness": [
+      "domains/devops/backlog-hierarchy-rules",
+      "domains/devops/stage-gate-methodology"
+    ],
+    "status-propagation": [
+      "domains/devops/backlog-hierarchy-rules"
+    ],
+    "wiki-backlog": [
+      "domains/devops/backlog-hierarchy-rules",
+      "domains/knowledge-systems/wiki-backlog-pattern"
+    ],
+    "task-management": [
+      "domains/devops/backlog-hierarchy-rules"
+    ],
+    "decomposition": [
+      "domains/devops/backlog-hierarchy-rules"
+    ],
+    "upward-aggregation": [
+      "domains/devops/backlog-hierarchy-rules"
+    ],
     "control-plane": [
       "domains/devops/devops-control-plane"
     ],
@@ -9283,6 +9689,39 @@
     ],
     "adapters": [
       "domains/devops/devops-control-plane"
+    ],
+    "execution-modes": [
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "end-conditions": [
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "autonomous": [
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "full-autonomous": [
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "semi-autonomous": [
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "work-loop": [
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "git-management": [
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "backlog-empty": [
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "stage-reached": [
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "cost-limit": [
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "time-limit": [
+      "domains/devops/execution-modes-and-end-conditions"
     ],
     "ecosystem": [
       "domains/devops/four-project-ecosystem",
@@ -9335,6 +9774,61 @@
     ],
     "service-templates": [
       "domains/devops/infrastructure-as-code-patterns"
+    ],
+    "stage-gate": [
+      "domains/devops/stage-gate-methodology"
+    ],
+    "document": [
+      "domains/devops/stage-gate-methodology"
+    ],
+    "design": [
+      "domains/devops/stage-gate-methodology"
+    ],
+    "scaffold": [
+      "domains/devops/stage-gate-methodology",
+      "patterns/scaffold-foundation-infrastructure-features"
+    ],
+    "implement": [
+      "domains/devops/stage-gate-methodology"
+    ],
+    "test": [
+      "domains/devops/stage-gate-methodology"
+    ],
+    "hard-boundaries": [
+      "domains/devops/stage-gate-methodology"
+    ],
+    "knowledge-work": [
+      "domains/devops/stage-gate-methodology"
+    ],
+    "task-types": [
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "artifact-matrix": [
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "bug": [
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "spike": [
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "docs": [
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "refactor": [
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "stage-requirements": [
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "exit-criteria": [
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "per-type": [
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "complexity-scaling": [
+      "domains/devops/task-type-artifact-matrix"
     ],
     "windows-subsystem-linux": [
       "domains/devops/wsl2-development-patterns"
@@ -9499,9 +9993,6 @@
     "atomic-notes": [
       "domains/knowledge-systems/second-brain-architecture",
       "domains/knowledge-systems/zettelkasten-methodology"
-    ],
-    "wiki-backlog": [
-      "domains/knowledge-systems/wiki-backlog-pattern"
     ],
     "frontmatter-state-machine": [
       "domains/knowledge-systems/wiki-backlog-pattern"
@@ -9882,9 +10373,6 @@
     "distillation": [
       "patterns/progressive-distillation"
     ],
-    "scaffold": [
-      "patterns/scaffold-foundation-infrastructure-features"
-    ],
     "foundation": [
       "patterns/scaffold-foundation-infrastructure-features"
     ],
@@ -10219,6 +10707,12 @@
       ]
     },
     {
+      "target": "Continuous Evolution",
+      "referenced_by": [
+        "Execution Modes and End Conditions"
+      ]
+    },
+    {
       "target": "Continuous Implementation",
       "referenced_by": [
         "Task Lifecycle Stage-Gating"
@@ -10325,7 +10819,8 @@
     {
       "target": "Vibe Coding",
       "referenced_by": [
-        "Spec-Driven Development"
+        "Spec-Driven Development",
+        "Stage-Gate Methodology"
       ]
     },
     {
