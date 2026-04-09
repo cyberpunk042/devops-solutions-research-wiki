@@ -67,12 +67,19 @@ class Candidate:
 
 # Signal weights — must sum to 1.0
 SIGNAL_WEIGHTS: Dict[str, float] = {
-    "tag_cooccurrence":         0.25,
-    "cross_source_convergence": 0.25,
-    "relationship_hub":         0.15,
+    "tag_cooccurrence":         0.10,
+    "cross_source_convergence": 0.30,
+    "relationship_hub":         0.20,
     "domain_layer_gap":         0.15,
-    "open_question_density":    0.10,
+    "open_question_density":    0.15,
     "orphaned_references":      0.10,
+}
+
+# Tags too broad to generate useful pattern candidates
+_GENERIC_TAGS = {
+    "claude-code", "skills", "obsidian", "notebooklm", "automation",
+    "mcp", "cli", "ai-agents", "knowledge-management", "second-brain",
+    "comparison", "cross-domain", "domain-overview",
 }
 
 
@@ -91,8 +98,8 @@ def _signal_tag_cooccurrence(pages: List[Dict[str, Any]]) -> List["Candidate"]:
         for tag in page.get("tags", []):
             tag_to_pages.setdefault(tag, []).append(page)
 
-    # Find pairs of tags with 3+ shared pages
-    tags = list(tag_to_pages.keys())
+    # Find pairs of tags with 5+ shared pages (high threshold to avoid noise)
+    tags = [t for t in tag_to_pages.keys() if t not in _GENERIC_TAGS]
     seen_groups: Dict[frozenset, bool] = {}
 
     for i, t1 in enumerate(tags):
@@ -100,7 +107,7 @@ def _signal_tag_cooccurrence(pages: List[Dict[str, Any]]) -> List["Candidate"]:
             pages_t1 = set(p["title"] for p in tag_to_pages[t1])
             pages_t2 = set(p["title"] for p in tag_to_pages[t2])
             shared_titles = pages_t1 & pages_t2
-            if len(shared_titles) >= 3:
+            if len(shared_titles) >= 5:
                 group_key = frozenset(shared_titles)
                 if group_key in seen_groups:
                     continue
@@ -448,23 +455,25 @@ def _merge_candidates(candidates: List[Candidate]) -> List[Candidate]:
 
 
 def _deduplicate(candidates: List[Candidate], pages: List[Dict[str, Any]]) -> List[Candidate]:
-    """Skip candidates whose source_pages are 80%+ covered by existing Layer 4-6 pages.
+    """Skip candidates already covered by existing Layer 4-6 pages.
 
-    If an existing evolved page already derives from most of the same source pages,
-    the candidate is redundant.
+    Checks both derived_from overlap AND whether the candidate's primary
+    concept page is already in any evolved page's derived_from.
     """
-    # Build derived_from sets for Layer 4-6 pages
+    # Build derived_from sets and titles for Layer 4-6 pages
     evolved_derived: List[set] = []
+    evolved_all_sources: set = set()  # union of all derived_from across evolved pages
     for page in pages:
         layer = page.get("layer", "")
         try:
             layer_int = int(str(layer)) if layer else 0
         except (ValueError, TypeError):
             layer_int = 0
-        if layer_int >= 4:
+        if layer_int >= 4 or str(layer) == "spine":
             df = set(page.get("derived_from", []) or [])
             if df:
                 evolved_derived.append(df)
+                evolved_all_sources.update(df)
 
     filtered: List[Candidate] = []
     for candidate in candidates:
@@ -473,14 +482,20 @@ def _deduplicate(candidates: List[Candidate], pages: List[Dict[str, Any]]) -> Li
             filtered.append(candidate)
             continue
 
+        # Check 1: 50%+ of candidate sources already covered by ANY evolved page's derived_from
         redundant = False
         for df_set in evolved_derived:
             if not df_set:
                 continue
             overlap = len(source_set & df_set) / len(source_set)
-            if overlap >= 0.80:
+            if overlap >= 0.50:
                 redundant = True
                 break
+
+        # Check 2: ANY of the candidate's source pages is already in an evolved page's derived_from
+        if not redundant:
+            if source_set & evolved_all_sources:
+                redundant = True
 
         if not redundant:
             filtered.append(candidate)
