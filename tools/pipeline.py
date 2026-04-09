@@ -175,7 +175,7 @@ def post_chain(project_root: Path, verbose: bool = True) -> Dict[str, Any]:
     """Run the full post-ingestion chain. Returns structured report."""
     wiki_dir = project_root / "wiki"
     config_dir = project_root / "config"
-    schema_path = config_dir / "schema.yaml"
+    schema_path = config_dir / "wiki-schema.yaml"
     domains_config = config_dir / "domains.yaml"
     manifest_path = wiki_dir / "manifest.json"
 

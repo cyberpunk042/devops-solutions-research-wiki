@@ -1,6 +1,6 @@
 """Schema validation for wiki pages.
 
-Validates YAML frontmatter against config/schema.yaml, checks required
+Validates YAML frontmatter against config/wiki-schema.yaml, checks required
 sections per page type, and validates relationship verbs.
 
 Usage:

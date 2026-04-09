@@ -166,7 +166,7 @@ def word_count(text: str) -> int:
 def detect_source_type(filename: str) -> str:
     """Detect source type from filename and extension.
 
-    Returns a source_type enum value matching config/schema.yaml.
+    Returns a source_type enum value matching config/wiki-schema.yaml.
     """
     lower = filename.lower()
     ext = Path(filename).suffix.lower()

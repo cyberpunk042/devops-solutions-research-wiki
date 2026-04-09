@@ -81,7 +81,7 @@ Accept any of:
 ## Quality Gates
 
 Every page must have:
-- Complete frontmatter with valid values per config/schema.yaml
+- Complete frontmatter with valid values per config/wiki-schema.yaml
 - Summary (min 30 words)
 - At least 1 relationship (unless first in new domain)
 - Reachable from domain _index.md
