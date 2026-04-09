@@ -1,0 +1,253 @@
+# methodology.yaml — Knowledge System Methodology
+#
+# Adapted from the OpenArms model for a research wiki context.
+# This defines the staged workflow, task taxonomy, execution modes,
+# and end conditions for all work performed on the wiki.
+#
+# Key difference from OpenArms: artifacts are wiki pages, specs, configs,
+# and Python tools — not TypeScript source files.
+
+# ---------------------------------------------------------------------------
+# Stages
+# ---------------------------------------------------------------------------
+# Each stage gates progression. You MUST produce the required artifacts
+# and follow the protocol before advancing to the next stage.
+# Readiness percentage flows upward from tasks to modules to epics.
+
+stages:
+  document:
+    name: document
+    description: >
+      Understand the problem space. Read sources, existing wiki pages, and
+      related material. Log user directives verbatim. Produce a wiki page
+      or log entry that captures the current understanding and identifies gaps.
+    readiness_range: [0, 25]
+    required_artifacts:
+      - wiki page in wiki/domains/ or wiki/log/ entry
+      - gap analysis identifying what is missing or unclear
+    protocol: |
+      Do NOT write implementation code.
+      Do NOT create tools or scripts.
+      MAY create wiki pages and documentation.
+      MAY update existing wiki pages with new findings.
+      Read existing pages in the target domain before writing anything.
+      Log all user directives verbatim to raw/notes/ or wiki/log/.
+      Run `pipeline gaps` to identify what the wiki is missing.
+
+  design:
+    name: design
+    description: >
+      Brainstorm with the user. Evaluate options. Make decisions. Write a
+      spec or design notes that capture the chosen approach and rationale.
+    readiness_range: [25, 50]
+    required_artifacts:
+      - spec in docs/superpowers/specs/ or design notes
+      - decision record (may be a wiki/decisions/ page)
+    protocol: |
+      Do NOT implement code or logic.
+      Do NOT scaffold files or directories.
+      Present options to the user and get approval before proceeding.
+      Document trade-offs and rationale for every decision.
+      MAY write type sketches or interface outlines in documentation.
+      MAY create comparison pages in wiki/comparisons/ to evaluate options.
+      Reference existing wiki knowledge to inform decisions.
+
+  scaffold:
+    name: scaffold
+    description: >
+      Create the skeleton. Directory structure, empty page scaffolds,
+      config changes, schema updates. Structure only — no content or logic.
+    readiness_range: [50, 80]
+    required_artifacts:
+      - config/ changes (schema, templates, profiles as needed)
+      - empty page scaffolds via `pipeline scaffold`
+      - directory structure for any new domains or sections
+      - schema updates if new frontmatter fields are introduced
+    protocol: |
+      Do NOT implement logic or write tool code.
+      Do NOT fill in page content beyond scaffolded sections.
+      Structure only — create the skeleton that implement will fill.
+      Use `python3 -m tools.pipeline scaffold <type> <title>` for pages.
+      Ensure new directories have _index.md files.
+      Update config/domains.yaml if adding new domains.
+      Commit scaffolded structure before moving to implement.
+
+  implement:
+    name: implement
+    description: >
+      Write the actual code and content. Fill in wiki pages, build Python
+      tools, create skills, add commands. Make it work.
+    readiness_range: [80, 95]
+    required_artifacts:
+      - Python tools (if task involves tooling)
+      - wiki pages with full content (Summary, Key Insights, Relationships)
+      - skills or commands (if task involves agent capabilities)
+      - updated manifest and indexes
+    protocol: |
+      Follow the design document. Build on the scaffold.
+      Keep changes additive — do not break existing functionality.
+      Run `python3 -m tools.pipeline post` after every batch of changes.
+      Validate with `python3 -m tools.validate` — errors block completion.
+      Ensure all wiki pages pass quality gates (frontmatter, summary, relationships).
+      Run `python3 -m tools.lint --summary` to check health.
+
+  test:
+    name: test
+    description: >
+      Verify everything works. Run the full health chain. Manual review
+      of generated content. Fix any failures before marking complete.
+    readiness_range: [95, 100]
+    required_artifacts:
+      - clean `pipeline chain health` output (no errors)
+      - manual review confirming content quality and correctness
+    protocol: |
+      Run `python3 -m tools.pipeline chain health` — must be clean.
+      Run `python3 -m tools.validate` — exit code must be 0.
+      Run `python3 -m tools.lint --summary` — review all warnings.
+      Verify new pages are reachable from domain _index.md.
+      Verify relationships are bidirectional where appropriate.
+      Fix all failures before marking the task as complete.
+      Do NOT mark done if any validation errors remain.
+
+# ---------------------------------------------------------------------------
+# Task Types
+# ---------------------------------------------------------------------------
+# Each type defines which stages are required. Stages not listed are skipped.
+# The order of stages is always: document → design → scaffold → implement → test.
+
+task_types:
+  epic:
+    description: Large cross-cutting initiative spanning multiple modules
+    stages: [document, design, scaffold, implement, test]
+  module:
+    description: Scoped deliverable within an epic
+    stages: [document, design, scaffold, implement, test]
+  task:
+    description: Atomic work unit — the thing you actually do
+    stages: [scaffold, implement, test]
+  research:
+    description: Investigation and analysis only — no code, no content creation
+    stages: [document, design]
+  evolve:
+    description: Promote existing wiki content to higher maturity layers
+    stages: [document, implement]
+  docs:
+    description: Documentation only — wiki pages, specs, guides
+    stages: [document]
+  bug:
+    description: Fix a broken tool, invalid page, or pipeline failure
+    stages: [document, implement, test]
+  refactor:
+    description: Restructure existing content or tooling without changing behavior
+    stages: [document, scaffold, implement, test]
+
+# ---------------------------------------------------------------------------
+# Execution Modes
+# ---------------------------------------------------------------------------
+# Modes control how the agent progresses through the work loop.
+# "stop" means the agent halts after reaching that stage (null = no stop).
+# "human_review" means the agent waits for user approval after each task.
+
+modes:
+  autonomous:
+    description: >
+      Default mode. Works through all required stages for each task,
+      then picks the next highest-priority task. No stops, no review gates.
+    stop: null
+    human_review: false
+    end_condition: backlog-empty
+
+  full-autonomous:
+    description: >
+      Skips the document stage on tasks (not on epics or modules).
+      Useful when the problem space is already well-understood and
+      documented. Saves time on routine work.
+    stop: null
+    human_review: false
+    end_condition: backlog-empty
+
+  semi-autonomous:
+    description: >
+      Stops after each completed task for human review. The user
+      inspects the output, approves or requests changes, then the
+      agent continues. Best for sensitive or high-stakes work.
+    stop: null
+    human_review: true
+    end_condition: backlog-empty
+
+  document-only:
+    description: >
+      Runs only the document stage for each task. Produces wiki pages,
+      gap analyses, and log entries. No design, no code, no scaffolding.
+    stop: document
+    human_review: false
+    end_condition: backlog-empty
+
+  design-only:
+    description: >
+      Runs through the design stage (document + design). Produces specs,
+      decision records, and design notes. No implementation.
+    stop: design
+    human_review: false
+    end_condition: backlog-empty
+
+  scaffold-only:
+    description: >
+      Runs through the scaffold stage (document + design + scaffold).
+      Produces structure and skeleton. No content or logic.
+    stop: scaffold
+    human_review: false
+    end_condition: backlog-empty
+
+  plan:
+    description: >
+      Alias for design-only. Use when you want to plan without building.
+    stop: design
+    human_review: false
+    end_condition: backlog-empty
+
+  custom:
+    description: >
+      Ephemeral per-run configuration. Override any defaults for a
+      single execution. Specify stop stage, review gates, and end
+      condition at invocation time.
+    stop: null
+    human_review: false
+    end_condition: null
+
+# ---------------------------------------------------------------------------
+# End Conditions
+# ---------------------------------------------------------------------------
+# Determine when the agent stops working. Applied after each task completes.
+
+end_conditions:
+  backlog-empty:
+    description: All tasks are done or archived. Nothing left to work on.
+  stage-reached:
+    description: >
+      The current task has reached the specified stage. Useful with
+      scaffold-only or design-only modes.
+  time-limit:
+    description: >
+      Stop after N hours of wall-clock time. Prevents runaway sessions.
+    parameter: hours
+  cost-limit:
+    description: >
+      Stop after $N in API costs. Useful for budget-constrained runs.
+    parameter: dollars
+  task-count:
+    description: >
+      Stop after N tasks have been completed. Useful for batched work.
+    parameter: count
+
+# ---------------------------------------------------------------------------
+# Defaults
+# ---------------------------------------------------------------------------
+# Applied when no explicit override is given.
+
+defaults:
+  mode: autonomous
+  end_condition: backlog-empty
+  task_priority_order: [P0, P1, P2, P3]
+  max_stage_retries: 2
+  commit_style: conventional
