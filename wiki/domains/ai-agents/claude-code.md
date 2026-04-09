@@ -137,6 +137,7 @@ Cross-referencing `Claude Code Best Practices` and `Context-Aware Tool Loading`:
 [[CLI Tools Beat MCP for Token Efficiency]]
 [[Decision: MCP vs CLI for Tool Integration]]
 [[Harness Engineering]]
+[[Hooks Lifecycle Architecture]]
 [[Local LLM Quantization]]
 [[MCP Integration Architecture]]
 [[OpenArms]]

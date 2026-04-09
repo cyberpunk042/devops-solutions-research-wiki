@@ -249,3 +249,4 @@ All processing occurs in sandboxed subprocesses on the local machine. No telemet
 [[OpenClaw]]
 [[Research Pipeline Orchestration]]
 [[Wiki Ingestion Pipeline]]
+[[Hooks Lifecycle Architecture]]

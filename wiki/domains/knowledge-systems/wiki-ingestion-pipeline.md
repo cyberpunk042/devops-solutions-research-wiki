@@ -128,6 +128,7 @@ Cross-referencing `Knowledge Evolution Pipeline` and `WSL2 Development Patterns`
 [[Multi-Stage Ingestion Beats Single-Pass Processing]]
 [[Obsidian as Knowledge Infrastructure Not Just Note-Taking]]
 [[PARA Methodology]]
+[[Per-Role Command Architecture]]
 [[Plan Execute Review Cycle]]
 [[Rework Prevention]]
 [[Second Brain Architecture]]

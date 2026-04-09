@@ -157,6 +157,7 @@ Cross-referencing `CLI Tools Beat MCP for Token Efficiency` and `Skills Architec
 [[Obsidian Skills Ecosystem]]
 [[Obsidian as Knowledge Infrastructure Not Just Note-Taking]]
 [[OpenArms]]
+[[Per-Role Command Architecture]]
 [[Plan Execute Review Cycle]]
 [[Skill Specification Is the Key to Ecosystem Interoperability]]
 [[Skills Architecture Is the Dominant LLM Extension Pattern]]

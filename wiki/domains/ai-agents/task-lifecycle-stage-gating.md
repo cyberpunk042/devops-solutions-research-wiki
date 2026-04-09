@@ -221,3 +221,5 @@ Each disease is a case study in what stage gates prevent. The teaching system's 
 [[Wiki Backlog Pattern (task frontmatter as state machine is the wiki implementation of stage-gating)]]
 [[Spec-Driven Development (stages enforce spec phase before implementation phase)]]
 [[Continuous Implementation (unstructured iterative coding without phase checkpoints)]]
+[[Hooks Lifecycle Architecture]]
+[[Per-Role Command Architecture]]

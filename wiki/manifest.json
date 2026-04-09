@@ -1,21 +1,22 @@
 {
-  "generated": "2026-04-09T18:44:35.712835+00:00",
+  "generated": "2026-04-09T18:53:32.036952+00:00",
   "stats": {
-    "pages": 118,
+    "pages": 120,
     "domains": 7,
     "sources": 23,
     "comparisons": 5,
-    "relationships": 917,
-    "tags_unique": 522,
+    "relationships": 936,
+    "tags_unique": 534,
     "layers": {
       "6": 5,
+      "2": 2,
       "4": 16,
       "5": 11,
       "spine": 7
     },
     "maturity": {
-      "growing": 39,
-      "seed": 6
+      "growing": 40,
+      "seed": 7
     }
   },
   "pages": [
@@ -1415,6 +1416,88 @@
       ]
     },
     {
+      "path": "domains/ai-agents/hooks-lifecycle-architecture.md",
+      "slug": "domains/ai-agents/hooks-lifecycle-architecture",
+      "title": "Hooks Lifecycle Architecture",
+      "type": "concept",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "hooks",
+        "lifecycle",
+        "claude-code",
+        "pre-tool-use",
+        "post-tool-use",
+        "session-hooks",
+        "composition",
+        "stage-gating",
+        "context-injection",
+        "blocking-pattern",
+        "reverse-hook",
+        "subagent",
+        "compaction",
+        "harness-engineering"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-code-hooks-reference",
+          "type": "documentation",
+          "url": "https://code.claude.com/docs/en/hooks",
+          "file": "raw/articles/claude-code-hooks-reference.md",
+          "title": "Claude Code Hooks Reference \u2014 Full Research",
+          "ingested": "2026-04-09"
+        }
+      ],
+      "layer": 2,
+      "maturity": "growing",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "EXTENDS",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Task Lifecycle Stage-Gating"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Context-Aware Tool Loading"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Synthesis: Context Mode \u2014 MCP Sandbox for Context Saving"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Plannotator \u2014 Interactive Plan & Code Review for AI Agents"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Per-Role Command Architecture"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Design MD Pattern"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Agent Orchestration Patterns"
+        }
+      ]
+    },
+    {
       "path": "domains/ai-agents/llm-knowledge-linting.md",
       "slug": "domains/ai-agents/llm-knowledge-linting",
       "title": "LLM Knowledge Linting",
@@ -1647,6 +1730,90 @@
         {
           "verb": "FEEDS INTO",
           "target": "Wiki Knowledge Graph"
+        }
+      ]
+    },
+    {
+      "path": "domains/ai-agents/per-role-command-architecture.md",
+      "slug": "domains/ai-agents/per-role-command-architecture",
+      "title": "Per-Role Command Architecture",
+      "type": "concept",
+      "domain": "ai-agents",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "slash-commands",
+        "per-role",
+        "commands",
+        "workflow",
+        "developer-experience",
+        "methodology",
+        "skills",
+        "hooks",
+        "plannotator",
+        "automation",
+        "execution-modes",
+        "ecosystem-sharing"
+      ],
+      "sources": [
+        {
+          "id": "src-claude-slash-commands",
+          "type": "github-repo",
+          "url": "https://github.com/artemgetmann/claude-slash-commands",
+          "file": "raw/articles/artemgetmannclaude-slash-commands.md",
+          "title": "Claude Code Slash Commands (artemgetmann)",
+          "ingested": "2026-04-09"
+        },
+        {
+          "id": "src-plannotator",
+          "type": "github-repo",
+          "url": "https://github.com/backnotprop/plannotator",
+          "file": "raw/articles/backnotpropplannotator.md",
+          "title": "Plannotator \u2014 Interactive Plan & Code Review for AI Agents",
+          "ingested": "2026-04-09"
+        }
+      ],
+      "layer": 2,
+      "maturity": "seed",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Slash Commands (artemgetmann)"
+        },
+        {
+          "verb": "EXTENDS",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "Hooks Lifecycle Architecture"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Plannotator \u2014 Interactive Plan & Code Review for AI Agents"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Task Lifecycle Stage-Gating"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Skills Architecture Is the Dominant LLM Extension Pattern"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Wiki Ingestion Pipeline"
         }
       ]
     },
@@ -8719,8 +8886,8 @@
       "relationship_count": 132
     },
     "ai-agents": {
-      "page_count": 32,
-      "relationship_count": 276
+      "page_count": 34,
+      "relationship_count": 295
     },
     "tools-and-platforms": {
       "page_count": 22,
@@ -8883,6 +9050,7 @@
       "domains/ai-agents/claude-code-skills",
       "domains/ai-agents/claude-code",
       "domains/ai-agents/openclaw",
+      "domains/ai-agents/per-role-command-architecture",
       "domains/tools-and-platforms/notebooklm-skills",
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
@@ -8913,6 +9081,7 @@
       "domains/ai-agents/claude-code-skills",
       "domains/ai-agents/claude-code",
       "domains/ai-agents/harness-engineering",
+      "domains/ai-agents/hooks-lifecycle-architecture",
       "domains/automation/ai-driven-content-pipeline",
       "domains/automation/claude-code-scheduling",
       "domains/knowledge-systems/wiki-ingestion-pipeline",
@@ -8976,7 +9145,8 @@
       "comparisons/skills-architecture-patterns"
     ],
     "composition": [
-      "comparisons/skills-architecture-patterns"
+      "comparisons/skills-architecture-patterns",
+      "domains/ai-agents/hooks-lifecycle-architecture"
     ],
     "decision": [
       "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag"
@@ -9193,6 +9363,7 @@
     "harness-engineering": [
       "domains/ai-agents/agent-orchestration-patterns",
       "domains/ai-agents/harness-engineering",
+      "domains/ai-agents/hooks-lifecycle-architecture",
       "domains/ai-agents/rework-prevention",
       "lessons/always-plan-before-executing",
       "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
@@ -9236,6 +9407,7 @@
     ],
     "commands": [
       "domains/ai-agents/claude-code-best-practices",
+      "domains/ai-agents/per-role-command-architecture",
       "sources/src-claude-slash-commands",
       "sources/src-shanraisshan-claude-code-best-practice"
     ],
@@ -9243,6 +9415,8 @@
       "domains/ai-agents/claude-code-best-practices",
       "domains/ai-agents/claude-code-skills",
       "domains/ai-agents/claude-code",
+      "domains/ai-agents/hooks-lifecycle-architecture",
+      "domains/ai-agents/per-role-command-architecture",
       "domains/automation/wiki-event-driven-automation",
       "sources/src-context-mode",
       "sources/src-shanraisshan-claude-code-best-practice"
@@ -9345,6 +9519,7 @@
     ],
     "automation": [
       "domains/ai-agents/claude-code",
+      "domains/ai-agents/per-role-command-architecture",
       "domains/automation/ai-driven-content-pipeline",
       "domains/automation/claude-code-scheduling",
       "domains/automation/research-pipeline-orchestration",
@@ -9414,6 +9589,37 @@
       "domains/ai-agents/harness-engineering",
       "sources/src-harness-engineering"
     ],
+    "lifecycle": [
+      "domains/ai-agents/hooks-lifecycle-architecture"
+    ],
+    "pre-tool-use": [
+      "domains/ai-agents/hooks-lifecycle-architecture"
+    ],
+    "post-tool-use": [
+      "domains/ai-agents/hooks-lifecycle-architecture"
+    ],
+    "session-hooks": [
+      "domains/ai-agents/hooks-lifecycle-architecture"
+    ],
+    "stage-gating": [
+      "domains/ai-agents/hooks-lifecycle-architecture",
+      "domains/ai-agents/task-lifecycle-stage-gating"
+    ],
+    "context-injection": [
+      "domains/ai-agents/hooks-lifecycle-architecture"
+    ],
+    "blocking-pattern": [
+      "domains/ai-agents/hooks-lifecycle-architecture"
+    ],
+    "reverse-hook": [
+      "domains/ai-agents/hooks-lifecycle-architecture"
+    ],
+    "subagent": [
+      "domains/ai-agents/hooks-lifecycle-architecture"
+    ],
+    "compaction": [
+      "domains/ai-agents/hooks-lifecycle-architecture"
+    ],
     "linting": [
       "domains/ai-agents/llm-knowledge-linting",
       "lessons/lesson-convergence-on-llm-knowledge-linting"
@@ -9474,6 +9680,40 @@
     ],
     "vibe-managing": [
       "domains/ai-agents/openfleet"
+    ],
+    "slash-commands": [
+      "domains/ai-agents/per-role-command-architecture",
+      "sources/src-claude-slash-commands"
+    ],
+    "per-role": [
+      "domains/ai-agents/per-role-command-architecture"
+    ],
+    "workflow": [
+      "domains/ai-agents/per-role-command-architecture",
+      "domains/knowledge-systems/wiki-ingestion-pipeline",
+      "sources/src-claude-slash-commands",
+      "sources/src-superpowers-end-of-vibe-coding"
+    ],
+    "developer-experience": [
+      "domains/ai-agents/per-role-command-architecture"
+    ],
+    "methodology": [
+      "domains/ai-agents/per-role-command-architecture",
+      "domains/ai-agents/task-lifecycle-stage-gating",
+      "domains/cross-domain/methodology-framework",
+      "domains/devops/stage-gate-methodology",
+      "domains/devops/task-type-artifact-matrix"
+    ],
+    "plannotator": [
+      "domains/ai-agents/per-role-command-architecture",
+      "sources/src-plannotator"
+    ],
+    "execution-modes": [
+      "domains/ai-agents/per-role-command-architecture",
+      "domains/devops/execution-modes-and-end-conditions"
+    ],
+    "ecosystem-sharing": [
+      "domains/ai-agents/per-role-command-architecture"
     ],
     "rework-prevention": [
       "domains/ai-agents/rework-prevention",
@@ -9540,17 +9780,8 @@
     "phase-gating": [
       "domains/ai-agents/spec-driven-development"
     ],
-    "stage-gating": [
-      "domains/ai-agents/task-lifecycle-stage-gating"
-    ],
     "task-lifecycle": [
       "domains/ai-agents/task-lifecycle-stage-gating"
-    ],
-    "methodology": [
-      "domains/ai-agents/task-lifecycle-stage-gating",
-      "domains/cross-domain/methodology-framework",
-      "domains/devops/stage-gate-methodology",
-      "domains/devops/task-type-artifact-matrix"
     ],
     "phase-boundaries": [
       "domains/ai-agents/task-lifecycle-stage-gating"
@@ -9827,9 +10058,6 @@
     ],
     "adapters": [
       "domains/devops/devops-control-plane"
-    ],
-    "execution-modes": [
-      "domains/devops/execution-modes-and-end-conditions"
     ],
     "end-conditions": [
       "domains/devops/execution-modes-and-end-conditions"
@@ -10155,11 +10383,6 @@
     ],
     "data-processing": [
       "domains/knowledge-systems/wiki-ingestion-pipeline"
-    ],
-    "workflow": [
-      "domains/knowledge-systems/wiki-ingestion-pipeline",
-      "sources/src-claude-slash-commands",
-      "sources/src-superpowers-end-of-vibe-coding"
     ],
     "typed-relationships": [
       "domains/knowledge-systems/wiki-knowledge-graph"
@@ -10545,9 +10768,6 @@
     "cli-over-mcp": [
       "sources/src-claude-code-accuracy-tips"
     ],
-    "slash-commands": [
-      "sources/src-claude-slash-commands"
-    ],
     "trending-topics": [
       "sources/src-claude-world-notebooklm-skill"
     ],
@@ -10679,9 +10899,6 @@
     ],
     "skill-portability": [
       "sources/src-pablo-mano-obsidian-cli-skill"
-    ],
-    "plannotator": [
-      "sources/src-plannotator"
     ],
     "plan-annotation": [
       "sources/src-plannotator"
@@ -10839,6 +11056,12 @@
       ]
     },
     {
+      "target": "Claude Code Slash Commands",
+      "referenced_by": [
+        "Per-Role Command Architecture"
+      ]
+    },
+    {
       "target": "Continuous Evolution",
       "referenced_by": [
         "Execution Modes and End Conditions"
@@ -10857,6 +11080,12 @@
         "Automation \u2014 Domain Overview",
         "Knowledge Systems \u2014 Domain Overview",
         "Tools And Platforms \u2014 Domain Overview"
+      ]
+    },
+    {
+      "target": "Design MD Pattern",
+      "referenced_by": [
+        "Hooks Lifecycle Architecture"
       ]
     },
     {

@@ -67,3 +67,5 @@ Plannotator is an open-source tool that injects a human-in-the-loop UI between a
 [[Claude Code Best Practices (plan-mode review is a best practice; Plannotator makes it frictionless)]]
 [[Claude Code Skills (integrates as a Claude Code plugin, complements slash-command patterns)]]
 [[Always Plan Before Executing (provides tooling that enforces the planning gate lesson)]]
+[[Hooks Lifecycle Architecture]]
+[[Per-Role Command Architecture]]
