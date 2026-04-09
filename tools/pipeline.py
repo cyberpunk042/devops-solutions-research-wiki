@@ -41,6 +41,8 @@ from tools.common import (
     parse_relationships,
     rebuild_domain_index,
     rebuild_layer_index,
+    rebuild_backlog_index,
+    rebuild_log_index,
     word_count,
 )
 from tools.ingest import ingest_url, list_raw
@@ -97,11 +99,14 @@ def run_validate(wiki_dir: Path, schema_path: Path) -> Dict[str, Any]:
     all_warnings = 0
     details = []
 
-    # Skip known non-wiki files (navigation pages without frontmatter)
+    # Skip known non-wiki files (navigation pages without frontmatter, config files)
     skip_names = {"index.md"}
+    skip_dirs = {"config"}
 
     for page in pages:
         if page.name in skip_names and page.parent == wiki_dir:
+            continue
+        if any(d in skip_dirs for d in page.relative_to(wiki_dir).parts):
             continue
         result = validate_page(page, schema_path)
         errors = result.get("errors", [])
@@ -197,6 +202,18 @@ def post_chain(project_root: Path, verbose: bool = True) -> Dict[str, Any]:
             if content != old:
                 idx.write_text(content, encoding="utf-8")
                 indexes_updated += 1
+
+    # Rebuild backlog and log indexes
+    backlog_dir = wiki_dir / "backlog"
+    if backlog_dir.exists():
+        rebuild_backlog_index(backlog_dir)
+        indexes_updated += 1
+
+    log_dir = wiki_dir / "log"
+    if log_dir.exists():
+        rebuild_log_index(log_dir)
+        indexes_updated += 1
+
     report["steps"]["indexes"] = {"updated": indexes_updated}
 
     # Step 2: Regenerate manifest
@@ -855,6 +872,112 @@ def scaffold_page(page_type: str, title: str, project_root: Path,
 
 
 # ---------------------------------------------------------------------------
+# Backlog command
+# ---------------------------------------------------------------------------
+
+def run_backlog(project_root: Path, epic_id: str = None, verbose: bool = True) -> Dict[str, Any]:
+    """Read all backlog pages and return a summary or epic detail.
+
+    Returns dict with epics list and tasks list. If epic_id is given,
+    filters to that epic's tasks.
+    """
+    wiki_dir = project_root / "wiki"
+    backlog_dir = wiki_dir / "backlog"
+    epics_dir = backlog_dir / "epics"
+    tasks_dir = backlog_dir / "tasks"
+
+    epics = []
+    if epics_dir.exists():
+        for md_file in sorted(epics_dir.glob("*.md")):
+            if md_file.name == "_index.md":
+                continue
+            text = md_file.read_text(encoding="utf-8")
+            meta, _ = parse_frontmatter(text)
+            if not meta:
+                continue
+            stem = md_file.stem
+            eid = stem.split("-")[0].upper() if "-" in stem else stem.upper()
+            epics.append({
+                "id": eid,
+                "title": meta.get("title", stem),
+                "priority": meta.get("priority", ""),
+                "status": meta.get("status", ""),
+                "readiness": meta.get("readiness", ""),
+            })
+
+    tasks = []
+    if tasks_dir.exists():
+        for md_file in sorted(tasks_dir.glob("*.md")):
+            if md_file.name == "_index.md":
+                continue
+            text = md_file.read_text(encoding="utf-8")
+            meta, _ = parse_frontmatter(text)
+            if not meta:
+                continue
+            stem = md_file.stem
+            tid = stem.split("-")[0].upper() if "-" in stem else stem.upper()
+            tasks.append({
+                "id": tid,
+                "title": meta.get("title", stem),
+                "priority": meta.get("priority", ""),
+                "status": meta.get("status", ""),
+                "stage": meta.get("stage", ""),
+                "readiness": meta.get("readiness", ""),
+                "epic": meta.get("epic", ""),
+            })
+
+    # Stats
+    total_epics = len(epics)
+    total_tasks = len(tasks)
+    in_progress = sum(1 for t in tasks if str(t["status"]).lower() in ("in-progress", "active", "wip"))
+    done = sum(1 for t in tasks if str(t["status"]).lower() in ("done", "complete", "completed"))
+    completion_pct = round(100 * done / total_tasks, 1) if total_tasks else 0.0
+
+    result: Dict[str, Any] = {
+        "total_epics": total_epics,
+        "total_tasks": total_tasks,
+        "in_progress_tasks": in_progress,
+        "done_tasks": done,
+        "completion_pct": completion_pct,
+        "epics": epics,
+        "tasks": tasks,
+    }
+
+    # Filter for epic detail
+    if epic_id:
+        eid_upper = epic_id.upper()
+        epic_tasks = [t for t in tasks if str(t["epic"]).upper() == eid_upper]
+        result["epic_detail"] = {
+            "epic_id": eid_upper,
+            "tasks": epic_tasks,
+        }
+        epic_info = next((e for e in epics if e["id"] == eid_upper), None)
+        if epic_info:
+            result["epic_detail"]["epic"] = epic_info
+
+    if verbose:
+        print(f"Backlog Summary")
+        print(f"  Epics:       {total_epics}")
+        print(f"  Tasks:       {total_tasks}")
+        print(f"  In-progress: {in_progress}")
+        print(f"  Done:        {done}")
+        print(f"  Completion:  {completion_pct}%")
+        if epics:
+            print("\nEpics:")
+            for e in epics:
+                print(f"  [{e['id']}] {e['title']} — priority={e['priority']} status={e['status']} readiness={e['readiness']}")
+        else:
+            print("\nNo epics yet.")
+        if epic_id and result.get("epic_detail"):
+            detail = result["epic_detail"]
+            print(f"\nEpic {epic_id} tasks:")
+            for t in detail["tasks"]:
+                print(f"  [{t['id']}] {t['title']} — status={t['status']} stage={t['stage']}")
+
+    return result
+
+
+# ---------------------------------------------------------------------------
 # Named chains (predefined pipeline sequences)
 # ---------------------------------------------------------------------------
 
@@ -1114,7 +1237,7 @@ Commands:
     parser.add_argument("command",
                         choices=["post", "fetch", "scan", "status", "run",
                                  "chain", "gaps", "crossref", "integrations",
-                                 "scaffold", "evolve"],
+                                 "scaffold", "evolve", "backlog"],
                         help="Pipeline command")
     parser.add_argument("args", nargs="*", help="Command arguments (URLs, paths, chain name, etc.)")
     parser.add_argument("--batch", help="File containing URLs (one per line)")
@@ -1124,6 +1247,7 @@ Commands:
                         help="Max parallel workers for group operations (default: 4)")
     parser.add_argument("--json", action="store_true", help="JSON output")
     parser.add_argument("--quiet", "-q", action="store_true", help="Minimal output")
+    parser.add_argument("--epic", help="Epic ID to show detail for (used with backlog command)")
 
     args, _extra = parser.parse_known_args()
     # Merge unrecognised flags into args.args so sub-commands (e.g. evolve) can
@@ -1292,6 +1416,15 @@ Commands:
         if not result["ok"]:
             print(f"ERROR: {result['error']}")
             sys.exit(1)
+        sys.exit(0)
+
+    elif args.command == "backlog":
+        epic_id = getattr(args, "epic", None)
+        if not epic_id and args.args:
+            epic_id = args.args[0]
+        result = run_backlog(root, epic_id=epic_id, verbose=verbose)
+        if args.json:
+            print(json.dumps(result, indent=2, default=str))
         sys.exit(0)
 
     elif args.command == "evolve":

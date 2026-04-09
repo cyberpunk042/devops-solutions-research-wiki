@@ -236,3 +236,183 @@ def rebuild_layer_index(layer_dir: Path, layer_name: str, description: str) -> s
     Same logic as rebuild_domain_index but for non-domain directories.
     """
     return rebuild_domain_index(layer_dir, layer_name, description)
+
+
+def rebuild_backlog_index(backlog_dir: Path) -> None:
+    """Rebuild wiki/backlog/_index.md and wiki/backlog/tasks/_index.md.
+
+    Scans epics/, modules/, and tasks/ for .md files (excluding _index.md).
+    Reads frontmatter and rebuilds table-based indexes.
+    """
+    epics_dir = backlog_dir / "epics"
+    tasks_dir = backlog_dir / "tasks"
+    today = __import__("datetime").date.today().isoformat()
+
+    # --- Collect epics ---
+    epics = []
+    if epics_dir.exists():
+        for md_file in sorted(epics_dir.glob("*.md")):
+            if md_file.name == "_index.md":
+                continue
+            text = md_file.read_text(encoding="utf-8")
+            meta, _ = parse_frontmatter(text)
+            if not meta:
+                continue
+            # Derive ID from filename (e.g. E001-foo.md → E001)
+            stem = md_file.stem
+            epic_id = stem.split("-")[0].upper() if "-" in stem else stem.upper()
+            epics.append({
+                "id": epic_id,
+                "title": meta.get("title", stem),
+                "priority": meta.get("priority", ""),
+                "status": meta.get("status", ""),
+                "readiness": meta.get("readiness", ""),
+            })
+
+    # --- Collect tasks ---
+    tasks = []
+    if tasks_dir.exists():
+        for md_file in sorted(tasks_dir.glob("*.md")):
+            if md_file.name == "_index.md":
+                continue
+            text = md_file.read_text(encoding="utf-8")
+            meta, _ = parse_frontmatter(text)
+            if not meta:
+                continue
+            stem = md_file.stem
+            task_id = stem.split("-")[0].upper() if "-" in stem else stem.upper()
+            tasks.append({
+                "id": task_id,
+                "title": meta.get("title", stem),
+                "priority": meta.get("priority", ""),
+                "status": meta.get("status", ""),
+                "stage": meta.get("stage", ""),
+                "readiness": meta.get("readiness", ""),
+                "epic": meta.get("epic", ""),
+            })
+
+    # --- Rebuild wiki/backlog/_index.md ---
+    epic_rows = "\n".join(
+        f"| {e['id']} | {e['title']} | {e['priority']} | {e['status']} | {e['readiness']} |"
+        for e in epics
+    ) or "<!-- No epics yet -->"
+
+    backlog_index_content = f"""---
+title: "Backlog"
+type: index
+domain: backlog
+status: active
+confidence: high
+created: 2026-04-09
+updated: {today}
+sources: []
+tags: [backlog, planning, epics, roadmap]
+---
+
+# Backlog
+
+All planned work, organized by epics, modules, and tasks.
+
+## Epics
+
+| ID | Epic | Priority | Status | Readiness |
+|----|------|----------|--------|-----------|
+{epic_rows}
+
+## Modules
+
+See [modules/](modules/)
+
+## Tasks
+
+See [tasks/_index.md](tasks/_index.md)
+"""
+    backlog_index_path = backlog_dir / "_index.md"
+    backlog_index_path.write_text(backlog_index_content, encoding="utf-8")
+
+    # --- Rebuild wiki/backlog/tasks/_index.md ---
+    task_rows = "\n".join(
+        f"| {t['id']} | {t['title']} | {t['priority']} | {t['status']} | {t['stage']} | {t['readiness']} | {t['epic']} |"
+        for t in tasks
+    ) or "<!-- No tasks yet -->"
+
+    tasks_index_content = f"""---
+title: "Tasks"
+type: index
+domain: backlog
+status: active
+confidence: high
+created: 2026-04-09
+updated: {today}
+sources: []
+tags: [backlog, tasks]
+---
+
+# Tasks
+
+| ID | Task | Priority | Status | Stage | Readiness | Epic |
+|----|------|----------|--------|-------|-----------|------|
+{task_rows}
+"""
+    tasks_index_path = tasks_dir / "_index.md"
+    tasks_index_path.write_text(tasks_index_content, encoding="utf-8")
+
+
+def rebuild_log_index(log_dir: Path) -> None:
+    """Rebuild wiki/log/_index.md with a chronological table of log entries.
+
+    Scans log_dir for .md files (excluding _index.md). Reads frontmatter.
+    Table columns: Date, Title, Type (note_type), Tags.
+    """
+    today = __import__("datetime").date.today().isoformat()
+
+    entries = []
+    for md_file in sorted(log_dir.glob("*.md"), reverse=True):
+        if md_file.name == "_index.md":
+            continue
+        text = md_file.read_text(encoding="utf-8")
+        meta, _ = parse_frontmatter(text)
+        if not meta:
+            continue
+        date = str(meta.get("created", md_file.stem[:10] if len(md_file.stem) >= 10 else ""))
+        title = meta.get("title", md_file.stem)
+        note_type = meta.get("note_type", meta.get("type", ""))
+        tags = meta.get("tags", [])
+        tags_str = ", ".join(f"`{t}`" for t in tags) if tags else ""
+        entries.append({
+            "date": date,
+            "title": title,
+            "type": note_type,
+            "tags": tags_str,
+            "file": md_file.name,
+        })
+
+    rows = "\n".join(
+        f"| {e['date']} | [{e['title']}]({e['file']}) | {e['type']} | {e['tags']} |"
+        for e in entries
+    ) or "<!-- No log entries yet -->"
+
+    content = f"""---
+title: "Log"
+type: index
+domain: log
+status: active
+confidence: high
+created: 2026-04-09
+updated: {today}
+sources: []
+tags: [log, directives, sessions]
+---
+
+# Log
+
+Operator directives, session summaries, and task completion notes.
+
+## Entries
+
+| Date | Title | Type | Tags |
+|------|-------|------|------|
+{rows}
+"""
+    log_index_path = log_dir / "_index.md"
+    log_index_path.write_text(content, encoding="utf-8")

@@ -35,6 +35,7 @@ from tools.pipeline import (
     scan_project,
     group_fetch,
     pipeline_status,
+    run_backlog,
 )
 from tools.integrations import (
     obsidian,
@@ -279,6 +280,73 @@ def wiki_evolve(mode: str = "score", top: int = 10, type_filter: str = None) -> 
     root = get_project_root()
     result = run_evolve(root, mode=mode, top=top, type_filter=type_filter, verbose=False)
     return json.dumps(result, indent=2, default=str)
+
+
+# ---------------------------------------------------------------------------
+# Backlog and Log tools
+# ---------------------------------------------------------------------------
+
+@server.tool()
+def wiki_backlog(epic_id: str = None) -> str:
+    """Read backlog pages and return JSON summary.
+
+    Returns epics list (id, title, priority, status, readiness) and tasks list
+    (id, title, priority, status, stage, readiness, epic). If epic_id is
+    provided, also includes filtered task detail for that epic.
+    """
+    root = get_project_root()
+    result = run_backlog(root, epic_id=epic_id, verbose=False)
+    return json.dumps(result, indent=2, default=str)
+
+
+@server.tool()
+def wiki_log(title: str, content: str, note_type: str = "directive") -> str:
+    """Create a new log entry in wiki/log/.
+
+    Filename is {date}-{slug}.md. Returns the created file path.
+
+    Args:
+        title: Title for the log entry.
+        content: Body content to include verbatim.
+        note_type: One of directive, session-summary, completion-note (default: directive).
+    """
+    from datetime import date as _date
+
+    root = get_project_root()
+    log_dir = root / "wiki" / "log"
+    log_dir.mkdir(parents=True, exist_ok=True)
+
+    today = _date.today().isoformat()
+    slug = title.lower().replace(" ", "-").replace(":", "").replace("/", "-")[:60].strip("-")
+    filename = f"{today}-{slug}.md"
+    file_path = log_dir / filename
+
+    tags_map = {
+        "directive": ["log", "directive"],
+        "session-summary": ["log", "session"],
+        "completion-note": ["log", "completion"],
+    }
+    tags = tags_map.get(note_type, ["log", note_type])
+    tags_yaml = "[" + ", ".join(tags) + "]"
+
+    frontmatter = (
+        f"---\n"
+        f"title: \"{title}\"\n"
+        f"type: note\n"
+        f"domain: log\n"
+        f"note_type: {note_type}\n"
+        f"status: active\n"
+        f"confidence: high\n"
+        f"created: {today}\n"
+        f"updated: {today}\n"
+        f"sources: []\n"
+        f"tags: {tags_yaml}\n"
+        f"---\n\n"
+    )
+    full_content = frontmatter + f"# {title}\n\n" + content.strip() + "\n"
+    file_path.write_text(full_content, encoding="utf-8")
+
+    return json.dumps({"ok": True, "path": str(file_path.relative_to(root))}, indent=2)
 
 
 # ---------------------------------------------------------------------------

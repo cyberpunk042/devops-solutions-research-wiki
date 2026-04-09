@@ -179,6 +179,35 @@ def validate_page(
             "field": "reversibility",
         })
 
+    # Check backlog-domain fields
+    domain = meta.get("domain", "")
+    if domain == "backlog":
+        if not meta.get("task_type"):
+            warnings.append({
+                "code": "missing_task_type",
+                "message": "Backlog page should have a task_type field",
+            })
+        if not meta.get("priority"):
+            warnings.append({
+                "code": "missing_priority",
+                "message": "Backlog page should have a priority field",
+            })
+        readiness = meta.get("readiness")
+        stages_completed = meta.get("stages_completed")
+        if readiness and int(readiness) > 0 and not stages_completed:
+            warnings.append({
+                "code": "missing_stages_completed",
+                "message": f"Backlog page has readiness={readiness} but stages_completed is empty or missing",
+            })
+
+    # Check log-domain fields
+    if domain == "log":
+        if not meta.get("note_type"):
+            warnings.append({
+                "code": "missing_note_type",
+                "message": "Log page should have a note_type field",
+            })
+
     return result
 
 
