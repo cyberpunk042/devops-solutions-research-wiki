@@ -142,4 +142,5 @@ The convergence: a spec is insufficient if it is vague, missing acceptance crite
 [[[[Harness Engineering]] (harness is the spec-driven development tooling layer)]]
 [[[[Wiki Backlog Pattern]] (when wiki pages are spec artifacts, the wiki IS the spec system)]]
 [[Vibe Coding (unstructured iterative prompting without spec gates — the failure mode SDD exists to prevent)]]
+[[Model: Methodology]]
 [[Synthesis: Claude Code Best Practice (shanraisshan)]]

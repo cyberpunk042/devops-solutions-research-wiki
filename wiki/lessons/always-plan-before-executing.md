@@ -105,6 +105,7 @@ Even at the individual agent level, Claude Code's best practices recommend using
 [[Agent Orchestration Patterns]]
 [[Context Management Is the Primary LLM Productivity Lever]]
 [[Immune System Rules]]
+[[Model: Claude Code]]
 [[Never Skip Stages Even When Told to Continue]]
 [[Never Synthesize from Descriptions Alone]]
 [[The Agent Must Practice What It Documents]]

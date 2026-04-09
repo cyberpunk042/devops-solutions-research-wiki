@@ -89,3 +89,4 @@ After completing this path you understand:
 [[Model: Local AI ($0 Target)]]
 [[Model: NotebookLM]]
 [[Model: Design.md + IaC]]
+[[Model: Quality and Failure Prevention]]

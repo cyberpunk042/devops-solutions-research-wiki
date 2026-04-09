@@ -110,3 +110,4 @@ Knowledge must flow upward: tribal knowledge should become documented methodolog
 [[[[Knowledge Evolution Pipeline]] (knowledge must evolve into enforcement)]]
 [[Self-enforcing methodology (CLAUDE.md as operational ruleset)]]
 [[LLM Wiki Standards — What Good Looks Like]]
+[[Model: Quality and Failure Prevention]]

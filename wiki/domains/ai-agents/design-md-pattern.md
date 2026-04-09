@@ -145,4 +145,5 @@ Cross-referencing `Infrastructure as Code Patterns` and `Agent Orchestration Pat
 [[Hooks Lifecycle Architecture]]
 [[Infrastructure as Code Patterns]]
 [[Model: Design.md + IaC]]
+[[Model: Skills, Commands, and Hooks]]
 [[Never Synthesize from Descriptions Alone]]

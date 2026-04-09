@@ -100,3 +100,5 @@ After completing this learning path you will understand:
 [[Decision: MCP vs CLI for Tool Integration]]
 [[Model Guide: Ecosystem Architecture]]
 [[Harness Engineering]]
+[[Model: Claude Code]]
+[[Model: Skills, Commands, and Hooks]]

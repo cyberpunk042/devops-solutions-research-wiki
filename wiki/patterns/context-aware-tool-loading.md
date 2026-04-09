@@ -130,6 +130,8 @@ This is the documentation layer's application of deferred loading. The alternati
 [[Cross-Domain Patterns]]
 [[Hooks Lifecycle Architecture]]
 [[Model Guide: MCP + CLI Integration]]
+[[Model: Claude Code]]
+[[Model: Skills, Commands, and Hooks]]
 [[Pattern: Skills + Cli]]
 [[Pattern: Skills + Notebooklm]]
 [[Synthesis: Context Mode — MCP Sandbox for Context Saving]]

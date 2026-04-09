@@ -145,6 +145,7 @@ Avoid or simplify this pattern when:
 [[Deterministic Shell, LLM Core]]
 [[Immune System Rules]]
 [[Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki]]
+[[Model: Claude Code]]
 [[Rework Prevention]]
 [[Scaffold → Foundation → Infrastructure → Features]]
 [[Skyscraper, Pyramid, Mountain]]

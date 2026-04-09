@@ -97,3 +97,4 @@ This lesson applies to any system with sequential stages and a decision-making a
 [[[[Immune System Rules]] (this lesson became a rule)]]
 [[Knowledge Evolution Pipeline]]
 [[assumption that "continue" means "skip ahead"]]
+[[Model: Quality and Failure Prevention]]

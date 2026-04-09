@@ -88,3 +88,4 @@ After completing this path you understand:
 [[Model: Automation + Pipelines]]
 [[Claude Code Best Practices]]
 [[Model: NotebookLM]]
+[[Model: Quality and Failure Prevention]]

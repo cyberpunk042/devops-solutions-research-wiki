@@ -294,6 +294,6 @@ The practical recommendation: start with protocol enforcement (CLAUDE.md MUST/MU
 [[Vibe Coding (unstructured generation without stage boundaries — the failure mode this methodology exists to prevent)]]
 [[Adoption Guide — How to Use This Wiki's Standards]]
 [[LLM Wiki Standards — What Good Looks Like]]
-[[Model Guide: Methodology]]
+[[Model: Methodology]]
 [[Never Skip Stages Even When Told to Continue]]
 [[The Agent Must Practice What It Documents]]

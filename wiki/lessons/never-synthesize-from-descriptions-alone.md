@@ -102,3 +102,4 @@ This lesson applies far beyond wiki ingestion:
 [[Wiki Ingestion Pipeline]]
 [[[[Immune System Rules]] (this lesson became a rule)]]
 [[LLM Wiki Standards — What Good Looks Like]]
+[[Model: Quality and Failure Prevention]]

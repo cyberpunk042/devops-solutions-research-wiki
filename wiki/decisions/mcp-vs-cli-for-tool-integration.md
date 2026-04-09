@@ -119,3 +119,4 @@ The one nuance: if CLI skills accumulate significant institutional knowledge tha
 [[Wiki Ingestion Pipeline]]
 [[Research Pipeline Orchestration]]
 [[Model Guide: MCP + CLI Integration]]
+[[Model: Claude Code]]

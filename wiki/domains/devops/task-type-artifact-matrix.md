@@ -283,4 +283,4 @@ The readiness calculation is always derived from stage completion evidence, neve
 [[[[Four-Project Ecosystem]] (all four projects use task types — spike for research, docs for wiki, task/module/epic for features)]]
 [[[[Immune System Rules]] (type violations — e.g., code produced during a spike — are detectable diseases)]]
 [[Adoption Guide — How to Use This Wiki's Standards]]
-[[Model Guide: Methodology]]
+[[Model: Methodology]]

@@ -132,6 +132,7 @@ Cross-referencing `Context-Aware Tool Loading`: the pattern page documents that 
 [[CLI Tools Beat MCP for Token Efficiency]]
 [[Context-Aware Tool Loading]]
 [[Decision: MCP vs CLI for Tool Integration]]
+[[Model: Claude Code]]
 [[Synthesis: 18 Claude Code Token Hacks in 18 Minutes]]
 [[Synthesis: Claude Code Accuracy Tips]]
 [[Synthesis: Claude Code Best Practice (shanraisshan)]]

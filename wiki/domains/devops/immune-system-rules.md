@@ -154,4 +154,4 @@ Cross-referencing `devops-control-plane` and `Agent Orchestration Patterns`: the
 [[Deterministic Shell, LLM Core]]
 [[Four-Project Ecosystem]]
 [[Infrastructure as Code Patterns]]
-[[Model: Quality + Failure Prevention]]
+[[Model: Quality and Failure Prevention]]

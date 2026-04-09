@@ -438,3 +438,4 @@ The key architectural difference: OpenFleet's work_mode is a fleet-level control
 [[[[Four-Project Ecosystem]] (OpenFleet uses work_mode + budget monitor as the parallel system; OpenArms uses execution modes + end conditions)]]
 [[[[Immune System Rules]] (the work loop structure defines what "correct behavior" looks like; deviations are the diseases the immune system detects)]]
 [[[[Knowledge Evolution Pipeline]] (autonomous + backlog-empty enables the self-sustaining loop that continuously improves the system)]]
+[[Model: Methodology]]

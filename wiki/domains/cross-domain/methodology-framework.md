@@ -343,6 +343,6 @@ This separation between definition and instance is what makes the framework sust
 [[Adoption Guide — How to Use This Wiki's Standards]]
 [[Infrastructure Must Be Reproducible, Not Manual]]
 [[LLM Wiki Standards — What Good Looks Like]]
-[[Model Guide: Methodology]]
+[[Model: Methodology]]
 [[Never Skip Stages Even When Told to Continue]]
 [[The Agent Must Practice What It Documents]]

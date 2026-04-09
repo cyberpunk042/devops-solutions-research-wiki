@@ -323,3 +323,4 @@ The wiki proves that knowledge work and code work can share the same methodology
 [[Methodology Execution Modes]]
 [[methodology adoption across ecosystem projects]]
 [[project-specific methodology.yaml instances]]
+[[Model: Methodology]]

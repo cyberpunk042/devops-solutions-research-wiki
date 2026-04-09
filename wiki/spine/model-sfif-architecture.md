@@ -91,3 +91,4 @@ After completing this path you understand:
 [[Model: Knowledge Evolution]]
 [[Model: Local AI ($0 Target)]]
 [[Four-Project Ecosystem]]
+[[Model: Quality and Failure Prevention]]

@@ -170,4 +170,4 @@ Cross-referencing `Plan Execute Review Cycle` and `Harness Engineering`: partial
 [[Wiki Ingestion Pipeline]]
 [[Research Pipeline Orchestration]]
 [[Immune System Rules]]
-[[Model: Quality + Failure Prevention]]
+[[Model: Quality and Failure Prevention]]

@@ -78,3 +78,4 @@ This lesson applies directly to:
 [[Claude Code Skills]]
 [[NotebookLM Skills]]
 [[LLM Wiki Pattern]]
+[[Model: Skills, Commands, and Hooks]]

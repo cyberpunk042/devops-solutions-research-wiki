@@ -142,7 +142,7 @@ Cross-referencing `Claude Code Best Practices` and `Context-Aware Tool Loading`:
 [[Hooks Lifecycle Architecture]]
 [[Local LLM Quantization]]
 [[MCP Integration Architecture]]
-[[Model Guide: Claude Code]]
+[[Model: Claude Code]]
 [[OpenArms]]
 [[Pattern: Skills + Claude-Code]]
 [[Pattern: Skills + Mcp]]

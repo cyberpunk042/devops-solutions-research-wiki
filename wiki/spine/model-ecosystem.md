@@ -107,4 +107,5 @@ After completing this learning path you will understand:
 [[Model Guide: MCP + CLI Integration]]
 [[Model Guide: Skills + Commands + Hooks]]
 [[Model Guide: Second Brain]]
+[[Model: Claude Code]]
 [[Model: LLM Wiki]]

@@ -440,3 +440,4 @@ From building with this model — validated experience:
 [[Model Guide: Methodology]]
 [[Model: Knowledge Evolution]]
 [[LLM Wiki Standards — What Good Looks Like]]
+[[Model: Methodology]]

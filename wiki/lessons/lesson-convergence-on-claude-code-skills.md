@@ -89,4 +89,5 @@ The skills-beat-MCP finding is independently confirmed in the harness engineerin
 [[Harness Engineering]]
 [[OpenFleet]]
 [[AICP]]
+[[Model: Claude Code]]
 [[Per-Role Command Architecture]]

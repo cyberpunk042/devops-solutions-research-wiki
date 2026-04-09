@@ -286,3 +286,4 @@ Signal: The acceptance criteria (documented in the epic's design stage) were nev
 [[[[Four-Project Ecosystem]] (all four projects organize work in this hierarchy — Plane issues in OpenFleet, wiki backlog in OpenArms)]]
 [[[[Spec-Driven Development]] (epics/modules always have design docs; their stage requirements enforce spec-first)]]
 [[[[Immune System Rules]] (hierarchy violations — manual readiness, premature done status — are detectable anti-patterns)]]
+[[Model: Methodology]]

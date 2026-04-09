@@ -84,3 +84,4 @@ After completing this path you understand:
 [[Decision: Local Model vs Cloud API for Routine Operations]]
 [[Model: Knowledge Evolution]]
 [[Model: NotebookLM]]
+[[Model: Quality and Failure Prevention]]

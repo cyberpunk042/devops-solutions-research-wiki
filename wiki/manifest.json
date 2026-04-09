@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-09T22:27:29.407793+00:00",
+  "generated": "2026-04-09T22:38:00.706303+00:00",
   "stats": {
     "pages": 154,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1104,
-    "tags_unique": 591,
+    "relationships": 1139,
+    "tags_unique": 594,
     "layers": {
       "3": 5,
       "6": 5,
@@ -9800,8 +9800,8 @@
     {
       "path": "spine/model-claude-code.md",
       "slug": "spine/model-claude-code",
-      "title": "Model Guide: Claude Code",
-      "type": "learning-path",
+      "title": "Model: Claude Code",
+      "type": "concept",
       "domain": "cross-domain",
       "status": "synthesized",
       "confidence": "high",
@@ -9809,26 +9809,86 @@
       "updated": "2026-04-09",
       "tags": [
         "claude-code",
-        "model-guide",
-        "learning-path",
-        "ai-agent",
+        "model-definition",
+        "agent-architecture",
         "skills",
         "hooks",
         "context-management",
         "harness-engineering",
+        "mcp",
+        "extension-system",
         "spine"
       ],
-      "sources": [],
+      "sources": [
+        {
+          "id": "src-shanraisshan-claude-code-best-practice",
+          "type": "documentation",
+          "url": "https://github.com/shanraisshan/claude-code-best-practice",
+          "title": "Claude Code Best Practices"
+        },
+        {
+          "id": "src-karpathy-claude-code-10x",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=7sInxhTDA7U",
+          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code"
+        },
+        {
+          "id": "src-token-hacks-claude-code",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=49V-5Ock8LU",
+          "title": "18 Claude Code Token Hacks in 18 Minutes"
+        },
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering"
+        },
+        {
+          "id": "src-claude-code-hooks-reference",
+          "type": "documentation",
+          "url": "https://code.claude.com/docs/en/hooks",
+          "title": "Claude Code Hooks Reference"
+        }
+      ],
       "layer": "spine",
       "maturity": "growing",
       "derived_from": [],
       "relationships": [
         {
-          "verb": "FEEDS INTO",
+          "verb": "BUILDS ON",
+          "target": "Claude Code"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Hooks Lifecycle Architecture"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Context Management"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Decision: MCP vs CLI for Tool Integration"
+        },
+        {
+          "verb": "ENABLES",
           "target": "Model Guide: Skills + Commands + Hooks"
         },
         {
-          "verb": "FEEDS INTO",
+          "verb": "ENABLES",
           "target": "Model Guide: MCP + CLI Integration"
         },
         {
@@ -9844,16 +9904,24 @@
           "target": "Model Guide: Methodology"
         },
         {
-          "verb": "BUILDS ON",
-          "target": "Claude Code"
+          "verb": "IMPLEMENTS",
+          "target": "Plan Execute Review Cycle"
         },
         {
-          "verb": "BUILDS ON",
-          "target": "Claude Code Skills"
+          "verb": "IMPLEMENTS",
+          "target": "Context-Aware Tool Loading"
         },
         {
-          "verb": "BUILDS ON",
-          "target": "Hooks Lifecycle Architecture"
+          "verb": "DERIVED FROM",
+          "target": "Always Plan Before Executing"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "CLI Tools Beat MCP for Token Efficiency"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Skills Architecture Is the Dominant LLM Extension Pattern"
         }
       ]
     },
@@ -10264,40 +10332,63 @@
     {
       "path": "spine/model-methodology.md",
       "slug": "spine/model-methodology",
-      "title": "Model Guide: Methodology",
-      "type": "learning-path",
+      "title": "Model: Methodology",
+      "type": "concept",
       "domain": "cross-domain",
       "status": "synthesized",
-      "confidence": "high",
+      "confidence": "authoritative",
       "created": "2026-04-09",
       "updated": "2026-04-09",
       "tags": [
         "methodology",
-        "model-guide",
-        "learning-path",
+        "model",
         "stage-gate",
         "task-types",
+        "composable",
         "backlog",
         "execution-modes",
-        "spec-driven",
+        "framework",
         "spine"
       ],
-      "sources": [],
+      "sources": [
+        {
+          "id": "src-openarms-methodology",
+          "type": "documentation",
+          "file": "raw/articles/openarms-methodology-yaml-full.md",
+          "title": "OpenArms Methodology YAML + Agent Directive",
+          "ingested": "2026-04-09"
+        },
+        {
+          "id": "src-openfleet-methodology-scan",
+          "type": "documentation",
+          "file": "raw/articles/openfleet-methodology-scan.md",
+          "title": "OpenFleet Methodology Deep Scan",
+          "ingested": "2026-04-09"
+        }
+      ],
       "layer": "spine",
       "maturity": "growing",
       "derived_from": [],
       "relationships": [
         {
-          "verb": "FEEDS INTO",
-          "target": "Model Guide: Claude Code"
+          "verb": "GOVERNS",
+          "target": "Model: LLM Wiki"
         },
         {
-          "verb": "FEEDS INTO",
-          "target": "Model Guide: LLM Wiki"
+          "verb": "GOVERNS",
+          "target": "Model: Claude Code"
         },
         {
-          "verb": "FEEDS INTO",
-          "target": "Model Guide: Ecosystem Architecture"
+          "verb": "GOVERNS",
+          "target": "Model: Ecosystem Architecture"
+        },
+        {
+          "verb": "GOVERNS",
+          "target": "Model: Skills + Commands + Hooks"
+        },
+        {
+          "verb": "GOVERNS",
+          "target": "Model: Second Brain"
         },
         {
           "verb": "BUILDS ON",
@@ -10312,12 +10403,56 @@
           "target": "Task Type Artifact Matrix"
         },
         {
-          "verb": "RELATES TO",
-          "target": "Model Guide: Skills + Commands + Hooks"
+          "verb": "BUILDS ON",
+          "target": "Backlog Hierarchy Rules"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Execution Modes and End Conditions"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "[[Skyscraper"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Pyramid"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Mountain]]"
         },
         {
           "verb": "RELATES TO",
-          "target": "Adoption Guide"
+          "target": "Spec-Driven Development"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "[[Scaffold"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Foundation"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Infrastructure"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Features]]"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Adoption Guide \u2014 How to Use This Wiki's Standards"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "wiki/config/methodology.yaml"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "wiki/config/agent-directive.md"
         }
       ]
     },
@@ -10373,8 +10508,8 @@
     {
       "path": "spine/model-quality-failure-prevention.md",
       "slug": "spine/model-quality-failure-prevention",
-      "title": "Model: Quality + Failure Prevention",
-      "type": "learning-path",
+      "title": "Model: Quality and Failure Prevention",
+      "type": "concept",
       "domain": "cross-domain",
       "status": "synthesized",
       "confidence": "high",
@@ -10382,15 +10517,39 @@
       "updated": "2026-04-09",
       "tags": [
         "model",
-        "learning-path",
         "spine",
         "quality",
         "failure-prevention",
         "harness",
         "immune-system",
-        "rework"
+        "rework",
+        "depth-verification",
+        "stage-gates",
+        "methodology"
       ],
-      "sources": [],
+      "sources": [
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        },
+        {
+          "id": "src-devops-control-plane-local",
+          "type": "documentation",
+          "file": "../devops-control-plane/README.md",
+          "title": "devops-control-plane \u2014 Local Project Documentation",
+          "ingested": "2026-04-08"
+        }
+      ],
       "layer": "spine",
       "maturity": "growing",
       "derived_from": [],
@@ -10408,12 +10567,40 @@
           "target": "Rework Prevention"
         },
         {
-          "verb": "IMPLEMENTS",
+          "verb": "BUILDS ON",
           "target": "[[Deterministic Shell"
         },
         {
-          "verb": "IMPLEMENTS",
+          "verb": "BUILDS ON",
           "target": "LLM Core]]"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Never Synthesize from Descriptions Alone"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Never Skip Stages Even When Told to Continue"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "[[Shallow Ingestion Is Systemic"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Not Isolated]]"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "[[Infrastructure Must Be Reproducible"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Not Manual]]"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "The Agent Must Practice What It Documents"
         },
         {
           "verb": "RELATES TO",
@@ -10426,6 +10613,10 @@
         {
           "verb": "FEEDS INTO",
           "target": "Model: Local AI ($0 Target)"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Model: Design.md + IaC"
         }
       ]
     },
@@ -10550,8 +10741,8 @@
     {
       "path": "spine/model-skills-commands-hooks.md",
       "slug": "spine/model-skills-commands-hooks",
-      "title": "Model Guide: Skills + Commands + Hooks",
-      "type": "learning-path",
+      "title": "Model: Skills, Commands, and Hooks",
+      "type": "concept",
       "domain": "cross-domain",
       "status": "synthesized",
       "confidence": "high",
@@ -10561,27 +10752,58 @@
         "skills",
         "commands",
         "hooks",
-        "model-guide",
-        "learning-path",
+        "model-definition",
         "ai-agent-extension",
         "per-role",
         "plannotator",
         "design-md",
+        "context-loading",
+        "lifecycle",
+        "harness-engineering",
         "spine"
       ],
-      "sources": [],
+      "sources": [
+        {
+          "id": "src-shanraisshan-claude-code-best-practice",
+          "type": "documentation",
+          "url": "https://github.com/shanraisshan/claude-code-best-practice",
+          "title": "shanraisshan/claude-code-best-practice"
+        },
+        {
+          "id": "src-claude-code-hooks-reference",
+          "type": "documentation",
+          "url": "https://code.claude.com/docs/en/hooks",
+          "title": "Claude Code Hooks Reference \u2014 Full Research"
+        },
+        {
+          "id": "src-claude-slash-commands",
+          "type": "github-repo",
+          "url": "https://github.com/artemgetmann/claude-slash-commands",
+          "title": "Claude Code Slash Commands (artemgetmann)"
+        },
+        {
+          "id": "src-plannotator",
+          "type": "github-repo",
+          "url": "https://github.com/backnotprop/plannotator",
+          "title": "Plannotator \u2014 Interactive Plan & Code Review for AI Agents"
+        },
+        {
+          "id": "src-kepano-obsidian-skills",
+          "type": "documentation",
+          "url": "https://github.com/kepano/obsidian-skills",
+          "title": "kepano/obsidian-skills"
+        },
+        {
+          "id": "src-awesome-design-md",
+          "type": "documentation",
+          "url": "https://github.com/VoltAgent/awesome-design-md",
+          "title": "VoltAgent/awesome-design-md \u2014 58 Design Systems"
+        }
+      ],
       "layer": "spine",
       "maturity": "growing",
       "derived_from": [],
       "relationships": [
-        {
-          "verb": "FEEDS INTO",
-          "target": "Model Guide: Claude Code"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Model Guide: MCP + CLI Integration"
-        },
         {
           "verb": "BUILDS ON",
           "target": "Claude Code Skills"
@@ -10595,12 +10817,40 @@
           "target": "Per-Role Command Architecture"
         },
         {
-          "verb": "RELATES TO",
-          "target": "Model Guide: Methodology"
+          "verb": "BUILDS ON",
+          "target": "Design.md Pattern"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Context-Aware Tool Loading"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Skill Specification Is the Key to Ecosystem Interoperability"
         },
         {
           "verb": "RELATES TO",
-          "target": "Model Guide: LLM Wiki"
+          "target": "Plannotator \u2014 Interactive Plan & Code Review for AI Agents"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Model Guide: Claude Code"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Model Guide: MCP + CLI Integration"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Model Guide: Methodology"
         }
       ]
     }
@@ -10612,7 +10862,7 @@
     },
     "cross-domain": {
       "page_count": 40,
-      "relationship_count": 283
+      "relationship_count": 318
     },
     "ai-agents": {
       "page_count": 34,
@@ -11043,6 +11293,7 @@
       "sources/src-context-mode",
       "sources/src-playwright-cli-vs-mcp",
       "sources/src-playwright-mcp-visual-testing",
+      "spine/model-claude-code",
       "spine/model-mcp-cli-integration"
     ],
     "cli": [
@@ -11203,7 +11454,8 @@
       "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
       "patterns/plan-execute-review-cycle",
       "sources/src-harness-engineering",
-      "spine/model-claude-code"
+      "spine/model-claude-code",
+      "spine/model-skills-commands-hooks"
     ],
     "best-practices": [
       "domains/ai-agents/claude-code-best-practices",
@@ -11330,8 +11582,7 @@
       "domains/ai-agents/claude-code-skills"
     ],
     "ai-agent": [
-      "domains/ai-agents/claude-code",
-      "spine/model-claude-code"
+      "domains/ai-agents/claude-code"
     ],
     "coding-agent": [
       "domains/ai-agents/claude-code"
@@ -11417,15 +11668,15 @@
     "spec-driven": [
       "domains/ai-agents/harness-engineering",
       "lessons/always-plan-before-executing",
-      "sources/src-harness-engineering",
-      "spine/model-methodology"
+      "sources/src-harness-engineering"
     ],
     "typescript": [
       "domains/ai-agents/harness-engineering",
       "sources/src-harness-engineering"
     ],
     "lifecycle": [
-      "domains/ai-agents/hooks-lifecycle-architecture"
+      "domains/ai-agents/hooks-lifecycle-architecture",
+      "spine/model-skills-commands-hooks"
     ],
     "pre-tool-use": [
       "domains/ai-agents/hooks-lifecycle-architecture"
@@ -11547,7 +11798,8 @@
       "lessons/the-agent-must-practice-what-it-documents",
       "log/2026-04-09-directive-never-stop-at-surface",
       "spine/adoption-guide",
-      "spine/model-methodology"
+      "spine/model-methodology",
+      "spine/model-quality-failure-prevention"
     ],
     "plannotator": [
       "domains/ai-agents/per-role-command-architecture",
@@ -11785,14 +12037,16 @@
       "spine/model-methodology"
     ],
     "composable": [
-      "domains/cross-domain/methodology-framework"
+      "domains/cross-domain/methodology-framework",
+      "spine/model-methodology"
     ],
     "recursive": [
       "domains/cross-domain/methodology-framework",
       "patterns/scaffold-foundation-infrastructure-features"
     ],
     "framework": [
-      "domains/cross-domain/methodology-framework"
+      "domains/cross-domain/methodology-framework",
+      "spine/model-methodology"
     ],
     "transferable": [
       "domains/cross-domain/methodology-framework",
@@ -12558,7 +12812,8 @@
       "lessons/lesson-hub-\u2014-knowledge-systems"
     ],
     "stage-gates": [
-      "lessons/never-skip-stages-even-when-told-to-continue"
+      "lessons/never-skip-stages-even-when-told-to-continue",
+      "spine/model-quality-failure-prevention"
     ],
     "rushing": [
       "lessons/never-skip-stages-even-when-told-to-continue"
@@ -12570,7 +12825,8 @@
       "lessons/never-skip-stages-even-when-told-to-continue"
     ],
     "depth-verification": [
-      "lessons/never-synthesize-from-descriptions-alone"
+      "lessons/never-synthesize-from-descriptions-alone",
+      "spine/model-quality-failure-prevention"
     ],
     "surface-level": [
       "lessons/never-synthesize-from-descriptions-alone"
@@ -12660,7 +12916,8 @@
     ],
     "agent-architecture": [
       "patterns/context-aware-tool-loading",
-      "patterns/deterministic-shell-llm-core"
+      "patterns/deterministic-shell-llm-core",
+      "spine/model-claude-code"
     ],
     "playwright": [
       "patterns/context-aware-tool-loading",
@@ -13015,24 +13272,21 @@
       "spine/model-knowledge-evolution",
       "spine/model-llm-wiki",
       "spine/model-local-ai",
+      "spine/model-methodology",
       "spine/model-notebooklm",
       "spine/model-quality-failure-prevention",
       "spine/model-sfif-architecture"
     ],
     "learning-path": [
       "spine/model-automation-pipelines",
-      "spine/model-claude-code",
       "spine/model-design-md",
       "spine/model-ecosystem",
       "spine/model-knowledge-evolution",
       "spine/model-local-ai",
       "spine/model-mcp-cli-integration",
-      "spine/model-methodology",
       "spine/model-notebooklm",
-      "spine/model-quality-failure-prevention",
       "spine/model-second-brain",
-      "spine/model-sfif-architecture",
-      "spine/model-skills-commands-hooks"
+      "spine/model-sfif-architecture"
     ],
     "spine": [
       "spine/model-automation-pipelines",
@@ -13052,16 +13306,20 @@
     "pipelines": [
       "spine/model-automation-pipelines"
     ],
-    "model-guide": [
+    "model-definition": [
       "spine/model-claude-code",
-      "spine/model-ecosystem",
-      "spine/model-mcp-cli-integration",
-      "spine/model-methodology",
-      "spine/model-second-brain",
       "spine/model-skills-commands-hooks"
+    ],
+    "extension-system": [
+      "spine/model-claude-code"
     ],
     "agents-md": [
       "spine/model-design-md"
+    ],
+    "model-guide": [
+      "spine/model-ecosystem",
+      "spine/model-mcp-cli-integration",
+      "spine/model-second-brain"
     ],
     "knowledge-evolution": [
       "spine/model-knowledge-evolution"
@@ -13095,6 +13353,9 @@
     ],
     "ai-agent-extension": [
       "spine/model-skills-commands-hooks"
+    ],
+    "context-loading": [
+      "spine/model-skills-commands-hooks"
     ]
   },
   "orphaned_refs": [
@@ -13123,8 +13384,7 @@
     {
       "target": "Adoption Guide",
       "referenced_by": [
-        "Ecosystem Integration Interfaces",
-        "Model Guide: Methodology"
+        "Ecosystem Integration Interfaces"
       ]
     },
     {
@@ -13183,9 +13443,27 @@
       ]
     },
     {
+      "target": "Features]]",
+      "referenced_by": [
+        "Model: Methodology"
+      ]
+    },
+    {
       "target": "Flexible Methodology Framework directive",
       "referenced_by": [
         "Methodology Framework"
+      ]
+    },
+    {
+      "target": "Foundation",
+      "referenced_by": [
+        "Model: Methodology"
+      ]
+    },
+    {
+      "target": "Infrastructure",
+      "referenced_by": [
+        "Model: Methodology"
       ]
     },
     {
@@ -13207,7 +13485,7 @@
         "Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki",
         "Gateway-Centric Routing",
         "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features",
-        "Model: Quality + Failure Prevention"
+        "Model: Quality and Failure Prevention"
       ]
     },
     {
@@ -13217,13 +13495,45 @@
       ]
     },
     {
+      "target": "Model Guide: Claude Code",
+      "referenced_by": [
+        "Model Guide: Ecosystem Architecture",
+        "Model: LLM Wiki",
+        "Model Guide: MCP + CLI Integration",
+        "Model Guide: Second Brain",
+        "Model: Skills, Commands, and Hooks"
+      ]
+    },
+    {
       "target": "Model Guide: LLM Wiki",
       "referenced_by": [
-        "Model Guide: Claude Code",
+        "Model: Claude Code",
         "Model Guide: Ecosystem Architecture",
-        "Model Guide: Methodology",
+        "Model Guide: Second Brain"
+      ]
+    },
+    {
+      "target": "Model Guide: Methodology",
+      "referenced_by": [
+        "Model: Claude Code",
+        "Model Guide: Ecosystem Architecture",
+        "Model: LLM Wiki",
         "Model Guide: Second Brain",
-        "Model Guide: Skills + Commands + Hooks"
+        "Model: Skills, Commands, and Hooks"
+      ]
+    },
+    {
+      "target": "Model Guide: Skills + Commands + Hooks",
+      "referenced_by": [
+        "Model: Claude Code",
+        "Model Guide: Ecosystem Architecture",
+        "Model Guide: MCP + CLI Integration"
+      ]
+    },
+    {
+      "target": "Model: Ecosystem Architecture",
+      "referenced_by": [
+        "Model: Methodology"
       ]
     },
     {
@@ -13232,14 +13542,30 @@
         "Model: Automation + Pipelines",
         "Model: Knowledge Evolution",
         "Model: NotebookLM",
-        "Model: Quality + Failure Prevention",
+        "Model: Quality and Failure Prevention",
+        "Model: SFIF + Architecture"
+      ]
+    },
+    {
+      "target": "Model: Quality + Failure Prevention",
+      "referenced_by": [
+        "Model: Automation + Pipelines",
+        "Model: Design.md + IaC",
+        "Model: Local AI ($0 Target)",
         "Model: SFIF + Architecture"
       ]
     },
     {
       "target": "Model: Second Brain",
       "referenced_by": [
-        "Model: LLM Wiki"
+        "Model: LLM Wiki",
+        "Model: Methodology"
+      ]
+    },
+    {
+      "target": "Model: Skills + Commands + Hooks",
+      "referenced_by": [
+        "Model: Methodology"
       ]
     },
     {
@@ -13247,13 +13573,21 @@
       "referenced_by": [
         "Methodology Framework",
         "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features",
+        "Model: Methodology",
         "Model: SFIF + Architecture"
       ]
     },
     {
       "target": "Not Isolated]]",
       "referenced_by": [
-        "LLM Wiki Standards \u2014 What Good Looks Like"
+        "LLM Wiki Standards \u2014 What Good Looks Like",
+        "Model: Quality and Failure Prevention"
+      ]
+    },
+    {
+      "target": "Not Manual]]",
+      "referenced_by": [
+        "Model: Quality and Failure Prevention"
       ]
     },
     {
@@ -13267,6 +13601,7 @@
       "referenced_by": [
         "Methodology Framework",
         "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features",
+        "Model: Methodology",
         "Model: SFIF + Architecture"
       ]
     },
@@ -13391,7 +13726,7 @@
         "Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki",
         "Gateway-Centric Routing",
         "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features",
-        "Model: Quality + Failure Prevention"
+        "Model: Quality and Failure Prevention"
       ]
     },
     {
@@ -13433,6 +13768,12 @@
         "Never Synthesize from Descriptions Alone",
         "Shallow Ingestion Is Systemic, Not Isolated",
         "The Agent Must Practice What It Documents"
+      ]
+    },
+    {
+      "target": "[[Infrastructure Must Be Reproducible",
+      "referenced_by": [
+        "Model: Quality and Failure Prevention"
       ]
     },
     {
@@ -13535,6 +13876,12 @@
       ]
     },
     {
+      "target": "[[Scaffold",
+      "referenced_by": [
+        "Model: Methodology"
+      ]
+    },
+    {
       "target": "[[Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features]]",
       "referenced_by": [
         "Task Lifecycle Stage-Gating",
@@ -13554,7 +13901,8 @@
     {
       "target": "[[Shallow Ingestion Is Systemic",
       "referenced_by": [
-        "LLM Wiki Standards \u2014 What Good Looks Like"
+        "LLM Wiki Standards \u2014 What Good Looks Like",
+        "Model: Quality and Failure Prevention"
       ]
     },
     {
@@ -13570,6 +13918,7 @@
       "referenced_by": [
         "Methodology Framework",
         "Scaffold \u2192 Foundation \u2192 Infrastructure \u2192 Features",
+        "Model: Methodology",
         "Model: SFIF + Architecture"
       ]
     },
@@ -13863,6 +14212,18 @@
       "target": "src-turboquant-122b-macbook",
       "referenced_by": [
         "Synthesis: TurboQuant 122B LLM on MacBook"
+      ]
+    },
+    {
+      "target": "wiki/config/agent-directive.md",
+      "referenced_by": [
+        "Model: Methodology"
+      ]
+    },
+    {
+      "target": "wiki/config/methodology.yaml",
+      "referenced_by": [
+        "Model: Methodology"
       ]
     }
   ]
