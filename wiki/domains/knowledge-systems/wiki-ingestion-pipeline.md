@@ -121,6 +121,7 @@ Cross-referencing `Knowledge Evolution Pipeline` and `WSL2 Development Patterns`
 [[Knowledge Evolution Pipeline]]
 [[LLM Wiki vs RAG]]
 [[LLM-Maintained Wikis Outperform Static Documentation]]
+[[Lesson: Schema Is the Real Product — Not the Content]]
 [[LightRAG]]
 [[MCP Integration Architecture]]
 [[Memory Lifecycle Management]]

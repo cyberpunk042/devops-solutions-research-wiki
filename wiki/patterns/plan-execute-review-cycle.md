@@ -144,5 +144,6 @@ Avoid or simplify this pattern when:
 [[Cross-Domain Patterns]]
 [[Deterministic Shell, LLM Core]]
 [[Immune System Rules]]
+[[Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki]]
 [[Rework Prevention]]
 [[Synthesis: Superpowers Plugin — End of Vibe Coding (Full Tutorial)]]

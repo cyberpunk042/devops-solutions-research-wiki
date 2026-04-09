@@ -76,3 +76,4 @@ Cross-referencing `Skills Architecture Patterns` and `Harness Engineering`: the 
 [[Claude Code Skills]]
 [[Obsidian Knowledge Vault]]
 [[LLM Wiki Pattern]]
+[[Skill Specification Is the Key to Ecosystem Interoperability]]

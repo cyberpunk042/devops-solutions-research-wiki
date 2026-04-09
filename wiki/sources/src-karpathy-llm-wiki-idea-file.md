@@ -100,3 +100,4 @@ Cross-referencing `LLM Wiki Pattern`: the LLM Wiki Pattern page documents the st
 [[Obsidian Knowledge Vault]]
 [[LLM Wiki vs RAG]]
 [[src-karpathy-claude-code-10x]]
+[[Lesson: Schema Is the Real Product — Not the Content]]

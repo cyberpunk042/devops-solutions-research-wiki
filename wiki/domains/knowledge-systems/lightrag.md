@@ -107,6 +107,8 @@ Cross-referencing `LLM Wiki vs RAG` and `Wiki Knowledge Graph`: the LightRAG pag
 [[Wiki Ingestion Pipeline]]
 [[AICP]]
 [[LLM Wiki Pattern]]
+[[Decision: Wiki-First with LightRAG Upgrade Path]]
+[[Graph-Enhanced Retrieval Bridges Wiki Navigation and Vector Search]]
 [[Local LLM Quantization]]
 [[Synthesis: Gemma 4 + SearXNG for Free Private OpenClaw]]
 [[Synthesis: TurboQuant 122B LLM on MacBook]]

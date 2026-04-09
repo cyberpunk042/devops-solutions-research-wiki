@@ -151,3 +151,4 @@ Cross-referencing `Wiki Knowledge Graph` and `LightRAG`: yes, they converge subs
 [[NotebookLM Skills]]
 [[Memory Lifecycle Management]]
 [[LightRAG]]
+[[NotebookLM as Grounded Research Engine Not Just Note Storage]]

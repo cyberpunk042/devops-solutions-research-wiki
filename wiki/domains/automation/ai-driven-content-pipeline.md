@@ -100,6 +100,7 @@ Cross-referencing `Knowledge Evolution Pipeline` and `Research Pipeline Orchestr
 [[NotebookLM Skills]]
 [[Skills Architecture Patterns]]
 [[Decision: Obsidian vs NotebookLM as Knowledge Interface]]
+[[NotebookLM as Grounded Research Engine Not Just Note Storage]]
 [[Obsidian CLI]]
 [[OpenFleet]]
 [[Research Pipeline Orchestration]]

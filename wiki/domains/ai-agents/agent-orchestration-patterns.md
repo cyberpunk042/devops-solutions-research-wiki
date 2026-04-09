@@ -143,4 +143,6 @@ Cross-referencing the `Harness Engineering` and `Plan Execute Review Cycle` page
 [[MCP Integration Architecture]]
 [[Cross-Domain Patterns]]
 [[Deterministic Shell, LLM Core]]
+[[Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki]]
+[[Lesson: Automation Is the Bridge Between Knowledge and Action]]
 [[Multi-Channel AI Agent Access]]

@@ -140,6 +140,8 @@ Cross-referencing `Claude Code Best Practices` and `Context-Aware Tool Loading`:
 [[Local LLM Quantization]]
 [[MCP Integration Architecture]]
 [[OpenArms]]
+[[Pattern: Skills + Claude-Code]]
+[[Pattern: Skills + Mcp]]
 [[Plan Execute Review Cycle]]
 [[Skills Architecture Is the Dominant LLM Extension Pattern]]
 [[Synthesis: Claude Code Harness Engineering]]

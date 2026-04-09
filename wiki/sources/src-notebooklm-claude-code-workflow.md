@@ -93,3 +93,4 @@ Cross-referencing `notebooklm-py CLI` and `Decision: MCP vs CLI for Tool Integra
 [[Research Pipeline Orchestration]]
 [[LLM Wiki vs RAG]]
 [[Context-Aware Tool Loading]]
+[[NotebookLM as Grounded Research Engine Not Just Note Storage]]

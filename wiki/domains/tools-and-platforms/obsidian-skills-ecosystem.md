@@ -133,6 +133,8 @@ The three-layer ecosystem pattern (official spec → visual generation → deep 
 [[Obsidian CLI]]
 [[Obsidian as Knowledge Infrastructure Not Just Note-Taking]]
 [[OpenClaw]]
+[[Pattern: Skills + Obsidian]]
+[[Skill Specification Is the Key to Ecosystem Interoperability]]
 [[Synthesis: axtonliu/axton-obsidian-visual-skills]]
 [[Synthesis: kepano/obsidian-skills]]
 [[Synthesis: pablo-mano/Obsidian-CLI-skill]]

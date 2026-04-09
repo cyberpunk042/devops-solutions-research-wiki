@@ -136,6 +136,7 @@ Cross-referencing `Immune System Rules` and `Four-Project Ecosystem`: the orches
 [[Deterministic Shell, LLM Core]]
 [[Four-Project Ecosystem]]
 [[Gateway-Centric Routing]]
+[[Graph-Enhanced Retrieval Bridges Wiki Navigation and Vector Search]]
 [[Harness Engineering]]
 [[Immune System Rules]]
 [[Infrastructure as Code Patterns]]

@@ -70,3 +70,4 @@ Cross-referencing `notebooklm-py CLI` and `AI-Driven Content Pipeline`: the `not
 [[NotebookLM Skills]]
 [[Claude Code Skills]]
 [[NotebookLM]]
+[[NotebookLM as Grounded Research Engine Not Just Note Storage]]
