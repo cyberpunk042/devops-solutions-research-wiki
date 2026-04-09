@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-09T23:22:03.750418+00:00",
+  "generated": "2026-04-09T23:41:25.000337+00:00",
   "stats": {
-    "pages": 158,
+    "pages": 159,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
     "relationships": 1161,
-    "tags_unique": 608,
+    "tags_unique": 609,
     "layers": {
       "3": 5,
       "6": 5,
@@ -7215,6 +7215,30 @@
       "relationships": []
     },
     {
+      "path": "log/2026-04-09-directive-stop-guessing-false-claims.md",
+      "slug": "log/2026-04-09-directive-stop-guessing-false-claims",
+      "title": "Stop Guessing \u2014 False Claims in Models",
+      "type": "note",
+      "domain": "log",
+      "status": "active",
+      "confidence": "high",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "log",
+        "directive",
+        "quality",
+        "honesty",
+        "false-claims",
+        "context-management"
+      ],
+      "sources": [],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": []
+    },
+    {
       "path": "log/2026-04-09-directive-systemic-incompleteness.md",
       "slug": "log/2026-04-09-directive-systemic-incompleteness",
       "title": "Systemic Incompleteness \u2014 No Model Is Finished",
@@ -11115,7 +11139,7 @@
       "relationship_count": 201
     },
     "log": {
-      "page_count": 11,
+      "page_count": 12,
       "relationship_count": 0
     }
   },
@@ -11562,6 +11586,7 @@
       "domains/ai-agents/rework-prevention",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "lessons/lesson-convergence-on-claude-code-best-practices",
+      "log/2026-04-09-directive-stop-guessing-false-claims",
       "patterns/context-aware-tool-loading",
       "sources/src-claude-code-accuracy-tips",
       "sources/src-context-mode",
@@ -12314,6 +12339,7 @@
       "log/2026-04-09-directive-never-stop-at-surface",
       "log/2026-04-09-directive-quality-models-hub-mindset",
       "log/2026-04-09-directive-stop-claiming-readiness",
+      "log/2026-04-09-directive-stop-guessing-false-claims",
       "log/2026-04-09-directive-systemic-incompleteness",
       "spine/model-llm-wiki-standards",
       "spine/model-quality-failure-prevention"
@@ -13136,6 +13162,7 @@
       "log/2026-04-09-directive-quality-models-hub-mindset",
       "log/2026-04-09-directive-record-process-skills-supermodel",
       "log/2026-04-09-directive-stop-claiming-readiness",
+      "log/2026-04-09-directive-stop-guessing-false-claims",
       "log/2026-04-09-directive-systemic-incompleteness",
       "log/2026-04-09-directive-validate-second-brain-readiness",
       "log/2026-04-09-ingest-awesome-design-md"
@@ -13149,6 +13176,7 @@
       "log/2026-04-09-directive-quality-models-hub-mindset",
       "log/2026-04-09-directive-record-process-skills-supermodel",
       "log/2026-04-09-directive-stop-claiming-readiness",
+      "log/2026-04-09-directive-stop-guessing-false-claims",
       "log/2026-04-09-directive-systemic-incompleteness",
       "log/2026-04-09-directive-validate-second-brain-readiness",
       "log/2026-04-09-ingest-awesome-design-md"
@@ -13201,7 +13229,11 @@
     ],
     "honesty": [
       "log/2026-04-09-directive-stop-claiming-readiness",
+      "log/2026-04-09-directive-stop-guessing-false-claims",
       "log/2026-04-09-directive-systemic-incompleteness"
+    ],
+    "false-claims": [
+      "log/2026-04-09-directive-stop-guessing-false-claims"
     ],
     "systemic": [
       "log/2026-04-09-directive-systemic-incompleteness"

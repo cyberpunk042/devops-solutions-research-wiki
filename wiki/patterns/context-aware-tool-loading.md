@@ -46,7 +46,7 @@ Only load tool schemas, documentation, or external data into the context window 
 
 ## Pattern Description
 
-Every LLM agent operates within a fixed context window. Tokens loaded at startup for "just in case" access — full tool schemas, complete accessibility trees, all documentation, entire knowledge bases — occupy context budget before the first task-relevant token has been written. As context fills, Claude Code accuracy drops measurably: high at 20% usage, significantly degraded at 40%, unreliable at 60%+, producing bugs and hallucinations at 80%. Any mechanism that pre-loads information at session initialization accelerates movement along this degradation curve.
+Every LLM agent operates within a fixed context window. Tokens loaded at startup for "just in case" access — full tool schemas, complete accessibility trees, all documentation, entire knowledge bases — occupy context budget before the first task-relevant token has been written. As context fills, Claude Code accuracy drops measurably: observed by one practitioner to degrade at higher utilization (rough markers at 40%, 60%, 80% reported — probabilistic, not deterministic). Any mechanism that pre-loads information at session initialization accelerates movement along this degradation curve.
 
 The pattern that counters this is deferred loading: information is stored outside the context window (on disk as YAML, in an external knowledge base, behind a CLI boundary, in a documentation service) and retrieved only at the moment the agent determines it is necessary. The agent issues an explicit read, query, or fetch call, pulls a targeted subset of the available information, uses it for the immediate task, and does not carry it forward into subsequent turns unless required.
 

@@ -26,7 +26,7 @@ A practitioner's guide to 7 techniques for improving Claude Code accuracy, prese
 
 ## Key Insights
 
-- **Context degradation curve**: Accuracy is high at 20% context usage, drops significantly at 40%, becomes unreliable at 60%+, and produces bugs/hallucinations at 80%. Solution: status line progress bar to visualize context consumption and /clear before 50%.
+- **Context management matters**: One practitioner observed increased error rates at higher context utilization (mentioning 40%, 60%, 80% as rough markers). However, degradation is probabilistic, not deterministic — well-managed sessions can work effectively at high utilization. The practical advice: track context usage via status line, use subagents for isolation, prefer CLI+Skills over MCP to reduce baseline overhead. The specific percentage thresholds are this practitioner's observations, not measured benchmarks.
 
 - **Subagents solve context fragmentation**: Instead of one agent accumulating context, delegate backend/API/testing/review to separate subagents. Each gets a fresh context window, works in parallel, produces fewer bugs. The orchestrator dispatches tasks and collects results.
 

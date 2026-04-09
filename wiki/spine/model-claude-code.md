@@ -44,7 +44,7 @@ Claude Code is Anthropic's CLI coding agent — a tool-use loop that reads, writ
 
 - **Four-level extension system**: CLAUDE.md (static project config, always loaded), Skills (dynamic context loaded on demand via SKILL.md files), Hooks (26 lifecycle events for structural enforcement), Commands (lightweight slash triggers that inject prompts or invoke skills). Each level has a different cost-benefit profile and they compose into a coordinated harness.
 
-- **Context window is the primary constraint**: Accuracy is high at 20% context usage, degrades at 40%, becomes unreliable at 60%, and produces bugs at 80%. Every architectural decision — lean CLAUDE.md, deferred skill loading, CLI over MCP — traces back to managing this degradation curve.
+- **Context window is the primary constraint**: Context management directly affects output quality. Every architectural decision — lean CLAUDE.md, deferred skill loading, CLI over MCP — traces back to using context efficiently. Degradation at higher utilization is probabilistic, not deterministic — well-managed sessions can work effectively throughout, but careless context loading accelerates problems.
 
 - **CLI+Skills beats MCP for operational tasks**: A 12x cost differential measured on Playwright CLI vs MCP. MCP loads all tool schemas at startup; CLI+Skills loads nothing until invoked. MCP wins for external service bridges and tool discovery across conversations. See [[Decision: MCP vs CLI for Tool Integration]].
 
@@ -119,21 +119,22 @@ See [[Per-Role Command Architecture]] for role-segmented command palettes.
 
 Context management is not a technique — it is the primary lever on Claude Code output quality. The degradation curve defines the operating envelope:
 
-| Context Usage | Quality | Action |
-|---|---|---|
-| 0-20% | High accuracy, full attention | Normal operation |
-| 20-40% | Good, beginning to degrade | Monitor via /context |
-| 40-60% | Significant degradation | Compact manually with preservation instructions |
-| 60-80% | Unreliable, lost-in-the-middle | Summarize and start fresh session |
-| 80%+ | Bugs, hallucinations, missed instructions | Emergency: /clear immediately |
+**Note on context utilization**: One practitioner (former Amazon/Microsoft engineer) reported observing increased error rates at higher context usage percentages (40%, 60%, 80% thresholds). However, context degradation is PROBABILISTIC, not deterministic — a well-driven session with clean CLAUDE.md, proper skill loading, and good context management can work effectively to very high utilization without issues. The real principle: manage context proactively (lean CLAUDE.md, deferred skill loading, subagent isolation), but don't treat arbitrary thresholds as hard limits. Quality depends on HOW the context is used, not just how MUCH is used.
 
-The degradation is not gradual — it has identifiable knees at each threshold. This step-function behavior means staying below 60% is not a preference but an operational requirement.
+**What IS verified about context management:**
+- Session overhead exists — system prompts, tools, MCP schemas consume tokens before any conversation starts. Each connected MCP server adds to this baseline.
+- Subagent isolation gives each worker a fresh context window — this is a structural fact, not an observation.
+- Compaction reclaims space but loses detail — this is how the mechanism works, not a quality judgment.
+- CLI+Skills loads on demand vs MCP at startup — this is measurable and verified by the Playwright comparison.
 
-**Invisible overhead compounds.** A fresh session starts at ~51,000 tokens from system prompts, tools, memory files, and MCP schemas before any conversation. Every connected MCP server adds thousands more. Every message re-reads the entire conversation history, CLAUDE.md, and all loaded context — making costs geometric, not linear. Message 1 costs ~500 tokens; message 30 costs ~15,000 tokens.
+**What is NOT verified (presented as fact elsewhere in this wiki but actually one person's observation):**
+- The specific degradation thresholds (20%, 40%, 60%, 80%)
+- Whether degradation is a step function or gradual
+- The "51,000 token" baseline claim
+- The "5-minute prompt cache TTL" claim
+- The claim that quality "degrades regardless" after 3-4 compactions
 
-**Compaction is lifecycle management.** Manual compaction at 60% with specific preservation instructions ("keep the 5 design decisions and the current file list") reclaims space while preserving critical state. After 3-4 compactions, quality degrades regardless — the correct move is to get a session summary, /clear, and start fresh with the summary as input.
-
-**The 5-minute prompt cache TTL** means stepping away for 6 minutes costs a full context reprocessing on the next message. Either compact before breaks or keep them under 5 minutes.
+These need proper research or marking as unverified. See the source: a single YouTube video from one practitioner, not Anthropic documentation or measured benchmarks.
 
 See [[Claude Code Context Management]] for the full analysis.
 

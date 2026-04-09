@@ -73,7 +73,7 @@ The emerging practitioner consensus captured across multiple independent sources
 
 **Claude Code extension comparison table (claude-code.md):** The Claude Code concept page documents the loading behavior of each extension type. MCP is listed as "Always available" — meaning always loaded — while Skills are "Invoked by user or auto" — meaning contextual. The table makes the tradeoff structural, not incidental.
 
-**Context degradation curve (src-claude-code-accuracy-tips):** The same source documents that Claude Code accuracy drops significantly at 40% context usage and becomes unreliable at 60%+. Any mechanism that loads tokens into context at startup — before the task begins — consumes context budget that compounds this degradation curve sooner. MCP schema loading is a direct contributor to earlier context exhaustion in multi-tool setups.
+**Context degradation curve (src-claude-code-accuracy-tips):** The same source documents that Claude Code context management matters at higher utilization (one practitioner reported increased error rates around 40-60% — but this is probabilistic and session-dependent). Any mechanism that loads tokens into context at startup — before the task begins — consumes context budget that compounds this degradation curve sooner. MCP schema loading is a direct contributor to earlier context exhaustion in multi-tool setups.
 
 ## Applicability
 

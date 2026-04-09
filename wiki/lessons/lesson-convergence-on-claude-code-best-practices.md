@@ -52,13 +52,13 @@ CLAUDE.md is not a configuration file — it is a routing table. The insight fro
 
 Plan mode is a context isolation technique. By producing a plan before execution, you create a stable context artifact that constrains all subsequent steps. The biggest source of wasted tokens is not expensive models — it is Claude going down the wrong path and having to scrap work. Planning eliminates the wrong-path problem by front-loading the reasoning into a verifiable, correctable artifact.
 
-Subagents are context partitioning. Rather than letting one agent accumulate context across backend, API, testing, and review work, delegating to separate subagents gives each task a fresh context window. The accuracy tips source quantifies this: accuracy is high at 20% context usage, drops at 40%, becomes unreliable at 60%+. Subagent isolation prevents any single task from crossing the degradation threshold.
+Subagents are context partitioning. Rather than letting one agent accumulate context across backend, API, testing, and review work, delegating to separate subagents gives each task a fresh context window. Subagent isolation gives each task a fresh context window, preventing any single task from accumulating excessive context. The accuracy tips source describes context pressure as a factor — the specific thresholds mentioned (40%, 60%) are one practitioner's observations, not hard limits.
 
 Skills with `context: fork` extend this principle to tool use: skill execution happens in an isolated subagent, so intermediate tool calls do not pollute the main conversation's context window. The orchestrator only sees the final result.
 
 ## Evidence
 
-From the Claude Code Accuracy Tips synthesis: "Context degradation curve: Accuracy is high at 20% context usage, drops significantly at 40%, becomes unreliable at 60%+, and produces bugs/hallucinations at 80%. Solution: status line progress bar to visualize context consumption and /clear before 50%."
+From the Claude Code Accuracy Tips synthesis: "Context degradation curve: Accuracy is observed by one practitioner to degrade at higher utilization (they reported rough markers at 40%, 60%, 80% — but degradation is probabilistic, not deterministic, and well-managed sessions can work effectively at high utilization). Solution: status line progress bar to visualize context consumption and /clear before 50%."
 
 From Claude Code Best Practices: "CLAUDE.md is an index, not an encyclopedia: Keep it under 200 lines. Treat it as a routing table that tells Claude where to find detailed information, not as the detailed information itself. Every message re-reads the entire CLAUDE.md, so bloat compounds across every interaction."
 
