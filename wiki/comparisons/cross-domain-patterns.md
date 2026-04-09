@@ -147,10 +147,18 @@ Certain structural patterns recur independently across multiple domains in this 
 
 ## Open Questions
 
-- Are there additional cross-domain patterns not yet surfaced? The `pipeline crossref` command may identify more as wiki density grows.
-- Does the recurrence of these six patterns imply a small set of universal LLM agent design principles — a "first principles" layer for agent systems?
-- Which patterns are more domain-specific (applying well in ai-agents but weakly in knowledge-systems) vs. genuinely universal?
-- As the wiki grows, will new patterns emerge that are currently invisible because they require more instances to recognize?
+- Are there additional cross-domain patterns not yet surfaced? The `pipeline crossref` command may identify more as wiki density grows. (Requires: running `pipeline crossref` as wiki density increases; not answerable from current static cross-referencing)
+- As the wiki grows, will new patterns emerge that are currently invisible because they require more instances to recognize? (Requires: future wiki state; unanswerable until more instances accumulate)
+
+### Answered Open Questions
+
+**Q: Does the recurrence of these six patterns imply a small set of universal LLM agent design principles — a "first principles" layer for agent systems?**
+
+Cross-referencing the `Plan Execute Review Cycle` pattern page and the `Context-Aware Tool Loading` pattern page: yes, and those pages articulate the first principles explicitly. The `Plan Execute Review Cycle` page states: "The pattern emerges not from shared design but from shared necessity — unconstrained execution without planning produces drift, and execution without review produces silent failure." The `Context-Aware Tool Loading` page states: "Because accuracy is directly coupled to signal-to-noise ratio, deferred loading is the default-correct choice for any information source that is not required on every single turn." These are first-principle derivations, not stylistic choices. The six patterns in this page reduce to three constraints: (1) **Bounded context window** → Context-Aware Tool Loading, Progressive Distillation; (2) **LLM reasoning is probabilistic** → Deterministic Shell + LLM Core, Plan-Execute-Review Cycle; (3) **N independent deployments drift** → Gateway-Centric Routing, Atomic Units + Typed Links. The `Agent Orchestration Patterns` page confirms the meta-principle: "Unbounded LLM behavior needs structural constraints to produce reliable results." The six patterns are six responses to three first-principle constraints — evidence of a compact, principled design space rather than an arbitrary collection of practices.
+
+**Q: Which patterns are more domain-specific (applying well in ai-agents but weakly in knowledge-systems) vs. genuinely universal?**
+
+Cross-referencing the `Four-Project Ecosystem`, `Plan Execute Review Cycle`, and `Context-Aware Tool Loading` pages: the domain-specificity of each pattern can be assessed by counting its cross-domain instances documented in the pattern pages and comparison matrix above. **Genuinely universal (3+ independent domains)**: Plan-Execute-Review Cycle (ai-agents, knowledge-systems, automation, tools-and-platforms — 4 domains), Progressive Distillation (knowledge-systems, ai-agents — with Zettelkasten, PARA, and this wiki as independent instances), Atomic Units + Typed Links (knowledge-systems, ai-agents, devops-tooling). **More domain-specific**: Gateway-Centric Routing applies strongly to distributed systems (ai-agents, tools-and-platforms) but weakly in knowledge-systems where there is no routing problem; Deterministic Shell + LLM Core is most native to ai-agents/automation and requires adaptation in knowledge-systems (the wiki's post-chain is the closest analog). **Context-Aware Tool Loading** applies universally to any system where a fixed resource (context window, memory, bandwidth) is shared between multiple information sources — making it one of the most broadly applicable patterns despite originating in ai-agents. The `Four-Project Ecosystem` page confirms this by showing the pattern appears in both the CLI tools layer and the research wiki's MCP architecture.
 
 ## Relationships
 

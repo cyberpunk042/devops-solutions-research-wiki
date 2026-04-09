@@ -103,10 +103,18 @@ Effective nesting requires clear promotion semantics: inner cycle outputs become
 
 ## Open Questions
 
-- At what fleet size does a deterministic orchestrator require distributed coordination (e.g., task locks, partition-aware dispatch)?
-- Can the 5-verb harness workflow be extended to multi-agent handoffs where Work is divided across specialized agents?
-- What is the minimal orchestration overhead for a 2-agent system where the full 12-step cycle is overkill?
-- How do orchestration patterns change when agents can modify their own dispatch criteria (self-scheduling)?
+- At what fleet size does a deterministic orchestrator require distributed coordination (e.g., task locks, partition-aware dispatch)? (Requires: external research on distributed orchestration; the OpenFleet page documents the current 10-agent ceiling and notes "20, 50" as open scale questions without documented answers in existing wiki pages)
+- How do orchestration patterns change when agents can modify their own dispatch criteria (self-scheduling)? (Requires: external research on self-scheduling agent architectures; not covered in existing wiki pages)
+
+### Answered Open Questions
+
+**Q: Can the 5-verb harness workflow be extended to multi-agent handoffs where Work is divided across specialized agents?**
+
+Cross-referencing the `OpenFleet` and `Rework Prevention` pages: yes, and OpenFleet is the concrete instantiation. The `OpenFleet` page documents 10 specialized agent roles (fleet-ops, architect, qa-engineer, software-engineer, etc.) each receiving bounded scoped tasks dispatched by the deterministic orchestrator. The `Rework Prevention` page documents the "Prevention Strategy Layer 1" insight: "Identify all files/systems that will be modified and confirm scope is correct" — the pre-condition for multi-agent Work division is explicit scope assignment per agent. The 5-verb harness workflow maps to multi-agent handoffs as: Setup (done once by orchestrator), Plan (orchestrator + planner agent divide work into scoped sub-tasks), Work (each specialized agent executes its scoped task), Review (each agent's output reviewed before the next agent receives it as input), Release (orchestrator validates all agent outputs meet the global spec). The `Agent Orchestration Patterns` page's own "Sub-Agent Dispatch Model" section describes this explicitly: "define the task boundary, initialize fresh context, collect output, validate, integrate" as the four steps before passing output to the next agent. The key constraint: sub-agents must receive fresh context focused on their single task, not the accumulated work of prior agents — OpenFleet's pre-embed step (step 4 in the orchestrator cycle) implements this at fleet scale.
+
+**Q: What is the minimal orchestration overhead for a 2-agent system where the full 12-step cycle is overkill?**
+
+Cross-referencing the `Harness Engineering` and `Plan Execute Review Cycle` pages: the `Harness Engineering` page documents a 5-level hierarchy, and the minimal viable orchestration level for a 2-agent system is Level 2 (workflow orchestration via skills/pipeline.py) — not Level 4 (deterministic orchestration). The `Plan Execute Review Cycle` page's "When Not To" section directly addresses this: "in high-frequency, low-stakes loops, mandatory human review at each cycle is counterproductive. OpenFleet's solution is automated review (deterministic checks), not skipped review." For a 2-agent system, the minimal harness is: (1) explicit scope boundary per agent (what each agent receives and must not touch), (2) fresh context initialization per task, (3) one hard gate — the post-chain's validate step (exit code 1 blocks completion). The `Harness Engineering` page's Level 2 implementation is this project's own pipeline chains: `python3 -m tools.pipeline chain ingest` sequences extract → write → post-chain without the full 12-step cycle. The three-element minimal harness (scope boundary + fresh context + one hard gate) provides the load-bearing structure of Plan→Execute→Review without the OpenFleet overhead designed for 10 agents and 30-second cycles.
 
 ## Relationships
 

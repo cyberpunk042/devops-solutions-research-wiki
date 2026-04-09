@@ -60,11 +60,26 @@ The emphasis on the schema as "the real product" is a meta-insight that reframes
 
 ## Open Questions
 
-- How does confidence scoring work in practice -- is it metadata in YAML frontmatter, inline annotations, or a separate data structure?
-- What is the computational cost of the four-tier consolidation pipeline, and how often should promotion between tiers occur?
-- Does the knowledge graph layer require a separate graph database, or can it be embedded in the markdown files?
-- How does mesh sync handle semantic conflicts (two agents writing contradictory facts) versus structural conflicts (two agents editing the same page)?
-- What does the agentmemory implementation look like in practice -- is there a working open-source reference?
+- What does the agentmemory implementation look like in practice -- is there a working open-source reference? (Requires: external research on the iii-engine and agentmemory GitHub repositories; not covered in existing wiki pages)
+- How does mesh sync handle semantic conflicts (two agents writing contradictory facts) versus structural conflicts (two agents editing the same page)? (Requires: external research on distributed wiki merge strategies; existing wiki pages only document last-write-wins as a v2 proposal without implementation details)
+
+### Answered Open Questions
+
+**Q: How does confidence scoring work in practice -- is it metadata in YAML frontmatter, inline annotations, or a separate data structure?**
+
+Cross-referencing the `Knowledge Evolution Pipeline` page and this wiki's own CLAUDE.md schema: this wiki's implementation of confidence scoring uses YAML frontmatter metadata. The `confidence` field in every page's frontmatter accepts `low`, `medium`, `high`, or `authoritative` levels. The `Knowledge Evolution Pipeline` page documents that confidence evolves through the maturity ladder — a `seed` page carries `low` or `medium` confidence by default, while a `canonical` page requires `high` or `authoritative` confidence as part of its promotion criteria. The LLM Wiki v2 document proposes Ebbinghaus-style decay over time, but the current implementation uses discrete levels rather than a continuous decay function. The pattern from existing wiki pages is: frontmatter is the correct data structure for confidence metadata because it is machine-parseable (the scorer reads it), human-visible (editors see it in YAML), and compatible with the Obsidian graph view (filterable by frontmatter field). Inline annotations and separate data structures would break the manifest regeneration pipeline.
+
+**Q: What is the computational cost of the four-tier consolidation pipeline, and how often should promotion between tiers occur?**
+
+Cross-referencing the `Knowledge Evolution Pipeline` page: the pipeline's scoring step is fully deterministic (pure Python, zero LLM calls), making its computational cost negligible. The expensive step is generation — sending assembled prompts to an LLM backend. The `Knowledge Evolution Pipeline` documents three backends: Claude Code (highest capability, highest cost), OpenAI/LocalAI (mid-tier, can use local hermes-3b for free), and AICP (routes through the fleet). For tier promotion, the page establishes that: (1) the scorer produces identical rankings on the same wiki state (deterministic), so running it multiple times without new ingestion is wasteful; (2) the recommended cadence from cross-referencing `Second Brain Architecture` and `PARA Methodology` is weekly triggered runs supplemented by threshold-based triggering after 5+ new pages are ingested. The practical cost model: scoring costs nothing; generation costs depend on the backend chosen; the full evolve loop should run weekly, not continuously.
+
+**Q: Does the knowledge graph layer require a separate graph database, or can it be embedded in the markdown files?**
+
+Cross-referencing the `LLM Wiki vs RAG` and `LLM Wiki Pattern` pages, plus the `Four-Project Ecosystem` page: the current implementation confirms that the knowledge graph layer is fully embedded in the markdown files via the `## Relationships` section. The `Four-Project Ecosystem` page documents that `kb_sync.py` parses these sections — specifically the regex `^([A-Z][A-Z /\-]+?):\s*(.+)$` — and builds 2,295 explicit relationships from 219 KB entries into LightRAG without any separate graph database. The `LLM Wiki Pattern` page states: "The wiki's explicit typed relationships enable multi-hop reasoning that RAG cannot replicate." A separate graph database (Neo4j, etc.) becomes necessary only when the wiki grows beyond the scale where link-following in markdown files is computationally expensive — the `LLM Wiki vs RAG` comparison sets that ceiling at ~200 pages for index-only navigation. At this wiki's current scale, the markdown-embedded graph layer is both sufficient and preferred for its zero-infrastructure cost.
+
+**Q: How does mesh sync handle semantic conflicts (two agents writing contradictory facts) versus structural conflicts (two agents editing the same page)?**
+
+Partially answerable from existing wiki knowledge: structural conflicts (two agents editing the same page) are handled by the post-chain's validation step — `python3 -m tools.validate` runs after every write and returns exit code 1 on schema errors, blocking malformed pages. The `Knowledge Evolution Pipeline` documents that `CONTRADICTS` typed relationships plus the lint pipeline's contradiction resolution step handle semantic conflicts: conflicting claims are linked bidirectionally with `CONTRADICTS`, the lint pass surfaces them with a recommended resolution (favoring higher source recency and authority), and the `--review` human gate is the final arbiter. The LLM Wiki v2's "last-write-wins for most cases, timestamp-based resolution for conflicts" proposal maps to git's merge semantics already built into this wiki (it is a git repo). Full mesh sync between multiple live agents simultaneously writing to the same markdown file still requires: external research on distributed wiki merge strategies; the existing wiki pages only document single-writer operation.
 
 ## Relationships
 

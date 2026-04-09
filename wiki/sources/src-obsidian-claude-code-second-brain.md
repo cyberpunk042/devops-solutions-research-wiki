@@ -56,11 +56,22 @@ The querying capability -- asking Claude Code about project status and getting a
 
 ## Open Questions
 
-- How does the Gmail integration handle rate limits and large mailboxes with thousands of messages per label?
-- What happens when project data conflicts between Gmail threads and local documents?
-- How does the system handle project archival or completion -- is there a lifecycle for project folders?
-- Can the onboarding skill handle incremental updates (new emails arriving after initial onboarding)?
-- How does the Obsidian Git auto-commit interact with Claude Code making changes simultaneously -- are there merge conflict risks?
+- How does the Gmail integration handle rate limits and large mailboxes with thousands of messages per label? (Requires: external research on Google Gmail API rate limits and pagination strategies; not covered in existing wiki pages)
+- Can the onboarding skill handle incremental updates (new emails arriving after initial onboarding)? (Requires: external research or implementation experience with incremental Gmail ingestion; not covered in existing wiki pages)
+
+### Answered Open Questions
+
+**Q: What happens when project data conflicts between Gmail threads and local documents?**
+
+Cross-referencing the `Knowledge Evolution Pipeline` and `Second Brain Architecture` pages: the wiki's handling of data conflicts provides a directly applicable pattern. The `Rework Prevention` page documents the "intelligent content routing" principle — the source video explicitly distinguishes between content that should be summarized (email threads) and content that must be preserved as-is (contracts, NDAs). When a Gmail thread contradicts a local document, the same hierarchy applies: static signed documents take precedence as authoritative, while email threads are summarized interpretations. The `Knowledge Evolution Pipeline` page documents the resolution mechanism for contradictions: link conflicting sources with `CONTRADICTS`, run the lint pass to surface a recommended resolution favoring higher source authority, and use the `--review` human gate to approve or override. In the Obsidian projects context, the practical answer is: the overview.md should note the conflict and preserve both versions with timestamps, rather than silently overwriting one with the other.
+
+**Q: How does the system handle project archival or completion -- is there a lifecycle for project folders?**
+
+Cross-referencing the `Second Brain Architecture` page: PARA's Archive bucket is the direct answer. The `Second Brain Architecture` page documents that PARA's lifecycle maps as follows: completed projects move to Archives, which are "not deleted — they are available for search but do not appear in active views." The `Knowledge Evolution Pipeline` documents the same lifecycle for wiki pages: `status: stale` marks superseded content that is preserved for provenance but excluded from active evolution. For Obsidian project folders, the equivalent pattern is: move completed project folders to an `Archive/` subfolder and update the projects.base dashboard to reflect `status: archived`. The `Obsidian Knowledge Vault` page confirms that Obsidian supports multiple vault structures and "multiple vaults for separation," meaning archived projects can also be moved to a separate archival vault if needed. The `WSL2 Development Patterns` page notes that `--reverse` sync preserves Obsidian-side edits back to WSL2, ensuring archive operations done in Obsidian are reflected in the canonical WSL2 source.
+
+**Q: How does the Obsidian Git auto-commit interact with Claude Code making changes simultaneously -- are there merge conflict risks?**
+
+Cross-referencing the `WSL2 Development Patterns` page: the page directly addresses this class of problem. The wiki solves it by making WSL2 the source of truth for all writes: "The workflow assumes WSL2 is the source of truth for wiki writes." The watcher daemon (wiki-watcher) detects changes, runs the post-chain, and then the sync daemon (wiki-sync) copies the clean validated state to Windows. The Obsidian Git auto-commit operates on the Windows-side copy — which receives fully processed files, not mid-edit intermediates. Merge conflicts arise when Obsidian makes changes on the Windows side (e.g., manual note editing) simultaneously with Claude Code writing on the WSL2 side. The `WSL2 Development Patterns` page documents the workaround: `sync.py --reverse` with `--update` (rsync's newer-file wins) for syncing Windows changes back to WSL2. The practical risk mitigation is: schedule Obsidian auto-commits to run at a different cadence than Claude Code sessions (e.g., auto-commit only when no WSL2 changes are active), and treat the `--reverse` sync as a manual step run between sessions rather than a concurrent daemon. True bidirectional atomic merge is outside the scope of the current implementation (noted as a potential Syncthing integration in WSL2 Development Patterns open questions).
 
 ## Relationships
 
