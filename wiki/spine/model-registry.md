@@ -42,13 +42,13 @@ Every model follows the same three-layer structure:
 | [[Model: MCP and CLI Integration]] | 283 | — | growing | Tool integration |
 | [[Model: Ecosystem Architecture]] | 293 | — | growing | Project topology |
 | [[Model: Design.md and IaC]] | 261 | — | growing | Agent config patterns |
-| [[Model: NotebookLM]] | 172 | — | growing | Research tooling |
+| [[Model: NotebookLM]] | 229 | — | growing | Research tooling |
 | [[Model: SFIF and Architecture]] | 170 | — | growing | Build lifecycle |
-| [[Model: Second Brain]] | 163 | — | growing | PKM theory |
-| [[Model: Local AI ($0 Target)]] | 147 | — | growing | Cost reduction |
-| [[Model: Automation and Pipelines]] | 144 | — | growing | Pipeline orchestration |
+| [[Model: Second Brain]] | 226 | — | growing | PKM theory |
+| [[Model: Local AI ($0 Target)]] | 204 | — | growing | Cost reduction |
+| [[Model: Automation and Pipelines]] | 202 | — | growing | Pipeline orchestration |
 
-**Status:** 7 models done with full depth + standards pages. 8 models need the full treatment (document → design → implement → test).
+**Status:** 13 of 15 models elevated with standard sections (Key Pages, Lessons Learned, State of Knowledge, How to Adopt, callout styling). 2 models (Methodology, Wiki Design) use their own structure as super-model and design model respectively.
 
 ## The Super-Model
 

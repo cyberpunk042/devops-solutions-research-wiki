@@ -67,18 +67,21 @@ These three patterns are not just theoretical. They are implemented via `python3
 
 [[Wiki Event-Driven Automation]] describes the six hooks that extend the pipeline beyond manual invocation:
 
-| Hook | Trigger | Implementation |
-|------|---------|----------------|
-| On new source | File dropped in `raw/` | `tools/watcher.py` → post-chain |
-| On session start | Claude Code conversation open | Load context skill |
-| On session end | Stop hook | Crystallize session into wiki page |
-| On query | PostToolUse hook | Quality-score the answer, auto-file if threshold met |
-| On memory write | Memory tool call | Contradiction check against existing pages |
-| On schedule | systemd timer | Periodic lint + consolidation |
+> [!info] Event hooks reference
+>
+> | Hook | Trigger | Implementation |
+> |------|---------|----------------|
+> | On new source | File dropped in `raw/` | `tools/watcher.py` → post-chain |
+> | On session start | Claude Code conversation open | Load context skill |
+> | On session end | Stop hook | Crystallize session into wiki page |
+> | On query | PostToolUse hook | Quality-score the answer, auto-file if threshold met |
+> | On memory write | Memory tool call | Contradiction check against existing pages |
+> | On schedule | systemd timer | Periodic lint + consolidation |
 
 The watcher daemon (`python -m tools.watcher --watch`) covers the filesystem-triggered hooks. It polls for changes (not inotify — see [[Decision: Polling vs Event-Driven Change Detection]] for the WSL2 portability rationale), detects new files in `raw/`, and fires the post-chain automatically.
 
-**Crystallization** is the most powerful of these hooks: a completed debugging session, research thread, or analysis becomes a structured wiki page automatically — capturing the reasoning before the session context evaporates.
+> [!tip] Crystallization is the most powerful hook
+> A completed debugging session, research thread, or analysis becomes a structured wiki page automatically — capturing the reasoning before the session context evaporates.
 
 ### The Quality Enforcement Loop
 
@@ -98,6 +101,8 @@ This loop means the wiki degrades gracefully under load. A burst of 50 new pages
 
 ### Automation Boundaries
 
+> [!warning] The pipeline is a force multiplier for human judgment, not a replacement for it.
+
 The automation model deliberately does not automate judgment. The pipeline handles:
 - Mechanical validation (schema, structure, relationships)
 - Graph maintenance (indexes, manifests, wikilinks)
@@ -110,14 +115,68 @@ It does NOT automate:
 - Relationship semantics (BUILDS ON vs RELATES TO is a judgment call)
 - Evolution decisions (which pages to promote from seed to canonical)
 
-These boundary conditions are intentional. The pipeline is a force multiplier for human judgment, not a replacement for it.
+### Key Pages
+
+| Page | Layer | Role in the model |
+|------|-------|-------------------|
+| [[Research Pipeline Orchestration]] | concept | The architectural vision for automated knowledge acquisition |
+| [[Wiki Event-Driven Automation]] | concept | Event hooks that extend the pipeline beyond manual invocation |
+| [[Plan Execute Review Cycle]] | pattern | The recurring 3-phase cycle the pipeline implements |
+| [[Decision: Polling vs Event-Driven Change Detection]] | decision | Why polling over inotify on WSL2 |
+| [[Multi-Stage Ingestion Beats Single-Pass Processing]] | lesson | Why multi-pass is architecturally fundamental |
+| [[Automated Knowledge Validation Prevents Silent Wiki Decay]] | lesson | Why the post-chain is non-negotiable |
+
+### Lessons Learned
+
+| Lesson | What was learned |
+|--------|-----------------|
+| The pipeline is the product, not just the pages | A wiki with 500 pages but no pipeline degrades; 100 pages with a functioning pipeline compounds |
+| Multi-pass ingestion is non-negotiable | Single-pass produces thin pages with weak relationships; Extract → Cross-ref → Gap → Deepen is the correct model |
+| Automation boundaries must be explicit | Automating judgment (relationship semantics, evolution decisions) causes silent quality erosion |
+
+### State of Knowledge
+
+> [!success] Well-covered
+> - The 6-step post-chain and why each step is mandatory
+> - Three execution patterns (sequential, parallel, tree) with concrete implementations
+> - Event-driven hooks and the watcher daemon
+> - Automation boundaries (what to automate vs what requires human judgment)
+
+> [!warning] Thin or missing
+> - Parallel post-chain feasibility (currently sequential, no analysis of safe parallelism)
+> - Crystallization quality threshold (no formal score defined)
+> - Tree depth limits (3 passes mentioned but not empirically validated)
+
+### How to Adopt
+
+> [!info] What you need
+> - `tools/pipeline.py` as the primary entry point for all operations
+> - `tools/watcher.py` for filesystem-triggered automation
+> - Named chains configured for your workflow (`ingest`, `analyze`, `full`, `health`, `evolve`)
+
+> [!warning] Invariants (do not change per project)
+> - The post-chain runs after every wiki change — no exceptions, no partial runs
+> - Validation (step 3) blocks completion — errors are not warnings
+> - Event hooks fire deterministically — no probabilistic triggers
+
+> [!tip] Per-project adaptations
+> - Chain definitions can be extended with project-specific steps
+> - Watcher poll interval adjustable per environment (`--interval` flag)
+> - Event hook set can grow — on-deploy, on-merge, on-release are natural extensions for sister projects
 
 ## Open Questions
 
-- **Parallel post-chain**: Can the 6 steps be partially parallelized (e.g., lint and obsidian run concurrently after manifest)? Current implementation is purely sequential.
-- **Failure recovery**: If step 3 (validation) fails, should the chain attempt partial repair or halt completely? Current behavior is halt.
-- **Crystallization threshold**: What quality score should trigger auto-filing from session hooks? No formal threshold is implemented yet.
-- **Tree depth limits**: How many deepening passes before diminishing returns? The target architecture mentions 3 passes but no empirical data supports this number.
+> [!question] Parallel post-chain
+> Can the 6 steps be partially parallelized (e.g., lint and obsidian run concurrently after manifest)? Current implementation is purely sequential.
+
+> [!question] Failure recovery
+> If step 3 (validation) fails, should the chain attempt partial repair or halt completely? Current behavior is halt.
+
+> [!question] Crystallization threshold
+> What quality score should trigger auto-filing from session hooks? No formal threshold is implemented yet.
+
+> [!question] Tree depth limits
+> How many deepening passes before diminishing returns? The target architecture mentions 3 passes but no empirical data supports this number.
 
 ## Relationships
 
@@ -140,5 +199,4 @@ These boundary conditions are intentional. The pipeline is a force multiplier fo
 [[Model: NotebookLM]]
 [[Plan Execute Review Cycle]]
 [[Decision: Polling vs Event-Driven Change Detection]]
-[[Model: Design.md and IaC]]
 [[Model: Second Brain]]

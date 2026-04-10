@@ -63,25 +63,29 @@ Where PARA is a language of action (what do I need right now?), Zettelkasten is 
 
 The mapping is deliberate, not coincidental:
 
-| PKM Concept | This Wiki |
-|-------------|-----------|
-| Capture (CODE) | `raw/` — everything dropped here first |
-| Organize (CODE) | Domain routing during ingestion |
-| Distill (CODE) | Evolution pipeline (seed → canonical) |
-| Express (CODE) | Export to openfleet, AICP, DSPD |
-| Projects (PARA) | Active research topics in `raw/` queue |
-| Areas (PARA) | `wiki/domains/` — ongoing knowledge areas |
-| Resources (PARA) | `wiki/sources/` — synthesized source pages |
-| Archives (PARA) | `status: stale` pages, kept for provenance |
-| Fleeting notes | `raw/notes/` — session directives and captures |
-| Literature notes | `wiki/sources/src-*.md` — synthesized from sources |
-| Permanent notes | `wiki/domains/` concept pages — own-voice synthesis |
-| Heterarchical links | `## Relationships` + Obsidian wikilinks |
-| Maturity progression | seed → growing → mature → canonical |
+> [!info] PKM-to-wiki mapping reference
+>
+> | PKM Concept | This Wiki |
+> |-------------|-----------|
+> | Capture (CODE) | `raw/` — everything dropped here first |
+> | Organize (CODE) | Domain routing during ingestion |
+> | Distill (CODE) | Evolution pipeline (seed → canonical) |
+> | Express (CODE) | Export to openfleet, AICP, DSPD |
+> | Projects (PARA) | Active research topics in `raw/` queue |
+> | Areas (PARA) | `wiki/domains/` — ongoing knowledge areas |
+> | Resources (PARA) | `wiki/sources/` — synthesized source pages |
+> | Archives (PARA) | `status: stale` pages, kept for provenance |
+> | Fleeting notes | `raw/notes/` — session directives and captures |
+> | Literature notes | `wiki/sources/src-*.md` — synthesized from sources |
+> | Permanent notes | `wiki/domains/` concept pages — own-voice synthesis |
+> | Heterarchical links | `## Relationships` + Obsidian wikilinks |
+> | Maturity progression | seed → growing → mature → canonical |
 
 The parallel is not perfect — the wiki is richer than either framework alone — but the structural DNA is directly traceable to both.
 
 ### What Makes This a Second Brain vs Just a Wiki
+
+> [!tip] The test: does the system surface insights you did not explicitly put in? If two unrelated notes link and generate a novel insight, the system has passed.
 
 A wiki is a structured reference system. A second brain is a generative knowledge system. The distinction:
 
@@ -113,7 +117,8 @@ Obsidian is not where the wiki lives — the wiki lives in `wiki/` as plain Mark
 
 ### The Maintenance Problem and Its Solution
 
-Every personal wiki before this one failed for the same structural reason: **maintenance cost grows super-linearly with page count**. Adding the 100th page requires updating relationships in 15 existing pages. Adding the 500th page requires updating 80. The human eventually gives up.
+> [!bug] The failure mode that killed every previous wiki
+> Maintenance cost grows super-linearly with page count. Adding the 100th page requires updating relationships in 15 existing pages. Adding the 500th page requires updating 80. The human eventually gives up.
 
 The automation stack solves this at the architectural level:
 - **Post-chain** — Rebuilds indexes, regenerates manifest, validates schema, regenerates wikilinks automatically after every change
@@ -130,12 +135,70 @@ The distinguishing property of a second brain vs a reference library is compound
 
 The maturity ladder makes this compounding visible: a page starts as `seed` (thin, few relationships), grows to `growing` (enriched, multiple backlinks), then `mature` (comprehensive, dense cross-references), and finally `canonical` (the definitive reference in its domain). The evolution pipeline tracks this progression and prompts enrichment at each stage.
 
+### Key Pages
+
+| Page | Layer | Role in the model |
+|------|-------|-------------------|
+| [[Second Brain Architecture]] | concept | Core architecture definition |
+| [[PARA Methodology]] | concept | Action-oriented organization framework |
+| [[Zettelkasten Methodology]] | concept | Idea-density and connection framework |
+| [[Obsidian Knowledge Vault]] | concept | Graph interface for navigation at scale |
+| [[Progressive Distillation]] | pattern | The core value loop (raw → refined) |
+| [[LLM-Maintained Wikis Outperform Static Documentation]] | lesson | Why LLM automation changes the game |
+| [[The Wiki Maintenance Problem Is Solved by LLM Automation]] | lesson | The specific innovation enabling sustainability |
+
+### Lessons Learned
+
+| Lesson | What was learned |
+|--------|-----------------|
+| PARA + Zettelkasten are complementary, not competing | PARA solves retrieval ("where is it?"), Zettelkasten solves generation ("what connects?") — implement both |
+| Automation eliminates the maintenance death spiral | Every previous wiki died from super-linear maintenance cost; the post-chain and watcher daemon reduce that cost to near-zero |
+| Connection density is the value metric, not page count | A wiki with 500 pages and weak links is a file cabinet; 100 pages with dense relationships is a research engine |
+
+### State of Knowledge
+
+> [!success] Well-covered
+> - PARA mapping (CODE workflow, four buckets → wiki directories)
+> - Zettelkasten mapping (three note types → raw/sources/domains)
+> - The maintenance problem and its automation solution
+> - Obsidian as graph infrastructure, not just an editor
+
+> [!warning] Thin or missing
+> - No empirical threshold for when connection density produces emergent insights
+> - No formal "Projects" equivalent in the wiki (PARA gap)
+> - Stale page handling policy (passive `status: stale` vs active archival)
+
+### How to Adopt
+
+> [!info] What you need
+> - A `raw/` folder for all incoming material (Capture)
+> - Domain-routed `wiki/` folders with `_index.md` per domain (Organize)
+> - The evolution pipeline for maturity progression (Distill)
+> - Export profiles for downstream projects (Express)
+
+> [!warning] Invariants (do not change per project)
+> - Every page must have `## Relationships` — connection density is the primary value metric
+> - The maturity ladder (seed → growing → mature → canonical) is the distillation mechanism
+> - The post-chain runs after every change — no exceptions
+
+> [!tip] Per-project adaptations
+> - Domain folder structure grows organically — no need to pre-plan all domains
+> - Obsidian graph view configuration varies by vault size and density
+> - Export profiles are project-specific (openfleet, AICP, DSPD each have different needs)
+
 ## Open Questions
 
-- **Is there a measurable threshold for relationship density that indicates "second brain" behavior?** The crossref tool can count relationships per page, but what ratio of relationships to pages indicates a genuinely generative system vs a well-organized collection?
-- **How should stale pages be handled in the PARA model?** PARA's Archives bucket suggests active archival; the wiki's `status: stale` is a passive marker. Should stale pages be moved to an explicit archive domain?
-- **Does the wiki need a "Projects" equivalent?** PARA's Projects bucket — active work with a deadline — has no direct wiki analog. Should active research campaigns get a `wiki/projects/` layer?
-- **Zettelkasten emergence at scale.** Luhmann needed 90,000 notes before his Zettelkasten became a genuine conversation partner. At what page count does this wiki's connection graph start generating non-obvious insights reliably?
+> [!question] Relationship density threshold
+> Is there a measurable threshold for relationship density that indicates "second brain" behavior? The crossref tool can count relationships per page, but what ratio indicates a genuinely generative system vs a well-organized collection?
+
+> [!question] Stale page handling in PARA
+> PARA's Archives bucket suggests active archival; the wiki's `status: stale` is a passive marker. Should stale pages be moved to an explicit archive domain?
+
+> [!question] Does the wiki need a "Projects" equivalent?
+> PARA's Projects bucket — active work with a deadline — has no direct wiki analog. Should active research campaigns get a `wiki/projects/` layer?
+
+> [!question] Zettelkasten emergence at scale
+> Luhmann needed 90,000 notes before his Zettelkasten became a genuine conversation partner. At what page count does this wiki's connection graph start generating non-obvious insights reliably?
 
 ## Relationships
 
