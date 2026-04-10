@@ -245,6 +245,7 @@ Stage-Gate Methodology is the 5-stage sequential system — Document → Design 
 [[Decision: Execution Mode Edge Cases]]
 [[Decision: Hooks Design Decisions]]
 [[Decision: Methodology Framework Design Decisions]]
+[[Decision: Stage-Gate Operational Decisions]]
 [[Decision: Task Type Edge Cases]]
 [[Infrastructure Must Be Reproducible, Not Manual]]
 [[LLM Wiki Standards — What Good Looks Like]]

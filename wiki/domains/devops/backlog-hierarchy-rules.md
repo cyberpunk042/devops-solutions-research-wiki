@@ -293,5 +293,6 @@ Signal: The acceptance criteria (documented in the epic's design stage) were nev
 [[Spec-Driven Development]]
 [[Immune System Rules]]
 [[Decision: Execution Mode Edge Cases]]
+[[Decision: Stage-Gate Operational Decisions]]
 [[Methodology Framework]]
 [[Model: Methodology]]

@@ -143,6 +143,7 @@ The convergence: a spec is insufficient if it is vague, missing acceptance crite
 [[Harness Engineering]]
 [[Wiki Backlog Pattern]]
 [[Backlog Hierarchy Rules]]
+[[Decision: Stage-Gate Operational Decisions]]
 [[Methodology Framework]]
 [[Model: Methodology]]
 [[Stage-Gate Methodology]]

@@ -236,6 +236,7 @@ The SFIF (Scaffold → Foundation → Infrastructure → Features) pattern from 
 [[Scaffold → Foundation → Infrastructure → Features]]
 [[Wiki Backlog Pattern]]
 [[Task Lifecycle Stage-Gating]]
+[[Decision: Stage-Gate Operational Decisions]]
 [[Execution Modes and End Conditions]]
 [[Hooks Lifecycle Architecture]]
 [[Methodology Framework]]

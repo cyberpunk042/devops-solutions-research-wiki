@@ -279,13 +279,30 @@ This separation between definition and instance is what makes the framework sust
 
 ## Open Questions
 
-- How should the selection engine be formalized? Is a simple condition-to-model lookup table sufficient, or does multi-dimensional selection require a scoring/priority system?
-- Should model composition be declarative (defined in configuration) or imperative (defined in code that evaluates conditions at runtime)?
-- How do models handle mid-execution changes? If a task initially selected as a `task` type reveals module-level complexity during the Document stage, can the model be re-selected without losing progress?
-- What is the right granularity for the quality dimension? Is skyscraper/pyramid/mountain sufficient, or should there be intermediate levels (e.g., "reinforced pyramid" for work that is mostly adapted but with specific skyscraper-grade stages)?
-- How do parallel tracks synchronize on milestone boundaries? Should there be explicit sync points where all three tracks must align before the project advances to the next SFIF phase?
-- Can the framework itself be described as a model? Is there a meta-meta level where the framework definition process follows its own stages (Document the framework → Design the vocabulary → Scaffold the configuration schema → Implement the selection engine → Test against real projects)?
-- How should model versioning work? When a project evolves its methodology.yaml, should there be a compatibility check against the framework version?
+All 7 original questions resolved in [[Decision: Methodology Framework Design Decisions]].
+
+## Answered Open Questions
+
+> [!example]- Selection engine formalization?
+> Lookup table with fallback scoring. Simple first — upgrade to scoring when lookup fails 3+ times. See [[Decision: Methodology Framework Design Decisions]].
+
+> [!example]- Declarative vs imperative composition?
+> Declarative config for sequences, imperative only for conditional branches. Conditions declared in config; evaluation is code. See [[Decision: Methodology Framework Design Decisions]].
+
+> [!example]- Mid-execution model change?
+> Promote the task (e.g., task → module). Completed stages preserved. Restart from next required stage. See [[Decision: Methodology Framework Design Decisions]].
+
+> [!example]- Quality dimension granularity?
+> Three tiers sufficient. Per-stage overrides for mixed-rigor projects. See [[Decision: Methodology Framework Design Decisions]].
+
+> [!example]- Track synchronization?
+> Soft sync at SFIF phase boundaries. Not hard gates. See [[Decision: Methodology Framework Design Decisions]].
+
+> [!example]- Framework as a model (meta-meta)?
+> Yes — and this wiki already does it. The framework page IS the Document stage. See [[Decision: Methodology Framework Design Decisions]].
+
+> [!example]- Model versioning?
+> Semver on methodology.yaml. Manual compatibility check at current scale. See [[Decision: Methodology Framework Design Decisions]].
 
 ### Model Registry
 

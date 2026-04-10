@@ -1,15 +1,15 @@
 {
-  "generated": "2026-04-10T21:13:50.374664+00:00",
+  "generated": "2026-04-10T21:18:25.125024+00:00",
   "stats": {
-    "pages": 181,
+    "pages": 182,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1217,
-    "tags_unique": 665,
+    "relationships": 1222,
+    "tags_unique": 668,
     "layers": {
       "3": 5,
-      "6": 10,
+      "6": 11,
       "2": 51,
       "4": 28,
       "5": 6,
@@ -18,7 +18,7 @@
     },
     "maturity": {
       "growing": 133,
-      "seed": 23
+      "seed": 24
     }
   },
   "pages": [
@@ -1128,6 +1128,55 @@
         {
           "verb": "RELATES TO",
           "target": "Obsidian Knowledge Vault"
+        }
+      ]
+    },
+    {
+      "path": "decisions/stage-gate-operational-decisions.md",
+      "slug": "decisions/stage-gate-operational-decisions",
+      "title": "Decision: Stage-Gate Operational Decisions",
+      "type": "decision",
+      "domain": "devops",
+      "status": "synthesized",
+      "confidence": "medium",
+      "created": "2026-04-10",
+      "updated": "2026-04-10",
+      "tags": [
+        "stage-gate",
+        "readiness",
+        "discovery",
+        "minimum-viable",
+        "retroactive",
+        "design-decisions"
+      ],
+      "sources": [],
+      "layer": 6,
+      "maturity": "seed",
+      "derived_from": [
+        "Stage-Gate Methodology",
+        "Task Lifecycle Stage-Gating",
+        "Backlog Hierarchy Rules"
+      ],
+      "relationships": [
+        {
+          "verb": "DERIVED FROM",
+          "target": "Stage-Gate Methodology"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Task Lifecycle Stage-Gating"
+        },
+        {
+          "verb": "DERIVED FROM",
+          "target": "Backlog Hierarchy Rules"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Spec-Driven Development"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Decision: Execution Mode Edge Cases"
         }
       ]
     },
@@ -12187,8 +12236,8 @@
       "relationship_count": 383
     },
     "devops": {
-      "page_count": 13,
-      "relationship_count": 94
+      "page_count": 14,
+      "relationship_count": 99
     },
     "ai-agents": {
       "page_count": 36,
@@ -12604,6 +12653,7 @@
       "decisions/hooks-design-decisions",
       "decisions/methodology-framework-design-decisions",
       "decisions/per-role-command-design-decisions",
+      "decisions/stage-gate-operational-decisions",
       "decisions/task-type-edge-cases"
     ],
     "hooks": [
@@ -12627,6 +12677,7 @@
     ],
     "stage-gate": [
       "decisions/hooks-design-decisions",
+      "decisions/stage-gate-operational-decisions",
       "domains/cross-domain/methodology-framework",
       "domains/devops/stage-gate-methodology",
       "spine/model-methodology-standards",
@@ -12883,6 +12934,21 @@
       "domains/devops/stage-gate-methodology",
       "domains/devops/wsl2-development-patterns",
       "spine/domain-overviews/devops-domain-overview"
+    ],
+    "readiness": [
+      "decisions/stage-gate-operational-decisions",
+      "domains/devops/backlog-hierarchy-rules",
+      "domains/devops/stage-gate-methodology",
+      "log/2026-04-09-directive-validate-second-brain-readiness"
+    ],
+    "discovery": [
+      "decisions/stage-gate-operational-decisions"
+    ],
+    "minimum-viable": [
+      "decisions/stage-gate-operational-decisions"
+    ],
+    "retroactive": [
+      "decisions/stage-gate-operational-decisions"
     ],
     "task-types": [
       "decisions/task-type-edge-cases",
@@ -13569,11 +13635,6 @@
     ],
     "hierarchy": [
       "domains/devops/backlog-hierarchy-rules"
-    ],
-    "readiness": [
-      "domains/devops/backlog-hierarchy-rules",
-      "domains/devops/stage-gate-methodology",
-      "log/2026-04-09-directive-validate-second-brain-readiness"
     ],
     "status-propagation": [
       "domains/devops/backlog-hierarchy-rules"

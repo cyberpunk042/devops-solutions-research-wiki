@@ -88,3 +88,4 @@ All easy. Frontmatter conventions, mode behavior, and log format can all be chan
 [[Rework Prevention]]
 [[Backlog Hierarchy Rules]]
 [[Task Type Artifact Matrix]]
+[[Decision: Stage-Gate Operational Decisions]]
