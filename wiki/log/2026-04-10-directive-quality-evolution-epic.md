@@ -13,6 +13,10 @@ tags: [log, directive, quality, evolution, epic, standards, iterative, gated]
 
 # Quality Evolution Epic — Level Up Everything, One File at a Time
 
+## Summary
+
+Operator directive establishing the quality evolution epic: level up the entire wiki one file at a time, meeting both content and style standards with smart content (not raw dumps). Growing maturity is correct and honest — means NOT finished. All maturity promotions gated by operator confirmation. Iterative evolution with proper tracking.
+
 ## Operator Directive (verbatim)
 
 > There is a lot of quality improvement to do all over the project. Like a lot....

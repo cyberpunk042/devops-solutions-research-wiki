@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-10T04:54:06.464538+00:00",
+  "generated": "2026-04-10T05:06:34.630496+00:00",
   "stats": {
-    "pages": 173,
+    "pages": 174,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1193,
-    "tags_unique": 637,
+    "relationships": 1197,
+    "tags_unique": 639,
     "layers": {
       "3": 5,
       "6": 5,
@@ -1567,7 +1567,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-10",
       "tags": [
         "harness-engineering",
         "guardrails",
@@ -1625,6 +1625,10 @@
         },
         {
           "verb": "RELATES TO",
+          "target": "Immune System Rules"
+        },
+        {
+          "verb": "RELATES TO",
           "target": "Research Pipeline Orchestration"
         },
         {
@@ -1633,7 +1637,19 @@
         },
         {
           "verb": "RELATES TO",
-          "target": "OpenClaw"
+          "target": "Plan Execute Review Cycle"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Rework Prevention"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Model: Claude Code"
+        },
+        {
+          "verb": "FEEDS INTO",
+          "target": "Model: Quality and Failure Prevention"
         }
       ]
     },
@@ -7432,6 +7448,32 @@
       "relationships": []
     },
     {
+      "path": "log/2026-04-10-directive-quality-evolution-epic.md",
+      "slug": "log/2026-04-10-directive-quality-evolution-epic",
+      "title": "Quality Evolution Epic \u2014 Level Up Everything, One File at a Time",
+      "type": "note",
+      "domain": "log",
+      "status": "active",
+      "confidence": "high",
+      "created": "2026-04-10",
+      "updated": "2026-04-10",
+      "tags": [
+        "log",
+        "directive",
+        "quality",
+        "evolution",
+        "epic",
+        "standards",
+        "iterative",
+        "gated"
+      ],
+      "sources": [],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": []
+    },
+    {
       "path": "patterns/context-aware-tool-loading.md",
       "slug": "patterns/context-aware-tool-loading",
       "title": "Context-Aware Tool Loading",
@@ -11773,7 +11815,7 @@
     },
     "ai-agents": {
       "page_count": 34,
-      "relationship_count": 293
+      "relationship_count": 297
     },
     "tools-and-platforms": {
       "page_count": 23,
@@ -11796,7 +11838,7 @@
       "relationship_count": 201
     },
     "log": {
-      "page_count": 18,
+      "page_count": 19,
       "relationship_count": 0
     }
   },
@@ -11830,6 +11872,7 @@
     "evolution": [
       "backlog/epics/E001-local-inference-engine",
       "domains/knowledge-systems/knowledge-evolution-pipeline",
+      "log/2026-04-10-directive-quality-evolution-epic",
       "patterns/progressive-distillation",
       "spine/model-llm-wiki"
     ],
@@ -13017,6 +13060,7 @@
       "log/2026-04-09-directive-stop-claiming-readiness",
       "log/2026-04-09-directive-stop-guessing-false-claims",
       "log/2026-04-09-directive-systemic-incompleteness",
+      "log/2026-04-10-directive-quality-evolution-epic",
       "spine/model-claude-code-standards",
       "spine/model-llm-wiki-standards",
       "spine/model-methodology-standards",
@@ -13056,7 +13100,8 @@
     ],
     "epic": [
       "domains/devops/backlog-hierarchy-rules",
-      "domains/devops/task-type-artifact-matrix"
+      "domains/devops/task-type-artifact-matrix",
+      "log/2026-04-10-directive-quality-evolution-epic"
     ],
     "module": [
       "domains/devops/backlog-hierarchy-rules",
@@ -13738,6 +13783,7 @@
     "standards": [
       "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
       "log/2026-04-09-directive-record-process-skills-supermodel",
+      "log/2026-04-10-directive-quality-evolution-epic",
       "spine/adoption-guide",
       "spine/model-claude-code-standards",
       "spine/model-knowledge-evolution-standards",
@@ -13865,7 +13911,8 @@
       "log/2026-04-09-directive-wiki-design-model-emerging",
       "log/2026-04-09-directive-wiki-design-model-research",
       "log/2026-04-09-ingest-awesome-design-md",
-      "log/2026-04-09-session-summary"
+      "log/2026-04-09-session-summary",
+      "log/2026-04-10-directive-quality-evolution-epic"
     ],
     "directive": [
       "log/2026-04-09-directive-FOLLOW-THE-WORKFLOW",
@@ -13884,7 +13931,8 @@
       "log/2026-04-09-directive-validate-second-brain-readiness",
       "log/2026-04-09-directive-wiki-design-model-emerging",
       "log/2026-04-09-directive-wiki-design-model-research",
-      "log/2026-04-09-ingest-awesome-design-md"
+      "log/2026-04-09-ingest-awesome-design-md",
+      "log/2026-04-10-directive-quality-evolution-epic"
     ],
     "critical-failure": [
       "log/2026-04-09-directive-FOLLOW-THE-WORKFLOW"
@@ -13994,6 +14042,12 @@
     ],
     "summary": [
       "log/2026-04-09-session-summary"
+    ],
+    "iterative": [
+      "log/2026-04-10-directive-quality-evolution-epic"
+    ],
+    "gated": [
+      "log/2026-04-10-directive-quality-evolution-epic"
     ],
     "tool-design": [
       "patterns/context-aware-tool-loading"
