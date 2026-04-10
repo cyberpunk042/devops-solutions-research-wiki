@@ -7,8 +7,13 @@ status: synthesized
 confidence: high
 maturity: growing
 created: 2026-04-09
-updated: 2026-04-09
-sources: []
+updated: 2026-04-10
+sources:
+  - id: src-awesome-design-md
+    type: documentation
+    url: "https://github.com/VoltAgent/awesome-design-md"
+    file: raw/articles/voltagentawesome-design-md.md
+    title: "VoltAgent/awesome-design-md — 58 Design Systems"
 tags: [model, spine, design-md, iac, markdown-config, claude-md, agents-md, soul-md, ai-configuration, infrastructure-as-code]
 ---
 
@@ -16,150 +21,199 @@ tags: [model, spine, design-md, iac, markdown-config, claude-md, agents-md, soul
 
 ## Summary
 
-The Design.md and IaC model describes the convergence of Infrastructure as Code with AI agent configuration: markdown files placed at the project root serve as binding specifications that AI agents read and execute. This pattern generalizes from traditional IaC (Terraform, Ansible — human writes spec, machine executes it) into the AI agent domain, producing a companion file ecosystem: CLAUDE.md (agent behavioral constraints), DESIGN.md (visual design system), AGENTS.md (build and architecture instructions), and SOUL.md (agent identity). The 9-section DESIGN.md standard, documented in 58+ production implementations including Claude (Anthropic)'s own 312-line specification, represents the most complete instance of this pattern — a file that contains not just design decisions but a built-in usage manual for the AI agents consuming it.
+The Design.md and IaC model describes the convergence of Infrastructure as Code with AI agent configuration: markdown files at the project root serve as binding specifications that AI agents read and execute. ==This pattern generalizes from traditional IaC (Terraform, Ansible) into the AI domain== — producing a companion file ecosystem: CLAUDE.md (behavioral constraints), DESIGN.md (visual design system), AGENTS.md (architecture), and SOUL.md (agent identity). The 9-section DESIGN.md standard, documented in 58+ production implementations including Claude (Anthropic)'s 312-line specification, is the most complete instance.
 
 ## Key Insights
 
-- **Markdown files at the project root are now IaC**: CLAUDE.md is not documentation — it is configuration. Claude Code reads it at session start as binding operational instructions. DESIGN.md is not a style guide — it is a constraint set that Gemini/Claude/Cursor reads before generating any UI. The executor might be Terraform, systemctl, or an LLM; the principle is identical: human writes specification, machine reads it as binding constraints.
+- **Markdown files at the project root are now IaC.** CLAUDE.md is configuration, not documentation. DESIGN.md is a constraint set, not a style guide. The executor is an LLM instead of Terraform, but the principle is identical: human writes spec, machine reads it as binding.
 
-- **The companion file ecosystem is complete at four files**: CLAUDE.md (how the agent should behave), DESIGN.md (how the UI should look), AGENTS.md (how to build the system), SOUL.md (who the agent is). Together they give any AI agent complete project context across behavioral, visual, architectural, and identity dimensions — without requiring a single bloated context-injection prompt.
+- **The companion file ecosystem is four files.** CLAUDE.md (behavior), DESIGN.md (visual), AGENTS.md (architecture), SOUL.md (identity). Together they give any AI agent complete project context across four dimensions.
 
-- **Semantic color naming is an AI vocabulary design decision**: Every color in a production DESIGN.md gets a NAME (Parchment), a HEX (#f5f4ed), a ROLE (primary background), and RATIONALE ("warm cream with yellow-green tint that feels like aged paper"). The name becomes the agent's working vocabulary. When a prompt says "use Parchment" rather than "use #f5f4ed," the agent can honor the design intent even when the exact hex value changes — semantic naming survives refactors that literal values do not.
+- **Semantic color naming is an AI vocabulary decision.** Colors get NAME + HEX + ROLE + RATIONALE. "Use Parchment" survives refactors that "use #f5f4ed" does not. The name becomes the agent's working vocabulary.
 
-- **The Do's and Don'ts section is the guardrail layer**: Without explicit prohibitions, an AI agent generating UI reverts to training-data averages: gradients, bold serifs, cool grays, drop shadows. The Do's and Don'ts section (10 concrete rules each in production implementations) explicitly prohibits these defaults. This is the section that makes DESIGN.md a constraint file, not just a preference file.
+- **Do's and Don'ts is the guardrail layer.** Without explicit prohibitions, AI agents revert to training-data averages. 10 concrete Don'ts counteract specific AI tendencies toward generic UI.
 
-- **Always-loaded files consume always-present context budget**: every token in CLAUDE.md and DESIGN.md costs context budget on every turn, not just when the agent uses them. The 40% degradation threshold for Claude Code accuracy means static config files collectively have a hard budget ceiling. The rule of thumb: keep always-loaded markdown under ~200 lines; put detailed workflows in skills loaded on demand.
-
-- **58+ production implementations exist now**: the VoltAgent/awesome-design-md repository contains Design.md files for Claude (Anthropic), Stripe, Vercel, Linear, Figma, Spotify, Tesla, and dozens more. These are immediately usable as project templates. Any project wanting AI-generated consistent UI does not need to author a DESIGN.md from scratch.
+- **58+ production implementations exist now.** VoltAgent/awesome-design-md covers Claude, Stripe, Vercel, Linear, Figma, Spotify, Tesla. Immediately usable as templates.
 
 ## Deep Analysis
 
 ### The 9-Section DESIGN.md Standard
 
-The standard structure, with what each section achieves, based on Claude (Anthropic)'s 312-line implementation:
+> [!info] **Based on Claude (Anthropic)'s 312-line implementation**
+> | Section | What it defines | Why it matters |
+> |---------|----------------|----------------|
+> | **1. Visual Theme** | Atmospheric prose + 4-6 adjectives | Gives the AI a holistic "feel" as a prior |
+> | **2. Color Palette** | NAME → HEX → ROLE → WHY | Semantic names survive refactors |
+> | **3. Typography** | 16-role hierarchy table | Lookup structure, not inference |
+> | **4. Component Styles** | Named button variants with exact CSS | Zero ambiguity in generation |
+> | **5. Layout Principles** | 8px base, grid, whitespace, border-radius scale | Structural rules governing component relationships |
+> | **6. Depth & Elevation** | 5-level shadow system | Which interactions warrant visual weight |
+> | **7. Do's and Don'ts** | 10 concrete rules each | Guardrails against training-data defaults |
+> | **8. Responsive Behavior** | 5 breakpoints with collapse strategy | Cannot be inferred from color palette |
+> | **9. Agent Prompt Guide** | Ready-to-paste component prompts + usage rules | Built-in manual for AI consumption |
 
-**1. Visual Theme** — Atmospheric prose description of the design intent + 4-6 key characteristic adjectives. This section gives the AI a holistic "feel" for the design before it reads any specific values. It is the design philosophy translated into language the model can use as a prior.
+> [!tip] **Section 9 is unique to DESIGN.md**
+> No other design spec format (Figma tokens, Storybook, design tokens JSON) includes a built-in usage manual for AI. Claude's DESIGN.md has 5 complete component prompts baked in — the file teaches the AI how to use itself.
 
-**2. Color Palette** — Named colors with hex + functional role + design rationale. The structure matters: NAME → HEX → ROLE → WHY. The WHY column ("warm cream with yellow-green tint") is what separates DESIGN.md from a Figma tokens export. It captures reasoning, not just values.
+See [[Design.md Pattern]] for full depth and the 312-line Claude example.
 
-**3. Typography** — 16-role hierarchy table. Entries: role name (Display, H1, H2, Body, Caption, etc.) → size → font family → weight → line-height → letter-spacing. The table format gives the AI a lookup structure it can reference mechanically rather than inferring from examples.
+---
 
-**4. Component Styles** — 5+ named button variants with exact padding, border-radius, shadow, and color values as CSS. This is the most specific section: exact implementation values, not design principles. An AI generating a button has no ambiguity about which CSS to produce.
+### The Do's and Don'ts as Constraint Engineering
 
-**5. Layout Principles** — Spacing scale (8px base unit), grid system, whitespace philosophy, 7-level border-radius scale. These are the structural rules that govern how components relate to each other and to the page — the invisible constraints that make or break visual consistency.
+> [!warning] **Without explicit prohibitions, AI agents generate generic UI**
+> Training-data averages look like: subtle gradients, bold serifs, cool grays, drop shadows everywhere, blue for all interactive elements. Not wrong — generic. The statistical consensus from millions of web pages, not your design language.
 
-**6. Depth & Elevation** — 5-level system from flat to inset, with shadow values at each level. This section makes explicit which interactions warrant visual weight and which should stay flat, preventing arbitrary shadow application.
+The Do's reinforce explicit choices. The Don'ts prohibit the defaults that fill gaps. Each Don't is a documented failure mode — a specific visual decision the AI WILL make if unconstrained.
 
-**7. Do's and Don'ts** — 10 concrete rules each. This is the guardrail section. Claude's DESIGN.md prohibits: gradients in backgrounds, mixing font families, using literal hex values in prompts (use semantic names instead), and 7 others. Each Don't directly counteracts a specific AI tendency toward training-data average UI.
+> [!example]- **Claude's Don'ts (from the 312-line DESIGN.md)**
+> - No gradients in backgrounds
+> - No mixing Anthropic Serif with system fonts in the same element
+> - No literal hex values in prompts (use semantic names)
+> - No ring shadows where drop shadows were specified
+> - No cool grays where warm grays are defined
+>
+> Each prohibits a specific AI tendency. The Don'ts section is not pessimistic — it is precise.
 
-**8. Responsive Behavior** — 5 breakpoints with collapse strategy. At what viewport width does the nav collapse? When does the grid switch from 3-column to 2-column to 1-column? These answers cannot be inferred from the color palette; they require explicit specification.
+> [!tip] **How to author Don'ts for a new project**
+> Generate UI with a blank context (no DESIGN.md). Audit the output against your design language. The 10 differences are your Don'ts. This identifies the exact AI defaults your design system contradicts.
 
-**9. Agent Prompt Guide** — Ready-to-paste component prompts with exact values baked in + 7-rule iteration guide for how to use the file. This section is unique to DESIGN.md: no other design spec format (Figma tokens, Storybook, design tokens JSON) includes a built-in usage manual for AI. Claude's DESIGN.md includes 5 complete component prompts ("Create a hero section on Parchment (#f5f4ed) with a headline at 64px Anthropic Serif weight 500, line-height 1.10...") — the file teaches the AI how to use it.
-
-Full depth and the 312-line Claude example: see [[Design.md Pattern]].
-
-### The Do's and Don'ts Section as Constraint Engineering
-
-The Do's and Don'ts section deserves special attention because it is the section that makes DESIGN.md a constraint file rather than a preference file.
-
-Without explicit prohibitions, AI agents generating UI converge on training-data averages. These averages look like: subtle gradients on surfaces, bold serifs for headings, cool neutral grays for text, drop shadows on every elevated element, blue for all interactive elements. This is not wrong — it is generic. The AI is applying statistical consensus from millions of web pages, not the specific design language of this project.
-
-The Do's section reinforces explicit choices. The Don'ts section prohibits the defaults that would otherwise fill in wherever the Do's leave gaps. Claude's DESIGN.md prohibits: gradients in backgrounds, mixing Anthropic Serif with system fonts in the same element, using literal hex values in prompts (use semantic names so the file remains the single source of truth), applying ring shadows where drop shadows were specified, using cool grays where warm grays are defined.
-
-Each Don't is a documented failure mode — a specific visual decision the AI will make if left unconstrained. The Don'ts section is not pessimistic; it is precise. It identifies exactly the 10 ways the design system will be violated if the specification only says what to do and not what to avoid.
-
-**Practical implication**: when authoring a new DESIGN.md, identify the 10 AI default decisions that would violate your design language and make them explicit Don'ts. This requires knowing how AI agents interpret visual design — an audit of AI-generated UI against a blank context is the fastest way to identify the relevant defaults.
+---
 
 ### The Broader IaC Spectrum
 
-The companion file ecosystem sits on a continuous spectrum of specification-driven configuration:
+> [!info] **Companion files sit on a continuous spectrum with traditional IaC**
+> | Spec file | Executor | Domain |
+> |-----------|----------|--------|
+> | `main.tf` | Terraform | Cloud infrastructure |
+> | `docker-compose.yml` | Docker | Container orchestration |
+> | `CLAUDE.md` | Claude Code | AI agent behavior |
+> | `DESIGN.md` | Claude / Cursor / Stitch | Visual design system |
+> | `AGENTS.md` | Claude Code | Architecture conventions |
+> | `SOUL.md` | OpenFleet | Agent identity |
+> | `config/schema.yaml` | tools/validate.py | Wiki page schema |
+> | `.env.example` | setup.py | Environment configuration |
+> | `services/*.conf` | systemd | Daemon configuration |
+>
+> The common pattern: human writes spec at a standard location; executor reads it as binding constraints. The executor type doesn't change the pattern.
 
-| Spec File | Executor | Domain |
-|-----------|----------|--------|
-| `main.tf` | Terraform | Cloud infrastructure |
-| `docker-compose.yml` | Docker | Container orchestration |
-| `CLAUDE.md` | Claude Code | AI agent behavior |
-| `DESIGN.md` | Google Stitch / Claude / Cursor | Visual design system |
-| `AGENTS.md` | Claude Code | Build and architecture conventions |
-| `SOUL.md` | OpenFleet | Agent identity and values |
-| `config/schema.yaml` | tools/validate.py | Wiki page schema |
-| `stacks/*.yml` | Deployment scripts | Service deployment |
-| `.env.example` | setup.py / developers | Environment configuration |
-| `services/*.conf` | systemd | Daemon configuration |
+---
 
-The common pattern: a human writes a specification file at a standard location; an executor reads it as binding constraints. The executor's type (infrastructure tool, AI agent, validation script) does not change the pattern. This is why CLAUDE.md is IaC even though it is read by an LLM rather than by Terraform.
+### The Companion File Ecosystem
 
-See [[Infrastructure as Code Patterns]] for full treatment of the spectrum and the ecosystem's specific IaC instances.
+> [!info] **Four files, four non-overlapping scopes**
+> | File | Question it answers | Scope |
+> |------|-------------------|-------|
+> | **CLAUDE.md** | "How should this agent behave?" | Commands, conventions, quality gates, prohibited actions |
+> | **DESIGN.md** | "How should this project look?" | Colors, typography, spacing, components, responsive behavior |
+> | **AGENTS.md** | "How should this project be built?" | Architecture decisions, module structure, dependency patterns |
+> | **SOUL.md** | "Who is this agent?" | Identity, values, expertise, decision-making principles |
+
+Separated by scope deliberately — no single file handles behavior AND visual AND architecture AND identity. Each stays readable and at a size appropriate for always-loaded context.
+
+> [!abstract] **Context budget math**
+> CLAUDE.md ~200 lines + DESIGN.md ~300 lines + AGENTS.md ~100 lines + SOUL.md ~150 lines = ~750 lines = ~4,000 tokens = <3% of 190K context. Worthwhile for sessions that need all four.
+
+---
 
 ### The Two-Tier Configuration Model
 
-AI agent configuration in this ecosystem uses a two-tier model that maps directly to the [[Context-Aware Tool Loading]] pattern:
+Maps to [[Context-Aware Tool Loading]]:
 
-**Tier 1 — Static context** (always-loaded, always-present budget consumption):
-- `CLAUDE.md` — project-level agent behavioral constraints
-- `DESIGN.md` — visual system constraints, loaded when UI generation is the primary task
-- `config/schema.yaml` — page schema for validation
+> [!info] **Tier 1 vs Tier 2**
+> | Tier | Loading | Cost | Contents |
+> |------|---------|------|----------|
+> | **Tier 1 — Static** | Always loaded | Permanent (every message) | CLAUDE.md, DESIGN.md, schema.yaml |
+> | **Tier 2 — Dynamic** | On invocation | Zero until needed | Skills, detailed workflows, domain-specific instructions |
 
-**Tier 2 — Dynamic context** (skills, loaded on invocation, zero overhead when not in use):
-- `skills/evolve.md`, `skills/wiki-agent.md`, `skills/continue.md`
-- Any detailed workflow that is only needed in specific session contexts
+> [!warning] **DESIGN.md loaded into every session has a real cost even when not generating UI**
+> Correct model: load DESIGN.md only in UI-focused sessions — either as a skill or by accepting the overhead as worthwhile when UI generation is dominant.
 
-The implication: DESIGN.md loaded into every session has a real context cost, even when the session is not generating UI. The correct model is to load DESIGN.md only when the current session is UI-focused — either by keeping it as a separate skill invoked on demand, or by accepting the overhead as worthwhile for sessions where UI generation is the dominant task.
+---
 
-This wiki's `CLAUDE.md` (~250+ lines) is at the upper boundary of the recommended always-loaded size. See [[Claude Code Best Practices]] for the specific accuracy thresholds that govern this constraint.
+### Key Pages
 
-### How the Companion Files Compose
+| Page | Layer | Role in the model |
+|------|-------|-------------------|
+| [[Design.md Pattern]] | L2 | The foundational concept — 9-section standard, Claude example, Do's/Don'ts |
+| [[Infrastructure as Code Patterns]] | L2 | The IaC spectrum — traditional and AI-agent configuration as one pattern |
+| [[Context-Aware Tool Loading]] | L5 | Loading pattern — eager vs deferred, governs Tier 1 vs Tier 2 decision |
+| [[Claude Code Best Practices]] | L2 | CLAUDE.md structure guidance — under 200 lines, routing table pattern |
+| [[Synthesis: awesome-design-md]] | L1 | Source: 58+ production DESIGN.md implementations |
 
-The four companion files are designed to be read together, with non-overlapping scopes:
+---
 
-**CLAUDE.md** answers: "How should this AI agent behave in this project?" It covers commands to run, coding conventions, quality gates, prohibited actions, and the tools available. It is behavioral configuration — it shapes how the agent works, not what it builds.
+### Lessons Learned
 
-**DESIGN.md** answers: "How should this project look?" It covers the visual system — colors, typography, spacing, component patterns, responsive behavior. It is visual configuration — it shapes the output of any UI-generating agent action.
+| Lesson | What was learned |
+|--------|-----------------|
+| [[Infrastructure Must Be Reproducible, Not Manual]] | Companion files ARE IaC. Manual agent configuration that isn't in CLAUDE.md/DESIGN.md is invisible, unrepeatable config. |
+| [[The Agent Must Practice What It Documents]] | CLAUDE.md must contain the rules the agent follows, not just rules it documents. Config files are operational, not aspirational. |
+| [[Never Synthesize from Descriptions Alone]] | Reading awesome-design-md (a catalog of DESIGN.md files) ≠ reading a DESIGN.md file. We read the actual 312-line Claude example. |
 
-**AGENTS.md** answers: "How should this project be built?" It covers architecture decisions, build conventions, module structure, dependency patterns. It is architectural configuration — it shapes how the agent structures its implementation work.
+---
 
-**SOUL.md** (OpenFleet-specific) answers: "Who is this agent?" It covers the agent's identity, values, expertise domain, decision-making principles, and relationship to the human. It is identity configuration — it shapes the agent's self-model and how it approaches its role.
+### State of Knowledge
 
-The four files are separated by scope deliberately: no single file is responsible for behavioral AND visual AND architectural AND identity configuration. This keeps each file readable, maintainable, and at a size appropriate for always-loaded static context. An agent loading all four gains complete project context without any file being oversized.
+> [!success] **Well-covered**
+> - 9-section DESIGN.md standard with Claude's 312-line reference
+> - Do's and Don'ts as constraint engineering (with authoring methodology)
+> - Companion file ecosystem (CLAUDE.md, DESIGN.md, AGENTS.md, SOUL.md)
+> - IaC spectrum (traditional → AI agent configuration)
+> - 58+ production implementations as evidence base
+> - Two-tier configuration model (static vs dynamic context)
 
-The context budget implication: each file loads at session start. CLAUDE.md at ~200 lines + DESIGN.md at ~300 lines + AGENTS.md at ~100 lines + SOUL.md at ~150 lines = ~750 lines of always-present context overhead. Against a 190,000 token context window, this is ~4,000 tokens — less than 3% of the budget. The overhead is worthwhile for sessions that need all four.
+> [!warning] **Thin or unverified**
+> - AGENTS.md and SOUL.md are newer conventions — less ecosystem evidence than CLAUDE.md/DESIGN.md
+> - Interaction behavior spec (animations, state transitions) — not captured in current 9-section structure
+> - Context overhead measurement — the "4,000 tokens = 3%" math is estimated, not measured
+> - DESIGN.md value as LLMs improve — does constraint engineering remain valuable when models get better at visual design?
+> - No DESIGN.md exists in this ecosystem yet — the model is based on external research, not internal practice
 
-### Why This Matters for the Ecosystem
+---
 
-The IaC pattern is how the ecosystem maintains coherence across five projects without centralized configuration management. Each project's configuration is self-contained in its root directory:
+### How to Adopt
 
-- OpenFleet's behavioral contract lives in `SOUL.md` templates and `HEARTBEAT.md` files — agent identity as IaC
-- AICP's inference policy lives in profile YAML files — routing rules as IaC
-- The wiki's quality gates live in `config/schema.yaml` — knowledge structure as IaC
-- Each project's AI agent constraints live in its `CLAUDE.md` — session behavior as IaC
+> [!info] **Adding the companion file ecosystem to a project**
+> 1. **CLAUDE.md** — start here. Project structure, conventions, commands, quality gates. Under 200 lines.
+> 2. **DESIGN.md** — if the project has UI. Copy from awesome-design-md for a known design system, or author from scratch following the 9-section standard.
+> 3. **AGENTS.md** — if the project has multi-agent or complex build conventions. Architecture decisions, module structure.
+> 4. **SOUL.md** — if the project uses fleet agents. Identity, values, expertise domain.
 
-When a new engineer (or a new AI agent) needs to understand a project, they read the specification files. The specification files are the ground truth. No external knowledge, onboarding documentation, or tribal memory is required — the specification is the onboarding.
+> [!warning] **INVARIANT — never change these**
+> - Config files are at the project root (standard location for all executors)
+> - CLAUDE.md under 200 lines (always-loaded = always-costing)
+> - Do's and Don'ts section is mandatory in DESIGN.md (without it, the file is preferences, not constraints)
+> - Semantic naming for colors and components (literal values break on refactor)
+> - Companion files have non-overlapping scopes (behavior ≠ visual ≠ architecture ≠ identity)
 
-### The awesome-design-md Corpus
-
-The VoltAgent/awesome-design-md repository contains 58+ Design.md files for production design systems: Claude (Anthropic), Stripe, Vercel, Linear, Figma, Spotify, Tesla, GitHub, and dozens more. Each file comes with `preview.html` and `preview-dark.html` for human verification. This corpus provides:
-
-1. **Immediate templates**: drop a Design.md for a known design system into any project and AI agents can match that design system's UI without further configuration
-2. **Pattern reference**: real production examples of all 9 sections with concrete values, not toy examples
-3. **Coverage evidence**: 58 implementations demonstrates that the format generalizes across extremely different visual design languages
-
-The corpus is at `https://github.com/VoltAgent/awesome-design-md` and is the authoritative source for Design.md section structure. Claude's 312-line implementation is the most complete example of the Agent Prompt Guide section.
+> [!tip] **PER-PROJECT — always adapt these**
+> - Which companion files exist (not every project needs all four)
+> - DESIGN.md section depth (a simple project may skip Responsive Behavior and Depth & Elevation)
+> - Whether DESIGN.md is always-loaded or skill-loaded (depends on how often UI is generated)
+> - The specific Do's and Don'ts (derived from auditing AI output against YOUR design language)
+> - AGENTS.md scope (simple projects may put architecture notes in CLAUDE.md)
 
 ## Open Questions
 
-- At what point does the companion file ecosystem (CLAUDE.md + DESIGN.md + AGENTS.md + SOUL.md) tip from "useful configuration" into "context overhead that should be split into skills"? Is there a measurable accuracy threshold, or is the boundary project-specific?
-- DESIGN.md is currently tool-agnostic (Google Stitch, Claude, Cursor all read it). As LLMs improve at visual design without explicit constraints, does the value of DESIGN.md decrease, or does the "design reasoning capture" value (WHY columns) remain durable even as constraint-following improves?
-- Is there a DESIGN.md equivalent for interaction behavior (animations, state transitions, loading patterns) that the current 9-section structure does not capture?
+> [!question] **When does the companion file ecosystem tip into context overhead?**
+> Four files at ~750 lines total = ~4,000 tokens. At what point does this overhead measurably degrade accuracy? Is there a project-specific threshold? (Requires: measuring accuracy with and without companion files loaded)
+
+> [!question] **Is there a DESIGN.md equivalent for interaction behavior?**
+> Animations, state transitions, loading patterns, micro-interactions — the current 9-section structure doesn't capture these. Should it be a 10th section or a separate INTERACTIONS.md? (Requires: surveying how AI agents handle interaction specs)
+
+> [!question] **Does DESIGN.md value decrease as LLMs improve at visual design?**
+> If models get better at generating consistent UI without constraints, does DESIGN.md become unnecessary? Or does the "design reasoning capture" (WHY columns) remain durable? (Requires: longitudinal comparison)
 
 ## Relationships
 
 - BUILDS ON: [[Design.md Pattern]]
 - BUILDS ON: [[Infrastructure as Code Patterns]]
 - BUILDS ON: [[Context-Aware Tool Loading]]
+- RELATES TO: [[Model: Claude Code]]
+- RELATES TO: [[Model: Skills, Commands, and Hooks]]
 - RELATES TO: [[Model: SFIF and Architecture]]
 - RELATES TO: [[Model: Quality and Failure Prevention]]
-- RELATES TO: [[Model: Automation and Pipelines]]
-- RELATES TO: [[Model: MCP and CLI Integration]]
 - ENABLES: [[Claude Code Best Practices]]
 
 ## Backlinks
@@ -167,8 +221,8 @@ The corpus is at `https://github.com/VoltAgent/awesome-design-md` and is the aut
 [[Design.md Pattern]]
 [[Infrastructure as Code Patterns]]
 [[Context-Aware Tool Loading]]
+[[Model: Claude Code]]
+[[Model: Skills, Commands, and Hooks]]
 [[Model: SFIF and Architecture]]
 [[Model: Quality and Failure Prevention]]
-[[Model: Automation and Pipelines]]
-[[Model: MCP and CLI Integration]]
 [[Claude Code Best Practices]]

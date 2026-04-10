@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-10T04:36:26.126515+00:00",
+  "generated": "2026-04-10T04:40:37.622124+00:00",
   "stats": {
     "pages": 173,
     "domains": 9,
@@ -10297,7 +10297,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-09",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "model",
         "spine",
@@ -10310,7 +10310,15 @@
         "ai-configuration",
         "infrastructure-as-code"
       ],
-      "sources": [],
+      "sources": [
+        {
+          "id": "src-awesome-design-md",
+          "type": "documentation",
+          "url": "https://github.com/VoltAgent/awesome-design-md",
+          "file": "raw/articles/voltagentawesome-design-md.md",
+          "title": "VoltAgent/awesome-design-md \u2014 58 Design Systems"
+        }
+      ],
       "layer": "spine",
       "maturity": "growing",
       "derived_from": [],
@@ -10329,19 +10337,19 @@
         },
         {
           "verb": "RELATES TO",
+          "target": "Model: Claude Code"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Model: Skills, Commands, and Hooks"
+        },
+        {
+          "verb": "RELATES TO",
           "target": "Model: SFIF and Architecture"
         },
         {
           "verb": "RELATES TO",
           "target": "Model: Quality and Failure Prevention"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Model: Automation and Pipelines"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Model: MCP and CLI Integration"
         },
         {
           "verb": "ENABLES",

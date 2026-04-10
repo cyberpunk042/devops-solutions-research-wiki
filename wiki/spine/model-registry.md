@@ -41,7 +41,7 @@ Every model follows the same three-layer structure:
 | [[Model: Knowledge Evolution]] | 279 | [[Evolution Standards — What Good Knowledge Promotion Looks Like]] | growing | Evolution pipeline |
 | [[Model: MCP and CLI Integration]] | 283 | — | growing | Tool integration |
 | [[Model: Ecosystem Architecture]] | 293 | — | growing | Project topology |
-| [[Model: Design.md and IaC]] | 174 | — | growing | Agent config patterns |
+| [[Model: Design.md and IaC]] | 261 | — | growing | Agent config patterns |
 | [[Model: NotebookLM]] | 172 | — | growing | Research tooling |
 | [[Model: SFIF and Architecture]] | 170 | — | growing | Build lifecycle |
 | [[Model: Second Brain]] | 163 | — | growing | PKM theory |
