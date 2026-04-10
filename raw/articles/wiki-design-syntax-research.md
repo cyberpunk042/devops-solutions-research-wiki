@@ -173,3 +173,88 @@ Not directly relevant to Obsidian but relevant if wiki content needs to render i
 | Embeds | ✗ | ✗ | ✓ | ✗ |
 | Directives (:::) | ✗ | ✗ | ✗ | plugin |
 | MDX/JSX | ✗ | ✗ | ✗ | plugin |
+
+## Additional Findings (second research pass)
+
+### Obsidian Properties (special frontmatter)
+- `tags: [list]` — searchable tags (MUST be plural, list format since Obsidian 1.9)
+- `aliases: [list]` — alternative names for the page
+- `cssclasses: [list]` — CSS classes applied to the page. Enables per-page-type styling via CSS snippets.
+  E.g., `cssclasses: [model-page]` + a snippet targeting `.model-page` can style all model pages consistently.
+
+### Tags with hierarchy
+- `#tag/subtag` — hierarchical tags for organization
+- Searchable via Obsidian search and Dataview
+
+### Block References
+- `^block-id` at end of any paragraph — makes it linkable
+- `[[Page#^block-id]]` — link to specific block
+- `![[Page#^block-id]]` — embed specific block
+
+### Dataview (if installed)
+- Inline fields: `Key:: Value` anywhere in text
+- Queries: ```dataview ... ``` code blocks
+- Can generate tables, lists, task views from frontmatter
+
+### Canvas (Obsidian-native)
+- `.canvas` files — infinite canvas with cards
+- Cards can contain markdown, links to notes, embeds
+- JSON format — can be generated programmatically
+
+### Remark Directive Syntax (for Docusaurus/web contexts)
+Container directive:
+```
+:::note[Title]
+Content here
+:::
+```
+
+Leaf directive:
+```
+::youtube[Video Title]{#video-id}
+```
+
+Text directive:
+```
+:abbr[HTML]{title="HyperText Markup Language"}
+```
+
+Tabs:
+```
+:::tabs
+::tab[JavaScript]
+```js
+console.log('hello');
+```
+::tab[Python]
+```python
+print('hello')
+```
+:::
+```
+
+Admonitions (similar to Obsidian callouts but in Docusaurus):
+```
+:::tip
+Some content
+:::
+
+:::danger
+Warning content
+:::
+```
+
+### Key Distinction
+- **Obsidian callouts** (`> [!type]`) = blockquote-based, works in Obsidian
+- **Remark directives** (`:::type`) = container-based, works in Docusaurus/web
+- Both achieve similar visual results but different syntax
+- For this wiki (Obsidian-first), callouts are primary
+- For future web rendering, remark directives would be the equivalent
+
+### CSS Snippets Path
+`.obsidian/snippets/` — any `.css` file here is loaded by Obsidian.
+Can define:
+- Custom callout types with colors and Lucide icons
+- Per-page styling via cssclasses
+- Table styling, heading styling, tag colors
+- Graph view customization
