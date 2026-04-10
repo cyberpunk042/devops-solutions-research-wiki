@@ -165,7 +165,6 @@ This temporal split explains why Boris's "prototype over PRD" advice doesn't con
 [[Model: Claude Code]]
 [[Model: Design.md and IaC]]
 [[Model: Skills, Commands, and Hooks]]
-[[Pattern: Skills + Claude-Code]]
 [[Per-Role Command Architecture]]
 [[Plannotator — Interactive Plan & Code Review for AI Agents]]
 [[Rework Prevention]]

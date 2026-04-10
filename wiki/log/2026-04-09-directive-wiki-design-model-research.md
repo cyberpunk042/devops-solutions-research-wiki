@@ -15,7 +15,7 @@ tags: [log, directive, wiki-design, research, markdown, obsidian, remark]
 
 ## Summary
 
-Research the full markdown and Obsidian formatting capabilities before documenting the wiki design model.
+Operator directive to research the full markdown and Obsidian formatting capabilities — including bold, italic, underline, blockquotes, callouts, remark plugins, and custom directives — before documenting the wiki design model. Includes 4 reference URLs to research.
 
 ## Operator Directive (verbatim)
 

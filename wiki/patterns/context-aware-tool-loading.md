@@ -146,7 +146,5 @@ This is the documentation layer's application of deferred loading. The alternati
 [[Model: Design.md and IaC]]
 [[Model: MCP and CLI Integration]]
 [[Model: Skills, Commands, and Hooks]]
-[[Pattern: Skills + Cli]]
-[[Pattern: Skills + Notebooklm]]
 [[Synthesis: Context Mode — MCP Sandbox for Context Saving]]
 [[Synthesis: awesome-design-md — 58 Design Systems for AI Agents]]

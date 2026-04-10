@@ -1,24 +1,24 @@
 {
-  "generated": "2026-04-10T19:41:05.815004+00:00",
+  "generated": "2026-04-10T19:52:53.558809+00:00",
   "stats": {
-    "pages": 175,
+    "pages": 170,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1177,
+    "relationships": 1167,
     "tags_unique": 639,
     "layers": {
       "3": 5,
       "6": 5,
       "2": 51,
       "4": 22,
-      "5": 11,
+      "5": 6,
       "1": 24,
       "spine": 31
     },
     "maturity": {
       "growing": 133,
-      "seed": 17
+      "seed": 12
     }
   },
   "pages": [
@@ -8019,151 +8019,6 @@
       ]
     },
     {
-      "path": "patterns/skills-claude-code.md",
-      "slug": "patterns/skills-claude-code",
-      "title": "Pattern: Skills + Claude-Code",
-      "type": "pattern",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-08",
-      "tags": [],
-      "sources": [],
-      "layer": 5,
-      "maturity": "seed",
-      "derived_from": [
-        "Claude Code",
-        "Claude Code Best Practices"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Claude Code"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Claude Code Best Practices"
-        }
-      ]
-    },
-    {
-      "path": "patterns/skills-cli.md",
-      "slug": "patterns/skills-cli",
-      "title": "Pattern: Skills + Cli",
-      "type": "pattern",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-08",
-      "tags": [],
-      "sources": [],
-      "layer": 5,
-      "maturity": "seed",
-      "derived_from": [
-        "CLI Tools Beat MCP for Token Efficiency",
-        "Context-Aware Tool Loading"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "CLI Tools Beat MCP for Token Efficiency"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Context-Aware Tool Loading"
-        }
-      ]
-    },
-    {
-      "path": "patterns/skills-mcp.md",
-      "slug": "patterns/skills-mcp",
-      "title": "Pattern: Skills + Mcp",
-      "type": "pattern",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-08",
-      "tags": [],
-      "sources": [],
-      "layer": 5,
-      "maturity": "seed",
-      "derived_from": [
-        "CLI Tools Beat MCP for Token Efficiency",
-        "Claude Code"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "CLI Tools Beat MCP for Token Efficiency"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Claude Code"
-        }
-      ]
-    },
-    {
-      "path": "patterns/skills-notebooklm.md",
-      "slug": "patterns/skills-notebooklm",
-      "title": "Pattern: Skills + Notebooklm",
-      "type": "pattern",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-08",
-      "tags": [],
-      "sources": [],
-      "layer": 5,
-      "maturity": "seed",
-      "derived_from": [
-        "Context-Aware Tool Loading",
-        "NotebookLM Skills"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Context-Aware Tool Loading"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "NotebookLM Skills"
-        }
-      ]
-    },
-    {
-      "path": "patterns/skills-obsidian.md",
-      "slug": "patterns/skills-obsidian",
-      "title": "Pattern: Skills + Obsidian",
-      "type": "pattern",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-08",
-      "tags": [],
-      "sources": [],
-      "layer": 5,
-      "maturity": "seed",
-      "derived_from": [
-        "Obsidian Skills Ecosystem",
-        "Skills Architecture Patterns"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Obsidian Skills Ecosystem"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Skills Architecture Patterns"
-        }
-      ]
-    },
-    {
       "path": "sources/src-awesome-design-md.md",
       "slug": "sources/src-awesome-design-md",
       "title": "Synthesis: awesome-design-md \u2014 58 Design Systems for AI Agents",
@@ -11752,8 +11607,8 @@
       "relationship_count": 11
     },
     "cross-domain": {
-      "page_count": 49,
-      "relationship_count": 363
+      "page_count": 44,
+      "relationship_count": 353
     },
     "ai-agents": {
       "page_count": 34,

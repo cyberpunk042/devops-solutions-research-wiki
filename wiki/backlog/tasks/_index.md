@@ -14,4 +14,4 @@ tags: [backlog, tasks]
 
 | ID | Task | Priority | Status | Stage | Readiness | Epic |
 |----|------|----------|--------|-------|-----------|------|
-| T001 | Test OpenAI backend with LocalAI | P1 | blocked |  | 0 | E001 |
+| T001 | [Test OpenAI backend with LocalAI](T001-test-openai-backend.md) | P1 | blocked |  | 0 | E001 |

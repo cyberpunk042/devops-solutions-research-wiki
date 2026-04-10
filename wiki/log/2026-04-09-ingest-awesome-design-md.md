@@ -15,7 +15,7 @@ tags: [log, directive, ingestion, design-md]
 
 ## Summary
 
-Operator directive to ingest the VoltAgent/awesome-design-md repository — 58 curated DESIGN.md files for AI agents. Connects to the existing Design.md Pattern concept page.
+Operator directive to ingest the VoltAgent/awesome-design-md repository — a curated collection of 58 DESIGN.md files from projects like Claude, Stripe, Vercel, and Linear that AI agents use for consistent UI generation. Connects to the existing Design.md Pattern concept page and led to the depth verification lesson (Never Synthesize from Descriptions Alone).
 
 ## Operator Directive (verbatim)
 

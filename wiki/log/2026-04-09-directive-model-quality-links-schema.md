@@ -15,7 +15,7 @@ tags: [log, directive, quality, links, schema, models]
 
 ## Summary
 
-Three issues identified: broken backlinks formatting, model page conflates project-specific tooling with the universal model, and schema.yaml naming will cause confusion in other codebases.
+Three quality issues identified during model review: (1) broken backlinks formatting with double-bracket corruption, (2) the LLM Wiki model page conflates project-specific tooling with the universal model definition, and (3) schema.yaml naming conventions will cause confusion when adopted by other codebases in the ecosystem.
 
 ## Operator Directive (verbatim)
 

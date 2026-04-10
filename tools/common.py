@@ -340,7 +340,19 @@ def rebuild_backlog_index(backlog_dir: Path) -> None:
             })
 
     # --- Rebuild wiki/backlog/_index.md ---
+    # Build filename lookup for epics
+    epic_files = {}
+    if epics_dir.exists():
+        for md_file in sorted(epics_dir.glob("*.md")):
+            if md_file.name != "_index.md":
+                text = md_file.read_text(encoding="utf-8")
+                meta, _ = parse_frontmatter(text)
+                if meta and meta.get("title"):
+                    epic_files[meta["title"]] = md_file.name
+
     epic_rows = "\n".join(
+        f"| {e['id']} | [{e['title']}](epics/{epic_files.get(e['title'], '')}) | {e['priority']} | {e['status']} | {e['readiness']} |"
+        if e['title'] in epic_files else
         f"| {e['id']} | {e['title']} | {e['priority']} | {e['status']} | {e['readiness']} |"
         for e in epics
     ) or "<!-- No epics yet -->"
@@ -379,7 +391,19 @@ See [tasks/_index.md](tasks/_index.md)
     backlog_index_path.write_text(backlog_index_content, encoding="utf-8")
 
     # --- Rebuild wiki/backlog/tasks/_index.md ---
+    # Build filename lookup for tasks
+    task_files = {}
+    if tasks_dir.exists():
+        for md_file in sorted(tasks_dir.glob("*.md")):
+            if md_file.name != "_index.md":
+                text = md_file.read_text(encoding="utf-8")
+                meta, _ = parse_frontmatter(text)
+                if meta and meta.get("title"):
+                    task_files[meta["title"]] = md_file.name
+
     task_rows = "\n".join(
+        f"| {t['id']} | [{t['title']}]({task_files.get(t['title'], '')}) | {t['priority']} | {t['status']} | {t['stage']} | {t['readiness']} | {t['epic']} |"
+        if t['title'] in task_files else
         f"| {t['id']} | {t['title']} | {t['priority']} | {t['status']} | {t['stage']} | {t['readiness']} | {t['epic']} |"
         for t in tasks
     ) or "<!-- No tasks yet -->"

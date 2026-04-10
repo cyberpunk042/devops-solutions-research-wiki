@@ -189,6 +189,5 @@ The connection to context management is the critical constraint that shapes all 
 [[Claude Code Slash Commands (artemgetmann)]]
 [[Design.md Pattern]]
 [[Infrastructure as Code Patterns]]
-[[Pattern: Skills + Obsidian]]
 [[Skill Specification Is the Key to Ecosystem Interoperability]]
 [[Synthesis: awesome-design-md — 58 Design Systems for AI Agents]]

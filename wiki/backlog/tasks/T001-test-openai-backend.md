@@ -23,7 +23,7 @@ tags: [local-inference, openai-backend, testing, blocked]
 
 ## Summary
 
-Run `pipeline evolve --auto --backend openai --top 1` against a running LocalAI instance. Verify the generated page passes validation. Requires 19GB VRAM hardware.
+Run `pipeline evolve --auto --backend openai --top 1` against a running LocalAI instance to validate the local model evolution backend. Verify the generated page passes validation and content quality gates. Requires 19GB VRAM hardware upgrade (pending). This is the first end-to-end test of the $0 target evolution path — local inference generating wiki pages without Claude API calls.
 
 ## Done When
 

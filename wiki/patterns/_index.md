@@ -33,11 +33,6 @@ See also: [[Cross-Domain Patterns]] for the meta-analysis of why these 6 pattern
 - [Plan Execute Review Cycle](plan-execute-review-cycle.md) — The Plan→Execute→Review cycle is a recurring structural pattern observed independently across AI agent orchestration ...
 - [Progressive Distillation](progressive-distillation.md) — Progressive Distillation is the pattern of processing raw material through successive layers of increasing density an...
 - [Scaffold → Foundation → Infrastructure → Features](scaffold-foundation-infrastructure-features.md) — Scaffold → Foundation → Infrastructure → Features (SFIF) is the universal 4-stage build lifecycle that repeats at eve...
-- [Pattern: Skills + Claude-Code](skills-claude-code.md) — <!-- 2-3 sentences: what recurs and why it matters -->
-- [Pattern: Skills + Cli](skills-cli.md) — <!-- 2-3 sentences: what recurs and why it matters -->
-- [Pattern: Skills + Mcp](skills-mcp.md) — <!-- 2-3 sentences: what recurs and why it matters -->
-- [Pattern: Skills + Notebooklm](skills-notebooklm.md) — <!-- 2-3 sentences: what recurs and why it matters -->
-- [Pattern: Skills + Obsidian](skills-obsidian.md) — <!-- 2-3 sentences: what recurs and why it matters -->
 
 ## Tags
 

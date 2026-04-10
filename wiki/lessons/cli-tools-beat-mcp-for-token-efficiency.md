@@ -124,8 +124,6 @@ The accuracy implication compounds: schema tokens from unused tools occupy space
 [[Evolution Standards — What Good Knowledge Promotion Looks Like]]
 [[Model: Claude Code]]
 [[Model: MCP and CLI Integration]]
-[[Pattern: Skills + Cli]]
-[[Pattern: Skills + Mcp]]
 [[Skills Architecture Is the Dominant LLM Extension Pattern]]
 [[Synthesis: Context Mode — MCP Sandbox for Context Saving]]
 [[Wiki Design Standards — What Good Styling Looks Like]]
