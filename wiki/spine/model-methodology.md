@@ -40,15 +40,17 @@ The Methodology model defines the composable, selectable, nestable system of wor
 
 ## Key Insights
 
-- **This is a FRAMEWORK, not a PROCESS**: A process is a fixed sequence you follow. This model defines a vocabulary (stages, gates, artifacts, types, modes) and composition rules that let you BUILD processes per-situation. Every specific workflow — wiki ingestion, feature development, research spikes, bug fixes — is an instance composed from the same primitives.
+- **This is a FRAMEWORK containing MULTIPLE models, not a single process.** Feature development has 5 stages. Research has 2. Ingestion has 4 with completely different stage names. Hotfix has 2. A project runs several of these simultaneously on different tracks. The framework defines the VOCABULARY (stages, gates, artifacts, conditions) and COMPOSITION RULES (sequential, nested, conditional, parallel) that let you build ANY work process from the same primitives.
 
-- **Stages are hard boundaries enforced by artifact category**: The Document stage may not produce implementation code. The Scaffold stage may not implement business logic. These are not guidelines — violation produces the wrong artifact category, which corrupts the stage system. See [[Never Skip Stages Even When Told to Continue]].
+- **Conditions select which model runs — not just which stages.** Task type is ONE condition. But also: project phase, domain, scale, urgency, current state. A research spike during foundation phase of a knowledge project evaluates ALL conditions simultaneously. The result is a SPECIFIC MODEL with specific overrides — not a subset of one fixed pipeline.
 
-- **Task type selects the stage subset**: Not every task runs all 5 stages. A `docs` task runs only Document. A `research` task runs Document + Design. A `task` skips Document and Design entirely. Type selection is a complexity judgment that shapes the entire execution path.
+- **Models compose at every scale — three tracks run in parallel on every project.** The execution track (brainstorm → spec → plan → implementation), the PM track (epics → modules → tasks), and the knowledge track (ingest → synthesize → evolve → cross-reference) are THREE DIFFERENT MODELS running simultaneously. They interact (PM triggers execution, execution feeds knowledge, knowledge informs PM) but never merge into one sequence.
 
-- **Models compose at every scale**: SFIF (Scaffold, Foundation, Infrastructure, Features) runs at the project level. The 5-stage model runs at the task level inside each SFIF phase. A research model runs first, then feeds a feature model. This is not one level of process — it is fractal.
+- **Stages have hard boundaries with ALLOWED and FORBIDDEN artifact lists.** Document may not produce code. Scaffold may not implement business logic. Implement MUST wire into the runtime (OpenArms Bug 6: 2,073 lines of orphaned code). These are not suggestions — they are enforced by hooks, commit conventions, and quality gates. See [[Never Skip Stages Even When Told to Continue]].
 
-- **The quality dimension is an explicit parameter, not an accident**: [[Skyscraper, Pyramid, Mountain]] defines three quality targets. Skyscraper means full process. Pyramid means deliberate compression. Mountain means accidental chaos. The methodology makes the choice visible and intentional.
+- **The quality dimension is an explicit parameter.** [[Skyscraper, Pyramid, Mountain]] — Skyscraper = full process, Pyramid = deliberate compression, Mountain = accidental chaos. The methodology makes rigor an EXPLICIT CHOICE per situation, not an accidental outcome.
+
+- **The framework is recursive.** Ecosystem level runs SFIF. Project level runs SFIF. Inside each SFIF stage, epics run their model. Inside epics, tasks run their model. The SAME vocabulary applies at every level — the only thing that changes is which model is selected and what the artifacts are.
 
 ## Deep Analysis
 
@@ -271,6 +273,23 @@ Every methodology instance has a quality target. This is not aspirational — it
 - **Mountain** — no process. Stages are skipped accidentally, artifacts missing, gates ignored. This is the anti-pattern.
 
 The framework does not mandate Skyscraper rigor for everything. It mandates that the quality level is an EXPLICIT choice, made per-situation, not an accidental outcome of time pressure. See [[Skyscraper, Pyramid, Mountain]] for the full model.
+
+### Real Example: Three Tracks Running on One Project
+
+Here is how the methodology actually works on this research wiki project RIGHT NOW — three tracks running in parallel, each with its own model:
+
+**Knowledge track** (wiki model: ingest → synthesize → cross-reference → evolve):
+- User provides a URL → `pipeline fetch` saves to raw/ → agent reads the FULL source (depth verification: Layer 0 description is not enough, must reach Layer 1 instance) → creates source-synthesis page in wiki/sources/ → creates/updates concept pages in wiki/domains/ → `pipeline post` validates → `pipeline crossref` finds new connections → `pipeline evolve --score` identifies candidates for lessons/patterns/decisions
+
+**PM track** (backlog model: epics → modules → tasks):
+- E001 "Local Inference Engine" exists at readiness 10% (document stage done, blocked on hardware). T001 "Test OpenAI backend" is its child task, status=blocked. When hardware arrives, T001 moves to active, an agent picks it up, progresses through scaffold → implement → test stages, each with its own commit and frontmatter update. T001's completion bumps E001's readiness upward.
+
+**Execution track** (superpowers model: brainstorm → spec → plan → sub-agent implementation):
+- User says "build the backlog system" → brainstorm skill runs (questions, approaches, design sections) → spec written to docs/superpowers/specs/ → plan written to docs/superpowers/plans/ → sub-agents execute tasks from the plan → code reviewer validates → merge
+
+These three tracks ran SIMULTANEOUSLY during this session. The knowledge track ingested OpenArms methodology evolution. The PM track has 2 epics and 1 task. The execution track produced the backlog system via spec → plan → implementation. They fed each other: the knowledge track's research on OpenArms informed the execution track's design, which created the PM track's infrastructure.
+
+**This is what the methodology LOOKS LIKE in practice.** Not one pipeline — three concurrent models interacting through defined interfaces.
 
 ### How to Adopt
 
