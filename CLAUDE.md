@@ -11,6 +11,9 @@ A monorepo containing:
 - Tooling for validation, linting, export, and integration with sister projects
 - A skill that teaches Claude how to operate the entire system
 
+**Start here:** `wiki/spine/model-registry.md` — lists all 15 named models with their
+companion standards pages. Models are the primary knowledge containers.
+
 ## Project Structure
 
 - `raw/` — Unprocessed source material (transcripts, articles, papers, notes, dumps)

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-10T03:30:26.954806+00:00",
+  "generated": "2026-04-10T03:44:12.972927+00:00",
   "stats": {
-    "pages": 169,
+    "pages": 170,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1165,
-    "tags_unique": 631,
+    "relationships": 1169,
+    "tags_unique": 635,
     "layers": {
       "3": 5,
       "6": 5,
@@ -14,10 +14,10 @@
       "4": 22,
       "5": 11,
       "1": 24,
-      "spine": 27
+      "spine": 28
     },
     "maturity": {
-      "growing": 132,
+      "growing": 133,
       "seed": 14
     }
   },
@@ -11071,6 +11071,47 @@
       ]
     },
     {
+      "path": "spine/model-registry.md",
+      "slug": "spine/model-registry",
+      "title": "Model Registry",
+      "type": "reference",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "authoritative",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "models",
+        "registry",
+        "index",
+        "navigation",
+        "spine",
+        "entry-point"
+      ],
+      "sources": [],
+      "layer": "spine",
+      "maturity": "growing",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "RELATES TO",
+          "target": "Model: Methodology"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Model: LLM Wiki"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Model: Wiki Design"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "All models in this wiki"
+        }
+      ]
+    },
+    {
       "path": "spine/model-second-brain.md",
       "slug": "spine/model-second-brain",
       "title": "Model: Second Brain",
@@ -11472,8 +11513,8 @@
       "relationship_count": 11
     },
     "cross-domain": {
-      "page_count": 45,
-      "relationship_count": 347
+      "page_count": 46,
+      "relationship_count": 351
     },
     "ai-agents": {
       "page_count": 34,
@@ -13481,7 +13522,8 @@
       "log/2026-04-09-directive-bottom-up-model-completion",
       "log/2026-04-09-directive-model-quality-links-schema",
       "log/2026-04-09-directive-models-are-not-documents",
-      "log/2026-04-09-directive-quality-models-hub-mindset"
+      "log/2026-04-09-directive-quality-models-hub-mindset",
+      "spine/model-registry"
     ],
     "process": [
       "lessons/models-are-built-in-layers-not-all-at-once",
@@ -14075,6 +14117,7 @@
       "spine/model-methodology",
       "spine/model-notebooklm",
       "spine/model-quality-failure-prevention",
+      "spine/model-registry",
       "spine/model-second-brain",
       "spine/model-sfif-architecture",
       "spine/model-skills-commands-hooks"
@@ -14151,6 +14194,18 @@
     "rework": [
       "spine/model-quality-failure-prevention"
     ],
+    "registry": [
+      "spine/model-registry"
+    ],
+    "index": [
+      "spine/model-registry"
+    ],
+    "navigation": [
+      "spine/model-registry"
+    ],
+    "entry-point": [
+      "spine/model-registry"
+    ],
     "quality-tiers": [
       "spine/model-sfif-architecture"
     ],
@@ -14204,6 +14259,12 @@
       "target": "All model and wiki pages",
       "referenced_by": [
         "Model: Wiki Design"
+      ]
+    },
+    {
+      "target": "All models in this wiki",
+      "referenced_by": [
+        "Model Registry"
       ]
     },
     {
