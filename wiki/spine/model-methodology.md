@@ -66,9 +66,27 @@ A methodology model is a first-class, named entity with a precise definition. It
 
 Models are defined in `wiki/config/methodology.yaml` and can be created, modified, and versioned independently of the systems that execute them. The [[Methodology Framework]] page covers the full meta-system in detail.
 
-### The 5-Stage System
+### Multiple Methodology Models
 
-Every methodology instance in this ecosystem is built from the same 5 stages. The sequence is invariant — stages always run in this order. Task types select WHICH stages run, but never reorder them.
+The framework contains MULTIPLE named methodology models, not one fixed pipeline. Each model is a different stage sequence for a different situation:
+
+| Model | Stages | When selected | Example |
+|-------|--------|---------------|---------|
+| **Feature Development** | document → design → scaffold → implement → test | task_type = epic, module | Building a new subsystem |
+| **Research** | document → design | task_type = spike, research | Investigating a topic, no code output |
+| **Knowledge Evolution** | document → implement | task_type = evolve | Generating lessons/patterns from existing knowledge |
+| **Documentation** | document | task_type = docs | Writing wiki pages, guides, specs |
+| **Bug Fix** | document → implement → test | task_type = bug | Restoring correct behavior |
+| **Refactor** | document → scaffold → implement → test | task_type = refactor | Restructuring without behavior change |
+| **Hotfix** | implement → test | urgency = critical | Emergency fix, understanding already exists |
+| **Ingestion Pipeline** | ingest → synthesize → cross-reference → evolve | domain = knowledge | Wiki source processing |
+| **Project Lifecycle (SFIF)** | scaffold → foundation → infrastructure → features | scale = project | Full project build cycle |
+
+These are NOT subsets of one pipeline — they are INDEPENDENT models with different stage sequences. The "Feature Development" model has 5 stages. The "Research" model has 2 completely different stages. The "Ingestion Pipeline" has 4 stages with different names entirely.
+
+### The 5 Common Stages (One Model, Not The Only Model)
+
+The most frequently used model is the 5-stage Feature Development model. Its stages are:
 
 | Stage       | Readiness | Produces                                         | Prohibits                                    |
 |-------------|-----------|--------------------------------------------------|----------------------------------------------|
@@ -77,6 +95,40 @@ Every methodology instance in this ecosystem is built from the same 5 stages. Th
 | **Scaffold**  | 50-80%  | Directory structure, empty files, config changes | Business logic, content beyond skeleton      |
 | **Implement** | 80-95%  | Working code, filled wiki pages, tools           | Must follow design doc, no breaking changes  |
 | **Test**      | 95-100% | Clean validation, manual review, no regressions  | No new features, fix-only                    |
+
+This is the DEFAULT model for complex work. But it is not the ONLY model. A research task uses a completely different 2-stage sequence. An ingestion task uses a 4-stage sequence with different stage names. The framework accommodates all of them.
+
+### Model Selection — How Conditions Choose Which Model Runs
+
+Model selection is driven by conditions evaluated against the current context:
+
+| Condition | What it determines | Example |
+|-----------|-------------------|---------|
+| **task_type** | Which stages are required | `spike` → Research model (2 stages) |
+| **Project phase** | Which stages are emphasized | Foundation phase → emphasize Document + Design |
+| **Domain** | Which family of models applies | Knowledge domain → Ingestion Pipeline model |
+| **Scale** | Whether stages can be compressed | Single function change → skip Document |
+| **Urgency** | Whether stages can be skipped | Critical production bug → Hotfix model |
+| **Current state** | Which quality tier is realistic | Legacy codebase → Pyramid tier, not Skyscraper |
+
+Selection can be multi-dimensional: task_type=spike AND phase=foundation AND domain=knowledge evaluates all conditions simultaneously to select the specific model and its overrides.
+
+### Model Composition — How Models Chain, Nest, and Branch
+
+Real work rarely runs a single model in isolation:
+
+**Sequential**: Research model runs first (document + design), produces a spec. Feature Development model runs next (all 5 stages), consuming the spec. Output of model A becomes input of model B.
+
+**Nested**: SFIF runs at the project level. Inside each SFIF stage, individual tasks run their own models. The Feature Development model is NESTED inside SFIF's Infrastructure stage. Three levels of nesting, each with its own model.
+
+**Conditional**: An agent evaluates a task. If `bug` → Bug Fix model. If `spike` → Research model. If `module` → Feature Development model. The condition BRANCHES to different models, not different subsets of one model.
+
+**Parallel (multi-track)**: Three tracks run simultaneously on every project:
+- Execution track: brainstorm → spec → plan → implementation (how things get built)
+- PM track: epics → modules → tasks with stage gates (what gets tracked)
+- Knowledge track: ingest → synthesize → evolve → cross-reference (what gets learned)
+
+These are different models on different tracks, interacting but not merging.
 
 **Stage boundaries are hard, not soft.** The commit history IS the audit trail — one conventional commit per stage makes stage transitions visible in version control. A commit titled `scaffold` that contains business logic is visibly wrong in the diff.
 
