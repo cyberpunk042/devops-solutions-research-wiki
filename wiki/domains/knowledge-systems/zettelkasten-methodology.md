@@ -7,7 +7,7 @@ domain: knowledge-systems
 status: synthesized
 confidence: high
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-second-brain-research
     type: article
@@ -30,17 +30,24 @@ Zettelkasten (German: "slip box") is Niklas Luhmann's personal knowledge managem
 
 ## Key Insights
 
-- **Atomic notes are the enabling constraint**: One idea per note forces clarity about what an idea actually is. Compound notes that mix multiple concepts resist linking because they match multiple contexts weakly rather than one context strongly. A note about "Python async programming and database connection pooling" cannot be linked cleanly to either topic. Two separate atomic notes can each accumulate rich links independently. Atomicity is painful to enforce but is what makes the network useful.
+> [!tip] Connections matter more than collection
+> 500 densely linked notes produce more insight than 5,000 isolated notes. Luhmann's 90,000-card Zettelkasten was valuable because almost every card linked to others — a navigable knowledge graph surfacing unexpected connections across decades and disciplines. The same property appears in LightRAG: relationship traversal surfaces connections not explicitly encoded by any single entry.
 
-- **Connections matter more than collection**: The value of a Zettelkasten is not the number of notes but the density and quality of links between them. 500 densely linked notes about a domain produce more insight than 5,000 isolated notes. Luhmann's 90,000-card Zettelkasten was not valuable because of its size but because almost every card linked to others — creating a navigable knowledge graph that could surface unexpected connections between ideas from different decades and disciplines.
+> [!abstract] Note types form a progression, not parallel categories
+>
+> | Type | What It Is | Wiki Mapping |
+> |------|-----------|-------------|
+> | **Fleeting** | Quick captures, not meant to last | `raw/notes/`, `raw/transcripts/` |
+> | **Literature** | Source summaries in your own words | `wiki/sources/src-*` |
+> | **Permanent** | Atomic ideas, context-independent, linked | `wiki/domains/*/` concept pages |
+>
+> Only permanent notes enter the Zettelkasten. The others are staging areas.
 
-- **Heterarchical means the structure emerges from links, not folders**: Folder hierarchies impose a single classification axis: a note about "database performance" can live in /databases/ or /performance/ but not both. Heterarchical networks allow a note to participate in multiple conceptual neighborhoods simultaneously, linked to database notes, performance notes, caching notes, and infrastructure notes, each connection representing a genuine relationship. This is why this wiki uses typed relationships (`BUILDS ON`, `COMPARES TO`, `ENABLES`) rather than just folder organization.
+**Atomic notes are the enabling constraint.** One idea per note forces clarity. Compound notes resist linking — they match multiple contexts weakly. Atomicity is painful to enforce but is what makes the network useful.
 
-- **Permanent notes are written for a stranger, not for yourself**: The standard for a permanent note is: "Would someone with no surrounding context understand this note's claim and why it matters?" This forces complete thoughts rather than shorthand reminders. A fleeting note ("interesting caching approach in Redis docs") becomes a permanent note ("Redis's WATCH command implements optimistic locking at the key level, which is preferable to MULTI/EXEC for read-heavy workflows because it avoids holding a lock during the read phase"). The permanent note is worth linking; the fleeting note is not.
+**Heterarchical = structure emerges from links, not folders.** Folder hierarchies impose a single classification axis. Heterarchical networks let a note participate in multiple conceptual neighborhoods simultaneously. This is why this wiki uses typed relationships rather than folder organization.
 
-- **The note types form a progression, not parallel categories**: Fleeting notes (quick captures, not meant to last) → Literature notes (summaries of sources in your own words) → Permanent notes (distilled ideas extracted from literature notes and linked to the network). Only permanent notes enter the Zettelkasten. The other types are staging areas. This wiki's raw/ → wiki/sources/ → wiki/domains/ progression maps directly onto this hierarchy.
-
-- **The Zettelkasten is a communication partner**: Luhmann's famous observation was that after years of development, the Zettelkasten would propose connections he had not thought of. This emergence property — where the network suggests ideas that no individual note contains — is the qualitative leap that distinguishes a Zettelkasten from a reference library. The same property appears in LightRAG's knowledge graph: relationship traversal surfaces connections that were not explicitly encoded by any single knowledge base entry.
+**Permanent notes are written for a stranger.** "Would someone with no context understand this claim and why it matters?" This forces complete thoughts. A fleeting note ("interesting caching approach") becomes a permanent note with the specific mechanism, the tradeoff, and the applicability. The permanent note is worth linking; the fleeting note is not.
 
 ## Deep Analysis
 

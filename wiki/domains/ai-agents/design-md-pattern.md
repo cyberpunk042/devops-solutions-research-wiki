@@ -7,7 +7,7 @@ domain: ai-agents
 status: synthesized
 confidence: high
 created: 2026-04-08
-updated: 2026-04-09
+updated: 2026-04-10
 sources:
   - id: src-design-md-research
     type: article
@@ -42,7 +42,21 @@ Design.md is a plain-text design system document introduced by Google Stitch tha
 
 ## Key Insights
 
-- **9-section standard structure — with concrete content**: Visual Theme (atmospheric description + key characteristics list), Color Palette (named colors with hex + functional role + design rationale), Typography (16-role hierarchy table with size/weight/line-height/letter-spacing per role), Component Styles (5+ button variants with exact padding/radius/shadow CSS), Layout Principles (spacing scale, grid, whitespace philosophy, 7-level border-radius scale), Depth & Elevation (5-level system from flat to inset), Do's and Don'ts (10 concrete rules each with specific values), Responsive Behavior (5 breakpoints with collapse strategy), and Agent Prompt Guide (quick color reference + ready-to-paste component prompts + 7-rule iteration guide). The Claude DESIGN.md is 312 lines — not a summary, a complete machine specification.
+> [!info] 9-section standard structure
+>
+> | Section | What It Contains |
+> |---------|-----------------|
+> | Visual Theme | Atmospheric description + key characteristics |
+> | Color Palette | Named colors: hex + functional role + design rationale |
+> | Typography | 16-role hierarchy table (size/weight/line-height/letter-spacing) |
+> | Component Styles | 5+ button variants with exact CSS |
+> | Layout Principles | Spacing scale, grid, whitespace, 7-level border-radius |
+> | Depth & Elevation | 5-level system from flat to inset |
+> | Do's and Don'ts | 10 concrete rules each with specific values |
+> | Responsive Behavior | 5 breakpoints with collapse strategy |
+> | Agent Prompt Guide | Ready-to-paste component prompts + 7-rule iteration guide |
+>
+> The Claude DESIGN.md is 312 lines — not a summary, a complete machine specification.
 
 - **Semantic color naming as AI vocabulary**: Every color in a DESIGN.md gets a NAME (Parchment, Terracotta Brand, Olive Gray), a HEX value (#f5f4ed, #c96442, #5e5d59), a FUNCTIONAL ROLE (primary background, brand CTA, secondary body text), and a DESIGN RATIONALE ("warm cream with a yellow-green tint that feels like aged paper"). The name becomes the agent's working vocabulary: prompt says "use Parchment" not "use #f5f4ed." This gives the AI a shared language with the designer.
 

@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-10T17:14:57.557546+00:00",
+  "generated": "2026-04-10T17:21:11.992804+00:00",
   "stats": {
     "pages": 175,
     "domains": 9,
@@ -1485,7 +1485,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "design-md",
         "design-system",
@@ -2140,7 +2140,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-09",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "spec-driven-development",
         "bmad",
@@ -3592,7 +3592,7 @@
       "status": "synthesized",
       "confidence": "medium",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-10",
       "tags": [
         "devops",
         "wsl2",
@@ -4510,7 +4510,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-10",
       "tags": [
         "zettelkasten",
         "pkm",

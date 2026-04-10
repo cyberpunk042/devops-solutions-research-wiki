@@ -7,7 +7,7 @@ domain: devops
 status: synthesized
 confidence: medium
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-user-directive-ecosystem
     type: notes
@@ -30,11 +30,18 @@ WSL2 (Windows Subsystem for Linux 2) enables running a full Linux development ec
 
 ## Key Insights
 
-- **The fundamental WSL2 constraint: two filesystems**: The Linux filesystem (ext4, inside the WSL2 VM) has full POSIX semantics. The Windows filesystem mounted at /mnt/c is NTFS with WSL interop shims. inotify does not work reliably on /mnt/c — this matters for any daemon that watches files in Windows-accessible paths.
+> [!warning] The fundamental WSL2 constraint: two filesystems
+>
+> | Filesystem | Location | Characteristics |
+> |-----------|----------|----------------|
+> | **Linux (ext4)** | Inside WSL2 VM | Full POSIX, fast, inotify works |
+> | **Windows (NTFS)** | /mnt/c/ | Interop shims, slow, inotify unreliable |
+>
+> This is why the wiki lives on ext4 and is synced to Windows, not the other way around. The performance cost of copy-on-change sync is lower than running all tooling against /mnt/c.
 
-- **Obsidian sync requires an explicit bridge**: Obsidian runs on Windows and reads from a Windows filesystem path. The wiki lives in WSL2 (~/devops-solutions-research-wiki/wiki/). A sync daemon (tools/sync.py) bridges them by copying wiki/ to a Windows path (/mnt/c/Users/.../Obsidian vault). Without this bridge, Obsidian cannot see wiki edits made in WSL2.
+**Obsidian sync requires an explicit bridge.** Obsidian reads Windows paths; wiki lives in WSL2. `tools/sync.py` copies wiki/ to /mnt/c/.../vault/. Without the bridge, Obsidian can't see WSL2 edits.
 
-- **Polling vs inotify for the watcher daemon**: tools/watcher.py monitors wiki/ for changes. In native Linux, inotify is the correct mechanism — instant, event-driven, efficient. In WSL2, inotify on /mnt/c paths is unreliable. The watcher therefore polls the Linux-side wiki/ path (reliable inotify) and the sync daemon separately bridges to Windows. Two daemons, clean separation of concerns.
+**Two daemons, clean separation.** `tools/watcher.py` polls Linux-side wiki/ (reliable inotify). `tools/sync.py` separately bridges to Windows. The watcher detects changes; the sync daemon pushes them across the boundary.
 
 - **Systemd user services on WSL2**: Modern WSL2 (WSL 1.4+, systemd enabled) supports systemd user services (systemctl --user). The watcher and sync daemons are deployed as systemd user services via tools/setup.py --services. This gives them proper lifecycle management (restart on failure, start on login) without requiring root or manual process management.
 

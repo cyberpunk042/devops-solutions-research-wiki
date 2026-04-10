@@ -7,7 +7,7 @@ domain: ai-agents
 status: synthesized
 confidence: high
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-10
 sources:
   - id: src-openfleet-methodology-scan
     type: documentation
@@ -40,9 +40,11 @@ Spec-driven development (SDD) is the discipline of producing structured, artifac
 
 ## Key Insights
 
-- **Universal convergence on spec-first**: Ten major open-source Claude Code workflow frameworks (BMAD-METHOD, Superpowers, Spec Kit, GSD, OpenSpec, gstack, etc.) independently arrived at the same fundamental cycle: Research/Understand → Spec → Plan → Execute → Review. They differ only in tooling and enforcement mechanism; the structure is identical. This is not coincidence — it is an emergent property of how LLMs fail without spec gates.
+> [!warning] Universal convergence — 10 frameworks, same cycle
+> BMAD-METHOD, Superpowers, Spec Kit, GSD, OpenSpec, gstack, and more independently arrived at: Research/Understand → Spec → Plan → Execute → Review. They differ only in tooling; the structure is identical. This is an emergent property of how LLMs fail without spec gates.
 
-- **The spec document is a phase boundary, not documentation**: In every framework surveyed, the spec artifact is the boundary condition that separates the "understand" phase from the "plan" phase and the "plan" phase from the "execute" phase. Crossing the boundary without the artifact is the root cause of scope creep, rework, and context drift. BMAD calls them PRD/architecture artifacts; Superpowers generates an explicit spec document; OpenFleet tracks each spec's implementation status in SPEC-TO-CODE.md; OpenArms uses wiki pages as design artifacts produced before any src/ files are written.
+> [!abstract] The spec is a phase boundary, not documentation
+> The spec artifact separates "understand" from "plan" and "plan" from "execute." Crossing the boundary without the artifact is the root cause of scope creep, rework, and context drift. BMAD: PRD/architecture artifacts. Superpowers: explicit spec document. OpenFleet: SPEC-TO-CODE.md. OpenArms: wiki pages as design artifacts before src/ files.
 
 - **SPEC-TO-CODE as alignment infrastructure**: OpenFleet formalizes spec-to-code as a living mapping document (69 specs → 94 modules), tracking three states per spec: ✅ implemented and matches, ⚠️ PARTIAL (gap documented), ❌ NOT DONE (read spec, implement from scratch). This document prevents "spec drift" — code evolving away from design. A contamination cleanup pass (2026-04-01) removed 70 fabricated tests for behavior that was never specified: "spec first, code second."
 
