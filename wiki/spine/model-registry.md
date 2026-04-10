@@ -39,7 +39,7 @@ Every model follows the same three-layer structure:
 | [[Model: Quality and Failure Prevention]] | 370 | [[Quality Standards — What Good Failure Prevention Looks Like]] | growing | Operational quality |
 | [[Model: Skills, Commands, and Hooks]] | 349 | [[Extension Standards — What Good Skills, Commands, and Hooks Look Like]] | growing | Extension system |
 | [[Model: Knowledge Evolution]] | 279 | [[Evolution Standards — What Good Knowledge Promotion Looks Like]] | growing | Evolution pipeline |
-| [[Model: MCP and CLI Integration]] | 181 | — | growing | Tool integration |
+| [[Model: MCP and CLI Integration]] | 283 | — | growing | Tool integration |
 | [[Model: Ecosystem Architecture]] | 179 | — | growing | Project topology |
 | [[Model: Design.md and IaC]] | 174 | — | growing | Agent config patterns |
 | [[Model: NotebookLM]] | 172 | — | growing | Research tooling |

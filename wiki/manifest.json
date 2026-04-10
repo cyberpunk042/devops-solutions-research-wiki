@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-10T04:29:20.288042+00:00",
+  "generated": "2026-04-10T04:34:05.179537+00:00",
   "stats": {
     "pages": 173,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1189,
+    "relationships": 1190,
     "tags_unique": 637,
     "layers": {
       "3": 5,
@@ -10733,7 +10733,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-09",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "mcp",
         "cli",
@@ -10746,7 +10746,26 @@
         "spine",
         "context-management"
       ],
-      "sources": [],
+      "sources": [
+        {
+          "id": "src-playwright-cli-vs-mcp",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=nN5R9DFYsXY",
+          "title": "Claude Code + Playwright CLI: Automate QA with Less Tokens"
+        },
+        {
+          "id": "src-claude-code-accuracy-tips",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
+          "title": "Claude Code Works Better When You Do This"
+        },
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering"
+        }
+      ],
       "layer": "spine",
       "maturity": "growing",
       "derived_from": [],
@@ -10764,6 +10783,10 @@
           "target": "Decision: MCP vs CLI for Tool Integration"
         },
         {
+          "verb": "BUILDS ON",
+          "target": "MCP Integration Architecture"
+        },
+        {
           "verb": "RELATES TO",
           "target": "Model: Skills, Commands, and Hooks"
         },
@@ -10777,11 +10800,11 @@
         },
         {
           "verb": "RELATES TO",
-          "target": "Model: Ecosystem Architecture"
+          "target": "Claude Code Context Management"
         },
         {
           "verb": "FEEDS INTO",
-          "target": "Decision: MCP vs CLI for Tool Integration"
+          "target": "Model: Ecosystem Architecture"
         }
       ]
     },
@@ -11713,7 +11736,7 @@
     },
     "cross-domain": {
       "page_count": 49,
-      "relationship_count": 371
+      "relationship_count": 372
     },
     "ai-agents": {
       "page_count": 34,
