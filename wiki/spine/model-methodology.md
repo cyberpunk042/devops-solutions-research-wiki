@@ -126,36 +126,44 @@ Nine named methodology models. Each is a DIFFERENT stage sequence solving a diff
 
 #### Knowledge Evolution
 
-**Stages:** document → implement
+> [!info] **Stages:** document → implement
+> Generate higher-layer pages (lessons, patterns, decisions) from existing wiki knowledge. No scaffold or design — the "design" is the existing knowledge being distilled.
 
 | Stage | What you produce | Gate |
 |-------|-----------------|------|
 | document | Cross-reference existing pages, identify convergence / insight | Candidate identified with source pages listed |
 | implement | Complete evolved page (lesson, pattern, or decision) | Page passes validation, ≥0.25 ratio to sources, real evidence |
 
-**Selected when:** task_type = evolve. Generating higher-layer pages from existing knowledge. No scaffold or design needed — the "design" is the existing knowledge being distilled.
+> [!abstract] **Selected when**
+> task_type = `evolve`. Existing pages converge on an insight worth distilling.
 
-**Real instance:** Generating "CLI Tools Beat MCP for Token Efficiency" lesson. Document (cross-reference accuracy tips source, harness engineering source, Playwright comparison — identify the convergence on CLI over MCP) → Implement (write the 122-line lesson page with 8 evidence items from 4 independent sources).
+> [!example]- **Real instance: Generating "CLI Tools Beat MCP for Token Efficiency" lesson**
+> 1. **Document** — Cross-reference accuracy tips source, harness engineering source, Playwright comparison. Identify the convergence: three independent sources all say CLI beats MCP.
+> 2. **Implement** — Write the 122-line lesson page with 8 evidence items from 4 independent sources. Each evidence item has a bold source label, a specific claim with data, and a sourcing parenthetical.
 
 ---
 
 #### Documentation
 
-**Stages:** document
+> [!info] **Stages:** document
+> Single-stage model. Done when the document is written and passes quality gates.
 
 | Stage | What you produce | Gate |
 |-------|-----------------|------|
 | document | Wiki page, guide, spec, directive log entry | Passes quality gates (Summary ≥30 words, frontmatter valid) |
 
-**Selected when:** task_type = docs. Writing or updating documentation only. Single-stage — done when the document is written and validated.
+> [!abstract] **Selected when**
+> task_type = `docs`. Writing or updating documentation only.
 
-**Real instance:** Logging an operator directive. User says something → create wiki/log/ entry with verbatim quote + interpretation → validate → commit. One stage, one artifact.
+> [!example]- **Real instance: Logging an operator directive**
+> User says something → create `wiki/log/` entry with verbatim quote + interpretation → validate frontmatter → commit. One stage, one artifact.
 
 ---
 
 #### Bug Fix
 
-**Stages:** document → implement → test
+> [!info] **Stages:** document → implement → test
+> Restore correct behavior. No design stage — bug fixes should NOT introduce new architecture.
 
 | Stage | What you produce | Gate |
 |-------|-----------------|------|
@@ -163,15 +171,20 @@ Nine named methodology models. Each is a DIFFERENT stage sequence solving a diff
 | implement | The fix — code change, config change, or content correction | Fix applied, compiles/validates |
 | test | Verification the fix works AND nothing else broke | Health check clean, regression-free |
 
-**Selected when:** task_type = bug. Something is broken and needs to be restored to correct behavior. No design stage — bug fixes should NOT introduce new architecture.
+> [!abstract] **Selected when**
+> task_type = `bug`. Something is broken and needs to be restored to correct behavior.
 
-**Real instance:** Fixing the sync service startup. Document (sync daemon crashes on start — `cmd.exe` not available in systemd environment, `get_win_user()` fails) → Implement (add `WIKI_SYNC_TARGET` env var to service template, resolve at install time instead of runtime) → Test (reinstall service, verify active and running, verify files synced).
+> [!example]- **Real instance: Fixing the sync service startup**
+> 1. **Document** — Sync daemon crashes on start. Root cause: `cmd.exe` not available in systemd environment, `get_win_user()` fails silently.
+> 2. **Implement** — Add `WIKI_SYNC_TARGET` env var to service template, resolve at install time instead of runtime auto-detection.
+> 3. **Test** — Reinstall service via `setup.py --services wiki-sync`, verify `systemctl --user status wiki-sync` shows active, verify files synced to Windows.
 
 ---
 
 #### Refactor
 
-**Stages:** document → scaffold → implement → test
+> [!info] **Stages:** document → scaffold → implement → test
+> Restructure without changing behavior. Skips design — the target structure is defined in the document stage.
 
 | Stage | What you produce | Gate |
 |-------|-----------------|------|
@@ -180,30 +193,43 @@ Nine named methodology models. Each is a DIFFERENT stage sequence solving a diff
 | implement | Code/content moved into new structure | Everything compiles/validates in new structure |
 | test | Behavior unchanged, all tests pass | Regression suite clean |
 
-**Selected when:** task_type = refactor. Restructuring without changing behavior. Skips design — the target structure is defined in the document stage, not as a separate spec.
+> [!abstract] **Selected when**
+> task_type = `refactor`. Restructuring without changing behavior.
 
-**Real instance:** Renaming `config/schema.yaml` → `config/wiki-schema.yaml`. Document (identify all references in tools/pipeline.py, tools/validate.py, CLAUDE.md) → Scaffold (create the new file name) → Implement (update all references with sed, verify pipeline still works) → Test (pipeline post passes, no broken imports).
+> [!example]- **Real instance: Renaming `config/schema.yaml` → `config/wiki-schema.yaml`**
+> 1. **Document** — Identify all references: tools/pipeline.py, tools/validate.py, tools/common.py, CLAUDE.md
+> 2. **Scaffold** — Create the new file name via `mv`
+> 3. **Implement** — Update all references with sed, verify pipeline still finds the schema
+> 4. **Test** — `pipeline post` passes, no broken imports, validation clean
 
 ---
 
 #### Hotfix
 
-**Stages:** implement → test
+> [!info] **Stages:** implement → test
+> Emergency fix when the problem and solution are already understood. Skip all other stages.
 
 | Stage | What you produce | Gate |
 |-------|-----------------|------|
 | implement | The fix | Applied and compiles/validates |
 | test | Verification | Works and no regressions |
 
-**Selected when:** Urgency = critical AND the problem and solution are already understood. No documentation, no design, no scaffolding. This is an EXPLICIT choice to operate at Pyramid tier — you're skipping stages knowingly, not accidentally.
+> [!warning] **Selected when**
+> Urgency = critical AND the problem and solution are already understood. This is an EXPLICIT choice to operate at Pyramid tier — you're skipping stages knowingly, not accidentally.
 
-**Real instance:** Fixing the argparse `--top` / `--topic` prefix collision. The bug was immediately clear (argparse abbreviation matching consumed `--top` as `--topic`). Implement (add `allow_abbrev=False` to parser) → Test (verify `--top 2` now scaffolds exactly 2 candidates). Two commits, no documentation needed.
+> [!example]- **Real instance: Fixing the argparse `--top` / `--topic` prefix collision**
+> The bug was immediately clear — argparse abbreviation matching consumed `--top` as `--topic`.
+> 1. **Implement** — Add `allow_abbrev=False` to the ArgumentParser constructor
+> 2. **Test** — Verify `--top 2` now scaffolds exactly 2 candidates, not 10
+>
+> Two commits, no documentation needed. The fix was obvious; the process was correctly compressed.
 
 ---
 
 #### Ingestion Pipeline
 
-**Stages:** ingest → synthesize → cross-reference → evolve
+> [!info] **Stages:** ingest → synthesize → cross-reference → evolve
+> The knowledge track's model. **Completely different stage names** — this is NOT a subset of the 5-stage Feature Development model.
 
 | Stage | What you produce | Gate |
 |-------|-----------------|------|
@@ -212,17 +238,24 @@ Nine named methodology models. Each is a DIFFERENT stage sequence solving a diff
 | cross-reference | Updated relationships, new connections identified | pipeline crossref shows 0 missing backlinks |
 | evolve | Higher-layer pages (lessons, patterns, decisions) | Evolved pages pass quality gates |
 
-**Selected when:** domain = knowledge, operation = ingestion. This model has COMPLETELY DIFFERENT stage names — it is not a subset of the 5-stage Feature Development model. It runs on the knowledge track.
+> [!abstract] **Selected when**
+> domain = knowledge, operation = ingestion. Runs on the knowledge track.
 
-**Real instance:** Ingesting the context-mode repo. Ingest (pipeline fetch → saved 1,057-line README to raw/) → Synthesize (read FULL source with multiple offsets, created 254-line source-synthesis page) → Cross-reference (updated MCP vs CLI decision, CLI lesson, context-aware loading pattern) → Evolve (not triggered this cycle — synthesis was the primary output).
+> [!example]- **Real instance: Ingesting the context-mode repo**
+> 1. **Ingest** — `pipeline fetch` saved 1,057-line README to `raw/articles/`
+> 2. **Synthesize** — Read FULL source with multiple offsets. Created 254-line source-synthesis page covering all 12 platforms, FTS5/BM25 knowledge base, session continuity, benchmarks.
+> 3. **Cross-reference** — Updated MCP vs CLI decision, CLI lesson, context-aware loading pattern with new evidence.
+> 4. **Evolve** — Not triggered this cycle (synthesis was the primary output).
 
-**Depth verification applies here:** during the synthesize stage, you MUST read the actual THING, not just the description. The first attempt at context-mode produced a 60-line shallow page from the first chunk. The rewrite (after depth verification) produced a 254-line deep synthesis. See [[Never Synthesize from Descriptions Alone]].
+> [!warning] **Depth verification applies here**
+> During the synthesize stage, you MUST read the actual THING, not just the description. The first attempt at context-mode produced a 60-line shallow page from the first chunk. The rewrite (after depth verification) produced a 254-line deep synthesis. See [[Never Synthesize from Descriptions Alone]].
 
 ---
 
 #### Project Lifecycle (SFIF)
 
-**Stages:** scaffold → foundation → infrastructure → features
+> [!info] **Stages:** scaffold → foundation → infrastructure → features
+> The project-level MACRO model. Other models run INSIDE its stages. See [[Scaffold → Foundation → Infrastructure → Features]].
 
 | Stage | What you produce | Gate |
 |-------|-----------------|------|
@@ -231,11 +264,17 @@ Nine named methodology models. Each is a DIFFERENT stage sequence solving a diff
 | infrastructure | Common components others depend on, basic interface | Build produces output, base is ready for features |
 | features | Specialized product features | Features work end-to-end |
 
-**Selected when:** scale = project. This is the MACRO model — other models run INSIDE its stages. See [[Scaffold → Foundation → Infrastructure → Features]].
+> [!abstract] **Selected when**
+> scale = project. This runs at macro level; task-level models run inside.
 
-**Real instance:** This research wiki's own lifecycle. Scaffold (CLAUDE.md, raw/, wiki/, tools/ directories, Python venv) → Foundation (tools/common.py, config/wiki-schema.yaml, config/templates/) → Infrastructure (tools/pipeline.py, MCP server, sync service, watcher, evolve engine) → Features (evolution pipeline, backlog system, model-building skill, 14 named models).
+> [!example]- **Real instance: This research wiki's own lifecycle**
+> 1. **Scaffold** — CLAUDE.md, raw/, wiki/, tools/ directories, Python venv, tech stack chosen
+> 2. **Foundation** — tools/common.py, config/wiki-schema.yaml, config/templates/, validation tooling
+> 3. **Infrastructure** — tools/pipeline.py (13 chains), MCP server (17 tools), sync service, watcher daemon, evolve engine
+> 4. **Features** — Evolution pipeline, backlog system, model-building skill, 14 named models, standards documents
 
-**The recursive property:** Inside the Infrastructure stage, building the backlog system ran the Feature Development model. Inside that, individual tasks ran their subset models. Three levels of nesting, each with its own methodology model.
+> [!tip] **The recursive property**
+> Inside the Infrastructure stage, building the backlog system ran the Feature Development model. Inside that, individual tasks ran their subset models. Three levels of nesting, each with its own methodology model. This is [[Methodology Framework]]'s fractal property in practice.
 
 ### Model Selection — How Conditions Pick a Model
 
