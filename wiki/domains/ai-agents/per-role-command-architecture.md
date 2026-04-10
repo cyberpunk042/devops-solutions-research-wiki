@@ -5,7 +5,7 @@ domain: ai-agents
 status: synthesized
 confidence: medium
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-10
 layer: 2
 maturity: growing
 sources:
@@ -32,17 +32,22 @@ Per-role command architecture is the design principle that different practitione
 
 ## Key Insights
 
-- **Two installation scopes, one design decision**: Personal (`~/.claude/commands/`) commands follow the user across all projects — utilities and power-user shortcuts. Project-level (`.claude/commands/`) commands are team-shared and version-controlled. The per-role architecture maps cleanly: role-generic commands go personal (available always), role-specific workflow commands go project-level (appropriate to context). The current wiki's 6 commands sit in `.claude/commands/` — correct for researcher workflows tied to this project.
+> [!tip] Commands are lightweight triggers; skills are full context
+> A `/command` is a markdown file with a prompt. A skill is a full instruction set with prerequisites, scripts, and behavioral guidance. The correct composition: commands invoke skills (`/ingest` triggers the `ingest` skill). This keeps commands minimal and reusable while skills carry the operational knowledge.
 
-- **Commands are lightweight triggers; skills are full context**: A `/command` is a markdown file with a prompt. A skill is a full instruction set with prerequisites, scripts, and behavioral guidance. The correct relationship is commands invoking skills: `/ingest` triggers the `ingest` skill rather than duplicating its logic. This composition model keeps commands minimal and reusable, while skills carry the operational knowledge.
+> [!abstract] Two installation scopes, one design decision
+>
+> | Scope | Location | What Goes There |
+> |-------|----------|----------------|
+> | **Personal** | `~/.claude/commands/` | Role-generic utilities, power-user shortcuts (follow user across projects) |
+> | **Project** | `.claude/commands/` | Role-specific workflows, team-shared, version-controlled |
 
-- **Role segmentation reduces cognitive noise**: A developer does not need `/evolve` or `/gaps`. A PM does not need `/ingest`. A researcher does not need `/deploy`. When all commands are visible to all roles, the command palette becomes a discovery problem rather than a productivity tool. Per-role scoping — whether via separate `.claude/commands/` sets per role context or via frontmatter-based metadata — turns the command list into a role-appropriate workflow guide.
+> [!warning] The Plannotator pattern: commands + hooks = structural enforcement
+> `/plannotator-annotate` is a command that *activates* a hook-intercepted workflow. The command sets up context; the hook provides the structural pause. Without hooks, the command can only *ask* Claude to pause — which it may or may not do. With hooks, the pause is guaranteed. This generalizes to any command requiring a human approval gate.
 
-- **The Plannotator pattern: a command that creates a hook workflow**: `/plannotator-annotate`, `/plannotator-review`, and `/plannotator-last` are commands that *activate* hook-intercepted workflows. The command is the user-facing trigger; the hook is the infrastructure doing the actual interception. This is the generalization: any time a command needs to pause the agent loop, gather external input, and return structured feedback, it should be implemented as a command + hook pair rather than a command that tries to simulate interactivity inline.
+**Role segmentation reduces cognitive noise.** A developer doesn't need `/evolve`. A PM doesn't need `/ingest`. Per-role scoping turns the command palette from a discovery problem into a workflow guide. Scoped by (1) install scope, (2) role, (3) execution mode — each user sees 6-8 relevant commands.
 
-- **Execution modes map to command sets**: The three methodology execution modes (autonomous, semi-autonomous, document-only) each have natural command sets. Autonomous: `/status`, `/continue`. Semi-autonomous: `/review`, `/evolve`, `/gaps`. Document-only: `/ingest`, `/scaffold`. Formalizing this mapping makes the execution mode concrete: switching modes is partially accomplished by which commands are available and emphasized.
-
-- **Command proliferation is a solved problem if scoped correctly**: The fear of command proliferation disappears when commands are scoped by: (1) installation scope (personal vs. project), (2) role (developer vs. researcher vs. PM), and (3) execution mode (autonomous vs. interactive). A researcher working semi-autonomously on this wiki sees 6-8 commands. A developer in the same ecosystem sees a different 6-8. Neither palette is overwhelming.
+**Execution modes map to command sets.** Autonomous: `/status`, `/continue`. Semi-autonomous: `/review`, `/evolve`, `/gaps`. Document-only: `/ingest`, `/scaffold`. Mode switching is partially accomplished by which commands are available.
 
 ## Deep Analysis
 

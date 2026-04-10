@@ -7,7 +7,7 @@ domain: automation
 status: synthesized
 confidence: medium
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-user-directive-ecosystem
     type: notes
@@ -30,19 +30,29 @@ Research Pipeline Orchestration is the architectural vision for automating the r
 
 ## Key Insights
 
-- **Three operation modes**: Sequence/Chain (A → B → C, each step feeds the next), Group (A + B + C in parallel, results merged), Tree (branch into parallel paths, merge at synthesis points). These compose to create complex research workflows.
+> [!info] Three operation modes that compose
+>
+> | Mode | How It Works | When to Use |
+> |------|-------------|-------------|
+> | **Chain/Sequence** | A → B → C, each step feeds the next | Dependent steps (extract before analyze) |
+> | **Group/Parallel** | A + B + C simultaneously, results merged | Independent inputs (12 URLs at once) |
+> | **Tree** | Branch into parallel paths, merge at synthesis | Topic → 3 sources → merge into synthesis |
 
-- **Multiple pipeline types**: Online research (web search → fetch → ingest → synthesize), Local ingestion (project scan → extract → create pages), Cross-referencing (gap analysis → relationship discovery → update pages), Deepening (identify thin pages → research gaps → enrich content).
+> [!abstract] Five pipeline types
+>
+> | Pipeline | Stages |
+> |----------|--------|
+> | **Online Research** | web_search → fetch → save_raw → extract → synthesize → integrate |
+> | **Local Ingestion** | scan_project → extract_docs → classify → create_pages → integrate |
+> | **Cross-Reference** | load_manifest → gap_analysis → relationship_discovery → integrate |
+> | **Deepening** | lint_report → identify_thin → research_gaps → enrich → integrate |
+> | **Ecosystem Sync** | detect_changes → diff → update_or_create → cross_reference → integrate |
 
-- **Multi-pass ingestion is fundamental**: The user directive "ingestion is multi-pass, not one-shot" means each source goes through: extract → cross-reference → identify gaps → deepen. The current 2-pass implementation (Pass 1 extract, Pass 2 cross-reference) is the beginning, not the end.
+**Multi-pass ingestion is fundamental.** The user directive: "ingestion is multi-pass, not one-shot" — extract → cross-reference → identify gaps → deepen. The current 2-pass implementation is the beginning, not the end.
 
-- **Research lists as input**: Submit a list of URLs, topics, or local paths. The system processes them through the appropriate pipeline automatically. Entry points: Claude Code conversation, CLI (tools/ingest.py), future MCP server, future web UI.
+**Research lists as input.** Submit URLs, topics, or local paths. The system classifies (URL → online research, path → local ingestion, topic → web search + ingest) and routes to the right chain automatically.
 
-- **Automated pipeline selection**: Given an input, the system classifies it (URL → online research pipeline, local path → local ingestion pipeline, topic → web search + ingest pipeline) and routes to the right chain of operations.
-
-- **Offload repetitive work**: The directive emphasizes "offload as much as possible the repetitive task or even enhance or encapsulate one." This means: auto-validate after every page write, auto-update indexes, auto-regenerate manifest, auto-check for stale pages — all currently manual post-ingestion steps should become pipeline stages.
-
-- **Current implementation baseline**: tools/ingest.py handles URL fetching (YouTube, GitHub, web). The wiki-agent skill defines the 5-stage pipeline (EXTRACT → ANALYZE → SYNTHESIZE → WRITE → INTEGRATE). Post-ingestion has 6 steps. But these require human initiation — the vision is autonomous execution.
+**Offload repetitive work.** "Offload as much as possible the repetitive task." Auto-validate, auto-index, auto-manifest, auto-stale-check — all currently manual post-ingestion steps become pipeline stages.
 
 ## Deep Analysis
 
@@ -100,17 +110,14 @@ The gap between current state and the vision:
 
 ### Answered Open Questions
 
-**Q: Should the pipeline engine be a Python script (tools/pipeline.py) or an MCP server that Claude Code invokes?**
+> [!example]- Python CLI or MCP server for the pipeline engine?
+> CLI Python script (tools/pipeline.py) is correct. MCP schema overhead is paid on every message even in conversations not involving the pipeline; CLI invokes zero overhead when not called. An MCP wrapper can be added later for cross-conversation discoverability without changing the CLI-primary model.
 
-Cross-referencing `Decision: MCP vs CLI for Tool Integration`: the decision is clear and directly applicable. The decision page states: "Wiki pipeline operations (ingest, validate, lint, export, gaps) → CLI tools invoked via Bash, guided by skills loaded on demand" and "MCP servers for external service bridges and tool discovery." The pipeline engine is exactly the category of operational tooling that belongs as a CLI Python script. The rationale: MCP schema overhead is paid on every message even in conversations not involving the pipeline; CLI invokes zero overhead when not called. The decision page also notes: "For routine operation within a dedicated wiki conversation, invoking CLI directly via Bash is lower-overhead and produces higher accuracy per the measured degradation curve." The existing `tools/pipeline.py` is the correct implementation pattern — an MCP wrapper can be added later for cross-conversation discoverability without changing the CLI-primary model.
+> [!example]- Right granularity for parallelism?
+> **Parallel per-URL** during fetch+extract (each source is independent). **Sequential** within cross-reference and integration phases (dependencies between pages). Not per-page (cross-referencing introduces dependencies). Not per-domain (requires knowledge of all domain pages). OpenFleet caps parallel dispatch at 2 per cycle; similar cap recommended.
 
-**Q: What is the right granularity for parallelism — per-URL, per-page, per-domain?**
-
-Cross-referencing `Agent Orchestration Patterns`: the orchestration patterns page documents the appropriate parallelism model. OpenFleet caps parallel dispatch at 2 tasks per 30-second cycle "to prevent runaway parallel execution." The sub-agent dispatch model states: "dispatch multiple sub-agents for independent tasks, but cap concurrency." For the research pipeline, the natural parallelism boundary is per-URL/per-source (each URL fetch and initial extraction is independent), not per-page (cross-referencing introduces dependencies between pages) and not per-domain (domain-level operations require knowledge of all pages in the domain). The `Knowledge Evolution Pipeline` page reinforces that "sequential: for dependent steps (extract must finish before analyze)" and "parallel: for independent inputs (ingest 12 URLs simultaneously)." The recommended granularity: parallel per-URL during the fetch+extract phase, sequential within the cross-reference and integration phases.
-
-**Q: Can subagents be used for parallel page synthesis (one subagent per source)?**
-
-Cross-referencing `Agent Orchestration Patterns`: yes, with explicit scope boundaries. The orchestration patterns page documents the sub-agent dispatch model: "Define the task boundary explicitly: what the sub-agent receives, what it produces, what it must not do. Initialize fresh context: do not pass the full conversation history. Collect output, validate, integrate: the parent agent receives the sub-agent's output and validates it before incorporating it." For page synthesis, each subagent receives a single raw source file and produces a single wiki page — a well-bounded task. The parent pipeline validates each page (via `tools/validate.py`) before integration. The decision page adds: "When subagents execute wiki operations in parallel, CLI invocation is preferable to MCP because each subagent gets a fresh context window. Routing subagent work through MCP adds schema overhead to each fresh context unnecessarily." Subagents are appropriate for parallel page synthesis as long as each one uses CLI tools and starts with a clean context scoped to one source.
+> [!example]- Can subagents do parallel page synthesis?
+> Yes, with explicit scope boundaries. Each subagent receives one raw source file, produces one wiki page — well-bounded. Parent validates each page via `tools/validate.py` before integration. Use CLI tools (not MCP) in subagents — fresh context windows don't need MCP schema overhead.
 
 ## Relationships
 
