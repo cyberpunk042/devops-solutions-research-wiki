@@ -18,6 +18,7 @@ Strategic architecture and domain overviews
 - [Methodology Standards — What Good Execution Looks Like](model-methodology-standards.md) — This page defines the quality bar for METHODOLOGY EXECUTION
 - [Model: Methodology](model-methodology.md) — The Methodology model defines a flexible FRAMEWORK for defining, selecting, composing, and adapting work processes
 - [Model: NotebookLM](model-notebooklm.md) — The NotebookLM model describes how Google's free, source-grounded AI research tool functions as a complementary resea...
+- [Quality Standards — What Good Failure Prevention Looks Like](model-quality-failure-prevention-standards.md) — This page defines the quality bar for FAILURE PREVENTION
 - [Model: Quality and Failure Prevention](model-quality-failure-prevention.md) — Quality and failure prevention for AI agents is not a set of best practices — it is a system with three enforcement l...
 - [Model Registry](model-registry.md) — This is the entry point for all named models in the wiki
 - [Model: Second Brain](model-second-brain.md) — The Second Brain model describes the personal knowledge management (PKM) theoretical foundation that underlies this w...
@@ -28,4 +29,4 @@ Strategic architecture and domain overviews
 
 ## Tags
 
-`spine`, `model`, `standards`, `methodology`, `concept`, `quality`, `gold-standard`, `skills`, `hooks`, `context-management`, `anti-patterns`, `transferable`, `ecosystem`, `claude-code`, `harness`, `model-definition`, `harness-engineering`, `mcp`, `design-md`, `aicp`
+`spine`, `model`, `standards`, `quality`, `gold-standard`, `methodology`, `concept`, `anti-patterns`, `skills`, `hooks`, `context-management`, `transferable`, `ecosystem`, `claude-code`, `harness`, `model-definition`, `harness-engineering`, `mcp`, `design-md`, `aicp`

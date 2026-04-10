@@ -258,3 +258,4 @@ What all four levels working together looks like.
 [[LLM Wiki Standards — What Good Looks Like]]
 [[Wiki Design Standards — What Good Styling Looks Like]]
 [[Methodology Standards — What Good Execution Looks Like]]
+[[Quality Standards — What Good Failure Prevention Looks Like]]

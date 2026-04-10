@@ -36,7 +36,7 @@ Every model follows the same three-layer structure:
 | [[Model: Methodology]] | 568 | [[Methodology Standards — What Good Execution Looks Like]] | growing | Work processes |
 | [[Model: Wiki Design]] | 368 | [[Wiki Design Standards — What Good Styling Looks Like]] | seed | Visual design |
 | [[Model: Claude Code]] | 494 | [[Claude Code Standards — What Good Agent Configuration Looks Like]] | growing | Agent runtime |
-| [[Model: Quality and Failure Prevention]] | 266 | — | growing | Operational quality |
+| [[Model: Quality and Failure Prevention]] | 370 | [[Quality Standards — What Good Failure Prevention Looks Like]] | growing | Operational quality |
 | [[Model: Skills, Commands, and Hooks]] | 230 | — | growing | Extension system |
 | [[Model: Knowledge Evolution]] | 185 | — | growing | Evolution pipeline |
 | [[Model: MCP and CLI Integration]] | 181 | — | growing | Tool integration |
@@ -48,7 +48,7 @@ Every model follows the same three-layer structure:
 | [[Model: Local AI ($0 Target)]] | 147 | — | growing | Cost reduction |
 | [[Model: Automation and Pipelines]] | 144 | — | growing | Pipeline orchestration |
 
-**Status:** 4 models done with full depth + standards pages. 11 models need the full treatment (document → design → implement → test).
+**Status:** 5 models done with full depth + standards pages. 10 models need the full treatment (document → design → implement → test).
 
 ## The Super-Model
 

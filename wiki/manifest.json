@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-10T03:56:18.495454+00:00",
+  "generated": "2026-04-10T04:11:41.200072+00:00",
   "stats": {
-    "pages": 170,
+    "pages": 171,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1170,
-    "tags_unique": 635,
+    "relationships": 1177,
+    "tags_unique": 636,
     "layers": {
       "3": 5,
       "6": 5,
@@ -14,11 +14,11 @@
       "4": 22,
       "5": 11,
       "1": 24,
-      "spine": 28
+      "spine": 29
     },
     "maturity": {
       "growing": 133,
-      "seed": 14
+      "seed": 15
     }
   },
   "pages": [
@@ -10968,6 +10968,74 @@
       ]
     },
     {
+      "path": "spine/model-quality-failure-prevention-standards.md",
+      "slug": "spine/model-quality-failure-prevention-standards",
+      "title": "Quality Standards \u2014 What Good Failure Prevention Looks Like",
+      "type": "concept",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-10",
+      "updated": "2026-04-10",
+      "tags": [
+        "quality",
+        "standards",
+        "failure-prevention",
+        "gold-standard",
+        "anti-patterns",
+        "enforcement",
+        "stage-gates",
+        "depth-verification"
+      ],
+      "sources": [
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering"
+        },
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation"
+        }
+      ],
+      "layer": "spine",
+      "maturity": "seed",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "BUILDS ON",
+          "target": "Model: Quality and Failure Prevention"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Standards \u2014 What Good Looks Like"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Methodology Standards \u2014 What Good Execution Looks Like"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Standards \u2014 What Good Agent Configuration Looks Like"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Design Standards \u2014 What Good Styling Looks Like"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Never Synthesize from Descriptions Alone"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "The Agent Must Practice What It Documents"
+        }
+      ]
+    },
+    {
       "path": "spine/model-quality-failure-prevention.md",
       "slug": "spine/model-quality-failure-prevention",
       "title": "Model: Quality and Failure Prevention",
@@ -11517,8 +11585,8 @@
       "relationship_count": 11
     },
     "cross-domain": {
-      "page_count": 46,
-      "relationship_count": 352
+      "page_count": 47,
+      "relationship_count": 359
     },
     "ai-agents": {
       "page_count": 34,
@@ -12766,6 +12834,7 @@
       "spine/model-claude-code-standards",
       "spine/model-llm-wiki-standards",
       "spine/model-methodology-standards",
+      "spine/model-quality-failure-prevention-standards",
       "spine/model-quality-failure-prevention"
     ],
     "refactoring": [
@@ -13485,6 +13554,7 @@
       "spine/model-llm-wiki-standards",
       "spine/model-llm-wiki",
       "spine/model-methodology-standards",
+      "spine/model-quality-failure-prevention-standards",
       "spine/model-wiki-design-standards",
       "spine/model-wiki-design"
     ],
@@ -13539,6 +13609,7 @@
     ],
     "stage-gates": [
       "lessons/never-skip-stages-even-when-told-to-continue",
+      "spine/model-quality-failure-prevention-standards",
       "spine/model-quality-failure-prevention"
     ],
     "rushing": [
@@ -13552,6 +13623,7 @@
     ],
     "depth-verification": [
       "lessons/never-synthesize-from-descriptions-alone",
+      "spine/model-quality-failure-prevention-standards",
       "spine/model-quality-failure-prevention"
     ],
     "surface-level": [
@@ -14136,11 +14208,13 @@
       "spine/model-claude-code-standards",
       "spine/model-llm-wiki-standards",
       "spine/model-methodology-standards",
+      "spine/model-quality-failure-prevention-standards",
       "spine/model-wiki-design-standards"
     ],
     "anti-patterns": [
       "spine/model-claude-code-standards",
       "spine/model-methodology-standards",
+      "spine/model-quality-failure-prevention-standards",
       "spine/model-wiki-design-standards"
     ],
     "model-definition": [
@@ -14193,7 +14267,11 @@
       "spine/model-notebooklm"
     ],
     "failure-prevention": [
+      "spine/model-quality-failure-prevention-standards",
       "spine/model-quality-failure-prevention"
+    ],
+    "enforcement": [
+      "spine/model-quality-failure-prevention-standards"
     ],
     "rework": [
       "spine/model-quality-failure-prevention"
