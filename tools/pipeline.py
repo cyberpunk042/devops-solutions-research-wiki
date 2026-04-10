@@ -191,6 +191,8 @@ def post_chain(project_root: Path, verbose: bool = True) -> Dict[str, Any]:
         "lessons": "Structured insights synthesized from sources",
         "patterns": "Recurring structures observed across sources",
         "decisions": "Actionable choice frameworks with tradeoffs",
+        "comparisons": "Structured side-by-side evaluations with comparison matrices",
+        "sources": "Source synthesis pages — one per ingested source",
         "spine": "Strategic architecture and domain overviews",
     }
     for layer_name, desc in layer_dirs.items():

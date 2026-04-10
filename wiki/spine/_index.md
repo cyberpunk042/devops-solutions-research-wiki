@@ -1,6 +1,20 @@
 # Spine
 
-Strategic architecture and domain overviews
+Strategic architecture: models, standards, domain overviews, and the adoption guide.
+
+**Entry point:** [[Model Registry]] — all 15 models with status and standards links.
+
+## Domain Overviews
+
+| Overview | Domain |
+|----------|--------|
+| [[AI Agents — Domain Overview]] | Agent orchestration, Claude Code, harness engineering |
+| [[AI Models — Domain Overview]] | Local LLM quantization, model capabilities |
+| [[Automation — Domain Overview]] | Pipelines, MCP integration, event-driven automation |
+| [[Cross-Domain — Domain Overview]] | Methodology framework, quality tiers |
+| [[Devops — Domain Overview]] | Stage gates, ecosystem, infrastructure patterns |
+| [[Knowledge Systems — Domain Overview]] | LLM Wiki, PKM theory, evolution pipeline |
+| [[Tools And Platforms — Domain Overview]] | Obsidian, NotebookLM, AICP, OpenArms |
 
 ## Pages
 
