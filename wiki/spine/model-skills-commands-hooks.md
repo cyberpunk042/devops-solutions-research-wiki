@@ -209,9 +209,9 @@ Another example: a developer's `/implement` command triggers an implementation s
 - RELATES TO: [[Plannotator — Interactive Plan & Code Review for AI Agents]]
 - RELATES TO: [[Harness Engineering]]
 - RELATES TO: [[Claude Code Best Practices]]
-- FEEDS INTO: [[Model Guide: Claude Code]]
-- FEEDS INTO: [[Model Guide: MCP + CLI Integration]]
-- FEEDS INTO: [[Model Guide: Methodology]]
+- FEEDS INTO: [[Model: Claude Code]]
+- FEEDS INTO: [[Model: MCP and CLI Integration]]
+- FEEDS INTO: [[Model: Methodology]]
 
 ## Backlinks
 
@@ -224,6 +224,6 @@ Another example: a developer's `/implement` command triggers an implementation s
 [[Plannotator — Interactive Plan & Code Review for AI Agents]]
 [[Harness Engineering]]
 [[Claude Code Best Practices]]
-[[Model Guide: Claude Code]]
-[[Model Guide: MCP + CLI Integration]]
-[[Model Guide: Methodology]]
+[[Model: Claude Code]]
+[[Model: MCP and CLI Integration]]
+[[Model: Methodology]]

@@ -28,7 +28,7 @@ tags: [llm-wiki, model, knowledge-system, schema, ingestion, evolution, standard
 
 The LLM Wiki model defines a knowledge system where an LLM agent maintains a structured markdown wiki — ingesting sources, synthesizing pages, cross-referencing relationships, evolving insights through density layers, and linting for quality. The model solves the wiki maintenance problem: wikis historically die because humans abandon upkeep. With an LLM handling all mechanical operations, the wiki compounds knowledge instead of decaying. This model is technology-agnostic — it defines structure and rules, not tools.
 
-This is one of 14+ named models that a wiki can contain. The [[Methodology Framework]] is the super-model that governs HOW work is done. This page defines WHAT the wiki IS. See [[Model Guide: Methodology]] for the work process.
+This is one of 14+ named models that a wiki can contain. The [[Methodology Framework]] is the super-model that governs HOW work is done. This page defines WHAT the wiki IS. See [[Model: Methodology]] for the work process.
 
 ## Key Insights
 
@@ -421,24 +421,22 @@ From building with this model — validated experience:
 ## Relationships
 
 - FEEDS INTO: [[Model: Second Brain]]
-- FEEDS INTO: [[Model Guide: Ecosystem Architecture]]
-- ENABLES: [[Model Guide: Claude Code]]
+- FEEDS INTO: [[Model: Ecosystem Architecture]]
+- ENABLES: [[Model: Claude Code]]
 - BUILDS ON: [[LLM Wiki Pattern]]
 - BUILDS ON: [[Wiki Ingestion Pipeline]]
 - BUILDS ON: [[Knowledge Evolution Pipeline]]
-- RELATES TO: [[Model Guide: Methodology]]
+- RELATES TO: [[Model: Methodology]]
 - RELATES TO: [[Model: Knowledge Evolution]]
 
 ## Backlinks
 
 [[Model: Second Brain]]
-[[Model Guide: Ecosystem Architecture]]
-[[Model Guide: Claude Code]]
+[[Model: Ecosystem Architecture]]
+[[Model: Claude Code]]
 [[LLM Wiki Pattern]]
 [[Wiki Ingestion Pipeline]]
 [[Knowledge Evolution Pipeline]]
-[[Model Guide: Methodology]]
+[[Model: Methodology]]
 [[Model: Knowledge Evolution]]
 [[LLM Wiki Standards — What Good Looks Like]]
-[[Model: Ecosystem Architecture]]
-[[Model: Methodology]]

@@ -298,3 +298,4 @@ This is not a peer relationship — it is a governance relationship. The Methodo
 [[Adoption Guide — How to Use This Wiki's Standards]]
 [[wiki/config/methodology.yaml]]
 [[wiki/config/agent-directive.md]]
+[[Model: Skills, Commands, and Hooks]]

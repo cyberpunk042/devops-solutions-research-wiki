@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-10T00:02:56.334311+00:00",
+  "generated": "2026-04-10T00:08:01.363424+00:00",
   "stats": {
     "pages": 159,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1161,
+    "relationships": 1163,
     "tags_unique": 609,
     "layers": {
       "3": 5,
@@ -10048,23 +10048,31 @@
         },
         {
           "verb": "ENABLES",
-          "target": "Model Guide: Skills + Commands + Hooks"
+          "target": "[[Model: Skills"
         },
         {
           "verb": "ENABLES",
-          "target": "Model Guide: MCP + CLI Integration"
+          "target": "Commands"
         },
         {
           "verb": "ENABLES",
-          "target": "Model Guide: LLM Wiki"
+          "target": "and Hooks]]"
         },
         {
           "verb": "ENABLES",
-          "target": "Model Guide: Ecosystem Architecture"
+          "target": "Model: MCP and CLI Integration"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Model: LLM Wiki"
+        },
+        {
+          "verb": "ENABLES",
+          "target": "Model: Ecosystem Architecture"
         },
         {
           "verb": "RELATES TO",
-          "target": "Model Guide: Methodology"
+          "target": "Model: Methodology"
         },
         {
           "verb": "IMPLEMENTS",
@@ -10389,11 +10397,11 @@
         },
         {
           "verb": "FEEDS INTO",
-          "target": "Model Guide: Ecosystem Architecture"
+          "target": "Model: Ecosystem Architecture"
         },
         {
           "verb": "ENABLES",
-          "target": "Model Guide: Claude Code"
+          "target": "Model: Claude Code"
         },
         {
           "verb": "BUILDS ON",
@@ -10409,7 +10417,7 @@
         },
         {
           "verb": "RELATES TO",
-          "target": "Model Guide: Methodology"
+          "target": "Model: Methodology"
         },
         {
           "verb": "RELATES TO",
@@ -11092,15 +11100,15 @@
         },
         {
           "verb": "FEEDS INTO",
-          "target": "Model Guide: Claude Code"
+          "target": "Model: Claude Code"
         },
         {
           "verb": "FEEDS INTO",
-          "target": "Model Guide: MCP + CLI Integration"
+          "target": "Model: MCP and CLI Integration"
         },
         {
           "verb": "FEEDS INTO",
-          "target": "Model Guide: Methodology"
+          "target": "Model: Methodology"
         }
       ]
     }
@@ -11112,7 +11120,7 @@
     },
     "cross-domain": {
       "page_count": 41,
-      "relationship_count": 340
+      "relationship_count": 342
     },
     "ai-agents": {
       "page_count": 34,
@@ -13746,6 +13754,7 @@
     {
       "target": "Commands",
       "referenced_by": [
+        "Model: Claude Code",
         "Model: Ecosystem Architecture",
         "Model: MCP and CLI Integration"
       ]
@@ -13827,47 +13836,6 @@
       "target": "Methodology Execution Modes",
       "referenced_by": [
         "Adoption Guide \u2014 How to Use This Wiki's Standards"
-      ]
-    },
-    {
-      "target": "Model Guide: Claude Code",
-      "referenced_by": [
-        "Model: LLM Wiki",
-        "Model: Skills, Commands, and Hooks"
-      ]
-    },
-    {
-      "target": "Model Guide: Ecosystem Architecture",
-      "referenced_by": [
-        "Model: Claude Code",
-        "Model: LLM Wiki"
-      ]
-    },
-    {
-      "target": "Model Guide: LLM Wiki",
-      "referenced_by": [
-        "Model: Claude Code"
-      ]
-    },
-    {
-      "target": "Model Guide: MCP + CLI Integration",
-      "referenced_by": [
-        "Model: Claude Code",
-        "Model: Skills, Commands, and Hooks"
-      ]
-    },
-    {
-      "target": "Model Guide: Methodology",
-      "referenced_by": [
-        "Model: Claude Code",
-        "Model: LLM Wiki",
-        "Model: Skills, Commands, and Hooks"
-      ]
-    },
-    {
-      "target": "Model Guide: Skills + Commands + Hooks",
-      "referenced_by": [
-        "Model: Claude Code"
       ]
     },
     {
@@ -14157,6 +14125,7 @@
     {
       "target": "[[Model: Skills",
       "referenced_by": [
+        "Model: Claude Code",
         "Model: Ecosystem Architecture",
         "Model: MCP and CLI Integration"
       ]
@@ -14337,6 +14306,7 @@
     {
       "target": "and Hooks]]",
       "referenced_by": [
+        "Model: Claude Code",
         "Model: Ecosystem Architecture",
         "Model: MCP and CLI Integration"
       ]

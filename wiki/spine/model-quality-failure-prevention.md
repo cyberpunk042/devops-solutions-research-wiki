@@ -31,7 +31,7 @@ tags: [model, spine, quality, failure-prevention, harness, immune-system, rework
 
 ## Summary
 
-Quality and failure prevention for AI agents is not a set of best practices — it is a system with three enforcement layers (structural prevention, teaching, review), five codified failure lessons, and deterministic mechanisms that cannot be bypassed by prompt engineering. The model synthesizes evidence from four domains: harness engineering (13 guardrail rules enforced via hooks), OpenFleet's immune system (24 rules from 16 post-mortems), rework prevention economics (2.5-3.5x compound cost), and this wiki's own operational failures. The central thesis: quality enforcement must live in code that runs at execution time, not in documentation that the agent may or may not consult.
+Quality and failure prevention for AI agents is not a set of best practices — it is a system with three enforcement layers (structural prevention, teaching, review), five codified failure lessons, and deterministic mechanisms that cannot be bypassed by prompt engineering. The model synthesizes evidence from four domains: harness engineering (13 guardrail rules enforced via hooks), OpenFleet's immune system (24 rules from 16 post-mortems), rework prevention economics (rework is multiplicative — source unverified, the principle is sound but the specific multiplier needs measurement), and this wiki's own operational failures. The central thesis: quality enforcement must live in code that runs at execution time, not in documentation that the agent may or may not consult.
 
 ## Key Insights
 
@@ -39,7 +39,7 @@ Quality and failure prevention for AI agents is not a set of best practices — 
 
 - **Failure lessons must be codified, not just remembered.** Each of the five wiki failure lessons maps to a concrete enforcement mechanism. A lesson that exists only as documentation is a suggestion. A lesson encoded in CLAUDE.md, enforced by a hook, and checked by the post-chain is a rule.
 
-- **Rework is multiplicative, not additive.** A single rework cycle costs 2.5-3.5x the original task. In a multi-agent fleet with dependencies, one bad dispatch cascades into 5+ downstream reworks. Prevention investment breaks even at 12% rework reduction — and real rework rates run 20-40% without explicit gates.
+- **Rework is multiplicative, not additive.** Rework is multiplicative — redoing work requires reverting, re-planning, re-executing, and re-verifying, compounding cost beyond the original task. In a multi-agent fleet with dependencies, one bad dispatch cascades into downstream reworks. The specific cost multiplier and rework rate percentages are estimates that need measurement from real project data, but the principle that prevention is cheaper than rework is structurally sound.
 
 - **Depth verification is the single highest-leverage quality rule.** Reading the thing itself rather than a description of the thing prevents the most common class of hollow synthesis. The 0.25 ratio rule (at least 25% of ingestion time on primary sources) is a measurable proxy for depth.
 

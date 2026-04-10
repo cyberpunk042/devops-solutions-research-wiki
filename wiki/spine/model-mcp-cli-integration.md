@@ -178,3 +178,4 @@ The research wiki's 15-tool MCP server follows these principles: tool names are 
 [[Harness Engineering]]
 [[Model: Ecosystem Architecture]]
 [[Model: Design.md and IaC]]
+[[Model: Skills, Commands, and Hooks]]
