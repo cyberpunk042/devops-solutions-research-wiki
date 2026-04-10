@@ -1,10 +1,12 @@
 # Comparisons
 
-Cross-domain analysis and pattern comparisons
+Structured side-by-side evaluations with comparison matrices and decision criteria.
 
 ## Pages
 
-- [Agentic Search vs Vector Search](agentic-search-vs-vector-search.md) — Compares agentic multi-tool search against pure vector similarity retrieval for knowledge base querying...
-- [LLM Wiki vs RAG](llm-wiki-vs-rag.md) — Karpathy's LLM Wiki approach vs traditional semantic search RAG, with full decision matrix and hybrid search analysis...
-- [LLM Wiki vs RAG (knowledge-systems)](../domains/knowledge-systems/llm-wiki-vs-rag.md) — Deep-dive version in knowledge-systems domain with full source provenance...
-- [Skills Architecture Patterns](skills-architecture-patterns.md) — Cross-cutting analysis of skill architecture patterns across Claude Code, NotebookLM, and Obsidian ecosystems...
+| Comparison | What It Evaluates |
+|-----------|------------------|
+| [[LLM Wiki vs RAG]] | Wiki navigation vs vector search — scale boundary, hybrid path |
+| [[Agentic Search vs Vector Search]] | When agent-driven search outperforms embedding similarity |
+| [[Skills Architecture Patterns]] | Claude Code vs Obsidian vs NotebookLM skill ecosystems |
+| [[Cross-Domain Patterns]] | 6 patterns that recur across independent systems — the first-principles layer |
