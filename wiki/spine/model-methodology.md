@@ -73,34 +73,157 @@ For the full structural definition, see [[Methodology Framework]].
 
 ### The Model Catalog
 
-These are the named methodology models available in the framework. Each is a DIFFERENT stage sequence for a different kind of work:
+Nine named methodology models. Each is a DIFFERENT stage sequence solving a different problem. Each entry shows: what it is, its stages with per-stage artifacts, when it's selected, and a real instance from the ecosystem.
 
-**Feature Development** — document → design → scaffold → implement → test
-The full 5-stage model for complex work. Used for epics, modules, and refactors. Each stage has ALLOWED and FORBIDDEN artifact lists (see Stage Boundaries below). This is the most common model but NOT the only one.
+---
 
-**Research** — document → design
-Investigation without implementation. Produces understanding and options, never code. Capped at 50% readiness by design — 50% IS completion for a research task. Used for spikes and exploratory work.
+#### Feature Development
 
-**Knowledge Evolution** — document → implement
-Generate evolved pages (lessons, patterns, decisions) from existing wiki knowledge. Document stage = cross-reference existing pages, identify the insight. Implement stage = write the evolved page. No scaffold or design needed — the "design" is the existing knowledge being distilled.
+**Stages:** document → design → scaffold → implement → test
 
-**Documentation** — document
-Single-stage model for writing wiki pages, guides, specs. Done when the document passes quality gates.
+| Stage | What you produce | Gate |
+|-------|-----------------|------|
+| document | Wiki page mapping existing code + gap analysis | Page exists with Summary + gaps identified |
+| design | Spec or design decision document, type sketches IN DOCS | Spec reviewed and approved |
+| scaffold | Type definitions, schemas, .env entries, empty test files | Types compile, no business logic in diff |
+| implement | Working code wired into runtime, wiki pages, skills | Code compiles, lint passes, ≥1 runtime file imports new code |
+| test | All tests pass, manual verification | 0 test failures, health check clean |
 
-**Bug Fix** — document → implement → test
-Restore correct behavior. Document stage = understand what's broken and why. No design stage — bug fixes should not introduce new architecture. Implement = fix it. Test = verify it's fixed AND nothing else broke.
+**Selected when:** task_type = epic, module, or refactor. Any complex work where the solution isn't already known.
 
-**Refactor** — document → scaffold → implement → test
-Restructure without changing behavior. Document = understand current structure and target. Scaffold = create new structure. Implement = move code into new structure. Test = verify behavior unchanged.
+**Real instance:** Building the wiki backlog system. Document (read OpenArms model, understand what we need) → Design (brainstorm with user, 5-section design approval, spec written) → Scaffold (schema changes, directory structure, methodology.yaml) → Implement (Python tools, pipeline command, MCP tools, slash commands) → Test (pipeline health check, backlog command verified).
 
-**Hotfix** — implement → test
-Emergency fix when the problem and solution are already understood. No documentation, no design, no scaffolding. Just fix and verify. Used when urgency overrides process — the EXPLICIT choice to operate at Pyramid tier for this one task.
+---
 
-**Ingestion Pipeline** — ingest → synthesize → cross-reference → evolve
-The knowledge track's model. Completely different stage names — this is NOT a subset of the 5-stage model. Ingest = fetch and save raw source. Synthesize = create source-synthesis page. Cross-reference = find connections to existing pages. Evolve = generate higher-layer pages (lessons, patterns).
+#### Research
 
-**Project Lifecycle (SFIF)** — scaffold → foundation → infrastructure → features
-The project-level model. See [[Scaffold → Foundation → Infrastructure → Features]]. Runs at a macro level; other models run INSIDE its stages.
+**Stages:** document → design
+
+| Stage | What you produce | Gate |
+|-------|-----------------|------|
+| document | Wiki page synthesizing findings, source mapping | Page with Summary + Key Insights |
+| design | Options document, decision recommendation, implications | Options presented to operator |
+
+**Selected when:** task_type = spike or research. Investigation needed, no code output expected. Capped at 50% readiness — 50% IS completion.
+
+**Real instance:** Researching second brain / PKM methodologies. Document (read Zettelkasten + PARA + hybrid approaches, created wiki/domains/knowledge-systems/second-brain-architecture.md) → Design (proposed how wiki maps to PARA and Zettelkasten, identified gaps: FAQs, comparison matrices, review cadence).
+
+**Why it stops at design:** Research produces UNDERSTANDING, not implementation. If the research leads to building something, that becomes a NEW task using a different model (Feature Development or Documentation).
+
+---
+
+#### Knowledge Evolution
+
+**Stages:** document → implement
+
+| Stage | What you produce | Gate |
+|-------|-----------------|------|
+| document | Cross-reference existing pages, identify convergence / insight | Candidate identified with source pages listed |
+| implement | Complete evolved page (lesson, pattern, or decision) | Page passes validation, ≥0.25 ratio to sources, real evidence |
+
+**Selected when:** task_type = evolve. Generating higher-layer pages from existing knowledge. No scaffold or design needed — the "design" is the existing knowledge being distilled.
+
+**Real instance:** Generating "CLI Tools Beat MCP for Token Efficiency" lesson. Document (cross-reference accuracy tips source, harness engineering source, Playwright comparison — identify the convergence on CLI over MCP) → Implement (write the 122-line lesson page with 8 evidence items from 4 independent sources).
+
+---
+
+#### Documentation
+
+**Stages:** document
+
+| Stage | What you produce | Gate |
+|-------|-----------------|------|
+| document | Wiki page, guide, spec, directive log entry | Passes quality gates (Summary ≥30 words, frontmatter valid) |
+
+**Selected when:** task_type = docs. Writing or updating documentation only. Single-stage — done when the document is written and validated.
+
+**Real instance:** Logging an operator directive. User says something → create wiki/log/ entry with verbatim quote + interpretation → validate → commit. One stage, one artifact.
+
+---
+
+#### Bug Fix
+
+**Stages:** document → implement → test
+
+| Stage | What you produce | Gate |
+|-------|-----------------|------|
+| document | Understanding of what's broken and why | Root cause identified in writing |
+| implement | The fix — code change, config change, or content correction | Fix applied, compiles/validates |
+| test | Verification the fix works AND nothing else broke | Health check clean, regression-free |
+
+**Selected when:** task_type = bug. Something is broken and needs to be restored to correct behavior. No design stage — bug fixes should NOT introduce new architecture.
+
+**Real instance:** Fixing the sync service startup. Document (sync daemon crashes on start — `cmd.exe` not available in systemd environment, `get_win_user()` fails) → Implement (add `WIKI_SYNC_TARGET` env var to service template, resolve at install time instead of runtime) → Test (reinstall service, verify active and running, verify files synced).
+
+---
+
+#### Refactor
+
+**Stages:** document → scaffold → implement → test
+
+| Stage | What you produce | Gate |
+|-------|-----------------|------|
+| document | Current structure mapped, target structure defined | Gap between current and target documented |
+| scaffold | New directory structure, new type definitions, empty files | Structure exists, no logic moved yet |
+| implement | Code/content moved into new structure | Everything compiles/validates in new structure |
+| test | Behavior unchanged, all tests pass | Regression suite clean |
+
+**Selected when:** task_type = refactor. Restructuring without changing behavior. Skips design — the target structure is defined in the document stage, not as a separate spec.
+
+**Real instance:** Renaming `config/schema.yaml` → `config/wiki-schema.yaml`. Document (identify all references in tools/pipeline.py, tools/validate.py, CLAUDE.md) → Scaffold (create the new file name) → Implement (update all references with sed, verify pipeline still works) → Test (pipeline post passes, no broken imports).
+
+---
+
+#### Hotfix
+
+**Stages:** implement → test
+
+| Stage | What you produce | Gate |
+|-------|-----------------|------|
+| implement | The fix | Applied and compiles/validates |
+| test | Verification | Works and no regressions |
+
+**Selected when:** Urgency = critical AND the problem and solution are already understood. No documentation, no design, no scaffolding. This is an EXPLICIT choice to operate at Pyramid tier — you're skipping stages knowingly, not accidentally.
+
+**Real instance:** Fixing the argparse `--top` / `--topic` prefix collision. The bug was immediately clear (argparse abbreviation matching consumed `--top` as `--topic`). Implement (add `allow_abbrev=False` to parser) → Test (verify `--top 2` now scaffolds exactly 2 candidates). Two commits, no documentation needed.
+
+---
+
+#### Ingestion Pipeline
+
+**Stages:** ingest → synthesize → cross-reference → evolve
+
+| Stage | What you produce | Gate |
+|-------|-----------------|------|
+| ingest | Raw file saved to raw/ | File exists in raw/articles/ or raw/transcripts/ |
+| synthesize | Source-synthesis page in wiki/sources/ | Page ≥0.25 ratio to raw, passes validation |
+| cross-reference | Updated relationships, new connections identified | pipeline crossref shows 0 missing backlinks |
+| evolve | Higher-layer pages (lessons, patterns, decisions) | Evolved pages pass quality gates |
+
+**Selected when:** domain = knowledge, operation = ingestion. This model has COMPLETELY DIFFERENT stage names — it is not a subset of the 5-stage Feature Development model. It runs on the knowledge track.
+
+**Real instance:** Ingesting the context-mode repo. Ingest (pipeline fetch → saved 1,057-line README to raw/) → Synthesize (read FULL source with multiple offsets, created 254-line source-synthesis page) → Cross-reference (updated MCP vs CLI decision, CLI lesson, context-aware loading pattern) → Evolve (not triggered this cycle — synthesis was the primary output).
+
+**Depth verification applies here:** during the synthesize stage, you MUST read the actual THING, not just the description. The first attempt at context-mode produced a 60-line shallow page from the first chunk. The rewrite (after depth verification) produced a 254-line deep synthesis. See [[Never Synthesize from Descriptions Alone]].
+
+---
+
+#### Project Lifecycle (SFIF)
+
+**Stages:** scaffold → foundation → infrastructure → features
+
+| Stage | What you produce | Gate |
+|-------|-----------------|------|
+| scaffold | Project structure, tech stack, AI config files | Directory exists, CLAUDE.md written, schema defined |
+| foundation | Core modules, design system, build entry point | Single entry point works, architecture documented |
+| infrastructure | Common components others depend on, basic interface | Build produces output, base is ready for features |
+| features | Specialized product features | Features work end-to-end |
+
+**Selected when:** scale = project. This is the MACRO model — other models run INSIDE its stages. See [[Scaffold → Foundation → Infrastructure → Features]].
+
+**Real instance:** This research wiki's own lifecycle. Scaffold (CLAUDE.md, raw/, wiki/, tools/ directories, Python venv) → Foundation (tools/common.py, config/wiki-schema.yaml, config/templates/) → Infrastructure (tools/pipeline.py, MCP server, sync service, watcher, evolve engine) → Features (evolution pipeline, backlog system, model-building skill, 14 named models).
+
+**The recursive property:** Inside the Infrastructure stage, building the backlog system ran the Feature Development model. Inside that, individual tasks ran their subset models. Three levels of nesting, each with its own methodology model.
 
 ### Model Selection — How Conditions Pick a Model
 
