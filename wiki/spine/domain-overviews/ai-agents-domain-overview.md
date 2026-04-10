@@ -67,6 +67,15 @@ All pages assigned maturity. All styled with callout vocabulary. All have standa
 2. OpenClaw deep-dive — essential for understanding the fleet execution layer
 3. Subagent coordination pattern — would connect to the Agent Orchestration Patterns hub
 
+## Key Pages
+
+Start with these in order:
+1. [[Agent Orchestration Patterns]] — the structural patterns every agent system converges on
+2. [[Claude Code]] — the agent runtime powering the entire ecosystem
+3. [[Harness Engineering]] — how to build guardrails around autonomous agents
+4. [[Task Lifecycle Stage-Gating]] — phase boundaries and enforcement mechanisms
+5. [[Claude Code Skills]] — the primary extension mechanism
+
 ## Relationships
 
 - FEEDS INTO: [[Knowledge Systems — Domain Overview]]
