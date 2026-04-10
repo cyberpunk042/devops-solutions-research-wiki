@@ -324,3 +324,4 @@ Methodology failures from real operation, each traced to a specific lesson.
 [[Wiki Design Standards — What Good Styling Looks Like]]
 [[wiki/config/methodology.yaml]]
 [[wiki/config/agent-directive.md]]
+[[Claude Code Standards — What Good Agent Configuration Looks Like]]

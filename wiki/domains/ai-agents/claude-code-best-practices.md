@@ -121,6 +121,7 @@ Confirmed by cross-referencing the Context-Aware Tool Loading pattern and the Ha
 [[Agentic Search vs Vector Search]]
 [[Always Plan Before Executing]]
 [[Claude Code Slash Commands (artemgetmann)]]
+[[Claude Code Standards — What Good Agent Configuration Looks Like]]
 [[Context Management Is the Primary LLM Productivity Lever]]
 [[Design.md Pattern]]
 [[Deterministic Shell, LLM Core]]

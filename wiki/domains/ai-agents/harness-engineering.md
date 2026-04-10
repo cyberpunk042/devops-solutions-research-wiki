@@ -113,6 +113,7 @@ Cross-referencing the `OpenFleet`, `Immune System Rules`, and `Rework Prevention
 [[OpenClaw]]
 [[Agent Orchestration Patterns]]
 [[Always Plan Before Executing]]
+[[Claude Code Standards — What Good Agent Configuration Looks Like]]
 [[Context Management Is the Primary LLM Productivity Lever]]
 [[Design.md Pattern]]
 [[Deterministic Shell, LLM Core]]

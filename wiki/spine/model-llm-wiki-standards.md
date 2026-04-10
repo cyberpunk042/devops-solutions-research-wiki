@@ -171,6 +171,7 @@ What makes it the standard:
 [[Never Synthesize from Descriptions Alone]]
 [[Shallow Ingestion Is Systemic, Not Isolated]]
 [[The Agent Must Practice What It Documents]]
+[[Claude Code Standards — What Good Agent Configuration Looks Like]]
 [[Methodology Standards — What Good Execution Looks Like]]
 [[Model: Wiki Design]]
 [[Models Are Built in Layers, Not All at Once]]

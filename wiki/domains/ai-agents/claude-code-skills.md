@@ -150,6 +150,7 @@ Cross-referencing `CLI Tools Beat MCP for Token Efficiency` and `Skills Architec
 [[Always Plan Before Executing]]
 [[CLI Tools Beat MCP for Token Efficiency]]
 [[Claude Code Slash Commands (artemgetmann)]]
+[[Claude Code Standards — What Good Agent Configuration Looks Like]]
 [[Context Management Is the Primary LLM Productivity Lever]]
 [[Context-Aware Tool Loading]]
 [[Decision: MCP vs CLI for Tool Integration]]
