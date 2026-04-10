@@ -68,3 +68,4 @@ The critical insight: at step 1, we claimed "models are done" because entry poin
 [[LLM Wiki Standards — What Good Looks Like]]
 [[The Agent Must Practice What It Documents]]
 [[Never Skip Stages Even When Told to Continue]]
+[[Methodology Standards — What Good Execution Looks Like]]

@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-10T02:53:43.676274+00:00",
+  "generated": "2026-04-10T03:01:23.204457+00:00",
   "stats": {
-    "pages": 167,
+    "pages": 168,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1149,
-    "tags_unique": 629,
+    "relationships": 1157,
+    "tags_unique": 630,
     "layers": {
       "3": 5,
       "6": 5,
@@ -14,11 +14,11 @@
       "4": 22,
       "5": 11,
       "1": 24,
-      "spine": 25
+      "spine": 26
     },
     "maturity": {
       "growing": 132,
-      "seed": 12
+      "seed": 13
     }
   },
   "pages": [
@@ -10627,6 +10627,72 @@
       ]
     },
     {
+      "path": "spine/model-methodology-standards.md",
+      "slug": "spine/model-methodology-standards",
+      "title": "Methodology Standards \u2014 What Good Execution Looks Like",
+      "type": "concept",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "methodology",
+        "standards",
+        "quality",
+        "stage-gate",
+        "execution",
+        "gold-standard",
+        "anti-patterns"
+      ],
+      "sources": [
+        {
+          "id": "src-openarms-methodology-evolution",
+          "type": "documentation",
+          "file": "raw/articles/openarms-methodology-evolution-2026-04-09.md",
+          "title": "OpenArms Methodology Evolution \u2014 7 Bugs, 6 Versions",
+          "ingested": "2026-04-09"
+        }
+      ],
+      "layer": "spine",
+      "maturity": "seed",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "BUILDS ON",
+          "target": "Model: Methodology"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "LLM Wiki Standards \u2014 What Good Looks Like"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Never Skip Stages Even When Told to Continue"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "The Agent Must Practice What It Documents"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Models Are Built in Layers, Not All at Once"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Design Standards \u2014 What Good Styling Looks Like"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "wiki/config/methodology.yaml"
+        },
+        {
+          "verb": "IMPLEMENTS",
+          "target": "wiki/config/agent-directive.md"
+        }
+      ]
+    },
+    {
       "path": "spine/model-methodology.md",
       "slug": "spine/model-methodology",
       "title": "Model: Methodology",
@@ -11314,8 +11380,8 @@
       "relationship_count": 11
     },
     "cross-domain": {
-      "page_count": 43,
-      "relationship_count": 331
+      "page_count": 44,
+      "relationship_count": 339
     },
     "ai-agents": {
       "page_count": 34,
@@ -12274,6 +12340,7 @@
       "log/2026-04-09-directive-quality-models-hub-mindset",
       "log/2026-04-09-directive-record-process-skills-supermodel",
       "spine/adoption-guide",
+      "spine/model-methodology-standards",
       "spine/model-methodology",
       "spine/model-quality-failure-prevention"
     ],
@@ -12511,6 +12578,7 @@
     "stage-gate": [
       "domains/cross-domain/methodology-framework",
       "domains/devops/stage-gate-methodology",
+      "spine/model-methodology-standards",
       "spine/model-methodology"
     ],
     "composable": [
@@ -12555,6 +12623,7 @@
       "log/2026-04-09-directive-stop-guessing-false-claims",
       "log/2026-04-09-directive-systemic-incompleteness",
       "spine/model-llm-wiki-standards",
+      "spine/model-methodology-standards",
       "spine/model-quality-failure-prevention"
     ],
     "refactoring": [
@@ -13272,6 +13341,7 @@
       "spine/adoption-guide",
       "spine/model-llm-wiki-standards",
       "spine/model-llm-wiki",
+      "spine/model-methodology-standards",
       "spine/model-wiki-design-standards",
       "spine/model-wiki-design"
     ],
@@ -13943,6 +14013,7 @@
     ],
     "gold-standard": [
       "spine/model-llm-wiki-standards",
+      "spine/model-methodology-standards",
       "spine/model-wiki-design-standards"
     ],
     "knowledge-system": [
@@ -13953,6 +14024,13 @@
     ],
     "vram": [
       "spine/model-local-ai"
+    ],
+    "execution": [
+      "spine/model-methodology-standards"
+    ],
+    "anti-patterns": [
+      "spine/model-methodology-standards",
+      "spine/model-wiki-design-standards"
     ],
     "flexible": [
       "spine/model-methodology"
@@ -13977,9 +14055,6 @@
     ],
     "context-loading": [
       "spine/model-skills-commands-hooks"
-    ],
-    "anti-patterns": [
-      "spine/model-wiki-design-standards"
     ],
     "visual-design": [
       "spine/model-wiki-design-standards",
@@ -14400,12 +14475,14 @@
     {
       "target": "wiki/config/agent-directive.md",
       "referenced_by": [
+        "Methodology Standards \u2014 What Good Execution Looks Like",
         "Model: Methodology"
       ]
     },
     {
       "target": "wiki/config/methodology.yaml",
       "referenced_by": [
+        "Methodology Standards \u2014 What Good Execution Looks Like",
         "Model: Methodology"
       ]
     }

@@ -452,3 +452,4 @@ If any type were missing, the page would fail its own standard. ==This page demo
 [[CLI Tools Beat MCP for Token Efficiency]]
 [[Decision: MCP vs CLI for Tool Integration]]
 [[Scaffold → Foundation → Infrastructure → Features]]
+[[Methodology Standards — What Good Execution Looks Like]]

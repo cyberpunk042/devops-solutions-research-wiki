@@ -97,6 +97,7 @@ This lesson applies to any system with sequential stages and a decision-making a
 [[Immune System Rules]]
 [[Knowledge Evolution Pipeline]]
 [[assumption that "continue" means "skip ahead"]]
+[[Methodology Standards — What Good Execution Looks Like]]
 [[Model: Quality and Failure Prevention]]
 [[Models Are Built in Layers, Not All at Once]]
 [[The Agent Must Practice What It Documents]]

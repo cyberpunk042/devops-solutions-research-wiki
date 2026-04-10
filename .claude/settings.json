@@ -19,7 +19,21 @@
       "WebFetch(domain:plane.so)",
       "WebFetch(domain:levelup.gitconnected.com)",
       "WebFetch(domain:www.mindstudio.ai)",
-      "WebFetch(domain:zettelkasten.de)"
+      "WebFetch(domain:zettelkasten.de)",
+      "Bash(python3 -m tools.pipeline status)",
+      "Bash(python3 -m tools.setup --services)",
+      "Bash(python3 -m tools.pipeline chain continue)",
+      "Bash(python3 -m tools.pipeline evolve --scaffold --top 10)",
+      "Bash(python3 -m tools.pipeline evolve --score --top 10)",
+      "Bash(python3 -m tools.pipeline evolve --review)",
+      "Bash(.venv/bin/python -m tools.lint --report)",
+      "Bash(.venv/bin/python -m tools.validate)",
+      "Bash(python3 -m tools.pipeline post)",
+      "Bash(ls -t raw/notes/2026-04-09-* raw/notes/2026-04-08-*)",
+      "Bash(.venv/bin/python -m tools.pipeline post)",
+      "WebFetch(domain:getdesign.md)",
+      "Bash(python3 -m tools.validate)",
+      "WebFetch(domain:www.markdownguide.org)"
     ]
   }
 }

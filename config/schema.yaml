@@ -1,0 +1,231 @@
+# Wiki page frontmatter schema definition
+# Used by tools/validate.py to enforce page structure
+
+required_fields:
+  - title
+  - type
+  - domain
+  - status
+  - confidence
+  - created
+  - updated
+  - sources
+  - tags
+
+optional_fields:
+  - subdomain
+  - aliases
+  - complexity
+  - resolution
+  - layer
+  - derived_from
+  - maturity
+  - instances
+  - reversibility
+  - priority
+  - task_type
+  - current_stage
+  - readiness
+  - stages_completed
+  - artifacts
+  - estimate
+  - epic
+  - module
+  - depends_on
+  - note_type
+
+enums:
+  type:
+    - concept
+    - source-synthesis
+    - comparison
+    - reference
+    - deep-dive
+    - index
+    - lesson
+    - pattern
+    - decision
+    - domain-overview
+    - learning-path
+    - evolution
+    - epic
+    - module
+    - task
+    - note
+  status:
+    - raw
+    - processing
+    - synthesized
+    - verified
+    - stale
+    - draft
+    - active
+    - in-progress
+    - review
+    - done
+    - archived
+    - blocked
+  confidence:
+    - low
+    - medium
+    - high
+    - authoritative
+  complexity:
+    - beginner
+    - intermediate
+    - advanced
+    - expert
+  maturity:
+    - seed
+    - growing
+    - mature
+    - canonical
+  reversibility:
+    - easy
+    - moderate
+    - hard
+    - irreversible
+  priority:
+    - P0
+    - P1
+    - P2
+    - P3
+  task_type:
+    - epic
+    - module
+    - task
+    - research
+    - evolve
+    - docs
+    - bug
+    - refactor
+  stage:
+    - document
+    - design
+    - scaffold
+    - implement
+    - test
+  estimate:
+    - XS
+    - S
+    - M
+    - L
+    - XL
+  note_type:
+    - directive
+    - session
+    - completion
+  source_type:
+    - article
+    - youtube-transcript
+    - paper
+    - documentation
+    - notes
+    - paste
+    - book
+    - podcast-transcript
+
+required_sections:
+  concept:
+    - Summary
+    - Key Insights
+    - Deep Analysis
+    - Relationships
+  source-synthesis:
+    - Summary
+    - Key Insights
+    - Relationships
+  comparison:
+    - Summary
+    - Comparison Matrix
+    - Key Insights
+    - Deep Analysis
+    - Relationships
+  reference:
+    - Summary
+    - Relationships
+  deep-dive:
+    - Summary
+    - Key Insights
+    - Deep Analysis
+    - Relationships
+  index: []
+  lesson:
+    - Summary
+    - Context
+    - Insight
+    - Evidence
+    - Applicability
+    - Relationships
+  pattern:
+    - Summary
+    - Pattern Description
+    - Instances
+    - When To Apply
+    - When Not To
+    - Relationships
+  decision:
+    - Summary
+    - Decision
+    - Alternatives
+    - Rationale
+    - Reversibility
+    - Dependencies
+    - Relationships
+  domain-overview:
+    - Summary
+    - State of Knowledge
+    - Maturity Map
+    - Gaps
+    - Priorities
+    - Key Pages
+    - Relationships
+  learning-path:
+    - Summary
+    - Prerequisites
+    - Sequence
+    - Outcomes
+    - Relationships
+  evolution:
+    - Summary
+    - Timeline
+    - Key Shifts
+    - Current State
+    - Relationships
+  epic:
+    - Summary
+    - Goals
+    - Done When
+    - Relationships
+  task:
+    - Summary
+    - Done When
+  note:
+    - Summary
+
+relationship_verbs:
+  - BUILDS ON
+  - ENABLES
+  - COMPARES TO
+  - CONTRADICTS
+  - USED BY
+  - RELATES TO
+  - FEEDS INTO
+  - DERIVED FROM
+  - SUPERSEDES
+  - IMPLEMENTS
+  - EXTENDS
+  - CONSTRAINS
+  - CONSTRAINED BY
+  - PARALLELS
+  - SYNTHESIZES
+  - ENABLED BY
+  - CONTRASTS WITH
+
+source_required_fields:
+  - id
+  - type
+
+source_needs_one_of:
+  - url
+  - file

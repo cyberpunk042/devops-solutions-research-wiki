@@ -560,5 +560,6 @@ Here's how a single task flows through the methodology, from selection to comple
 [[Adoption Guide — How to Use This Wiki's Standards]]
 [[wiki/config/methodology.yaml]]
 [[wiki/config/agent-directive.md]]
+[[Methodology Standards — What Good Execution Looks Like]]
 [[Model: Wiki Design]]
 [[Wiki Design Standards — What Good Styling Looks Like]]
