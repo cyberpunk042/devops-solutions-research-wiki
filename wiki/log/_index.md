@@ -21,6 +21,7 @@ Operator directives, session summaries, and task completion notes.
 | 2026-04-09 | [Ingest awesome-design-md repository](2026-04-09-ingest-awesome-design-md.md) | directive | `log`, `directive`, `ingestion`, `design-md` |
 | 2026-04-09 | [Validate Second Brain Readiness](2026-04-09-directive-validate-second-brain-readiness.md) | directive | `log`, `directive`, `second-brain`, `readiness`, `validation` |
 | 2026-04-09 | [Systemic Incompleteness — No Model Is Finished](2026-04-09-directive-systemic-incompleteness.md) | directive | `log`, `directive`, `failure-lesson`, `systemic`, `quality`, `honesty` |
+| 2026-04-09 | [Styling — Make It Look Good in Obsidian](2026-04-09-directive-styling-obsidian.md) | directive | `log`, `directive`, `styling`, `obsidian`, `visual`, `design` |
 | 2026-04-09 | [Stop Guessing — False Claims in Models](2026-04-09-directive-stop-guessing-false-claims.md) | directive | `log`, `directive`, `quality`, `honesty`, `false-claims`, `context-management` |
 | 2026-04-09 | [Stop Claiming Readiness Without Proof](2026-04-09-directive-stop-claiming-readiness.md) | directive | `log`, `directive`, `honesty`, `quality`, `depth` |
 | 2026-04-09 | [Record the Process — Skills, Super-Model, Preach by Example](2026-04-09-directive-record-process-skills-supermodel.md) | directive | `log`, `directive`, `process`, `skills`, `super-model`, `standards`, `examples`, `methodology` |

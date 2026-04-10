@@ -79,7 +79,8 @@ Nine named methodology models. Each is a DIFFERENT stage sequence solving a diff
 
 #### Feature Development
 
-**Stages:** document → design → scaffold → implement → test
+> [!info] **Stages:** document → design → scaffold → implement → test
+> The full 5-stage model for complex work. Used when the solution isn't already known and needs to be designed, scaffolded, built, and verified.
 
 | Stage | What you produce | Gate |
 |-------|-----------------|------|
@@ -89,26 +90,37 @@ Nine named methodology models. Each is a DIFFERENT stage sequence solving a diff
 | implement | Working code wired into runtime, wiki pages, skills | Code compiles, lint passes, ≥1 runtime file imports new code |
 | test | All tests pass, manual verification | 0 test failures, health check clean |
 
-**Selected when:** task_type = epic, module, or refactor. Any complex work where the solution isn't already known.
+> [!abstract] **Selected when**
+> task_type = `epic`, `module`, or `refactor`. Any complex work where the solution isn't already known.
 
-**Real instance:** Building the wiki backlog system. Document (read OpenArms model, understand what we need) → Design (brainstorm with user, 5-section design approval, spec written) → Scaffold (schema changes, directory structure, methodology.yaml) → Implement (Python tools, pipeline command, MCP tools, slash commands) → Test (pipeline health check, backlog command verified).
+> [!example]- **Real instance: Building the wiki backlog system**
+> 1. **Document** — Read OpenArms methodology model, understand what we need, map the gap between our wiki and OpenArms' backlog structure
+> 2. **Design** — Brainstorm with user (5 design sections, each approved), spec written to `docs/superpowers/specs/`
+> 3. **Scaffold** — Schema changes (4 new types, 7 new statuses, 5 new enums), directory structure (`wiki/backlog/`, `wiki/log/`, `wiki/config/`), methodology.yaml created
+> 4. **Implement** — Python validation, pipeline `backlog` command, `/backlog` + `/log` slash commands, `wiki_backlog` + `wiki_log` MCP tools
+> 5. **Test** — `pipeline chain health` clean, `pipeline backlog` shows 2 epics + 1 task, 0 validation errors
 
 ---
 
 #### Research
 
-**Stages:** document → design
+> [!info] **Stages:** document → design
+> Investigation without implementation. Produces understanding and options, never code. Capped at 50% readiness — 50% IS completion.
 
 | Stage | What you produce | Gate |
 |-------|-----------------|------|
 | document | Wiki page synthesizing findings, source mapping | Page with Summary + Key Insights |
 | design | Options document, decision recommendation, implications | Options presented to operator |
 
-**Selected when:** task_type = spike or research. Investigation needed, no code output expected. Capped at 50% readiness — 50% IS completion.
+> [!abstract] **Selected when**
+> task_type = `spike` or `research`. Investigation needed, no code output expected.
 
-**Real instance:** Researching second brain / PKM methodologies. Document (read Zettelkasten + PARA + hybrid approaches, created wiki/domains/knowledge-systems/second-brain-architecture.md) → Design (proposed how wiki maps to PARA and Zettelkasten, identified gaps: FAQs, comparison matrices, review cadence).
+> [!example]- **Real instance: Researching second brain / PKM methodologies**
+> 1. **Document** — Read Zettelkasten + PARA + hybrid approaches from web research. Created [[Second Brain Architecture]] with full mapping of PARA buckets and Zettelkasten principles to wiki structure.
+> 2. **Design** — Proposed how wiki maps to both methodologies. Identified 5 gaps: FAQs per domain, comparison matrices, review cadence, personal annotations, task management integration.
 
-**Why it stops at design:** Research produces UNDERSTANDING, not implementation. If the research leads to building something, that becomes a NEW task using a different model (Feature Development or Documentation).
+> [!tip] **Why it stops at design**
+> Research produces UNDERSTANDING, not implementation. If the research leads to building something, that becomes a NEW task using a different model (Feature Development or Documentation). The research model's output becomes the next model's input — this is sequential composition.
 
 ---
 
@@ -239,31 +251,31 @@ Selection is not a lookup table — it's a multi-dimensional evaluation. Here's 
 | **Scale** | How big is this change? | Single function → skip Document (context already known). New subsystem → full model + design review gate. |
 | **Urgency/State** | How urgent? What's the current codebase state? | Critical production bug → Hotfix model. Legacy codebase at Mountain tier → Pyramid quality target. |
 
-**Worked example — multi-dimensional selection:**
+> [!example]- **Worked example: "Research how OpenArms does methodology enforcement"**
+> **Evaluating conditions:**
+> | Dimension | Value | Why |
+> |-----------|-------|-----|
+> | task_type | `research` | No code output expected |
+> | phase | Foundation | Wiki is still building its knowledge base |
+> | domain | knowledge-systems | Wiki research, not code |
+> | scale | single topic | One investigation |
+> | urgency | normal | Not blocking anything |
+>
 
-A user says: "Research how OpenArms does methodology enforcement."
+> [!success] **Result → Research model** (document → design)
+> The agent reads OpenArms sources (document stage), produces a wiki page synthesizing findings (document artifact), then proposes design implications for the wiki's own methodology (design stage). Stops at 50% readiness. Does NOT scaffold, implement, or test anything.
 
-Evaluating conditions:
-- task_type = `research` (no code output expected)
-- phase = Foundation (wiki is still building its knowledge base)
-- domain = knowledge-systems (this is wiki research, not code)
-- scale = single topic (one investigation)
-- urgency = normal
-
-Result: **Research model** (document → design). The agent reads OpenArms sources (document stage), produces a wiki page synthesizing findings (document artifact), then proposes design implications for the wiki's own methodology (design stage). Stops at 50% readiness. Does NOT scaffold, implement, or test anything.
-
-**Another example — same task type, different conditions:**
-
-A user says: "Build the backlog system for this wiki."
-
-Evaluating conditions:
-- task_type = `epic` (large initiative)
-- phase = Infrastructure (wiki has its foundation, adding infrastructure)
-- domain = tools-and-platforms (Python tooling)
-- scale = new subsystem (schema, directories, pipeline, commands, MCP)
-- urgency = normal
-
-Result: **Feature Development model** (all 5 stages). Document → Design (brainstorm → spec) → Scaffold (schema changes, directory structure) → Implement (Python code, commands, MCP tools) → Test (pipeline health check). Each stage with its own commit, artifacts, and gate.
+> [!example]- **Another example: "Build the backlog system for this wiki"**
+> | Dimension | Value | Why |
+> |-----------|-------|-----|
+> | task_type | `epic` | Large initiative |
+> | phase | Infrastructure | Wiki has its foundation, adding infra |
+> | domain | tools-and-platforms | Python tooling |
+> | scale | new subsystem | Schema, directories, pipeline, commands, MCP |
+> | urgency | normal | Not a hotfix |
+>
+> [!success] **Result → Feature Development model** (all 5 stages)
+> Document → Design (brainstorm → spec) → Scaffold (schema changes, directory structure) → Implement (Python code, commands, MCP tools) → Test (pipeline health check). Each stage with its own commit, artifacts, and gate.
 
 ### Model Composition — How Models Chain, Nest, and Branch
 
@@ -309,28 +321,36 @@ These lists are defined in `methodology.yaml` per stage. They adapt per domain �
 
 Every design decision in this model traces to a real failure. These 7 bugs were found during OpenArms' first day of autonomous agent operation (2026-04-09). Each bug led to a methodology version bump:
 
-**Bug 1: Binary status.** Tasks were done/not-done. No stage tracking. Agent checked "Done When" boxes without verification and skipped from "active" to "done" after one stage.
-→ **Design input:** Stage-level tracking with readiness percentages. `stages_completed` list. Every transition updates frontmatter and commits.
+> [!bug]- **Bug 1: Binary status** → Design input: stage-level tracking (v2)
+> Tasks were done/not-done. No stage tracking. Agent checked "Done When" boxes without verification and skipped from "active" to "done" after one stage.
+> **Fix:** Added `task_type`, `current_stage`, `readiness`, `stages_completed` to frontmatter. Reset 22 tasks. 6 moved from "done" back to "in-progress."
 
-**Bug 2: Epic status manual.** Epics could be marked "done" with zero children complete.
-→ **Design input:** Status/readiness computed from children. Max agent-settable = "review." Human confirms "done."
+> [!bug]- **Bug 2: Epic status manual** → Design input: computed hierarchy (v3)
+> Epics could be marked "done" with zero children complete.
+> **Fix:** Status/readiness computed from children. Max agent-settable = "review." Human confirms "done."
 
-**Bug 3: Rogue task creation.** Agent ignored existing tasks and created its own, reusing IDs.
-→ **Design input:** "Pick from existing tasks ONLY. Do NOT create new task files." Task creation is operator responsibility.
+> [!bug]- **Bug 3: Rogue task creation** → Design input: operator-only task creation (v3)
+> Agent ignored existing tasks and created its own, reusing IDs (T026-T029). Naming collisions and diverged backlog.
+> **Fix:** "Pick from existing tasks ONLY. Do NOT create new task files." Task creation is operator responsibility.
 
-**Bug 4: Lost files.** Write tool succeeded but files vanished — destructive `git revert` killed untracked files.
-→ **Design input:** "Commit immediately after creating files. Never destructive git without git status."
+> [!bug]- **Bug 4: Lost files** → Design input: commit immediately (v3)
+> Write tool succeeded but files vanished — destructive `git revert` killed untracked files in shared workspace.
+> **Fix:** "Commit immediately after creating files. Never destructive git without git status."
 
-**Bug 5: Stage boundary violation.** Scaffold produced business logic. Test marked done with failures.
-→ **Design input:** ALLOWED/FORBIDDEN lists per stage. Gate requires passing commands.
+> [!bug]- **Bug 5: Stage boundary violation** → Design input: ALLOWED/FORBIDDEN (v4)
+> Scaffold produced 135-line env reader with business logic. Test marked done with 1 failing test.
+> **Fix:** Added explicit ALLOWED/FORBIDDEN lists per stage. Gate requires passing commands.
 
-**Bug 6: Orphaned implementation.** 2,073 lines of code that nothing imported. Tests pass ≠ feature works.
-→ **Design input:** Implement MUST wire into runtime. Done When must name the consumer file.
+> [!bug]- **Bug 6: Orphaned implementation** → Design input: integration requirement (v5)
+> 2,073 lines of production code — network rules, cost tracking, hook events. None imported by runtime. Tests pass ≠ feature works.
+> **Fix:** Implement MUST wire into runtime. Done When must name the specific consumer file.
 
-**Bug 7: Unreadable logs.** Raw JSON stream events. Impossible to monitor or report.
-→ **Design input:** Observability tooling (agent-report.py). Cost per stage. Compliance checking.
+> [!bug]- **Bug 7: Unreadable logs** → Design input: observability tooling (v5)
+> Raw JSON stream events (95% token chunks). Impossible to monitor live or produce reports.
+> **Fix:** Built `agent-report.py` (stream aggregation, stage tracking, compliance checking, cost per stage).
 
-**Methodology version history:** v1 (initial) → v2 (stage tracking) → v3 (hierarchy + no rogue tasks) → v4 (ALLOWED/FORBIDDEN) → v5 (integration requirement) → v6 (bridge pattern + compliance). Six versions in one day — each hardened by a real failure.
+> [!abstract] **Methodology version history**
+> v1 (initial) → v2 (stage tracking) → v3 (hierarchy + no rogue tasks) → v4 (ALLOWED/FORBIDDEN) → v5 (integration requirement) → v6 (bridge pattern + compliance). **Six versions in one day** — each hardened by a real failure.
 
 ### Model Adaptation — Overrides Per Instance
 

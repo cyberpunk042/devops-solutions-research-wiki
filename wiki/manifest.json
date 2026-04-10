@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-10T00:47:48.132664+00:00",
+  "generated": "2026-04-10T00:58:28.914883+00:00",
   "stats": {
-    "pages": 161,
+    "pages": 162,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
     "relationships": 1162,
-    "tags_unique": 616,
+    "tags_unique": 618,
     "layers": {
       "3": 5,
       "6": 5,
@@ -7287,6 +7287,30 @@
       "relationships": []
     },
     {
+      "path": "log/2026-04-09-directive-styling-obsidian.md",
+      "slug": "log/2026-04-09-directive-styling-obsidian",
+      "title": "Styling \u2014 Make It Look Good in Obsidian",
+      "type": "note",
+      "domain": "log",
+      "status": "active",
+      "confidence": "high",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "log",
+        "directive",
+        "styling",
+        "obsidian",
+        "visual",
+        "design"
+      ],
+      "sources": [],
+      "layer": "",
+      "maturity": "",
+      "derived_from": [],
+      "relationships": []
+    },
+    {
       "path": "log/2026-04-09-directive-systemic-incompleteness.md",
       "slug": "log/2026-04-09-directive-systemic-incompleteness",
       "title": "Systemic Incompleteness \u2014 No Model Is Finished",
@@ -11194,7 +11218,7 @@
       "relationship_count": 201
     },
     "log": {
-      "page_count": 14,
+      "page_count": 15,
       "relationship_count": 0
     }
   },
@@ -11512,6 +11536,7 @@
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "lessons/lesson-convergence-on-obsidian-knowledge-vault",
       "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
+      "log/2026-04-09-directive-styling-obsidian",
       "sources/src-axton-obsidian-visual-skills",
       "sources/src-karpathy-claude-code-10x",
       "sources/src-kepano-obsidian-skills",
@@ -12586,7 +12611,8 @@
       "domains/devops/stage-gate-methodology"
     ],
     "design": [
-      "domains/devops/stage-gate-methodology"
+      "domains/devops/stage-gate-methodology",
+      "log/2026-04-09-directive-styling-obsidian"
     ],
     "scaffold": [
       "domains/devops/stage-gate-methodology",
@@ -13224,6 +13250,7 @@
       "log/2026-04-09-directive-record-process-skills-supermodel",
       "log/2026-04-09-directive-stop-claiming-readiness",
       "log/2026-04-09-directive-stop-guessing-false-claims",
+      "log/2026-04-09-directive-styling-obsidian",
       "log/2026-04-09-directive-systemic-incompleteness",
       "log/2026-04-09-directive-validate-second-brain-readiness",
       "log/2026-04-09-ingest-awesome-design-md"
@@ -13240,6 +13267,7 @@
       "log/2026-04-09-directive-record-process-skills-supermodel",
       "log/2026-04-09-directive-stop-claiming-readiness",
       "log/2026-04-09-directive-stop-guessing-false-claims",
+      "log/2026-04-09-directive-styling-obsidian",
       "log/2026-04-09-directive-systemic-incompleteness",
       "log/2026-04-09-directive-validate-second-brain-readiness",
       "log/2026-04-09-ingest-awesome-design-md"
@@ -13312,6 +13340,12 @@
     ],
     "false-claims": [
       "log/2026-04-09-directive-stop-guessing-false-claims"
+    ],
+    "styling": [
+      "log/2026-04-09-directive-styling-obsidian"
+    ],
+    "visual": [
+      "log/2026-04-09-directive-styling-obsidian"
     ],
     "systemic": [
       "log/2026-04-09-directive-systemic-incompleteness"
