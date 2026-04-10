@@ -7,7 +7,7 @@ domain: tools-and-platforms
 status: synthesized
 confidence: authoritative
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-openarms-local
     type: documentation
@@ -25,7 +25,8 @@ OpenArms is a local-first personal AI assistant platform that runs a single Gate
 
 ## Key Insights
 
-- **Gateway as the single control plane**: All channels, sessions, tools, and events are routed through a local WebSocket gateway (`ws://127.0.0.1:18789`). The gateway runs as a launchd/systemd daemon. All apps (CLI, macOS menu bar, WebChat, iOS/Android nodes) connect to this gateway — none bypass it.
+> [!info] Gateway as the single control plane
+> All channels, sessions, tools, and events route through a local WebSocket gateway (`ws://127.0.0.1:18789`). The gateway runs as a daemon. All apps connect through it — none bypass it.
 
 - **20+ messaging channel integrations**: WhatsApp (Baileys), Telegram (grammY), Slack (Bolt), Discord (discord.js), Google Chat, Signal (signal-cli), BlueBubbles/iMessage, IRC, Microsoft Teams, Matrix, Feishu, LINE, Mattermost, Nextcloud Talk, Nostr, Synology Chat, WeChat (via Tencent plugin), WebChat, and more. Each channel has its own allowlist and pairing model.
 
@@ -33,7 +34,8 @@ OpenArms is a local-first personal AI assistant platform that runs a single Gate
 
 - **Sandbox execution model**: Main sessions (direct DMs with the owner) run tools on the host. Non-main sessions (groups, channels) can be isolated in per-session Docker sandboxes via `agents.defaults.sandbox.mode: "non-main"`. Sandbox allows bash/process/read/write/edit/sessions tools; blocks browser/canvas/nodes/cron/gateway.
 
-- **DM pairing security**: Unknown senders receive a pairing code by default (`dmPolicy="pairing"`). The gateway does not process their message until the owner runs `openarms pairing approve`. Open DMs require explicit `dmPolicy="open"` opt-in. `openarms doctor` surfaces risky DM policies.
+> [!warning] DM pairing security
+> Unknown senders receive a pairing code by default (`dmPolicy="pairing"`). Gateway does not process their message until `openarms pairing approve`. Open DMs require explicit `dmPolicy="open"` opt-in. `openarms doctor` surfaces risky DM policies.
 
 - **Voice and device nodes**: macOS/iOS offer Voice Wake (wake words) and Push-to-Talk overlays. Android node provides continuous voice mode, camera, screen recording, SMS/notifications/contacts/calendar/location commands. All device actions route via `node.invoke` over the Gateway WebSocket.
 

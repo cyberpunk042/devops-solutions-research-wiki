@@ -7,7 +7,7 @@ domain: knowledge-systems
 status: synthesized
 confidence: medium
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-llm-wiki-v2-agentmemory
     type: documentation
@@ -26,17 +26,23 @@ Memory Lifecycle Management is the practice of treating knowledge in an LLM-main
 
 ## Key Insights
 
-- **Confidence scoring**: Every fact should carry a confidence score derived from source count, recency of last confirmation, and presence of contradicting evidence. A claim supported by two sources and confirmed three weeks ago at confidence 0.85 is qualitatively different from one mentioned once six months ago. Confidence decays with time and strengthens with reinforcement.
+> [!info] Four-tier consolidation pipeline
+>
+> | Tier | What It Holds | Characteristics |
+> |------|-------------|----------------|
+> | **Working** | Recent observations, not yet processed | Short-lived, high volume |
+> | **Episodic** | Session summaries, compressed from raw | Session-scoped, compressed |
+> | **Semantic** | Cross-session facts, consolidated from episodes | Durable, multi-source validated |
+> | **Procedural** | Workflows and patterns, extracted from repeated semantics | Longest-lived, highest confidence |
+>
+> Each tier is more compressed, more confident, and longer-lived. Promotion is evidence-driven: single observation → pattern across sessions → validated workflow.
 
-- **Supersession over annotation**: When new information contradicts existing claims, the old claim should not just receive an appended note. The new claim should explicitly supersede it with linked timestamps, preserving the old version but marking it stale. This is "version control for knowledge, not just for files."
+> [!warning] Supersession over annotation
+> When new information contradicts existing claims, the new claim explicitly supersedes the old with linked timestamps — preserving the old version but marking it stale. "Version control for knowledge, not just for files."
 
-- **Ebbinghaus forgetting curve applied to knowledge**: Facts that were important once but have not been accessed or reinforced in months should gradually deprioritize -- not deleted, but moved to a "bottom drawer." Each access or confirmation from a new source resets the decay curve. Architecture decisions decay slowly; transient bugs decay fast.
+**Confidence scoring.** Every fact carries a confidence derived from source count, recency, and contradicting evidence. A claim at 0.85 from two recent sources is qualitatively different from 0.4 from one mention six months ago. Confidence decays with time, strengthens with reinforcement (Ebbinghaus curve).
 
-- **Four-tier consolidation pipeline**: (1) Working memory -- recent observations, not yet processed. (2) Episodic memory -- session summaries, compressed from raw observations. (3) Semantic memory -- cross-session facts, consolidated from episodes. (4) Procedural memory -- workflows and patterns, extracted from repeated semantics. Each tier is more compressed, more confident, and longer-lived.
-
-- **Promotion is evidence-driven**: Information moves up the consolidation tiers as evidence accumulates. A single observation stays in working memory. A pattern observed across multiple sessions promotes to semantic memory. A workflow validated through repeated use becomes procedural memory. The LLM manages this promotion process.
-
-- **Prevents the junk drawer problem**: Without lifecycle management, a wiki that grows through automated ingestion inevitably accumulates stale, contradictory, and low-value information with no mechanism for cleanup beyond manual linting. Lifecycle management provides automated self-maintenance.
+**Prevents the junk drawer problem.** Without lifecycle management, automated ingestion accumulates stale, contradictory, low-value content with no cleanup mechanism. Lifecycle management provides automated self-maintenance.
 
 ## Deep Analysis
 

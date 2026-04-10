@@ -7,7 +7,7 @@ domain: knowledge-systems
 status: synthesized
 confidence: high
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-lightrag-docs
     type: documentation
@@ -30,11 +30,18 @@ LightRAG is a graph-based Retrieval-Augmented Generation framework from HKU Data
 
 ## Key Insights
 
-- **Three-phase indexing pipeline**: (1) Entity & relationship extraction from document chunks via LLM, (2) LLM profiling to create key-value pairs with global themes, (3) Deduplication to merge identical entities across segments. Formula: `D_hat = Dedupe(Prof(Union(Recog(D_i))))`.
+> [!info] Four query modes
+>
+> | Mode | What It Searches | Best For |
+> |------|-----------------|----------|
+> | **Naive** | Chunks only | Simple factual retrieval |
+> | **Local** | Entity-centric graph | Specific queries ("what does X do?") |
+> | **Global** | Relationship-centric graph | Abstract queries ("how does AI influence education?") |
+> | **Hybrid/Mix** | Local + global with reranking | Recommended default |
 
-- **Four query modes**: Naive (chunks only), Local (entity-centric, specific queries), Global (relationship-centric, abstract queries), Hybrid/Mix (combines local + global with reranking, recommended default).
+**Three-phase indexing.** (1) Entity & relationship extraction from chunks via LLM → (2) LLM profiling for global themes → (3) Deduplication to merge identical entities.
 
-- **Dual-level retrieval**: LLM extracts local keywords (specific entities) and global keywords (broader concepts) from the query. Local keywords match entities, global keywords match relationships. One-hop graph traversal enriches context.
+**Dual-level retrieval.** LLM extracts local keywords (specific entities) + global keywords (broader concepts). Local match entities; global match relationships. One-hop graph traversal enriches context.
 
 - **Incremental updates without full reconstruction**: For new document D', apply same indexing steps and combine via graph union. No full community hierarchy reconstruction required (unlike GraphRAG). Same token cost as processing new documents in isolation.
 

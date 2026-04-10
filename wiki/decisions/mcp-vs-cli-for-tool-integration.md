@@ -13,7 +13,7 @@ derived_from:
   - "Claude Code"
 reversibility: easy
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-harness-engineering-article
     type: article
@@ -38,13 +38,14 @@ When integrating tools into LLM-powered workflows, CLI+Skills is the default pre
 
 ## Decision
 
-**Default to CLI+Skills for operational tool integration. Use MCP servers for external service bridges and tool discovery.**
-
-Concretely, this means:
-- Wiki pipeline operations (ingest, validate, lint, export, gaps) → CLI tools invoked via Bash, guided by skills loaded on demand
-- External services without native CLI (databases, proprietary APIs, third-party SaaS) → MCP servers
-- Tools that must be discoverable and callable from any Claude Code conversation without user scaffolding → MCP servers
-- Research workflow tasks with defined sequences → CLI + skills (e.g., `python3 -m tools.pipeline run`)
+> [!success] Default to CLI+Skills for operational tooling. MCP for external services and discovery.
+>
+> | Scenario | Integration Pattern |
+> |----------|-------------------|
+> | Wiki pipeline operations (ingest, validate, lint, export, gaps) | CLI tools via Bash + skills on demand |
+> | External services without native CLI (databases, APIs, SaaS) | MCP servers |
+> | Tools needing cross-conversation discoverability | MCP servers |
+> | Research workflows with defined sequences | CLI + skills (`pipeline run`) |
 
 ## Alternatives
 

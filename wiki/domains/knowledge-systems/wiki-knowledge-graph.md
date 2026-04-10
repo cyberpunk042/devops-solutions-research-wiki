@@ -7,7 +7,7 @@ domain: knowledge-systems
 status: synthesized
 confidence: medium
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-llm-wiki-v2-agentmemory
     type: documentation
@@ -26,17 +26,22 @@ The Wiki Knowledge Graph is an architectural extension to the LLM Wiki pattern t
 
 ## Key Insights
 
-- **Entity extraction during ingestion**: When the LLM ingests a source, it should extract structured entities -- people, projects, libraries, concepts, files, decisions -- each with a type, attributes, and relationships. "React" is a library. "Auth migration" is a project. "Sarah" is a person who owns the auth migration and has opinions about React. This goes beyond prose summarization.
+> [!tip] Pages for reading, graph for navigation
+> The knowledge graph does not replace wiki pages. Pages remain the primary human interface. The graph provides a machine-navigable overlay for discovery, impact analysis, and connection-finding that flat page-to-page links cannot achieve.
 
-- **Typed relationships carry semantic weight**: Not all connections are equal. "A uses B" differs from "A contradicts B" and "A caused B." A link that says "A relates to B" is less useful than "A caused B, confirmed by 3 sources, confidence 0.9." Typed relationships enable more precise traversal and richer query responses.
+> [!abstract] Three search streams at scale
+>
+> | Stream | What It Catches | Mechanism |
+> |--------|----------------|-----------|
+> | **BM25** | Keyword matches | Term frequency |
+> | **Vector search** | Semantic similarity | Embedding cosine distance |
+> | **Graph traversal** | Structural connections | Walk typed edges (uses, depends on, contradicts) |
+>
+> Fused with reciprocal rank fusion, each catches what the others miss. Scales the wiki pattern past the ~200-page index-only ceiling.
 
-- **Graph traversal for impact analysis**: When asking "what is the impact of upgrading Redis?", the LLM starts at the Redis node, walks outward through "depends on" and "uses" edges, and finds everything downstream. This catches structural connections that keyword search and even semantic similarity search would miss.
+**Typed relationships carry semantic weight.** "A uses B" differs from "A contradicts B" differs from "A caused B." Typed edges enable precise traversal and richer queries — "What contradicts this claim?" via CONTRADICTS edges, "What does X enable?" via ENABLES edges.
 
-- **Pages for reading, graph for navigation**: The knowledge graph does not replace wiki pages. Pages remain the primary interface for human consumption. The graph provides a machine-navigable overlay that supports discovery, impact analysis, and connection-finding that flat page-to-page links cannot achieve.
-
-- **Hybrid search combines three streams**: At scale, the graph becomes one of three search modalities: BM25 for keyword matching, vector search for semantic similarity, and graph traversal for structural connections. Fused with reciprocal rank fusion, each stream catches things the others miss.
-
-- **Scales the original pattern**: Karpathy's index.md approach works to ~100-200 pages. The knowledge graph, combined with hybrid search, extends the pattern's viability to much larger wikis by providing structured navigation paths that do not require reading the entire index.
+**Entity extraction during ingestion.** Beyond prose summaries: extract structured entities (people, projects, libraries) with type, attributes, and typed relationships. This is what powers graph traversal for impact analysis.
 
 ## Deep Analysis
 

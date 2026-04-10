@@ -20,7 +20,7 @@ instances:
   - page: "OpenFleet"
     context: "OpenFleet's deterministic orchestrator acts as the task routing gateway: all PO directives enter via the orchestrator, which evaluates readiness, security, budget, and agent availability before dispatching to the appropriate agent. No agent receives work except through the gateway."
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-openarms-local
     type: documentation
@@ -45,15 +45,17 @@ Gateway-Centric Routing is the architectural pattern of channeling all traffic �
 
 ## Pattern Description
 
-Gateway-Centric Routing is recognizable by the gateway's role as the mandatory intermediary: no producer-to-consumer connection bypasses it. This is a structural property, not a convention — the gateway is typically the only entity with the credentials, connection state, or capability registry that enables the routing. Consumers cannot opt out of the gateway by design.
+Gateway-Centric Routing is recognizable by the gateway's role as the mandatory intermediary: no producer-to-consumer connection bypasses it. This is a structural property, not a convention — the gateway is the only entity with credentials, connection state, or capability registry.
 
-The pattern provides three structural benefits that direct-connection architectures cannot replicate:
+> [!abstract] Three structural benefits of the mandatory intermediary
+>
+> | Benefit | How It Works | Without Gateway |
+> |---------|-------------|----------------|
+> | **Single configuration** | Add a channel/backend once in gateway | Update every consumer individually |
+> | **Uniform policy** | Security, rate limits, sandboxing at one point | Per-channel/per-agent implementation |
+> | **Observability** | All traffic through one point → comprehensive logs | Distributed, incomplete audit trails |
 
-**Single configuration point**: Adding a new channel, backend, or capability means configuring the gateway once. Without a gateway, each new integration requires updating every consumer that needs access to the new channel or capability. In OpenArms, adding a new messaging channel (e.g., a new Telegram bot configuration) requires updating the gateway's channel registry — not the 20+ other channels' handling logic. In AICP, adding a new LLM backend means updating the router's backend registry — not every tool or pipeline that uses the router.
-
-**Uniform policy enforcement**: Security policies, rate limits, authentication, sandboxing, and budget gates are configured in the gateway and applied to all traffic. In OpenArms, the DM pairing security policy (unknown senders get a pairing code) applies to every channel without per-channel implementation. In OpenFleet, the behavioral security scan and budget gate apply to every dispatched task without per-agent implementation. Policy changes propagate by updating the gateway, not by updating N consumers.
-
-**Observability and audit trail**: All traffic passes through one point, making comprehensive logging, metrics, and audit trails structurally easy. OpenArms provides gateway-level session management, heartbeat tracking, and event streams. OpenFleet's orchestrator provides a complete audit trail of every dispatch decision across all agents. The wiki MCP server enables observability over all wiki operations from any connected client.
+In OpenArms, the DM pairing policy applies to all 20+ channels without per-channel code. In OpenFleet, security scan + budget gate apply to every dispatched task without per-agent code. In AICP, adding a new LLM backend means updating the router — not every tool or pipeline.
 
 The gateway's mandatory intermediary role introduces a single point of failure and a potential throughput bottleneck. The pattern's implementations address both concerns differently. OpenFleet's orchestrator fails gracefully — it is written as a stateless evaluator that reads current state and computes dispatch decisions, so it can be restarted without losing task state (state lives in Mission Control's PostgreSQL database). OpenArms runs as a persistent daemon with systemd/launchd lifecycle management and health monitoring via `openarms doctor`. The wiki MCP server is stateless per session — reconnecting restores full capability without session persistence.
 

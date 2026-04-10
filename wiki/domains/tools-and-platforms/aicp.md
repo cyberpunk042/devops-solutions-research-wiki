@@ -7,7 +7,7 @@ domain: tools-and-platforms
 status: synthesized
 confidence: authoritative
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-aicp-local
     type: documentation
@@ -25,11 +25,18 @@ AICP (AI Control Platform) is a personal AI control workspace that orchestrates 
 
 ## Key Insights
 
-- **Three permission modes**: Think (read-only), Edit (read + write allowed paths), Act (read + write + execute commands). Each mode restricts what the AI backend can do, providing graduated safety.
+> [!info] Backend routing with complexity scoring
+>
+> | Mode | What Gets Routed Where |
+> |------|----------------------|
+> | **Think** | Read-only — safest, cheapest local models |
+> | **Edit** | Read + write allowed paths — local for simple, Claude for complex |
+> | **Act** | Read + write + execute — full capabilities, Claude preferred |
+>
+> Auto mode: score complexity → check circuit breaker → apply profile thresholds → select backend → failover chain. 70-80% of routine operations run locally for free.
 
-- **Backend routing with complexity scoring**: Auto mode analyzes task complexity and routes simple/fast tasks to LocalAI (free) and complex tasks to Claude (paid). Configurable thresholds in profiles. Circuit breaker per backend (CLOSED → OPEN → HALF_OPEN) prevents thundering herd.
-
-- **5-stage LocalAI independence roadmap**: (1) Make LocalAI functional ✅, (2) Route simple operations to LocalAI (implemented), (3) Progressive offload (heartbeats, reviews, status checks), (4) Reliability & failover, (5) Near-independent operation (80%+ Claude token reduction).
+> [!tip] 5-stage LocalAI independence roadmap
+> (1) Make LocalAI functional ✅ (2) Route simple operations to LocalAI ✅ (3) Progressive offload (heartbeats, reviews, status) (4) Reliability & failover (5) Near-independent: 80%+ Claude token reduction.
 
 - **9 loaded models**: Qwen3 family (8B, 4B, 30B MoE, fast variant), Gemma4 family (e2b, e4b, 26B MoE), legacy (hermes, codellama), specialized (whisper, piper, nomic-embed, bge-reranker, stablediffusion). All running on LocalAI v4.0.0 with GPU acceleration.
 
