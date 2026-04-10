@@ -1,24 +1,24 @@
 {
-  "generated": "2026-04-10T18:45:15.008130+00:00",
+  "generated": "2026-04-10T18:50:50.511524+00:00",
   "stats": {
-    "pages": 202,
+    "pages": 175,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1348,
+    "relationships": 1177,
     "tags_unique": 639,
     "layers": {
       "3": 5,
-      "6": 6,
+      "6": 5,
       "2": 51,
-      "4": 36,
-      "5": 16,
+      "4": 22,
+      "5": 11,
       "1": 24,
-      "spine": 38
+      "spine": 31
     },
     "maturity": {
-      "growing": 155,
-      "seed": 22
+      "growing": 133,
+      "seed": 17
     }
   },
   "pages": [
@@ -591,78 +591,6 @@
       "maturity": "",
       "derived_from": [],
       "relationships": []
-    },
-    {
-      "path": "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag.md",
-      "slug": "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
-      "title": "Decision: Wiki-First with LightRAG Upgrade Path",
-      "type": "decision",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "decision",
-        "rag",
-        "lightrag",
-        "llm-wiki",
-        "knowledge-systems",
-        "scale",
-        "infrastructure",
-        "architecture"
-      ],
-      "sources": [
-        {
-          "id": "src-karpathy-llm-wiki-idea-file",
-          "type": "documentation",
-          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
-          "title": "Karpathy LLM Wiki Idea File"
-        },
-        {
-          "id": "src-lightrag-docs",
-          "type": "documentation",
-          "url": "https://github.com/HKUDS/LightRAG",
-          "title": "LightRAG \u2014 Graph-Based RAG Framework"
-        }
-      ],
-      "layer": 6,
-      "maturity": "growing",
-      "derived_from": [
-        "LLM Wiki vs RAG",
-        "LightRAG",
-        "Knowledge Evolution Pipeline"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "LLM Wiki vs RAG"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "LightRAG"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Knowledge Evolution Pipeline"
-        },
-        {
-          "verb": "COMPARES TO",
-          "target": "LLM Wiki vs RAG"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Wiki Knowledge Graph"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Research Pipeline Orchestration"
-        }
-      ]
     },
     {
       "path": "decisions/local-model-vs-cloud-api-for-routine-operations.md",
@@ -6113,1121 +6041,6 @@
       ]
     },
     {
-      "path": "lessons/lesson-convergence-on-claude-code-best-practices.md",
-      "slug": "lessons/lesson-convergence-on-claude-code-best-practices",
-      "title": "Context Management Is the Primary LLM Productivity Lever",
-      "type": "lesson",
-      "domain": "ai-agents",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "context-management",
-        "claude-code",
-        "best-practices",
-        "productivity",
-        "CLAUDE.md",
-        "subagents",
-        "planning",
-        "accuracy"
-      ],
-      "sources": [
-        {
-          "id": "src-shanraisshan-claude-code-best-practice",
-          "type": "documentation",
-          "url": "https://github.com/shanraisshan/claude-code-best-practice",
-          "title": "shanraisshan/claude-code-best-practice"
-        },
-        {
-          "id": "src-token-hacks-claude-code",
-          "type": "youtube-transcript",
-          "url": "https://www.youtube.com/watch?v=49V-5Ock8LU",
-          "title": "18 Claude Code Token Hacks in 18 Minutes"
-        },
-        {
-          "id": "src-claude-code-accuracy-tips",
-          "type": "youtube-transcript",
-          "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
-          "title": "Claude Code Works Better When You Do This"
-        },
-        {
-          "id": "src-harness-engineering-article",
-          "type": "article",
-          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
-          "title": "Building Claude Code with Harness Engineering"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "Claude Code Best Practices",
-        "Synthesis: Claude Code Accuracy Tips",
-        "Synthesis: Claude Code Harness Engineering"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Claude Code Best Practices"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Synthesis: Claude Code Accuracy Tips"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Synthesis: Claude Code Harness Engineering"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Claude Code Skills"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Harness Engineering"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Plan Execute Review Cycle"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Always Plan Before Executing"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "CLI Tools Beat MCP for Token Efficiency"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "OpenFleet"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "AICP"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-convergence-on-claude-code-skills.md",
-      "slug": "lessons/lesson-convergence-on-claude-code-skills",
-      "title": "Skills Architecture Is the Dominant LLM Extension Pattern",
-      "type": "lesson",
-      "domain": "ai-agents",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "skills",
-        "llm-extension",
-        "claude-code",
-        "markdown",
-        "extensibility",
-        "patterns",
-        "agent-configuration"
-      ],
-      "sources": [
-        {
-          "id": "src-obsidian-claude-code-second-brain",
-          "type": "youtube-transcript",
-          "url": "https://www.youtube.com/watch?v=Y2rpFa43jTo",
-          "title": "Obsidian + Claude Code: The Second Brain Setup That Actually Works"
-        },
-        {
-          "id": "src-shanraisshan-claude-code-best-practice",
-          "type": "documentation",
-          "url": "https://github.com/shanraisshan/claude-code-best-practice",
-          "title": "shanraisshan/claude-code-best-practice"
-        },
-        {
-          "id": "src-token-hacks-claude-code",
-          "type": "youtube-transcript",
-          "url": "https://www.youtube.com/watch?v=49V-5Ock8LU",
-          "title": "18 Claude Code Token Hacks in 18 Minutes"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "Claude Code Skills",
-        "Claude Code Best Practices"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Claude Code Skills"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Claude Code Best Practices"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "Claude Code"
-        },
-        {
-          "verb": "COMPARES TO",
-          "target": "MCP Integration Architecture"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Wiki Event-Driven Automation"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "CLI Tools Beat MCP for Token Efficiency"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Harness Engineering"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "OpenFleet"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "AICP"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-convergence-on-lightrag.md",
-      "slug": "lessons/lesson-convergence-on-lightrag",
-      "title": "Graph-Enhanced Retrieval Bridges Wiki Navigation and Vector Search",
-      "type": "lesson",
-      "domain": "knowledge-systems",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "lightrag",
-        "graph-retrieval",
-        "hybrid-search",
-        "wiki-graph",
-        "knowledge-graph",
-        "rag",
-        "vector-search",
-        "bm25"
-      ],
-      "sources": [
-        {
-          "id": "src-lightrag-docs",
-          "type": "documentation",
-          "url": "https://github.com/HKUDS/LightRAG",
-          "title": "LightRAG \u2014 Graph-Based RAG Framework"
-        },
-        {
-          "id": "src-llm-wiki-v2-agentmemory",
-          "type": "documentation",
-          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
-          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory"
-        },
-        {
-          "id": "src-karpathy-llm-wiki-idea-file",
-          "type": "documentation",
-          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
-          "title": "Karpathy LLM Wiki Idea File"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "LightRAG",
-        "LLM Wiki vs RAG",
-        "Wiki Knowledge Graph"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "LightRAG"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "LLM Wiki vs RAG"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Wiki Knowledge Graph"
-        },
-        {
-          "verb": "EXTENDS",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "LightRAG"
-        },
-        {
-          "verb": "COMPARES TO",
-          "target": "LLM Wiki vs RAG"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "OpenFleet"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Wiki Knowledge Graph"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-convergence-on-llm-knowledge-linting.md",
-      "slug": "lessons/lesson-convergence-on-llm-knowledge-linting",
-      "title": "Automated Knowledge Validation Prevents Silent Wiki Decay",
-      "type": "lesson",
-      "domain": "knowledge-systems",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "linting",
-        "validation",
-        "wiki-decay",
-        "knowledge-quality",
-        "post-chain",
-        "automation",
-        "maintenance"
-      ],
-      "sources": [
-        {
-          "id": "src-karpathy-claude-code-10x",
-          "type": "youtube-transcript",
-          "file": "raw/transcripts/karpathy-claude-code-10x.txt",
-          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code"
-        },
-        {
-          "id": "src-karpathy-llm-wiki-idea-file",
-          "type": "documentation",
-          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
-          "title": "Karpathy LLM Wiki Idea File"
-        },
-        {
-          "id": "src-pipeline-tooling",
-          "type": "documentation",
-          "file": "tools/pipeline.py",
-          "title": "Wiki Pipeline Tool"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "LLM Knowledge Linting",
-        "Knowledge Evolution Pipeline"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "LLM Knowledge Linting"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Knowledge Evolution Pipeline"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Knowledge Evolution Pipeline"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Wiki Knowledge Graph"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "LLM Wiki vs RAG"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Research Pipeline Orchestration"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-convergence-on-llm-wiki-pattern.md",
-      "slug": "lessons/lesson-convergence-on-llm-wiki-pattern",
-      "title": "LLM-Maintained Wikis Outperform Static Documentation",
-      "type": "lesson",
-      "domain": "knowledge-systems",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "llm-wiki",
-        "knowledge-management",
-        "static-docs",
-        "maintenance",
-        "compounding-knowledge",
-        "relationships",
-        "quality-gates"
-      ],
-      "sources": [
-        {
-          "id": "src-karpathy-claude-code-10x",
-          "type": "youtube-transcript",
-          "file": "raw/transcripts/karpathy-claude-code-10x.txt",
-          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code"
-        },
-        {
-          "id": "src-karpathy-llm-wiki-idea-file",
-          "type": "documentation",
-          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
-          "title": "Karpathy LLM Wiki Idea File"
-        },
-        {
-          "id": "src-llm-wiki-v2-agentmemory",
-          "type": "documentation",
-          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
-          "title": "LLM Wiki v2 \u2014 Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "LLM Wiki Pattern",
-        "Wiki Ingestion Pipeline"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Wiki Ingestion Pipeline"
-        },
-        {
-          "verb": "COMPARES TO",
-          "target": "LLM Wiki vs RAG"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Wiki Ingestion Pipeline"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "LLM Knowledge Linting"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Wiki Knowledge Graph"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Obsidian Knowledge Vault"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Memory Lifecycle Management"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "OpenFleet"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-convergence-on-obsidian-knowledge-vault.md",
-      "slug": "lessons/lesson-convergence-on-obsidian-knowledge-vault",
-      "title": "Obsidian as Knowledge Infrastructure Not Just Note-Taking",
-      "type": "lesson",
-      "domain": "tools-and-platforms",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "obsidian",
-        "knowledge-infrastructure",
-        "graph-view",
-        "obsidian-cli",
-        "second-brain",
-        "git-sync",
-        "llm-wiki",
-        "knowledge-vault"
-      ],
-      "sources": [
-        {
-          "id": "src-karpathy-claude-code-10x",
-          "type": "youtube-transcript",
-          "file": "raw/transcripts/karpathy-claude-code-10x.txt",
-          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code"
-        },
-        {
-          "id": "src-obsidian-claude-code-second-brain",
-          "type": "youtube-transcript",
-          "url": "https://www.youtube.com/watch?v=Y2rpFa43jTo",
-          "title": "Obsidian + Claude Code: The Second Brain Setup That Actually Works"
-        },
-        {
-          "id": "src-karpathy-llm-wiki-idea-file",
-          "type": "documentation",
-          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
-          "title": "Karpathy LLM Wiki Idea File"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "Obsidian Knowledge Vault",
-        "LLM Wiki Pattern"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Obsidian Knowledge Vault"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "IMPLEMENTS",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Wiki Ingestion Pipeline"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Claude Code Skills"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Obsidian Skills Ecosystem"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Wiki Knowledge Graph"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-convergence-on-src-claude-world-notebooklm-skill.md",
-      "slug": "lessons/lesson-convergence-on-src-claude-world-notebooklm-skill",
-      "title": "NotebookLM as Grounded Research Engine Not Just Note Storage",
-      "type": "lesson",
-      "domain": "knowledge-systems",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "notebooklm",
-        "research-engine",
-        "grounded-qa",
-        "source-grounded",
-        "knowledge-management",
-        "convergence"
-      ],
-      "sources": [
-        {
-          "id": "src-claude-world-notebooklm-skill",
-          "type": "documentation",
-          "url": "https://github.com/claude-world/notebooklm-skill",
-          "title": "claude-world/notebooklm-skill"
-        },
-        {
-          "id": "src-pleaseprompto-notebooklm-skill",
-          "type": "documentation",
-          "url": "https://github.com/PleasePrompto/notebooklm-skill",
-          "title": "PleasePrompto/notebooklm-skill"
-        },
-        {
-          "id": "src-notebooklm-claude-code-workflow",
-          "type": "youtube-transcript",
-          "url": "https://www.youtube.com/watch?v=fV17ZkPBlAc",
-          "title": "This NotebookLM + Claude Code Workflow Is Insane"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "Synthesis: claude-world/notebooklm-skill",
-        "NotebookLM Skills",
-        "Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Synthesis: claude-world/notebooklm-skill"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "NotebookLM Skills"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Synthesis: NotebookLM + Claude Code Workflow via notebooklm-py"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "NotebookLM"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "LLM Wiki vs RAG"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "AI-Driven Content Pipeline"
-        },
-        {
-          "verb": "COMPARES TO",
-          "target": "Agentic Search vs Vector Search"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-convergence-on-src-karpathy-claude-code-10x.md",
-      "slug": "lessons/lesson-convergence-on-src-karpathy-claude-code-10x",
-      "title": "The Wiki Maintenance Problem Is Solved by LLM Automation",
-      "type": "lesson",
-      "domain": "knowledge-systems",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "llm-wiki",
-        "maintenance",
-        "automation",
-        "karpathy",
-        "wiki-decay",
-        "second-brain",
-        "compounding-knowledge"
-      ],
-      "sources": [
-        {
-          "id": "src-karpathy-claude-code-10x",
-          "type": "youtube-transcript",
-          "file": "raw/transcripts/karpathy-claude-code-10x.txt",
-          "title": "Andrej Karpathy Just 10x'd Everyone's Claude Code"
-        },
-        {
-          "id": "src-karpathy-llm-wiki-idea-file",
-          "type": "documentation",
-          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
-          "title": "Karpathy LLM Wiki Idea File"
-        },
-        {
-          "id": "src-llm-wiki-v2-agentmemory",
-          "type": "documentation",
-          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
-          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "Synthesis: Karpathy LLM Wiki Method via Claude Code",
-        "LLM Wiki Pattern"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Synthesis: Karpathy LLM Wiki Method via Claude Code"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "LLM Knowledge Linting"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Knowledge Evolution Pipeline"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Second Brain Architecture"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "LLM-Maintained Wikis Outperform Static Documentation"
-        },
-        {
-          "verb": "COMPARES TO",
-          "target": "LLM Wiki vs RAG"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file.md",
-      "slug": "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file",
-      "title": "Lesson: Schema Is the Real Product \u2014 Not the Content",
-      "type": "lesson",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "schema",
-        "karpathy",
-        "llm-wiki",
-        "second-brain",
-        "knowledge-systems",
-        "config",
-        "design-principles"
-      ],
-      "sources": [
-        {
-          "id": "src-karpathy-llm-wiki-idea-file",
-          "type": "documentation",
-          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
-          "title": "Karpathy LLM Wiki Idea File"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "Synthesis: Karpathy's LLM Wiki Idea File",
-        "LLM Wiki Pattern",
-        "Second Brain Architecture"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Synthesis: Karpathy's LLM Wiki Idea File"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Second Brain Architecture"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Knowledge Evolution Pipeline"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Wiki Ingestion Pipeline"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "LLM Wiki vs RAG"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-convergence-on-src-kepano-obsidian-skills.md",
-      "slug": "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
-      "title": "Skill Specification Is the Key to Ecosystem Interoperability",
-      "type": "lesson",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "skills",
-        "interoperability",
-        "specification",
-        "obsidian",
-        "agent-skills",
-        "portability",
-        "standards"
-      ],
-      "sources": [
-        {
-          "id": "src-kepano-obsidian-skills",
-          "type": "documentation",
-          "url": "https://github.com/kepano/obsidian-skills",
-          "title": "kepano/obsidian-skills"
-        },
-        {
-          "id": "src-axton-obsidian-visual-skills",
-          "type": "documentation",
-          "url": "https://github.com/axtonliu/axton-obsidian-visual-skills",
-          "title": "axtonliu/axton-obsidian-visual-skills"
-        },
-        {
-          "id": "src-pablo-mano-obsidian-cli-skill",
-          "type": "documentation",
-          "url": "https://github.com/pablo-mano/Obsidian-CLI-skill",
-          "title": "pablo-mano/Obsidian-CLI-skill"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "Synthesis: kepano/obsidian-skills",
-        "Obsidian Skills Ecosystem"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Synthesis: kepano/obsidian-skills"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Obsidian Skills Ecosystem"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "Skills Architecture Patterns"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Claude Code Skills"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "NotebookLM Skills"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Obsidian Skills Ecosystem"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "LLM Wiki Pattern"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-convergence-on-wiki-ingestion-pipeline.md",
-      "slug": "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
-      "title": "Multi-Stage Ingestion Beats Single-Pass Processing",
-      "type": "lesson",
-      "domain": "knowledge-systems",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "ingestion",
-        "multi-pass",
-        "pipeline",
-        "cross-reference",
-        "gap-analysis",
-        "deepening",
-        "orchestration",
-        "compounding-knowledge"
-      ],
-      "sources": [
-        {
-          "id": "src-karpathy-llm-wiki-idea-file",
-          "type": "documentation",
-          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
-          "title": "Karpathy LLM Wiki Idea File"
-        },
-        {
-          "id": "src-llm-wiki-v2-agentmemory",
-          "type": "documentation",
-          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
-          "title": "LLM Wiki v2 \u2014 Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory"
-        },
-        {
-          "id": "src-user-directive-ecosystem",
-          "type": "notes",
-          "file": "raw/notes/2026-04-08-user-directive-ecosystem-connections.md",
-          "title": "User Directive \u2014 Ecosystem Connections & Automation Vision"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "Wiki Ingestion Pipeline",
-        "Research Pipeline Orchestration"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Wiki Ingestion Pipeline"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Research Pipeline Orchestration"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "LLM Knowledge Linting"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Wiki Knowledge Graph"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Research Pipeline Orchestration"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Wiki Event-Driven Automation"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Memory Lifecycle Management"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "OpenFleet"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-hub-\u2014-agent-orchestration-patterns.md",
-      "slug": "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
-      "title": "Lesson: Agent Orchestration Is the Highest-Connected Concept in the Wiki",
-      "type": "lesson",
-      "domain": "ai-agents",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "orchestration",
-        "ai-agents",
-        "hub-page",
-        "knowledge-graph",
-        "connectivity",
-        "cross-domain",
-        "openfleet",
-        "harness-engineering"
-      ],
-      "sources": [
-        {
-          "id": "src-openfleet-local",
-          "type": "documentation",
-          "file": "../openfleet/CLAUDE.md",
-          "title": "OpenFleet \u2014 Local Project Documentation"
-        },
-        {
-          "id": "src-harness-engineering-article",
-          "type": "article",
-          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
-          "title": "Building Claude Code with Harness Engineering"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "Agent Orchestration Patterns",
-        "Plan Execute Review Cycle",
-        "Deterministic Shell, LLM Core"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Agent Orchestration Patterns"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Plan Execute Review Cycle"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Deterministic Shell, LLM Core"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Agent Orchestration Patterns"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Plan Execute Review Cycle"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Deterministic Shell, LLM Core"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Research Pipeline Orchestration"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "MCP Integration Architecture"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-hub-\u2014-automation.md",
-      "slug": "lessons/lesson-hub-\u2014-automation",
-      "title": "Lesson: Automation Is the Bridge Between Knowledge and Action",
-      "type": "lesson",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "automation",
-        "bridge",
-        "knowledge-action",
-        "pipeline",
-        "event-driven",
-        "mcp",
-        "cross-domain"
-      ],
-      "sources": [
-        {
-          "id": "src-user-directive-ecosystem",
-          "type": "notes",
-          "file": "raw/notes/2026-04-08-user-directive-ecosystem-connections.md",
-          "title": "User Directive \u2014 Ecosystem Connections & Automation Vision"
-        },
-        {
-          "id": "src-llm-wiki-v2-agentmemory",
-          "type": "documentation",
-          "url": "https://gist.github.com/rohitg00/2067ab416f7bbe447c1977edaaa681e2",
-          "title": "LLM Wiki v2 -- Extending Karpathy's LLM Wiki Pattern with Lessons from Building Agentmemory"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "Research Pipeline Orchestration",
-        "Wiki Event-Driven Automation",
-        "MCP Integration Architecture"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Research Pipeline Orchestration"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Wiki Event-Driven Automation"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "MCP Integration Architecture"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Research Pipeline Orchestration"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Wiki Event-Driven Automation"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "MCP Integration Architecture"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Knowledge Evolution Pipeline"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "Agent Orchestration Patterns"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "LLM Wiki Pattern"
-        }
-      ]
-    },
-    {
-      "path": "lessons/lesson-hub-\u2014-knowledge-systems.md",
-      "slug": "lessons/lesson-hub-\u2014-knowledge-systems",
-      "title": "Lesson: Knowledge Systems Is the Foundational Domain for the Entire Wiki",
-      "type": "lesson",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "knowledge-systems",
-        "hub-domain",
-        "second-brain",
-        "llm-wiki",
-        "foundational",
-        "self-referential",
-        "cross-domain"
-      ],
-      "sources": [
-        {
-          "id": "src-karpathy-llm-wiki-idea-file",
-          "type": "documentation",
-          "url": "https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f",
-          "title": "Karpathy LLM Wiki Idea File"
-        },
-        {
-          "id": "src-pipeline-tooling",
-          "type": "documentation",
-          "file": "tools/pipeline.py",
-          "title": "Wiki Pipeline Tool"
-        }
-      ],
-      "layer": 4,
-      "maturity": "growing",
-      "derived_from": [
-        "LLM Wiki Pattern",
-        "Second Brain Architecture",
-        "Knowledge Evolution Pipeline"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Second Brain Architecture"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Knowledge Evolution Pipeline"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "LLM Wiki Pattern"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Second Brain Architecture"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Knowledge Evolution Pipeline"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Research Pipeline Orchestration"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Wiki Event-Driven Automation"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "LLM Wiki vs RAG"
-        }
-      ]
-    },
-    {
       "path": "lessons/llm-maintained-wikis-outperform-static-documentation.md",
       "slug": "lessons/llm-maintained-wikis-outperform-static-documentation",
       "title": "LLM-Maintained Wikis Outperform Static Documentation",
@@ -8928,151 +7741,6 @@
         {
           "verb": "FEEDS INTO",
           "target": "Research Pipeline Orchestration"
-        }
-      ]
-    },
-    {
-      "path": "patterns/pattern-skills-+-claude-code.md",
-      "slug": "patterns/pattern-skills-+-claude-code",
-      "title": "Pattern: Skills + Claude-Code",
-      "type": "pattern",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-08",
-      "tags": [],
-      "sources": [],
-      "layer": 5,
-      "maturity": "seed",
-      "derived_from": [
-        "Claude Code",
-        "Claude Code Best Practices"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Claude Code"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Claude Code Best Practices"
-        }
-      ]
-    },
-    {
-      "path": "patterns/pattern-skills-+-cli.md",
-      "slug": "patterns/pattern-skills-+-cli",
-      "title": "Pattern: Skills + Cli",
-      "type": "pattern",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-08",
-      "tags": [],
-      "sources": [],
-      "layer": 5,
-      "maturity": "seed",
-      "derived_from": [
-        "CLI Tools Beat MCP for Token Efficiency",
-        "Context-Aware Tool Loading"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "CLI Tools Beat MCP for Token Efficiency"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Context-Aware Tool Loading"
-        }
-      ]
-    },
-    {
-      "path": "patterns/pattern-skills-+-mcp.md",
-      "slug": "patterns/pattern-skills-+-mcp",
-      "title": "Pattern: Skills + Mcp",
-      "type": "pattern",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-08",
-      "tags": [],
-      "sources": [],
-      "layer": 5,
-      "maturity": "seed",
-      "derived_from": [
-        "CLI Tools Beat MCP for Token Efficiency",
-        "Claude Code"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "CLI Tools Beat MCP for Token Efficiency"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Claude Code"
-        }
-      ]
-    },
-    {
-      "path": "patterns/pattern-skills-+-notebooklm.md",
-      "slug": "patterns/pattern-skills-+-notebooklm",
-      "title": "Pattern: Skills + Notebooklm",
-      "type": "pattern",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-08",
-      "tags": [],
-      "sources": [],
-      "layer": 5,
-      "maturity": "seed",
-      "derived_from": [
-        "Context-Aware Tool Loading",
-        "NotebookLM Skills"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Context-Aware Tool Loading"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "NotebookLM Skills"
-        }
-      ]
-    },
-    {
-      "path": "patterns/pattern-skills-+-obsidian.md",
-      "slug": "patterns/pattern-skills-+-obsidian",
-      "title": "Pattern: Skills + Obsidian",
-      "type": "pattern",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-08",
-      "tags": [],
-      "sources": [],
-      "layer": 5,
-      "maturity": "seed",
-      "derived_from": [
-        "Obsidian Skills Ecosystem",
-        "Skills Architecture Patterns"
-      ],
-      "relationships": [
-        {
-          "verb": "DERIVED FROM",
-          "target": "Obsidian Skills Ecosystem"
-        },
-        {
-          "verb": "DERIVED FROM",
-          "target": "Skills Architecture Patterns"
         }
       ]
     },
@@ -11088,51 +9756,6 @@
       ]
     },
     {
-      "path": "spine/domain-overviews/ai-agents-\u2014-domain-overview.md",
-      "slug": "spine/domain-overviews/ai-agents-\u2014-domain-overview",
-      "title": "AI Agents \u2014 Domain Overview",
-      "type": "domain-overview",
-      "domain": "ai-agents",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "domain-overview",
-        "ai-agents"
-      ],
-      "sources": [],
-      "layer": "spine",
-      "maturity": "growing",
-      "derived_from": [],
-      "relationships": [
-        {
-          "verb": "FEEDS INTO",
-          "target": "Knowledge Systems \u2014 Domain Overview"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Automation \u2014 Domain Overview"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Tools And Platforms \u2014 Domain Overview"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Devops \u2014 Domain Overview"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "AI Models \u2014 Domain Overview"
-        },
-        {
-          "verb": "PARALLELS",
-          "target": "Cross-Domain \u2014 Domain Overview"
-        }
-      ]
-    },
-    {
       "path": "spine/domain-overviews/ai-models-domain-overview.md",
       "slug": "spine/domain-overviews/ai-models-domain-overview",
       "title": "AI Models \u2014 Domain Overview",
@@ -11174,94 +9797,8 @@
       ]
     },
     {
-      "path": "spine/domain-overviews/ai-models-\u2014-domain-overview.md",
-      "slug": "spine/domain-overviews/ai-models-\u2014-domain-overview",
-      "title": "AI Models \u2014 Domain Overview",
-      "type": "domain-overview",
-      "domain": "ai-models",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "domain-overview",
-        "ai-models"
-      ],
-      "sources": [],
-      "layer": "spine",
-      "maturity": "growing",
-      "derived_from": [],
-      "relationships": [
-        {
-          "verb": "ENABLES",
-          "target": "AI Agents \u2014 Domain Overview"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Knowledge Systems \u2014 Domain Overview"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Tools And Platforms \u2014 Domain Overview"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Automation \u2014 Domain Overview"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Devops \u2014 Domain Overview"
-        }
-      ]
-    },
-    {
       "path": "spine/domain-overviews/automation-domain-overview.md",
       "slug": "spine/domain-overviews/automation-domain-overview",
-      "title": "Automation \u2014 Domain Overview",
-      "type": "domain-overview",
-      "domain": "automation",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "domain-overview",
-        "automation"
-      ],
-      "sources": [],
-      "layer": "spine",
-      "maturity": "growing",
-      "derived_from": [],
-      "relationships": [
-        {
-          "verb": "IMPLEMENTS",
-          "target": "Knowledge Systems \u2014 Domain Overview"
-        },
-        {
-          "verb": "USED BY",
-          "target": "AI Agents \u2014 Domain Overview"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "Tools And Platforms \u2014 Domain Overview"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Devops \u2014 Domain Overview"
-        },
-        {
-          "verb": "EXTENDS",
-          "target": "AI Models \u2014 Domain Overview"
-        },
-        {
-          "verb": "BRIDGES",
-          "target": "Cross-Domain \u2014 Domain Overview"
-        }
-      ]
-    },
-    {
-      "path": "spine/domain-overviews/automation-\u2014-domain-overview.md",
-      "slug": "spine/domain-overviews/automation-\u2014-domain-overview",
       "title": "Automation \u2014 Domain Overview",
       "type": "domain-overview",
       "domain": "automation",
@@ -11350,94 +9887,8 @@
       ]
     },
     {
-      "path": "spine/domain-overviews/cross-domain-\u2014-domain-overview.md",
-      "slug": "spine/domain-overviews/cross-domain-\u2014-domain-overview",
-      "title": "Cross-Domain \u2014 Domain Overview",
-      "type": "domain-overview",
-      "domain": "cross-domain",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "domain-overview",
-        "cross-domain"
-      ],
-      "sources": [],
-      "layer": "spine",
-      "maturity": "growing",
-      "derived_from": [],
-      "relationships": [
-        {
-          "verb": "SYNTHESIZES FROM",
-          "target": "AI Agents \u2014 Domain Overview"
-        },
-        {
-          "verb": "SYNTHESIZES FROM",
-          "target": "Knowledge Systems \u2014 Domain Overview"
-        },
-        {
-          "verb": "SYNTHESIZES FROM",
-          "target": "Tools And Platforms \u2014 Domain Overview"
-        },
-        {
-          "verb": "SYNTHESIZES FROM",
-          "target": "Automation \u2014 Domain Overview"
-        },
-        {
-          "verb": "SYNTHESIZES FROM",
-          "target": "Devops \u2014 Domain Overview"
-        },
-        {
-          "verb": "SYNTHESIZES FROM",
-          "target": "AI Models \u2014 Domain Overview"
-        }
-      ]
-    },
-    {
       "path": "spine/domain-overviews/devops-domain-overview.md",
       "slug": "spine/domain-overviews/devops-domain-overview",
-      "title": "Devops \u2014 Domain Overview",
-      "type": "domain-overview",
-      "domain": "devops",
-      "status": "synthesized",
-      "confidence": "medium",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "domain-overview",
-        "devops"
-      ],
-      "sources": [],
-      "layer": "spine",
-      "maturity": "growing",
-      "derived_from": [],
-      "relationships": [
-        {
-          "verb": "ENABLES",
-          "target": "AI Agents \u2014 Domain Overview"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Tools And Platforms \u2014 Domain Overview"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Automation \u2014 Domain Overview"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Knowledge Systems \u2014 Domain Overview"
-        },
-        {
-          "verb": "UNDERPINS",
-          "target": "AI Models \u2014 Domain Overview"
-        }
-      ]
-    },
-    {
-      "path": "spine/domain-overviews/devops-\u2014-domain-overview.md",
-      "slug": "spine/domain-overviews/devops-\u2014-domain-overview",
       "title": "Devops \u2014 Domain Overview",
       "type": "domain-overview",
       "domain": "devops",
@@ -11522,98 +9973,8 @@
       ]
     },
     {
-      "path": "spine/domain-overviews/knowledge-systems-\u2014-domain-overview.md",
-      "slug": "spine/domain-overviews/knowledge-systems-\u2014-domain-overview",
-      "title": "Knowledge Systems \u2014 Domain Overview",
-      "type": "domain-overview",
-      "domain": "knowledge-systems",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "domain-overview",
-        "knowledge-systems"
-      ],
-      "sources": [],
-      "layer": "spine",
-      "maturity": "growing",
-      "derived_from": [],
-      "relationships": [
-        {
-          "verb": "FEEDS INTO",
-          "target": "AI Agents \u2014 Domain Overview"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Automation \u2014 Domain Overview"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Tools And Platforms \u2014 Domain Overview"
-        },
-        {
-          "verb": "ENABLES",
-          "target": "Cross-Domain \u2014 Domain Overview"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "AI Models \u2014 Domain Overview"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Devops \u2014 Domain Overview"
-        }
-      ]
-    },
-    {
       "path": "spine/domain-overviews/tools-and-platforms-domain-overview.md",
       "slug": "spine/domain-overviews/tools-and-platforms-domain-overview",
-      "title": "Tools And Platforms \u2014 Domain Overview",
-      "type": "domain-overview",
-      "domain": "tools-and-platforms",
-      "status": "synthesized",
-      "confidence": "high",
-      "created": "2026-04-08",
-      "updated": "2026-04-10",
-      "tags": [
-        "domain-overview",
-        "tools-and-platforms"
-      ],
-      "sources": [],
-      "layer": "spine",
-      "maturity": "growing",
-      "derived_from": [],
-      "relationships": [
-        {
-          "verb": "USED BY",
-          "target": "AI Agents \u2014 Domain Overview"
-        },
-        {
-          "verb": "IMPLEMENTS",
-          "target": "Knowledge Systems \u2014 Domain Overview"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Automation \u2014 Domain Overview"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Devops \u2014 Domain Overview"
-        },
-        {
-          "verb": "BUILDS ON",
-          "target": "AI Models \u2014 Domain Overview"
-        },
-        {
-          "verb": "RELATES TO",
-          "target": "Cross-Domain \u2014 Domain Overview"
-        }
-      ]
-    },
-    {
-      "path": "spine/domain-overviews/tools-and-platforms-\u2014-domain-overview.md",
-      "slug": "spine/domain-overviews/tools-and-platforms-\u2014-domain-overview",
       "title": "Tools And Platforms \u2014 Domain Overview",
       "type": "domain-overview",
       "domain": "tools-and-platforms",
@@ -13391,32 +11752,32 @@
       "relationship_count": 11
     },
     "cross-domain": {
-      "page_count": 60,
-      "relationship_count": 418
+      "page_count": 49,
+      "relationship_count": 363
     },
     "ai-agents": {
-      "page_count": 38,
-      "relationship_count": 326
+      "page_count": 34,
+      "relationship_count": 293
     },
     "tools-and-platforms": {
-      "page_count": 25,
-      "relationship_count": 172
+      "page_count": 23,
+      "relationship_count": 159
     },
     "devops": {
-      "page_count": 12,
-      "relationship_count": 89
+      "page_count": 11,
+      "relationship_count": 84
     },
     "ai-models": {
-      "page_count": 4,
-      "relationship_count": 18
+      "page_count": 3,
+      "relationship_count": 13
     },
     "automation": {
-      "page_count": 8,
-      "relationship_count": 61
+      "page_count": 7,
+      "relationship_count": 55
     },
     "knowledge-systems": {
-      "page_count": 30,
-      "relationship_count": 253
+      "page_count": 23,
+      "relationship_count": 199
     },
     "log": {
       "page_count": 20,
@@ -13486,7 +11847,6 @@
       "domains/knowledge-systems/wiki-backlog-pattern",
       "lessons/agent-orchestration-is-highest-connected-concept",
       "lessons/always-plan-before-executing",
-      "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
       "patterns/deterministic-shell-llm-core",
       "patterns/gateway-centric-routing",
       "patterns/plan-execute-review-cycle",
@@ -13527,18 +11887,15 @@
       "comparisons/agentic-search-vs-vector-search",
       "comparisons/llm-wiki-vs-rag",
       "domains/knowledge-systems/lightrag",
-      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search",
-      "lessons/lesson-convergence-on-lightrag"
+      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search"
     ],
     "rag": [
       "comparisons/agentic-search-vs-vector-search",
       "comparisons/llm-wiki-vs-rag",
-      "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
       "decisions/wiki-first-with-lightrag-upgrade-path",
       "domains/knowledge-systems/lightrag",
       "domains/knowledge-systems/llm-wiki-vs-rag",
-      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search",
-      "lessons/lesson-convergence-on-lightrag"
+      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search"
     ],
     "hybrid-search": [
       "comparisons/agentic-search-vs-vector-search",
@@ -13546,8 +11903,7 @@
       "domains/knowledge-systems/lightrag",
       "domains/knowledge-systems/llm-wiki-vs-rag",
       "domains/knowledge-systems/wiki-knowledge-graph",
-      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search",
-      "lessons/lesson-convergence-on-lightrag"
+      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search"
     ],
     "knowledge-retrieval": [
       "comparisons/agentic-search-vs-vector-search",
@@ -13573,19 +11929,14 @@
       "lessons/agent-orchestration-is-highest-connected-concept",
       "lessons/automation-is-bridge-between-knowledge-and-action",
       "lessons/knowledge-systems-is-foundational-domain",
-      "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
-      "lessons/lesson-hub-\u2014-automation",
-      "lessons/lesson-hub-\u2014-knowledge-systems",
       "patterns/plan-execute-review-cycle",
       "patterns/scaffold-foundation-infrastructure-features",
       "spine/domain-overviews/cross-domain-domain-overview",
-      "spine/domain-overviews/cross-domain-\u2014-domain-overview",
       "spine/model-sfif-architecture"
     ],
     "patterns": [
       "comparisons/cross-domain-patterns",
       "comparisons/skills-architecture-patterns",
-      "lessons/lesson-convergence-on-claude-code-skills",
       "lessons/skills-architecture-is-dominant-extension-pattern"
     ],
     "meta-analysis": [
@@ -13619,8 +11970,6 @@
       "domains/automation/research-pipeline-orchestration",
       "lessons/agent-orchestration-is-highest-connected-concept",
       "lessons/always-plan-before-executing",
-      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
-      "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
       "lessons/multi-stage-ingestion-beats-single-pass",
       "patterns/deterministic-shell-llm-core",
       "patterns/gateway-centric-routing",
@@ -13630,16 +11979,12 @@
     ],
     "knowledge-systems": [
       "comparisons/cross-domain-patterns",
-      "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
       "decisions/wiki-first-with-lightrag-upgrade-path",
       "domains/knowledge-systems/knowledge-evolution-pipeline",
       "lessons/knowledge-systems-is-foundational-domain",
-      "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file",
-      "lessons/lesson-hub-\u2014-knowledge-systems",
       "lessons/schema-is-the-real-product",
       "patterns/progressive-distillation",
-      "spine/domain-overviews/knowledge-systems-domain-overview",
-      "spine/domain-overviews/knowledge-systems-\u2014-domain-overview"
+      "spine/domain-overviews/knowledge-systems-domain-overview"
     ],
     "ai-agents": [
       "comparisons/cross-domain-patterns",
@@ -13647,24 +11992,16 @@
       "domains/ai-agents/design-md-pattern",
       "domains/ai-agents/openfleet",
       "lessons/agent-orchestration-is-highest-connected-concept",
-      "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
       "sources/src-awesome-design-md",
-      "spine/domain-overviews/ai-agents-domain-overview",
-      "spine/domain-overviews/ai-agents-\u2014-domain-overview"
+      "spine/domain-overviews/ai-agents-domain-overview"
     ],
     "llm-wiki": [
       "comparisons/llm-wiki-vs-rag",
-      "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
       "decisions/wiki-first-with-lightrag-upgrade-path",
       "domains/knowledge-systems/llm-wiki-pattern",
       "domains/knowledge-systems/llm-wiki-vs-rag",
       "domains/knowledge-systems/wiki-backlog-pattern",
       "lessons/knowledge-systems-is-foundational-domain",
-      "lessons/lesson-convergence-on-llm-wiki-pattern",
-      "lessons/lesson-convergence-on-obsidian-knowledge-vault",
-      "lessons/lesson-convergence-on-src-karpathy-claude-code-10x",
-      "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file",
-      "lessons/lesson-hub-\u2014-knowledge-systems",
       "lessons/llm-maintained-wikis-outperform-static-documentation",
       "lessons/obsidian-as-knowledge-infrastructure",
       "lessons/schema-is-the-real-product",
@@ -13678,8 +12015,6 @@
       "domains/knowledge-systems/para-methodology",
       "domains/knowledge-systems/second-brain-architecture",
       "domains/knowledge-systems/zettelkasten-methodology",
-      "lessons/lesson-convergence-on-llm-wiki-pattern",
-      "lessons/lesson-convergence-on-src-claude-world-notebooklm-skill",
       "lessons/llm-maintained-wikis-outperform-static-documentation",
       "lessons/notebooklm-as-grounded-research-engine",
       "spine/model-second-brain"
@@ -13695,8 +12030,6 @@
       "domains/tools-and-platforms/notebooklm-skills",
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
-      "lessons/lesson-convergence-on-claude-code-skills",
-      "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
       "lessons/skill-specification-is-key-to-interoperability",
       "lessons/skills-architecture-is-dominant-extension-pattern",
       "log/2026-04-09-directive-record-process-skills-supermodel",
@@ -13715,7 +12048,6 @@
     ],
     "architecture": [
       "comparisons/skills-architecture-patterns",
-      "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
       "decisions/wiki-first-with-lightrag-upgrade-path",
       "domains/cross-domain/skyscraper-pyramid-mountain",
       "domains/devops/four-project-ecosystem",
@@ -13740,8 +12072,6 @@
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
       "lessons/always-plan-before-executing",
       "lessons/context-management-is-primary-productivity-lever",
-      "lessons/lesson-convergence-on-claude-code-best-practices",
-      "lessons/lesson-convergence-on-claude-code-skills",
       "lessons/skills-architecture-is-dominant-extension-pattern",
       "sources/src-axton-obsidian-visual-skills",
       "sources/src-claude-code-accuracy-tips",
@@ -13770,8 +12100,6 @@
       "domains/tools-and-platforms/obsidian-cli",
       "domains/tools-and-platforms/obsidian-knowledge-vault",
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
-      "lessons/lesson-convergence-on-obsidian-knowledge-vault",
-      "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
       "lessons/obsidian-as-knowledge-infrastructure",
       "lessons/skill-specification-is-key-to-interoperability",
       "log/2026-04-09-directive-styling-obsidian",
@@ -13792,7 +12120,6 @@
       "domains/tools-and-platforms/notebooklm-py-cli",
       "domains/tools-and-platforms/notebooklm-skills",
       "domains/tools-and-platforms/notebooklm",
-      "lessons/lesson-convergence-on-src-claude-world-notebooklm-skill",
       "lessons/notebooklm-as-grounded-research-engine",
       "patterns/context-aware-tool-loading",
       "sources/src-claude-code-accuracy-tips",
@@ -13811,28 +12138,6 @@
     "composition": [
       "comparisons/skills-architecture-patterns",
       "domains/ai-agents/hooks-lifecycle-architecture"
-    ],
-    "decision": [
-      "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
-      "decisions/wiki-first-with-lightrag-upgrade-path"
-    ],
-    "lightrag": [
-      "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
-      "decisions/wiki-first-with-lightrag-upgrade-path",
-      "domains/ai-agents/openfleet",
-      "domains/knowledge-systems/lightrag",
-      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search",
-      "lessons/lesson-convergence-on-lightrag"
-    ],
-    "scale": [
-      "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
-      "decisions/wiki-first-with-lightrag-upgrade-path"
-    ],
-    "infrastructure": [
-      "decisions/decision-resolve-open-questions-in-llm-wiki-vs-rag",
-      "decisions/wiki-first-with-lightrag-upgrade-path",
-      "domains/devops/devops-control-plane",
-      "patterns/scaffold-foundation-infrastructure-features"
     ],
     "claude": [
       "decisions/local-model-vs-cloud-api-for-routine-operations"
@@ -13870,7 +12175,6 @@
       "domains/tools-and-platforms/notebooklm-skills",
       "lessons/automation-is-bridge-between-knowledge-and-action",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
-      "lessons/lesson-hub-\u2014-automation",
       "patterns/context-aware-tool-loading",
       "patterns/gateway-centric-routing",
       "sources/src-claude-world-notebooklm-skill",
@@ -13914,7 +12218,6 @@
       "domains/ai-agents/rework-prevention",
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "lessons/context-management-is-primary-productivity-lever",
-      "lessons/lesson-convergence-on-claude-code-best-practices",
       "log/2026-04-09-directive-stop-guessing-false-claims",
       "patterns/context-aware-tool-loading",
       "sources/src-claude-code-accuracy-tips",
@@ -13938,10 +12241,6 @@
       "domains/tools-and-platforms/obsidian-cli",
       "domains/tools-and-platforms/obsidian-knowledge-vault",
       "lessons/knowledge-systems-is-foundational-domain",
-      "lessons/lesson-convergence-on-obsidian-knowledge-vault",
-      "lessons/lesson-convergence-on-src-karpathy-claude-code-10x",
-      "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file",
-      "lessons/lesson-hub-\u2014-knowledge-systems",
       "lessons/obsidian-as-knowledge-infrastructure",
       "lessons/schema-is-the-real-product",
       "lessons/wiki-maintenance-problem-solved-by-llm-automation",
@@ -13956,12 +12255,10 @@
     "graph-view": [
       "decisions/obsidian-vs-notebooklm-as-knowledge-interface",
       "domains/tools-and-platforms/obsidian-knowledge-vault",
-      "lessons/lesson-convergence-on-obsidian-knowledge-vault",
       "lessons/obsidian-as-knowledge-infrastructure"
     ],
     "grounded-qa": [
       "decisions/obsidian-vs-notebooklm-as-knowledge-interface",
-      "lessons/lesson-convergence-on-src-claude-world-notebooklm-skill",
       "lessons/notebooklm-as-grounded-research-engine"
     ],
     "complementary-tools": [
@@ -14004,7 +12301,6 @@
       "domains/automation/wiki-event-driven-automation",
       "domains/knowledge-systems/wiki-ingestion-pipeline",
       "lessons/automation-is-bridge-between-knowledge-and-action",
-      "lessons/lesson-hub-\u2014-automation",
       "spine/model-automation-pipelines"
     ],
     "filesystem": [
@@ -14019,8 +12315,24 @@
       "domains/devops/infrastructure-as-code-patterns",
       "domains/devops/stage-gate-methodology",
       "domains/devops/wsl2-development-patterns",
-      "spine/domain-overviews/devops-domain-overview",
-      "spine/domain-overviews/devops-\u2014-domain-overview"
+      "spine/domain-overviews/devops-domain-overview"
+    ],
+    "decision": [
+      "decisions/wiki-first-with-lightrag-upgrade-path"
+    ],
+    "lightrag": [
+      "decisions/wiki-first-with-lightrag-upgrade-path",
+      "domains/ai-agents/openfleet",
+      "domains/knowledge-systems/lightrag",
+      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search"
+    ],
+    "scale": [
+      "decisions/wiki-first-with-lightrag-upgrade-path"
+    ],
+    "infrastructure": [
+      "decisions/wiki-first-with-lightrag-upgrade-path",
+      "domains/devops/devops-control-plane",
+      "patterns/scaffold-foundation-infrastructure-features"
     ],
     "multi-agent": [
       "domains/ai-agents/agent-orchestration-patterns",
@@ -14050,7 +12362,6 @@
       "domains/ai-agents/rework-prevention",
       "lessons/agent-orchestration-is-highest-connected-concept",
       "lessons/always-plan-before-executing",
-      "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
       "patterns/plan-execute-review-cycle",
       "sources/src-harness-engineering",
       "spine/model-claude-code",
@@ -14059,7 +12370,6 @@
     "best-practices": [
       "domains/ai-agents/claude-code-best-practices",
       "lessons/context-management-is-primary-productivity-lever",
-      "lessons/lesson-convergence-on-claude-code-best-practices",
       "sources/src-shanraisshan-claude-code-best-practice",
       "spine/model-llm-wiki-standards"
     ],
@@ -14070,7 +12380,6 @@
       "domains/ai-agents/claude-code-best-practices",
       "domains/ai-agents/claude-code",
       "lessons/context-management-is-primary-productivity-lever",
-      "lessons/lesson-convergence-on-claude-code-best-practices",
       "sources/src-claude-code-accuracy-tips",
       "sources/src-playwright-mcp-visual-testing",
       "sources/src-shanraisshan-claude-code-best-practice",
@@ -14153,7 +12462,6 @@
       "domains/knowledge-systems/llm-wiki-pattern",
       "domains/knowledge-systems/wiki-ingestion-pipeline",
       "domains/tools-and-platforms/obsidian-knowledge-vault",
-      "lessons/lesson-convergence-on-claude-code-skills",
       "lessons/skills-architecture-is-dominant-extension-pattern",
       "log/2026-04-09-directive-wiki-design-model-research",
       "sources/src-karpathy-llm-wiki-idea-file",
@@ -14163,18 +12471,15 @@
     "agent-configuration": [
       "domains/ai-agents/claude-code-skills",
       "domains/devops/infrastructure-as-code-patterns",
-      "lessons/lesson-convergence-on-claude-code-skills",
       "lessons/skills-architecture-is-dominant-extension-pattern"
     ],
     "extensibility": [
       "domains/ai-agents/claude-code-skills",
-      "lessons/lesson-convergence-on-claude-code-skills",
       "lessons/skills-architecture-is-dominant-extension-pattern"
     ],
     "obsidian-cli": [
       "domains/ai-agents/claude-code-skills",
       "domains/tools-and-platforms/obsidian-knowledge-vault",
-      "lessons/lesson-convergence-on-obsidian-knowledge-vault",
       "lessons/obsidian-as-knowledge-infrastructure",
       "sources/src-obsidian-claude-code-second-brain"
     ],
@@ -14211,9 +12516,6 @@
       "domains/tools-and-platforms/obsidian-cli",
       "lessons/automated-knowledge-validation-prevents-wiki-decay",
       "lessons/automation-is-bridge-between-knowledge-and-action",
-      "lessons/lesson-convergence-on-llm-knowledge-linting",
-      "lessons/lesson-convergence-on-src-karpathy-claude-code-10x",
-      "lessons/lesson-hub-\u2014-automation",
       "lessons/wiki-maintenance-problem-solved-by-llm-automation",
       "sources/src-claude-notebooklm-content-team",
       "sources/src-claude-slash-commands",
@@ -14221,7 +12523,6 @@
       "sources/src-llm-wiki-v2-agentmemory",
       "sources/src-notebooklm-claude-code-workflow",
       "spine/domain-overviews/automation-domain-overview",
-      "spine/domain-overviews/automation-\u2014-domain-overview",
       "spine/model-automation-pipelines"
     ],
     "design-md": [
@@ -14323,13 +12624,11 @@
     ],
     "linting": [
       "domains/ai-agents/llm-knowledge-linting",
-      "lessons/automated-knowledge-validation-prevents-wiki-decay",
-      "lessons/lesson-convergence-on-llm-knowledge-linting"
+      "lessons/automated-knowledge-validation-prevents-wiki-decay"
     ],
     "knowledge-quality": [
       "domains/ai-agents/llm-knowledge-linting",
-      "lessons/automated-knowledge-validation-prevents-wiki-decay",
-      "lessons/lesson-convergence-on-llm-knowledge-linting"
+      "lessons/automated-knowledge-validation-prevents-wiki-decay"
     ],
     "health-check": [
       "domains/ai-agents/llm-knowledge-linting"
@@ -14447,7 +12746,6 @@
       "domains/ai-agents/spec-driven-development",
       "lessons/always-plan-before-executing",
       "lessons/context-management-is-primary-productivity-lever",
-      "lessons/lesson-convergence-on-claude-code-best-practices",
       "sources/src-shanraisshan-claude-code-best-practice",
       "sources/src-superpowers-end-of-vibe-coding"
     ],
@@ -14455,7 +12753,6 @@
       "domains/ai-agents/rework-prevention",
       "domains/devops/execution-modes-and-end-conditions",
       "domains/devops/stage-gate-methodology",
-      "lessons/lesson-convergence-on-llm-wiki-pattern",
       "lessons/llm-maintained-wikis-outperform-static-documentation"
     ],
     "spec-compliance": [
@@ -14619,8 +12916,6 @@
       "domains/knowledge-systems/knowledge-evolution-pipeline",
       "domains/knowledge-systems/wiki-ingestion-pipeline",
       "lessons/automation-is-bridge-between-knowledge-and-action",
-      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
-      "lessons/lesson-hub-\u2014-automation",
       "lessons/multi-stage-ingestion-beats-single-pass"
     ],
     "chain-operations": [
@@ -14638,7 +12933,6 @@
     "ingestion": [
       "domains/automation/research-pipeline-orchestration",
       "domains/knowledge-systems/wiki-ingestion-pipeline",
-      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
       "lessons/multi-stage-ingestion-beats-single-pass",
       "lessons/never-synthesize-from-descriptions-alone",
       "log/2026-04-09-ingest-awesome-design-md",
@@ -14646,7 +12940,6 @@
     ],
     "multi-pass": [
       "domains/automation/research-pipeline-orchestration",
-      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
       "lessons/multi-stage-ingestion-beats-single-pass",
       "patterns/plan-execute-review-cycle"
     ],
@@ -15003,8 +13296,6 @@
       "domains/knowledge-systems/wiki-knowledge-graph",
       "lessons/agent-orchestration-is-highest-connected-concept",
       "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search",
-      "lessons/lesson-convergence-on-lightrag",
-      "lessons/lesson-hub-\u2014-agent-orchestration-patterns",
       "sources/src-llm-wiki-v2-agentmemory"
     ],
     "entity-extraction": [
@@ -15014,8 +13305,7 @@
     ],
     "graph-retrieval": [
       "domains/knowledge-systems/lightrag",
-      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search",
-      "lessons/lesson-convergence-on-lightrag"
+      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search"
     ],
     "knowledge-base": [
       "domains/knowledge-systems/llm-wiki-pattern",
@@ -15026,8 +13316,6 @@
     ],
     "karpathy": [
       "domains/knowledge-systems/llm-wiki-pattern",
-      "lessons/lesson-convergence-on-src-karpathy-claude-code-10x",
-      "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file",
       "lessons/schema-is-the-real-product",
       "lessons/wiki-maintenance-problem-solved-by-llm-automation",
       "sources/src-karpathy-claude-code-10x",
@@ -15042,16 +13330,12 @@
     ],
     "schema": [
       "domains/knowledge-systems/llm-wiki-pattern",
-      "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file",
       "lessons/schema-is-the-real-product",
       "log/2026-04-09-directive-model-quality-links-schema",
       "spine/model-llm-wiki"
     ],
     "compounding-knowledge": [
       "domains/knowledge-systems/llm-wiki-pattern",
-      "lessons/lesson-convergence-on-llm-wiki-pattern",
-      "lessons/lesson-convergence-on-src-karpathy-claude-code-10x",
-      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
       "lessons/llm-maintained-wikis-outperform-static-documentation",
       "lessons/multi-stage-ingestion-beats-single-pass",
       "lessons/wiki-maintenance-problem-solved-by-llm-automation"
@@ -15266,7 +13550,6 @@
     ],
     "source-grounded": [
       "domains/tools-and-platforms/notebooklm-skills",
-      "lessons/lesson-convergence-on-src-claude-world-notebooklm-skill",
       "lessons/notebooklm-as-grounded-research-engine",
       "sources/src-pleaseprompto-notebooklm-skill"
     ],
@@ -15294,7 +13577,6 @@
     ],
     "knowledge-vault": [
       "domains/tools-and-platforms/obsidian-knowledge-vault",
-      "lessons/lesson-convergence-on-obsidian-knowledge-vault",
       "lessons/obsidian-as-knowledge-infrastructure"
     ],
     "web-clipper": [
@@ -15302,13 +13584,11 @@
     ],
     "git-sync": [
       "domains/tools-and-platforms/obsidian-knowledge-vault",
-      "lessons/lesson-convergence-on-obsidian-knowledge-vault",
       "lessons/obsidian-as-knowledge-infrastructure",
       "sources/src-obsidian-claude-code-second-brain"
     ],
     "agent-skills": [
       "domains/tools-and-platforms/obsidian-skills-ecosystem",
-      "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
       "lessons/skill-specification-is-key-to-interoperability",
       "sources/src-kepano-obsidian-skills"
     ],
@@ -15353,49 +13633,37 @@
       "domains/tools-and-platforms/plane"
     ],
     "hub-page": [
-      "lessons/agent-orchestration-is-highest-connected-concept",
-      "lessons/lesson-hub-\u2014-agent-orchestration-patterns"
+      "lessons/agent-orchestration-is-highest-connected-concept"
     ],
     "connectivity": [
-      "lessons/agent-orchestration-is-highest-connected-concept",
-      "lessons/lesson-hub-\u2014-agent-orchestration-patterns"
+      "lessons/agent-orchestration-is-highest-connected-concept"
     ],
     "validation": [
       "lessons/automated-knowledge-validation-prevents-wiki-decay",
-      "lessons/lesson-convergence-on-llm-knowledge-linting",
       "log/2026-04-09-directive-validate-second-brain-readiness"
     ],
     "wiki-decay": [
       "lessons/automated-knowledge-validation-prevents-wiki-decay",
-      "lessons/lesson-convergence-on-llm-knowledge-linting",
-      "lessons/lesson-convergence-on-src-karpathy-claude-code-10x",
       "lessons/wiki-maintenance-problem-solved-by-llm-automation"
     ],
     "post-chain": [
       "lessons/automated-knowledge-validation-prevents-wiki-decay",
-      "lessons/lesson-convergence-on-llm-knowledge-linting",
       "spine/model-automation-pipelines"
     ],
     "maintenance": [
       "lessons/automated-knowledge-validation-prevents-wiki-decay",
-      "lessons/lesson-convergence-on-llm-knowledge-linting",
-      "lessons/lesson-convergence-on-llm-wiki-pattern",
-      "lessons/lesson-convergence-on-src-karpathy-claude-code-10x",
       "lessons/llm-maintained-wikis-outperform-static-documentation",
       "lessons/wiki-maintenance-problem-solved-by-llm-automation"
     ],
     "bridge": [
-      "lessons/automation-is-bridge-between-knowledge-and-action",
-      "lessons/lesson-hub-\u2014-automation"
+      "lessons/automation-is-bridge-between-knowledge-and-action"
     ],
     "knowledge-action": [
-      "lessons/automation-is-bridge-between-knowledge-and-action",
-      "lessons/lesson-hub-\u2014-automation"
+      "lessons/automation-is-bridge-between-knowledge-and-action"
     ],
     "accuracy": [
       "lessons/cli-tools-beat-mcp-for-token-efficiency",
       "lessons/context-management-is-primary-productivity-lever",
-      "lessons/lesson-convergence-on-claude-code-best-practices",
       "patterns/context-aware-tool-loading",
       "sources/src-claude-code-accuracy-tips"
     ],
@@ -15403,20 +13671,16 @@
       "lessons/cli-tools-beat-mcp-for-token-efficiency"
     ],
     "productivity": [
-      "lessons/context-management-is-primary-productivity-lever",
-      "lessons/lesson-convergence-on-claude-code-best-practices"
+      "lessons/context-management-is-primary-productivity-lever"
     ],
     "CLAUDE.md": [
-      "lessons/context-management-is-primary-productivity-lever",
-      "lessons/lesson-convergence-on-claude-code-best-practices"
+      "lessons/context-management-is-primary-productivity-lever"
     ],
     "wiki-graph": [
-      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search",
-      "lessons/lesson-convergence-on-lightrag"
+      "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search"
     ],
     "bm25": [
       "lessons/graph-enhanced-retrieval-bridges-wiki-and-vector-search",
-      "lessons/lesson-convergence-on-lightrag",
       "sources/src-context-mode"
     ],
     "failure-lesson": [
@@ -15438,88 +13702,19 @@
       "lessons/infrastructure-must-be-reproducible-not-manual"
     ],
     "hub-domain": [
-      "lessons/knowledge-systems-is-foundational-domain",
-      "lessons/lesson-hub-\u2014-knowledge-systems"
+      "lessons/knowledge-systems-is-foundational-domain"
     ],
     "foundational": [
-      "lessons/knowledge-systems-is-foundational-domain",
-      "lessons/lesson-hub-\u2014-knowledge-systems"
+      "lessons/knowledge-systems-is-foundational-domain"
     ],
     "self-referential": [
-      "lessons/knowledge-systems-is-foundational-domain",
-      "lessons/lesson-hub-\u2014-knowledge-systems"
-    ],
-    "llm-extension": [
-      "lessons/lesson-convergence-on-claude-code-skills",
-      "lessons/skills-architecture-is-dominant-extension-pattern"
+      "lessons/knowledge-systems-is-foundational-domain"
     ],
     "static-docs": [
-      "lessons/lesson-convergence-on-llm-wiki-pattern",
       "lessons/llm-maintained-wikis-outperform-static-documentation"
     ],
     "relationships": [
-      "lessons/lesson-convergence-on-llm-wiki-pattern",
       "lessons/llm-maintained-wikis-outperform-static-documentation"
-    ],
-    "knowledge-infrastructure": [
-      "lessons/lesson-convergence-on-obsidian-knowledge-vault",
-      "lessons/obsidian-as-knowledge-infrastructure"
-    ],
-    "research-engine": [
-      "lessons/lesson-convergence-on-src-claude-world-notebooklm-skill",
-      "lessons/notebooklm-as-grounded-research-engine"
-    ],
-    "convergence": [
-      "lessons/lesson-convergence-on-src-claude-world-notebooklm-skill",
-      "lessons/notebooklm-as-grounded-research-engine"
-    ],
-    "config": [
-      "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file",
-      "lessons/schema-is-the-real-product"
-    ],
-    "design-principles": [
-      "lessons/lesson-convergence-on-src-karpathy-llm-wiki-idea-file",
-      "lessons/schema-is-the-real-product"
-    ],
-    "interoperability": [
-      "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
-      "lessons/skill-specification-is-key-to-interoperability"
-    ],
-    "specification": [
-      "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
-      "lessons/skill-specification-is-key-to-interoperability"
-    ],
-    "portability": [
-      "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
-      "lessons/skill-specification-is-key-to-interoperability"
-    ],
-    "standards": [
-      "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
-      "lessons/skill-specification-is-key-to-interoperability",
-      "log/2026-04-09-directive-record-process-skills-supermodel",
-      "log/2026-04-10-directive-quality-evolution-epic",
-      "spine/adoption-guide",
-      "spine/model-claude-code-standards",
-      "spine/model-knowledge-evolution-standards",
-      "spine/model-llm-wiki-standards",
-      "spine/model-llm-wiki",
-      "spine/model-methodology-standards",
-      "spine/model-quality-failure-prevention-standards",
-      "spine/model-skills-commands-hooks-standards",
-      "spine/model-wiki-design-standards",
-      "spine/model-wiki-design"
-    ],
-    "cross-reference": [
-      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
-      "lessons/multi-stage-ingestion-beats-single-pass"
-    ],
-    "gap-analysis": [
-      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
-      "lessons/multi-stage-ingestion-beats-single-pass"
-    ],
-    "deepening": [
-      "lessons/lesson-convergence-on-wiki-ingestion-pipeline",
-      "lessons/multi-stage-ingestion-beats-single-pass"
     ],
     "lesson": [
       "lessons/models-are-built-in-layers-not-all-at-once"
@@ -15539,6 +13734,15 @@
     "layers": [
       "lessons/models-are-built-in-layers-not-all-at-once",
       "log/2026-04-09-directive-docs-layers-old-models"
+    ],
+    "cross-reference": [
+      "lessons/multi-stage-ingestion-beats-single-pass"
+    ],
+    "gap-analysis": [
+      "lessons/multi-stage-ingestion-beats-single-pass"
+    ],
+    "deepening": [
+      "lessons/multi-stage-ingestion-beats-single-pass"
     ],
     "stage-gates": [
       "lessons/never-skip-stages-even-when-told-to-continue",
@@ -15568,6 +13772,21 @@
     "layer-1": [
       "lessons/never-synthesize-from-descriptions-alone"
     ],
+    "research-engine": [
+      "lessons/notebooklm-as-grounded-research-engine"
+    ],
+    "convergence": [
+      "lessons/notebooklm-as-grounded-research-engine"
+    ],
+    "knowledge-infrastructure": [
+      "lessons/obsidian-as-knowledge-infrastructure"
+    ],
+    "config": [
+      "lessons/schema-is-the-real-product"
+    ],
+    "design-principles": [
+      "lessons/schema-is-the-real-product"
+    ],
     "systemic-issue": [
       "lessons/shallow-ingestion-is-systemic-not-isolated"
     ],
@@ -15579,6 +13798,33 @@
     ],
     "truncation": [
       "lessons/shallow-ingestion-is-systemic-not-isolated"
+    ],
+    "interoperability": [
+      "lessons/skill-specification-is-key-to-interoperability"
+    ],
+    "specification": [
+      "lessons/skill-specification-is-key-to-interoperability"
+    ],
+    "portability": [
+      "lessons/skill-specification-is-key-to-interoperability"
+    ],
+    "standards": [
+      "lessons/skill-specification-is-key-to-interoperability",
+      "log/2026-04-09-directive-record-process-skills-supermodel",
+      "log/2026-04-10-directive-quality-evolution-epic",
+      "spine/adoption-guide",
+      "spine/model-claude-code-standards",
+      "spine/model-knowledge-evolution-standards",
+      "spine/model-llm-wiki-standards",
+      "spine/model-llm-wiki",
+      "spine/model-methodology-standards",
+      "spine/model-quality-failure-prevention-standards",
+      "spine/model-skills-commands-hooks-standards",
+      "spine/model-wiki-design-standards",
+      "spine/model-wiki-design"
+    ],
+    "llm-extension": [
+      "lessons/skills-architecture-is-dominant-extension-pattern"
     ],
     "self-enforcement": [
       "lessons/the-agent-must-practice-what-it-documents"
@@ -16093,27 +14339,18 @@
     ],
     "domain-overview": [
       "spine/domain-overviews/ai-agents-domain-overview",
-      "spine/domain-overviews/ai-agents-\u2014-domain-overview",
       "spine/domain-overviews/ai-models-domain-overview",
-      "spine/domain-overviews/ai-models-\u2014-domain-overview",
       "spine/domain-overviews/automation-domain-overview",
-      "spine/domain-overviews/automation-\u2014-domain-overview",
       "spine/domain-overviews/cross-domain-domain-overview",
-      "spine/domain-overviews/cross-domain-\u2014-domain-overview",
       "spine/domain-overviews/devops-domain-overview",
-      "spine/domain-overviews/devops-\u2014-domain-overview",
       "spine/domain-overviews/knowledge-systems-domain-overview",
-      "spine/domain-overviews/knowledge-systems-\u2014-domain-overview",
-      "spine/domain-overviews/tools-and-platforms-domain-overview",
-      "spine/domain-overviews/tools-and-platforms-\u2014-domain-overview"
+      "spine/domain-overviews/tools-and-platforms-domain-overview"
     ],
     "ai-models": [
-      "spine/domain-overviews/ai-models-domain-overview",
-      "spine/domain-overviews/ai-models-\u2014-domain-overview"
+      "spine/domain-overviews/ai-models-domain-overview"
     ],
     "tools-and-platforms": [
-      "spine/domain-overviews/tools-and-platforms-domain-overview",
-      "spine/domain-overviews/tools-and-platforms-\u2014-domain-overview"
+      "spine/domain-overviews/tools-and-platforms-domain-overview"
     ],
     "model": [
       "spine/model-automation-pipelines",
