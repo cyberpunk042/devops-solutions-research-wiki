@@ -7,7 +7,7 @@ domain: ai-agents
 status: synthesized
 confidence: high
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-openfleet-local
     type: documentation
@@ -30,17 +30,23 @@ Agent orchestration is the practice of coordinating multiple AI agents or execut
 
 ## Key Insights
 
-- **Deterministic brain, not LLM orchestrator**: The most reliable orchestration architectures keep LLM inference out of the control loop. OpenFleet's orchestrator runs zero LLM calls on its 12-step cycle — pure Python state evaluation handles routing, gating, dispatch, and anomaly detection. The LLM only executes within bounded task slots, surrounded by deterministic logic on both sides. This makes orchestration auditable, cheap, and consistent across runs.
+> [!warning] Deterministic brain, not LLM orchestrator
+> The most reliable architectures keep LLM inference out of the control loop. OpenFleet's orchestrator runs zero LLM calls on its 12-step cycle — pure Python handles routing, gating, dispatch, and anomaly detection. The LLM executes only within bounded task slots, surrounded by deterministic logic. This makes orchestration auditable, cheap, and consistent.
 
-- **Sub-agent delegation requires scope boundaries**: Delegating work to sub-agents without explicit scope boundaries produces the same pathologies as prompt injection — the sub-agent optimizes locally at the expense of the global task. Effective delegation specifies: input constraints, output format, what the sub-agent is permitted to modify, and what it must not touch. OpenFleet's per-task dispatch (max 2/cycle) and per-agent SOUL.md (identity constraints) enforce scope at the system level.
+> [!abstract] Sub-agent delegation principles
+>
+> | Principle | What It Prevents |
+> |-----------|-----------------|
+> | Explicit scope boundaries (input, output, restrictions) | Local optimization at global expense |
+> | Fresh context per task (not shared state) | Context accumulation degrading quality |
+> | Bounded parallelism (max 2/cycle in OpenFleet) | Runaway parallel execution |
+> | Output validation before integration | Unverified sub-agent output entering main stream |
 
-- **Fresh context per task, not shared state**: Sub-agents initialized with a clean context focused on a single task outperform sub-agents that inherit a growing shared context window. The pre-embed step in OpenFleet's orchestrator (step 4: refresh agent contexts, write full per-agent data to disk before execution) is the implementation of this principle at fleet scale.
+**Plan-Execute-Review is load-bearing.** No durable system survives without separating intent (plan), action (execute), and confirmation (review). The enforcement mechanism — how mechanically the review gate blocks promotion — differentiates stable systems from those that accumulate silent failures.
 
-- **Plan-Execute-Review is the load-bearing structure**: No durable orchestration system survives without explicit separation of intent (plan), action (execute), and confirmation (review). The pattern recurs in every ecosystem project. The enforcement mechanism — how mechanically the review gate blocks promotion — is the primary differentiator between systems that remain stable under autonomous operation and systems that accumulate silent failures.
+**Named phases enable named guardrails.** Harness Engineering's Setup → Plan → Work → Review → Release forces reasoning about current phase. Named phases → named rules: block commits on missing review, flag out-of-scope writes, prevent bypassing Release.
 
-- **5-verb workflow as orchestration grammar**: Harness Engineering's Setup → Plan → Work → Review → Release gives names to the phases, which forces practitioners to reason about which phase the system is currently in. Named phases enable named guardrails: TypeScript rules that block commits on missing review, query rules that flag out-of-scope writes during Work, security rules that prevent bypassing the Release gate.
-
-- **Heterarchical agent roles, not flat LLM calls**: Assigning specialized roles (fleet-ops, architect, qa-engineer) rather than routing all work to a generic LLM produces better outputs and makes accountability traceable. Each role's scope is narrow enough to be well-specified; the orchestrator routes work to the appropriate role rather than asking one model to do everything.
+**Heterarchical roles, not flat LLM calls.** Specialized roles (fleet-ops, architect, qa-engineer) produce better outputs with traceable accountability. The orchestrator routes to the right role rather than asking one model to do everything.
 
 ## Deep Analysis
 

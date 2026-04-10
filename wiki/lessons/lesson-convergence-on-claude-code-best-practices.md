@@ -7,7 +7,7 @@ status: synthesized
 confidence: high
 maturity: growing
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-shanraisshan-claude-code-best-practice
     type: documentation
@@ -46,15 +46,19 @@ The convergence across sources: Boris Cherny (Claude Code's creator) recommends 
 
 ## Insight
 
-The model capability of Claude is largely fixed within a model version. What varies dramatically is the context: how much relevant information is present, how well it is structured, how much irrelevant noise has accumulated, and whether a plan exists before execution starts. Every major best-practice technique in the Claude Code ecosystem is ultimately a context management technique in disguise.
+> [!tip] Every Claude Code best practice is a context management technique in disguise
+> The model capability is fixed. What varies is context: relevant information present, structure quality, noise accumulated, plan existence. This is the variable you control.
 
-CLAUDE.md is not a configuration file — it is a routing table. The insight from the best practices community is that CLAUDE.md should stay under 200 lines and act as an index pointing to detailed instruction files, not as the detailed instructions themselves. Every message re-reads the entire CLAUDE.md, so bloat compounds across every interaction: a 400-line CLAUDE.md wastes tokens and dilutes focus on every single prompt.
+> [!abstract] Four context techniques, one principle
+>
+> | Technique | What It Actually Does |
+> |-----------|---------------------|
+> | **CLAUDE.md as routing table** | <200 lines, index to detail files. Every message re-reads it — bloat compounds per interaction |
+> | **Plan before execute** | Creates a stable context artifact constraining subsequent steps. Eliminates wrong-path waste |
+> | **Subagent partitioning** | Fresh context per task. Prevents cross-task context accumulation |
+> | **Skills with `context: fork`** | Isolated execution. Main conversation sees only the final result, not intermediate tool calls |
 
-Plan mode is a context isolation technique. By producing a plan before execution, you create a stable context artifact that constrains all subsequent steps. The biggest source of wasted tokens is not expensive models — it is Claude going down the wrong path and having to scrap work. Planning eliminates the wrong-path problem by front-loading the reasoning into a verifiable, correctable artifact.
-
-Subagents are context partitioning. Rather than letting one agent accumulate context across backend, API, testing, and review work, delegating to separate subagents gives each task a fresh context window. Subagent isolation gives each task a fresh context window, preventing any single task from accumulating excessive context. The accuracy tips source describes context pressure as a factor — the specific thresholds mentioned (40%, 60%) are one practitioner's observations, not hard limits.
-
-Skills with `context: fork` extend this principle to tool use: skill execution happens in an isolated subagent, so intermediate tool calls do not pollute the main conversation's context window. The orchestrator only sees the final result.
+The biggest source of wasted tokens is not expensive models — it is Claude going down the wrong path and having to scrap work. Planning eliminates this by front-loading reasoning into a verifiable artifact.
 
 ## Evidence
 

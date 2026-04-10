@@ -7,7 +7,7 @@ status: synthesized
 confidence: authoritative
 maturity: growing
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-10
 sources:
   - id: src-user-articulation-spm
     type: note
@@ -38,9 +38,7 @@ Skyscraper, Pyramid, Mountain is an architectural quality analogy that describes
 
 ### The Three Tiers
 
-#### Skyscraper
-
-The Skyscraper is the ideal structural form. It is characterized by:
+> [!success] Skyscraper — the ideal structural form
 
 - Clean architecture designed from scratch or from a complete refactor
 - Strong intentional structure: the scaffold was completed before the foundation, the foundation before the infrastructure, the infrastructure before the features
@@ -52,9 +50,7 @@ The Skyscraper is the ideal structural form. It is characterized by:
 
 **The Skyscraper failure mode:** designing a Skyscraper in a context that doesn't permit it. Attempting perfect architecture against an existing Mountain codebase, under production pressure, with a constrained timeline, produces neither a Skyscraper nor a Pyramid — it produces an unfinished refactor with a Mountain still running in production.
 
-#### Pyramid
-
-The Pyramid is the pragmatic compromise. It is characterized by:
+> [!tip] Pyramid — the pragmatic compromise
 
 - Built around real constraints: existing stack choices you cannot change, third-party integrations you cannot replace, requirements you cannot negotiate
 - Functional and livable: the system works, can be extended, and does not collapse under normal load
@@ -67,9 +63,7 @@ The Pyramid is the pragmatic compromise. It is characterized by:
 
 **The Pyramid failure mode:** treating Pyramid-tier work as permanent. Pyramids are acceptable interim states, not end states. A Pyramid that never improves gradually regresses toward a Mountain as new team members add ad-hoc solutions on top of the tradeoffs rather than working within them.
 
-#### Mountain
-
-The Mountain is accumulated mass with no intentional structure. It is characterized by:
+> [!bug]- Mountain — the anti-pattern
 
 - Spaghetti code: logic distributed across the codebase with no clear ownership or layer responsibility
 - Deprecated patterns kept running: old approaches not replaced, just worked around
