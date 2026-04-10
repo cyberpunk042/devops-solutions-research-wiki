@@ -1,12 +1,12 @@
 {
-  "generated": "2026-04-10T03:01:23.204457+00:00",
+  "generated": "2026-04-10T03:30:26.954806+00:00",
   "stats": {
-    "pages": 168,
+    "pages": 169,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1157,
-    "tags_unique": 630,
+    "relationships": 1165,
+    "tags_unique": 631,
     "layers": {
       "3": 5,
       "6": 5,
@@ -14,11 +14,11 @@
       "4": 22,
       "5": 11,
       "1": 24,
-      "spine": 26
+      "spine": 27
     },
     "maturity": {
       "growing": 132,
-      "seed": 13
+      "seed": 14
     }
   },
   "pages": [
@@ -10069,6 +10069,86 @@
       ]
     },
     {
+      "path": "spine/model-claude-code-standards.md",
+      "slug": "spine/model-claude-code-standards",
+      "title": "Claude Code Standards \u2014 What Good Agent Configuration Looks Like",
+      "type": "concept",
+      "domain": "cross-domain",
+      "status": "synthesized",
+      "confidence": "high",
+      "created": "2026-04-09",
+      "updated": "2026-04-09",
+      "tags": [
+        "claude-code",
+        "standards",
+        "quality",
+        "configuration",
+        "skills",
+        "hooks",
+        "context-management",
+        "harness",
+        "gold-standard",
+        "anti-patterns"
+      ],
+      "sources": [
+        {
+          "id": "src-shanraisshan-claude-code-best-practice",
+          "type": "documentation",
+          "url": "https://github.com/shanraisshan/claude-code-best-practice",
+          "title": "Claude Code Best Practices"
+        },
+        {
+          "id": "src-harness-engineering-article",
+          "type": "article",
+          "url": "https://levelup.gitconnected.com/building-claude-code-with-harness-engineering-d2e8c0da85f0",
+          "title": "Building Claude Code with Harness Engineering"
+        },
+        {
+          "id": "src-claude-code-accuracy-tips",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
+          "title": "Claude Code Works Better When You Do This"
+        }
+      ],
+      "layer": "spine",
+      "maturity": "seed",
+      "derived_from": [],
+      "relationships": [
+        {
+          "verb": "BUILDS ON",
+          "target": "Model: Claude Code"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Claude Code Best Practices"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Harness Engineering"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Hooks Lifecycle Architecture"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Claude Code Skills"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "LLM Wiki Standards \u2014 What Good Looks Like"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Wiki Design Standards \u2014 What Good Styling Looks Like"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Methodology Standards \u2014 What Good Execution Looks Like"
+        }
+      ]
+    },
+    {
       "path": "spine/model-claude-code.md",
       "slug": "spine/model-claude-code",
       "title": "Model: Claude Code",
@@ -10120,6 +10200,18 @@
           "type": "documentation",
           "url": "https://code.claude.com/docs/en/hooks",
           "title": "Claude Code Hooks Reference"
+        },
+        {
+          "id": "src-claude-code-accuracy-tips",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=D5bRTv6GhXk",
+          "title": "Claude Code Works Better When You Do This"
+        },
+        {
+          "id": "src-playwright-cli-vs-mcp",
+          "type": "youtube-transcript",
+          "url": "https://www.youtube.com/watch?v=nN5R9DFYsXY",
+          "title": "Claude Code + Playwright CLI: Automate QA with Less Tokens"
         }
       ],
       "layer": "spine",
@@ -11380,8 +11472,8 @@
       "relationship_count": 11
     },
     "cross-domain": {
-      "page_count": 44,
-      "relationship_count": 339
+      "page_count": 45,
+      "relationship_count": 347
     },
     "ai-agents": {
       "page_count": 34,
@@ -11668,6 +11760,7 @@
       "sources/src-obsidian-claude-code-second-brain",
       "sources/src-playwright-cli-vs-mcp",
       "sources/src-shanraisshan-claude-code-best-practice",
+      "spine/model-claude-code-standards",
       "spine/model-claude-code",
       "spine/model-skills-commands-hooks"
     ],
@@ -11715,6 +11808,7 @@
       "sources/src-shanraisshan-claude-code-best-practice",
       "sources/src-superpowers-end-of-vibe-coding",
       "sources/src-token-hacks-claude-code",
+      "spine/model-claude-code-standards",
       "spine/model-claude-code"
     ],
     "obsidian": [
@@ -11864,6 +11958,7 @@
       "sources/src-claude-code-accuracy-tips",
       "sources/src-context-mode",
       "sources/src-playwright-cli-vs-mcp",
+      "spine/model-claude-code-standards",
       "spine/model-claude-code",
       "spine/model-mcp-cli-integration"
     ],
@@ -12024,6 +12119,7 @@
       "domains/automation/wiki-event-driven-automation",
       "sources/src-context-mode",
       "sources/src-shanraisshan-claude-code-best-practice",
+      "spine/model-claude-code-standards",
       "spine/model-claude-code",
       "spine/model-skills-commands-hooks"
     ],
@@ -12622,6 +12718,7 @@
       "log/2026-04-09-directive-stop-claiming-readiness",
       "log/2026-04-09-directive-stop-guessing-false-claims",
       "log/2026-04-09-directive-systemic-incompleteness",
+      "spine/model-claude-code-standards",
       "spine/model-llm-wiki-standards",
       "spine/model-methodology-standards",
       "spine/model-quality-failure-prevention"
@@ -13339,6 +13436,7 @@
       "lessons/lesson-convergence-on-src-kepano-obsidian-skills",
       "log/2026-04-09-directive-record-process-skills-supermodel",
       "spine/adoption-guide",
+      "spine/model-claude-code-standards",
       "spine/model-llm-wiki-standards",
       "spine/model-llm-wiki",
       "spine/model-methodology-standards",
@@ -13618,6 +13716,7 @@
     ],
     "harness": [
       "patterns/deterministic-shell-llm-core",
+      "spine/model-claude-code-standards",
       "spine/model-quality-failure-prevention"
     ],
     "reliability": [
@@ -13983,6 +14082,20 @@
     "pipelines": [
       "spine/model-automation-pipelines"
     ],
+    "configuration": [
+      "spine/model-claude-code-standards"
+    ],
+    "gold-standard": [
+      "spine/model-claude-code-standards",
+      "spine/model-llm-wiki-standards",
+      "spine/model-methodology-standards",
+      "spine/model-wiki-design-standards"
+    ],
+    "anti-patterns": [
+      "spine/model-claude-code-standards",
+      "spine/model-methodology-standards",
+      "spine/model-wiki-design-standards"
+    ],
     "model-definition": [
       "spine/model-claude-code",
       "spine/model-skills-commands-hooks"
@@ -14011,11 +14124,6 @@
     "wiki-model": [
       "spine/model-llm-wiki-standards"
     ],
-    "gold-standard": [
-      "spine/model-llm-wiki-standards",
-      "spine/model-methodology-standards",
-      "spine/model-wiki-design-standards"
-    ],
     "knowledge-system": [
       "spine/model-llm-wiki"
     ],
@@ -14027,10 +14135,6 @@
     ],
     "execution": [
       "spine/model-methodology-standards"
-    ],
-    "anti-patterns": [
-      "spine/model-methodology-standards",
-      "spine/model-wiki-design-standards"
     ],
     "flexible": [
       "spine/model-methodology"

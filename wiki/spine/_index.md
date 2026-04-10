@@ -6,6 +6,7 @@ Strategic architecture and domain overviews
 
 - [Adoption Guide — How to Use This Wiki's Standards](adoption-guide.md) — This guide explains how any project in the ecosystem (or outside it) picks up the methodology, stage-gate system, bac...
 - [Model: Automation and Pipelines](model-automation-pipelines.md) — The Automation and Pipelines model describes how this wiki transforms knowledge work from manual operations into auto...
+- [Claude Code Standards — What Good Agent Configuration Looks Like](model-claude-code-standards.md) — This page defines the quality bar for CLAUDE CODE CONFIGURATION
 - [Model: Claude Code](model-claude-code.md) — Claude Code is Anthropic's CLI coding agent — a tool-use loop that reads, writes, and reasons about codebases from th...
 - [Model: Design.md and IaC](model-design-md.md) — The Design
 - [Model: Ecosystem Architecture](model-ecosystem.md) — The Ecosystem Architecture model describes how five projects — OpenFleet, AICP, devops-control-plane, the research wi...
@@ -26,4 +27,4 @@ Strategic architecture and domain overviews
 
 ## Tags
 
-`model`, `spine`, `standards`, `methodology`, `concept`, `quality`, `gold-standard`, `transferable`, `ecosystem`, `model-definition`, `skills`, `hooks`, `context-management`, `harness-engineering`, `mcp`, `design-md`, `aicp`, `integration`, `architecture`, `progressive-distillation`
+`model`, `spine`, `standards`, `methodology`, `concept`, `quality`, `gold-standard`, `skills`, `hooks`, `context-management`, `anti-patterns`, `transferable`, `ecosystem`, `claude-code`, `harness`, `model-definition`, `harness-engineering`, `mcp`, `design-md`, `aicp`
