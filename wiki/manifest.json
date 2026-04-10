@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-10T04:11:41.200072+00:00",
+  "generated": "2026-04-10T04:21:41.262316+00:00",
   "stats": {
     "pages": 171,
     "domains": 9,
@@ -11315,7 +11315,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-09",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "skills",
         "commands",
@@ -11409,16 +11409,16 @@
           "target": "Claude Code Best Practices"
         },
         {
+          "verb": "RELATES TO",
+          "target": "Model: Methodology"
+        },
+        {
           "verb": "FEEDS INTO",
           "target": "Model: Claude Code"
         },
         {
           "verb": "FEEDS INTO",
           "target": "Model: MCP and CLI Integration"
-        },
-        {
-          "verb": "FEEDS INTO",
-          "target": "Model: Methodology"
         }
       ]
     },
