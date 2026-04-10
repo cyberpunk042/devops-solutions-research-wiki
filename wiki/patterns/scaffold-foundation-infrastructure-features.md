@@ -19,7 +19,7 @@ instances:
   - page: "Front-Middleware-Backend"
     context: "Each layer (frontend, middleware, backend) independently traverses SFIF. The frontend has its own scaffold (design system decisions) → foundation (component library, routing) → infrastructure (auth, state management) → features (screens, flows). Same for middleware and backend."
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-10
 sources:
   - id: src-four-project-ecosystem
     type: documentation
@@ -37,6 +37,15 @@ tags: [scaffold, foundation, infrastructure, features, build-lifecycle, architec
 ## Summary
 
 Scaffold → Foundation → Infrastructure → Features (SFIF) is the universal 4-stage build lifecycle that repeats at every scale of software construction — at the project level, the feature level, the design level, and the sub-component level. Each stage has a distinct exit criterion: scaffold defines direction, foundation establishes the single entry point, infrastructure puts the necessary base in place without special behavior, and features deliver the specialized value. The pattern is recursive: each layer of a system independently traverses all four stages, sometimes top-down, sometimes bottom-up, sometimes parallel across sub-components.
+
+> [!info] SFIF Stage Reference Card
+>
+> | Stage | Purpose | Exit Criterion | Key Artifacts |
+> |-------|---------|---------------|--------------|
+> | **Scaffold** | Define direction | Intent documented, stack decided, anyone can understand without reading code | CLAUDE.md, DESIGN.md, README, directory skeleton |
+> | **Foundation** | Single entry point | Build, run, understand from one place; design system established | pipeline.py, common.py, schema.yaml, base classes |
+> | **Infrastructure** | Common dependencies in place | Components can depend on it; reliably present, nothing remarkable | MCP server, router, pipeline chains, lint, validate |
+> | **Features** | Specialized value | Ongoing — each feature follows SFIF recursively within its scope | Evolve pipeline, sync service, watcher daemon |
 
 ## Pattern Description
 
@@ -93,11 +102,14 @@ The traversal order is not always top-down. A system may scaffold all layers bef
 
 ## POC and MVP
 
-**POC (Proof of Concept):** A POC deliberately skips stages. The goal is to prove a concept quickly — not to build correctly. A POC will often scaffold minimally, skip foundation, treat everything as infrastructure, and produce a single feature as proof. POC code is mountain-tier (see Skyscraper, Pyramid, Mountain) and must be rewritten, not extended, when moving to production.
+> [!warning] POC — deliberately skips stages (Mountain tier)
+> A POC's goal is proving a concept quickly, not building correctly. Scaffold minimally, skip foundation, treat everything as infrastructure, produce one feature as proof. POC code must be **rewritten, not extended**, when moving to production.
 
-**MVP (Minimum Viable Product):** An MVP completes SFIF properly but minimally — at least 3+ proper features on a solid foundation, ready to scale without major structural problems. An MVP is pyramid-tier: pragmatic compromises, but with the right structural bones. Features added after MVP extend the existing SFIF structure rather than fighting it.
+> [!tip] MVP — completes SFIF properly but minimally (Pyramid tier)
+> At least 3+ proper features on a solid foundation, ready to scale without major structural problems. Pragmatic compromises, but with the right structural bones. Features added after MVP extend the existing SFIF structure rather than fighting it.
 
-The failure pattern: treating a POC as an MVP (extending mountain code into production), or treating an MVP as a target state (stopping before the skyscraper refactor when scale requires it).
+> [!bug]- The failure pattern: POC-as-MVP
+> Treating a POC as an MVP (extending mountain code into production), or treating an MVP as a target state (stopping before the skyscraper refactor when scale requires it). Both are scale-mismatch errors.
 
 ## Instances
 

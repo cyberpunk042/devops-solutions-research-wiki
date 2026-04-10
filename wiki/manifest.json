@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-10T15:49:41.469492+00:00",
+  "generated": "2026-04-10T15:52:24.004586+00:00",
   "stats": {
     "pages": 175,
     "domains": 9,
@@ -3660,7 +3660,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-10",
       "tags": [
         "evolution",
         "knowledge-systems",
@@ -8128,7 +8128,7 @@
       "status": "synthesized",
       "confidence": "authoritative",
       "created": "2026-04-09",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "scaffold",
         "foundation",
