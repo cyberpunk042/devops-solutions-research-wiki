@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-10T04:40:37.622124+00:00",
+  "generated": "2026-04-10T04:42:54.110232+00:00",
   "stats": {
     "pages": 173,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1192,
+    "relationships": 1193,
     "tags_unique": 637,
     "layers": {
       "3": 5,
@@ -11376,7 +11376,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-09",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "model",
         "spine",
@@ -11404,6 +11404,10 @@
           "target": "Skyscraper, Pyramid, Mountain"
         },
         {
+          "verb": "BUILDS ON",
+          "target": "Progressive Distillation"
+        },
+        {
           "verb": "RELATES TO",
           "target": "Model: Design.md and IaC"
         },
@@ -11417,11 +11421,11 @@
         },
         {
           "verb": "RELATES TO",
-          "target": "Four-Project Ecosystem"
+          "target": "Model: Methodology"
         },
         {
-          "verb": "FEEDS INTO",
-          "target": "Model: Local AI ($0 Target)"
+          "verb": "RELATES TO",
+          "target": "Four-Project Ecosystem"
         }
       ]
     },
@@ -11765,7 +11769,7 @@
     },
     "cross-domain": {
       "page_count": 49,
-      "relationship_count": 374
+      "relationship_count": 375
     },
     "ai-agents": {
       "page_count": 34,
@@ -14621,8 +14625,7 @@
       "target": "Model: Local AI",
       "referenced_by": [
         "Model: Automation and Pipelines",
-        "Model: NotebookLM",
-        "Model: SFIF and Architecture"
+        "Model: NotebookLM"
       ]
     },
     {

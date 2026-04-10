@@ -7,7 +7,7 @@ status: synthesized
 confidence: high
 maturity: growing
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-10
 sources: []
 tags: [model, spine, sfif, architecture, quality-tiers, build-lifecycle, skyscraper, pyramid, mountain, recursive, cross-domain]
 ---
@@ -16,153 +16,202 @@ tags: [model, spine, sfif, architecture, quality-tiers, build-lifecycle, skyscra
 
 ## Summary
 
-The SFIF and Architecture model describes the universal 4-stage build lifecycle (Scaffold → Foundation → Infrastructure → Features) and the 3-tier quality analogy (Skyscraper/Pyramid/Mountain) that together form a complete framework for building, auditing, and improving software systems. SFIF is recursive — it applies at the project level, the feature level, the sub-component level, and the design level simultaneously, with each layer advancing at its own pace. Skyscraper/Pyramid/Mountain describes the structural state of any system at any point in time: Skyscraper (all stages complete, clean), Pyramid (pragmatic compromise under real constraints), Mountain (accumulated mass, no structure). The four ecosystem projects — research wiki, OpenFleet, AICP, and layered front/middleware/backend systems — each have documented SFIF instances that make the abstract pattern concrete and verifiable.
+The SFIF and Architecture model describes the universal 4-stage build lifecycle (Scaffold → Foundation → Infrastructure → Features) and the 3-tier quality analogy (Skyscraper/Pyramid/Mountain) that together form a complete framework for building, auditing, and improving software systems. ==SFIF is recursive — it applies at project, feature, component, and design levels simultaneously, each advancing at its own pace.== The four ecosystem projects each have documented SFIF instances making the abstract pattern concrete.
 
 ## Key Insights
 
-- **The pattern is recursive by design**: a project in Infrastructure stage has features within each subsystem that are themselves in Scaffold stage. A backend service may be Skyscraper-tier while the frontend it serves is Mountain-tier. Evaluating "where is this project?" always requires specifying the layer of granularity — system-level assessments are only valid when each layer is evaluated independently.
+- **The pattern is recursive by design.** A backend may be Skyscraper-tier while the frontend it serves is Mountain-tier. "Where is this project?" requires specifying the layer of granularity.
 
-- **Stage boundary conditions are structural commitments, not completion percentages**: Foundation is complete when there is a single entry point that manages everything — not when 70% of the code is written. Infrastructure is complete when other things can reliably depend on it — not when the components exist. The exit criterion is about structural stability, not code volume.
+- **Stage boundaries are structural commitments, not completion percentages.** Foundation is complete when there's a single entry point — not when 70% of code is written. Exit criteria are about stability, not volume.
 
-- **Mountain is the natural entropy state**: systems do not accumulate to Mountain intentionally. Emergency hotfixes layer over each other. POC decisions never get revisited. Features get added without structural investment. Mountain is what systems become when SFIF stages get skipped, abbreviated, or rushed. The pattern is not prescriptive overhead — it is the thing that prevents the default entropy.
+- **Mountain is the natural entropy state.** POC decisions never revisited. Hotfixes layered. Features added without structural investment. SFIF prevents the default entropy.
 
-- **Pyramid is the practitioner's art**: building a Skyscraper from scratch is straightforward. The harder skill is improving a Mountain into a Pyramid without stopping delivery — making principled compromises around immovable constraints while still moving the structural quality forward. Most real engineering lives in Pyramid territory.
+- **Pyramid is the practitioner's art.** Improving a Mountain into a Pyramid without stopping delivery — principled compromises around immovable constraints. Most real engineering lives here.
 
-- **POC → Production without rewrite is the critical failure pattern**: POC code is Mountain-tier by design. It is exploratory, expedient, undocumented, untested. Deploying Mountain code as production, then scaling it as if it were Skyscraper, produces the systems that require emergency rewrites at 10x the original cost. The correct sequence is Mountain (POC) → Pyramid (rewrite for production) → Skyscraper (refactor when conditions allow).
-
-- **SFIF alignment is the Skyscraper's distinguishing property**: a Skyscraper is not just clean code — it is a system where scaffold artifacts (CLAUDE.md, DESIGN.md, README) exist and are current, where there is a single entry point managing the system, where infrastructure is stable enough that features depend on it reliably. A Mountain can have clean code at the line level while being Mountain-tier at the structural level.
+- **POC → Production without rewrite is the critical failure pattern.** Mountain code deployed as production, then scaled as if Skyscraper, produces emergency rewrites at 10x cost.
 
 ## Deep Analysis
 
 ### The Four SFIF Stages
 
-**Stage 1 — Scaffold**
+> [!info] **Four stages with structural exit criteria**
+> | Stage | Question it answers | Exit criterion | What it is NOT |
+> |-------|-------------------|---------------|----------------|
+> | **Scaffold** | "Where is this project headed?" | Direction decided, documented. Project is *joinable*. | Running code |
+> | **Foundation** | "Does this work at its simplest?" | Single entry point manages everything. System is *operable*. | All functionality implemented |
+> | **Infrastructure** | "Can other things depend on this?" | Cross-cutting concerns handled transparently. System is *dependable*. | Features |
+> | **Features** | "What specialized value does this deliver?" | No terminal criterion — ongoing work on the stable base. | Infrastructure |
 
-Core config files, project structure, tech stack choice, AI configuration (CLAUDE.md, DESIGN.md), READMEs. The scaffolding phase answers: "Where is this project headed?"
+> [!warning] **The Infrastructure/Feature boundary is the most commonly violated**
+> Infrastructure ENABLES. Features USE what infrastructure enables. Auth logic in a feature controller = infrastructure that was skipped. Retry logic in every API call = infrastructure that was never built.
 
-Exit criterion: direction is decided and documented. Anyone joining the project can understand the intent, the stack, and the conventions without reading code. The project is *joinable*.
+See [[Scaffold → Foundation → Infrastructure → Features]] for full stage descriptions, anti-patterns per stage, and the recursive property.
 
-What Scaffold is NOT: running code. The scaffold stage is about establishing shared understanding, not building anything functional. A project that skips Scaffold produces a codebase that is internally consistent but externally opaque — each team member has a different mental model of what the project is for.
-
-**Stage 2 — Foundation**
-
-Single entry point established, core data model defined, basic connectivity proven, error handling patterns set. The foundation phase answers: "Does this actually work at its simplest?"
-
-Exit criterion: a single entry point manages everything. `main.py`, `pipeline.py`, `orchestrator.py` — one file is the system's center of gravity. All other components are loaded, configured, or invoked through it. The system is *operable*.
-
-What Foundation is NOT: all functionality implemented. Foundation is about establishing the structural center, not building out the surface. A project with ten entry points is a project with no foundation — it has code, but not structure.
-
-**Stage 3 — Infrastructure**
-
-Common components present and reliable: authentication, logging, monitoring, retry logic, health checks, shared utilities. The infrastructure phase answers: "Can other things reliably depend on this?"
-
-Exit criterion: other components (features, external systems, tests) can depend on the infrastructure without special-casing. The infrastructure absorbs the generic cross-cutting concerns so features do not have to. The system is *dependable*.
-
-What Infrastructure is NOT: features. The infrastructure/feature boundary is the most commonly violated SFIF boundary. Infrastructure enables; features use what infrastructure enables. Hardcoded database queries in a feature controller, or authentication logic scattered across handlers, signals infrastructure skipped — features built before the enabling layer was stable.
-
-**Stage 4 — Features**
-
-Specialized value built on the stable base: domain-specific logic, user-facing functionality, advanced capabilities. The features phase has no terminal exit criterion — it is ongoing work that continues as long as the project exists.
-
-What Features require: a stable Foundation and Infrastructure. Features built before Foundation produces hardcoded-path spaghetti. Features built before Infrastructure produces auth logic copied across five handlers, retry logic reimplemented in every API call.
-
-See [[Scaffold → Foundation → Infrastructure → Features]] for stage descriptions, exit criteria, and the full treatment of the recursive property.
+---
 
 ### The Three Quality Tiers
 
-**Skyscraper**
+> [!success] **Skyscraper — all SFIF stages complete and clean**
+> Scaffold artifacts exist and are current. Single entry point. Infrastructure is stable. Features build clearly on infrastructure. The system can grow upward without structural compromise. Requires conditions: greenfield, authorized refactor, or layer-by-layer rebuild.
 
-All SFIF stages complete and clean. Scaffold artifacts exist and are current (CLAUDE.md reflects the actual codebase). A single entry point manages everything. Infrastructure is stable and well-tested. Features build clearly on infrastructure. The system can grow upward without structural compromise — adding the next floor does not require rebuilding the base.
+> [!warning] **Pyramid — functional, built around real constraints**
+> Legacy database that can't be migrated. Team that can't pause delivery. Third-party integration forcing compromise. ==Pyramid decisions are principled (tradeoff understood and documented), not random (tradeoff unknown).== Pyramid is not failure — it is the art of improving a Mountain without stopping delivery.
 
-Skyscraper requires conditions, not just intent: a greenfield project, a full authorized refactor, or a system that can be decomposed and rebuilt layer-by-layer. Attempting Skyscraper design against a Mountain codebase without the conditions for refactor produces architecture documents that describe the desired state but do not match the actual system.
+> [!bug]- **Mountain — accumulated mass, no structure**
+> Spaghetti code, deprecated patterns on ad-hoc fixes, no scaffold or stale scaffold, multiple entry points, auth everywhere, no consistent error handling. Works, but only the builders understand why. Mountain is what happens when SFIF stages get skipped.
+>
+> **Mountain is reversible** — but the reversal is expensive. The correct path: Mountain → Pyramid (stabilize around constraints) → Skyscraper (when conditions allow full refactor).
 
-**Pyramid**
+See [[Skyscraper, Pyramid, Mountain]] for the full tier analysis and the improvement path.
 
-Functional and livable. Built around real constraints — a legacy database that cannot be migrated, a team that cannot pause delivery for a refactor, a third-party integration that forces an architectural compromise. Pyramid decisions are principled (the tradeoff is understood and documented) rather than random (the tradeoff is unknown or unacknowledged).
+---
 
-Pyramid is not failure. It is the practitioner's art: improving a Mountain without stopping delivery, working around immovable constraints, making the best structural decisions available within real limits. Most production engineering is Pyramid work.
+### The Four Ecosystem Instances
 
-**Mountain**
+> [!info] **SFIF across the ecosystem**
+> | Project | Scaffold | Foundation | Infrastructure | Features |
+> |---------|----------|-----------|----------------|----------|
+> | **Research Wiki** | CLAUDE.md, wiki/ structure, schema | tools/common.py, validation, manifest.json | pipeline.py post-chain, MCP server, lint, obsidian | Evolve pipeline, watcher, sync, export |
+> | **OpenFleet** | SOUL.md + HEARTBEAT.md, monorepo layout | Deterministic orchestrator, agent base model | doctor.py (24 rules), IRC routing, OpenClaw gateway | 10 specialized agents, Mission Control UI |
+> | **AICP** | Profile system, CLAUDE.md, venv | Backend router, circuit breaker, complexity scorer | MCP tools, guardrails pipeline | Voice pipeline, 5-stage LocalAI roadmap, 78 skills |
+> | **Front↔Mid↔Back** | Per-layer design decisions | Per-layer component library, routing | Per-layer auth, state, API contracts | Per-layer screens, flows, logic |
 
-Accumulated mass with no structure. Spaghetti code, deprecated patterns layered on ad-hoc fixes, no scaffold artifacts (or scaffold that no longer describes the system), multiple competing entry points, authentication logic everywhere, no consistent error handling. The system works, but only people who built it understand why, and they are not fully sure either.
-
-Mountain is the natural entropy state. It is not incompetence — it is what happens when stages get skipped: a POC deployed as production, features built before Infrastructure was stable, a growing system that never got its Foundation refactored. Mountain is reversible, but the reversal is expensive.
-
-See [[Skyscraper, Pyramid, Mountain]] for the full quality tier analysis, the per-layer evaluation model, and the Mountain → Pyramid → Skyscraper improvement path.
-
-### The Four SFIF Instances in the Ecosystem
-
-| Project | Scaffold | Foundation | Infrastructure | Features Stage |
-|---------|---------|-----------|---------------|---------------|
-| Research Wiki | `CLAUDE.md`, `wiki/` structure, `config/schema.yaml`, tech stack | `tools/common.py`, schema validation, `manifest.json` | `pipeline.py` post-chain, MCP server (15 tools), lint, obsidian | evolve pipeline, watcher daemon, sync service, export |
-| OpenFleet | `SOUL.md` + `HEARTBEAT.md` templates, monorepo layout, agent identity model | Deterministic orchestrator, agent base model, single entry point | `doctor.py` (24 governance rules), IRC routing, OpenClaw gateway | 10 specialized agents, Mission Control UI, Open Gateway |
-| AICP | Profile system, `CLAUDE.md`, venv, tech stack choices | Backend router, circuit breaker, complexity scorer | MCP tools, guardrails pipeline (path protection, response filter) | Voice pipeline, 5-stage LocalAI roadmap, 78 skills |
-| Front-Middleware-Backend | Per-layer: design system decisions, stack choices | Per-layer: component library, routing foundation | Per-layer: auth, state management, API contracts | Per-layer: specialized screens, flows, business logic |
-
-The Research Wiki is the most structurally complete example: all four stages are populated and documented. OpenFleet is Infrastructure-complete and Features-active. AICP is Infrastructure-complete with Features ongoing. Front-Middleware-Backend is the example that most clearly illustrates the recursive property — each of the three layers independently traverses all four stages at its own pace.
+---
 
 ### Auditing a System Against SFIF
 
-The SFIF framework provides a concrete audit procedure for any system. The goal is not to assign a single grade but to identify which components are in which stage and whether anything is in the wrong stage.
+> [!tip] **Audit checklist per stage**
+> - **Scaffold**: Does CLAUDE.md match the actual system? Can a new person understand the project's intent from scaffold artifacts alone? If no → scaffold is absent or stale.
+> - **Foundation**: Is there ONE entry point? If there are 5 ways to start the app → foundation is incomplete. Binary: single entry or not.
+> - **Infrastructure**: Can you add a feature WITHOUT touching shared concerns (auth, retry, logging)? If adding an endpoint requires modifying infra → infrastructure is incomplete.
+> - **Features**: Are features using infrastructure or re-implementing it? Copied auth, bespoke retry, hardcoded config = features built before infrastructure.
 
-**Scaffold audit**: Does `CLAUDE.md` (or equivalent) exist and match the actual system? Is there a README that accurately describes what the project does? Are the tech stack decisions documented? If a new person joined today, could they understand the project's intent from the scaffold artifacts alone? If the answer is no, the scaffold is either absent (Mountain) or stale (Mountain disguised as Skyscraper).
+> [!info] **Tier indicators**
+> | Tier | What you see |
+> |------|-------------|
+> | **Mountain** | No scaffold, multiple entry points, auth/retry in feature code, no schema, no tests or tests against implementation |
+> | **Pyramid** | Scaffold exists but partially outdated, clear foundation with 1-2 legacy entry points, 80% infra coverage with documented exceptions |
+> | **Skyscraper** | Scaffold current, single entry point, all cross-cutting at infra layer, features are pure feature logic, tests verify behavior contracts |
 
-**Foundation audit**: Is there a single entry point? In Python: is there one `__main__` or one `pipeline.py` that everything flows through? In a web app: is there one router registration point? If there are five ways to start the application, the foundation is incomplete. Foundation completion is binary — either there is a single authoritative entry point or there is not.
+---
 
-**Infrastructure audit**: Can you add a new feature without touching shared concerns? If adding a new API endpoint requires modifying the auth system, the retry logic, or the logging configuration in that endpoint's code — rather than in a shared infrastructure layer — infrastructure is incomplete. Infrastructure is complete when adding a feature is pure feature code, with cross-cutting concerns handled transparently by the infrastructure layer.
+### The Recursive Property
 
-**Feature audit**: Are features using infrastructure, or re-implementing it? Copied authentication logic across handlers, bespoke retry patterns in individual services, hardcoded configuration values in business logic — these are features that were built before or without infrastructure, and they now ARE infrastructure masquerading as features. These are the structural debt items that SFIF audits surface.
+> [!abstract] **SFIF applies at every granularity simultaneously**
+> - A *project* traverses Scaffold → Foundation → Infrastructure → Features
+> - Each *feature* within the project traverses the same four stages
+> - Each *component* within a feature traverses them again
+> - The *design system* independently traverses: decisions (S) → component library (F) → responsive grid (I) → specialized screens (F)
+>
+> Structural quality can exist at one level and not another. The wiki is Skyscraper at the system level but individual pages can be Mountain. Per-level audit is required, not a single verdict.
 
-**Mountain indicators**: no scaffold artifacts, multiple entry points, auth/retry/logging in feature code, no schema or validation layer, tests (if any) against implementation details rather than behavior contracts.
-
-**Pyramid indicators**: scaffold artifacts exist but are partially outdated, foundation is clear but has one or two competing entry points for legacy reasons, infrastructure handles 80% of cross-cutting concerns but has documented exceptions, features are mostly clean but have some embedded infrastructure.
-
-**Skyscraper indicators**: scaffold is accurate and current, single entry point, all cross-cutting concerns handled at infrastructure layer, features contain only feature logic, tests verify behavior contracts.
-
-### The Recursive Property in Practice
-
-The recursive property is SFIF's most important and least obvious characteristic. At any scale:
-
-- A *project* traverses Scaffold → Foundation → Infrastructure → Features
-- Each *feature* within the project traverses Scaffold → Foundation → Infrastructure → Features at the feature level
-- Each *component* within a feature traverses the same four stages at the component level
-- The *design system* within a frontend independently traverses: design decisions documented (Scaffold) → component library established (Foundation) → responsive grid and state management (Infrastructure) → specialized screens and flows (Features)
-
-This means structural quality can exist at one level and not at another. The wiki project is Skyscraper-tier at the system level (all four stages complete, clean interfaces) but individual pages within it can be Mountain-tier (orphaned, untested, poorly linked). The recursive property requires per-level audit, not a single system-level verdict.
+---
 
 ### Relationship to the Knowledge Layer
 
-The SFIF pattern has a direct analog in the wiki's 6-layer knowledge architecture. [[Progressive Distillation]] describes the same density-increasing, layer-by-layer structure applied to knowledge:
+The SFIF pattern has a direct analog in the wiki's 6-layer knowledge architecture:
 
-- Raw notes (Scaffold): direction captured, not yet structured
-- Source synthesis (Foundation): single-source grounded understanding
-- Concepts (Infrastructure): multi-source synthesis that other pages can depend on
-- Lessons/Patterns/Decisions (Features): specialized value built on the stable conceptual base
+> [!info] **Knowledge SFIF**
+> | Knowledge stage | SFIF analog | Exit criterion |
+> |----------------|-------------|---------------|
+> | Raw notes | Scaffold | Direction captured |
+> | Source synthesis | Foundation | Single-source grounded understanding |
+> | Concepts | Infrastructure | Multi-source synthesis others can depend on |
+> | Lessons/Patterns/Decisions | Features | Specialized value on the stable conceptual base |
 
-A wiki page that skips Foundation (jumping from raw notes to a pattern) produces the knowledge equivalent of a Mountain: pattern-typed content that is actually a restatement of a single source, with no cross-linking, that cannot be reliably referenced by other pages. The SFIF exit criteria for knowledge work are: concept reachable from domain `_index.md` (joinable), has 2+ sources (operable), has 3+ relationships (dependable), has been validated and reviewed (features-ready).
+A wiki page that skips Foundation (jumping from raw notes to a pattern) produces the knowledge equivalent of a Mountain: pattern-typed content that is a single-source restatement with no cross-linking. See [[Progressive Distillation]].
+
+---
+
+### Key Pages
+
+| Page | Layer | Role in the model |
+|------|-------|-------------------|
+| [[Scaffold → Foundation → Infrastructure → Features]] | L5 | The pattern definition — 4 stages, exit criteria, recursive property, 4 instances |
+| [[Skyscraper, Pyramid, Mountain]] | L2 | The quality tier framework — structural state assessment |
+| [[Progressive Distillation]] | L5 | Knowledge analog — same density-increasing structure applied to knowledge |
+| [[Four-Project Ecosystem]] | L2 | The projects that implement SFIF instances |
+| [[Models Are Built in Layers, Not All at Once]] | L4 | Lesson: model-building follows SFIF — scaffold ≠ substance |
+| [[Infrastructure as Code Patterns]] | L2 | IaC as the scaffold layer's primary artifact class |
+
+---
+
+### Lessons Learned
+
+| Lesson | What was learned |
+|--------|-----------------|
+| [[Models Are Built in Layers, Not All at Once]] | Building this wiki's models followed SFIF: scaffold (entry points) → foundation (maturity assignment) → infrastructure (system definitions) → features (standards pages). Claiming "done" at scaffold level was a documented failure. |
+| [[Infrastructure Must Be Reproducible, Not Manual]] | Infrastructure stage artifacts must be IaC. Manual infra = Mountain-tier infrastructure that drifts silently. |
+| [[Never Skip Stages Even When Told to Continue]] | "Continue" means advance within the current SFIF stage, not skip to Features. Stage skipping is how Mountains are built. |
+
+---
+
+### State of Knowledge
+
+> [!success] **Well-covered**
+> - Four SFIF stages with structural exit criteria (not completion percentages)
+> - Three quality tiers with concrete indicators per tier
+> - Four ecosystem instances with per-stage artifact examples
+> - Audit procedure (scaffold/foundation/infrastructure/feature checks)
+> - Recursive property demonstrated across 4 granularity levels
+> - Knowledge layer analog via Progressive Distillation
+
+> [!warning] **Thin or unverified**
+> - SFIF as a tooling check — could validation detect "infrastructure masquerading as features"?
+> - Pyramid → Skyscraper boundary — is it a discrete refactor or continuous improvement?
+> - SFIF for data pipelines and ML deployment — where is the Foundation/Infrastructure boundary?
+> - No automated SFIF audit tool exists — currently manual evaluation only
+
+---
+
+### How to Adopt
+
+> [!info] **Applying SFIF to a new or existing project**
+> 1. **Audit current state** — per stage, per layer (use the checklist above)
+> 2. **Identify the weakest stage** — that's where structural debt lives
+> 3. **Fix from the bottom up** — don't add features to fix foundation problems. Fix the foundation first.
+> 4. **Choose your quality tier honestly** — Pyramid is fine if the constraints are real and documented. Mountain is the failure mode.
+
+> [!warning] **INVARIANT — never change these**
+> - Stage exit criteria are structural, not percentage-based
+> - Infrastructure ≠ Features (the most violated boundary)
+> - Mountain is the default without intervention (entropy applies)
+> - Per-level audit, not single-verdict assessment
+> - POC code is Mountain-tier by design and MUST be rewritten for production
+
+> [!tip] **PER-PROJECT — always adapt these**
+> - Which stages need emphasis (greenfield = Scaffold first; legacy = audit Foundation first)
+> - Quality tier target (Skyscraper for new systems; Pyramid-improving for legacy)
+> - Granularity of recursive application (project + feature level is usually sufficient)
+> - The specific exit criteria per stage (domain-specific artifacts)
 
 ## Open Questions
 
-- The SFIF pattern is articulated but not yet operationalized as a tooling check — could `python3 -m tools.validate` detect "Infrastructure masquerading as Features" (e.g., auth logic in feature controllers) through static analysis of page relationships?
-- At what point does a well-structured Pyramid become a Skyscraper? Is the boundary a discrete architectural decision (e.g., a refactor sprint) or a continuous improvement process?
-- The four ecosystem instances show SFIF applied to Python tooling and AI agent systems. How does the pattern apply to data pipeline systems or ML model deployment, where the Foundation/Infrastructure boundary is less obvious?
+> [!question] **Can SFIF be detected automatically?**
+> Could `tools/validate` or a static analysis tool detect "infrastructure in features" (auth in controllers, retry in handlers)? (Requires: defining detectable anti-patterns per stage)
+
+> [!question] **Where is the Pyramid → Skyscraper boundary?**
+> Is it a discrete architectural decision (refactor sprint) or continuous improvement? Can a system cross the boundary without anyone noticing? (Requires: observing the transition in a real project)
 
 ## Relationships
 
 - BUILDS ON: [[Scaffold → Foundation → Infrastructure → Features]]
 - BUILDS ON: [[Skyscraper, Pyramid, Mountain]]
+- BUILDS ON: [[Progressive Distillation]]
 - RELATES TO: [[Model: Design.md and IaC]]
 - RELATES TO: [[Model: Quality and Failure Prevention]]
 - RELATES TO: [[Model: Knowledge Evolution]]
+- RELATES TO: [[Model: Methodology]]
 - RELATES TO: [[Four-Project Ecosystem]]
-- FEEDS INTO: [[Model: Local AI ($0 Target)]]
 
 ## Backlinks
 
 [[Scaffold → Foundation → Infrastructure → Features]]
 [[Skyscraper, Pyramid, Mountain]]
+[[Progressive Distillation]]
 [[Model: Design.md and IaC]]
 [[Model: Quality and Failure Prevention]]
 [[Model: Knowledge Evolution]]
+[[Model: Methodology]]
 [[Four-Project Ecosystem]]
 [[Model: Local AI ($0 Target)]]
