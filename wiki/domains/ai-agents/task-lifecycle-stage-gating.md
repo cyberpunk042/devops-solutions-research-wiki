@@ -7,7 +7,7 @@ domain: ai-agents
 status: synthesized
 confidence: authoritative
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-10
 sources:
   - id: src-openfleet-methodology-scan
     type: documentation
@@ -28,25 +28,37 @@ tags: [stage-gating, task-lifecycle, methodology, phase-boundaries, anti-corrupt
 
 Task lifecycle stage-gating is the practice of partitioning autonomous agent work into sequential, bounded phases with hard boundaries between them — where the agent cannot proceed to the next phase without producing a concrete artifact that proves the current phase was completed. Surveyed across OpenFleet's 5-stage CONVERSATION→ANALYSIS→INVESTIGATION→REASONING→WORK model (enforced via MCP tool blocking), OpenArms' 5-stage Document→Design→Scaffold→Implement→Test model (enforced via protocol instructions and one-commit-per-stage), and the SFIF recursive pattern, the core insight is identical: **the primary failure mode of autonomous agents is phase conflation, not incompetence.** Agents that are allowed to jump between phases produce coherent but misaligned work. Structural stage gates make the failure mode impossible rather than merely discouraged.
 
+> [!info] Enforcement Comparison Reference Card
+>
+> | Mechanism | OpenFleet | OpenArms | Strength |
+> |-----------|----------|----------|----------|
+> | MCP tool blocking | Primary (fleet_commit blocked by stage) | N/A | Impossible to violate |
+> | Protocol instructions | Supplementary | Primary (CLAUDE.md MUST/MUST NOT) | Works with any runtime |
+> | One-commit-per-stage | Not used | Core convention | Immutable audit trail |
+> | Immune system teaching | 3-strike + teaching.py | N/A | Self-correcting |
+> | Human review gate | fleet-ops 7-step | Optional (`--review`) | Highest fidelity |
+
 ## Key Insights
 
-- **Phase conflation is the root failure mode**: Without stage gates, agents begin implementing while still understanding the problem, or begin reasoning while still in an analysis phase. The result is not bad code — it is good code that implements the wrong thing. OpenFleet's disease catalogue documents this as "scope_creep", "abstraction", and "code_without_reading" — all forms of phase conflation.
+> [!warning] Phase conflation is the root failure mode — not incompetence
+> Without stage gates, agents implement while still understanding, or reason while still analyzing. The result is not bad code — it is good code that implements the wrong thing. OpenFleet's disease catalogue documents this as "scope_creep", "abstraction", "code_without_reading" — all forms of phase conflation. The gate makes this failure mode structurally impossible rather than merely discouraged.
 
-- **Two enforcement strategies, same goal**: OpenFleet enforces stage gates at the infrastructure layer — MCP tools (`fleet_commit`, `fleet_task_complete`) are programmatically blocked outside their valid stages. OpenArms enforces at the protocol layer — CLAUDE.md instructions define what is produced at each stage, and the one-commit-per-stage rule creates a verifiable audit trail. Infrastructure blocking is stronger (impossible to violate); protocol blocking is more portable (works without custom tooling).
+> [!abstract] Two enforcement strategies, same goal
+>
+> | Strategy | How It Works | Trade-off |
+> |----------|-------------|-----------|
+> | **Structural** (OpenFleet) | MCP tools blocked outside valid stages | Impossible to violate; requires custom infrastructure |
+> | **Protocol** (OpenArms) | CLAUDE.md MUST/MUST NOT + one-commit-per-stage | Portable, works immediately; can degrade with context |
+>
+> **Practical recommendation:** Start with protocol enforcement. Add structural when infrastructure investment is justified. The combination provides defense in depth.
 
-- **The readiness score is a continuous gate**: OpenFleet's task readiness score (0-100) drives stage progression. Critically, the REASONING→WORK transition requires PO confirmation at readiness 99 — the human gate is built into the score model, not added on top. OpenArms uses the same model: readiness 0-25 = Document, 25-50 = Design, 50-80 = Scaffold, 80-95 = Implement, 95-100 = Test. Readiness 100 = done, but only if all required stages are in `stages_completed`.
+**Readiness score is a continuous gate.** 0-25 = Document, 25-50 = Design, 50-80 = Scaffold, 80-95 = Implement, 95-100 = Test. Readiness 100 = done only if all required stages are in `stages_completed`. The human gate (PO confirmation at readiness 99) is built into the score model, not added on top.
 
-- **One commit per stage creates an immutable audit trail**: OpenArms' commit convention (`feat(wiki): T0XX stage-name — description`) transforms git history into a stage-gating ledger. Each commit is a stage checkpoint. If a task is reviewed and found incomplete, the stage regression is visible in git. This is stage-gating that persists in the repository's DNA, not just in a task board state.
+**Stage boundaries are file-system boundaries.** Document stage = wiki pages only (no src/). Design = type sketches in docs only. Scaffold = types and empty tests, zero business logic. These are observable in the file system — a commit touching src/ during Document is visibly wrong.
 
-- **Stage-specific MUST/MUST NOT/CAN lists are injected into agent context**: OpenFleet's brain injects stage-specific behavioral constraints into every agent context file on every 30-second cycle. The agent does not need to "remember" what it is allowed to do in ANALYSIS — it is told explicitly. This is the autocomplete chain principle applied to stage compliance: the correct behavior is the natural continuation of the context.
+**Task types select stage subsets.** `docs` = Document only. `spike` = Document + Design. `task` = Scaffold + Implement + Test. `epic/module` = all five. This prevents over-process for simple work while enforcing full staging for complex work.
 
-- **Stage boundaries are file-system boundaries in OpenArms**: In the Document stage, the agent produces wiki pages ONLY — no src/ files. In the Design stage, type sketches go in documentation files, not in code. In the Scaffold stage, the agent creates types and empty test files but writes no business logic. These are not conventions — they are observable in the file system. A commit that touches src/ during the Document stage is visibly wrong.
-
-- **Different task types require different stage subsets**: OpenArms' methodology maps task types to required stages. A `docs` task requires only Document. A `spike` requires Document + Design. A standard `task` requires Scaffold + Implement + Test (no design stage for low-complexity implementation). An `epic/module` requires all five stages. This tiered approach prevents over-process for small work while ensuring complex work is fully staged.
-
-- **The triple anti-corruption system**: OpenFleet deploys three lines of defense against stage violations. Line 1: MCP tool blocking (structural — impossible to commit in CONVERSATION stage). Line 2: Immune system teaching (when disease detected, inject corrective lesson via `teaching.py`). Line 3: Fleet-ops review (7-step human review against verbatim requirements). Each line catches what the previous one missed.
-
-- **Autonomy mode controls how strictly stages are enforced**: OpenArms defines an autonomy spectrum from full-autonomous (skip document stage, no human review, backlog-empty end condition) to plan-only (produce design doc, stop). The stage-gating is not binary — it is parametric. A solo developer can choose to operate with less stage friction for simple tasks and full staging for complex ones. This makes the framework adoptable at different maturity levels.
+**Autonomy is parametric, not binary.** Full-autonomous (skip document, no human review) to plan-only (design doc, stop). The stage-gating framework is adoptable at different maturity levels.
 
 ## Deep Analysis
 
@@ -177,19 +189,21 @@ The SFIF (Scaffold → Foundation → Infrastructure → Features) pattern from 
 
 ### The Disease Catalogue as Stage-Gating Failure Modes
 
-OpenFleet's immune system documents exactly what happens when stage gating fails. The 11 disease categories are a taxonomy of stage violations:
-
-- `abstraction` — reasoning at the wrong level (stage conflation: planning during work)
-- `code_without_reading` — WORK stage without completing ANALYSIS
-- `scope_creep` — adding scope not in verbatim (WORK exceeding REASONING)
-- `cascading_fix` — fixing one thing breaks another, fix that, spiral (no stage gate to pause and re-plan)
-- `context_contamination` — previous task's context affecting current task (stage boundary not cleaned)
-- `not_listening` — ignoring MUST NOT instructions (protocol enforcement failing)
-- `compression` — paraphrasing verbatim (a form of stage-crossing: interpretation entering where only reproduction should be)
-- `contribution_avoidance` — skipping the REASONING convergence point (advancing to WORK without specialist inputs)
-- `synergy_bypass` — not waiting for contributions (same as above)
-
-Each disease is a case study in what stage gates prevent. The teaching system's role is to re-enforce the stage gate after a violation — the gate is not just structural, it is learned.
+> [!bug]- Stage-gating failures mapped to OpenFleet diseases
+>
+> | Disease | Stage Violation | What Happened |
+> |---------|----------------|---------------|
+> | `abstraction` | Planning during WORK | Reasoning at the wrong level |
+> | `code_without_reading` | WORK without ANALYSIS | Skipped understanding phase |
+> | `scope_creep` | WORK exceeding REASONING | Added scope not in verbatim |
+> | `cascading_fix` | No gate to pause and re-plan | Fix breaks thing, fix that, spiral |
+> | `context_contamination` | Stage boundary not cleaned | Previous task's context bleeds in |
+> | `not_listening` | MUST NOT instructions ignored | Protocol enforcement failing |
+> | `compression` | Interpretation entering reproduction | Paraphrasing verbatim (stage-crossing) |
+> | `contribution_avoidance` | WORK without specialist inputs | Skipped REASONING convergence |
+> | `synergy_bypass` | Same as above | Not waiting for contributions |
+>
+> Each disease is a case study in what stage gates prevent. The teaching system re-enforces the gate after violation — gates are not just structural, they are learned.
 
 ## Open Questions
 

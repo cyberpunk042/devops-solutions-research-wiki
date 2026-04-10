@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-10T15:56:38.909805+00:00",
+  "generated": "2026-04-10T16:19:15.582995+00:00",
   "stats": {
     "pages": 175,
     "domains": 9,
@@ -342,7 +342,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-10",
       "tags": [
         "llm-wiki",
         "rag",
@@ -2237,7 +2237,7 @@
       "status": "synthesized",
       "confidence": "authoritative",
       "created": "2026-04-09",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "stage-gating",
         "task-lifecycle",
@@ -4247,7 +4247,7 @@
       "status": "synthesized",
       "confidence": "authoritative",
       "created": "2026-04-09",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "wiki-backlog",
         "frontmatter-state-machine",
