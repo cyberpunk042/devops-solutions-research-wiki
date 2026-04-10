@@ -56,6 +56,8 @@ Infrastructure as Code (IaC) in the four-project ecosystem extends beyond Terraf
 
 ### The IaC Spectrum in the Ecosystem
 
+> [!info] **Every spec file in the ecosystem is IaC**
+
 | File / Pattern | What It Configures | Executor |
 |---------------|-------------------|---------|
 | CLAUDE.md | AI agent behavior | Claude Code (session start) |
@@ -79,13 +81,14 @@ This generalization matters for AI-powered systems because AI agents are configu
 
 ### CLAUDE.md vs Traditional Config Files
 
-CLAUDE.md differs from a traditional config file (JSON, YAML, TOML) in three ways:
+> [!info] **Three key differences**
+> | Dimension | Traditional config | CLAUDE.md |
+> |-----------|-------------------|-----------|
+> | **Format** | Key-value pairs (JSON/YAML/TOML) | Natural language prose with markdown structure |
+> | **Validation** | Schema-enforced by tooling | Convention-enforced by agent interpretation (weaker but more flexible) |
+> | **Runtime cost** | Parsed into structured object (zero ongoing cost) | Occupies context budget on EVERY turn (verbosity has a real cost) |
 
-1. **Natural language content**: Instructions are written in prose, not key-value pairs. This is intentional — LLMs parse prose better than they parse schema references. The markdown structure (headers, bullets) provides enough syntax for the model to segment concerns.
-
-2. **No schema enforcement**: Unlike config/schema.yaml, there is no validator for CLAUDE.md. The "schema" is convention (what sections are expected) enforced by the AI agent's interpretation. This is weaker than validated config but more flexible.
-
-3. **Consumed at runtime by an LLM**: Every token in CLAUDE.md costs context budget. Unlike a YAML config that is parsed into a structured object, CLAUDE.md occupies the prompt. This creates an implicit pressure to keep it concise — verbosity has a real cost.
+The natural language format is intentional — LLMs parse prose better than schema references. But the runtime cost creates implicit pressure: ==keep CLAUDE.md concise because verbosity compounds across every message.==
 
 ### Skills as Dynamic IaC
 
@@ -95,7 +98,8 @@ The same two-tier pattern appears in devops-control-plane: stacks/*.yml (always 
 
 ### IaC Anti-Pattern: Manual Setup Steps
 
-The ecosystem explicitly rejects manual setup. The feedback principle "Pipeline Not Manual" and OpenFleet's "IaC-only operations" philosophy are the same pattern: if a human performs a step manually, that step should be encoded in a file and automated. The cost of manual steps is reproducibility debt — the next person (or machine, or future session) cannot reliably reproduce the environment.
+> [!warning] **If a human performs a step manually, it should be a file**
+> The ecosystem explicitly rejects manual setup. "Pipeline Not Manual" (feedback principle) and OpenFleet's "IaC-only operations" philosophy: if a step isn't encoded in a spec file and automated, it is reproducibility debt. The next person, machine, or future session cannot reliably reproduce the environment. See [[Infrastructure Must Be Reproducible, Not Manual]].
 
 ## Open Questions
 
@@ -104,17 +108,14 @@ The ecosystem explicitly rejects manual setup. The feedback principle "Pipeline 
 
 ### Answered Open Questions
 
-**Q: How should conflicting CLAUDE.md instructions be resolved when multiple CLAUDE.md files exist in a project hierarchy?**
+> [!success] **CLAUDE.md conflict resolution: deeper files override, hooks enforce critical constraints**
+> Cross-referencing `Harness Engineering` and `Design.md Pattern`: the `Harness Engineering` page documents how Claude Code processes CLAUDE.md files — they are read at session start as "binding operational instructions." The `Design.md Pattern` page establishes the companion file ecosystem (CLAUDE.md + DESIGN.md + AGENTS.md) where "each file addresses a different dimension of AI agent context." Claude Code's actual behavior with multiple CLAUDE.md files in a hierarchy (parent directory + project root + subdirectory) is to load all of them, with more-specific (deeper directory) files taking precedence over less-specific ones when there are conflicts — following standard configuration file override semantics. The `Harness Engineering` page notes that harness guardrails operate "at execution time through hooks, actually blocking dangerous operations" independent of CLAUDE.md content, meaning hooks (not CLAUDE.md prose) are the conflict-resolution layer for critical operations. Practical guidance from existing wiki knowledge: structure CLAUDE.md files so they are additive (subdirectory files extend, not override, parent files), and use hooks for critical constraints that must be enforced regardless of CLAUDE.md hierarchy.
 
-Cross-referencing `Harness Engineering` and `Design.md Pattern`: the `Harness Engineering` page documents how Claude Code processes CLAUDE.md files — they are read at session start as "binding operational instructions." The `Design.md Pattern` page establishes the companion file ecosystem (CLAUDE.md + DESIGN.md + AGENTS.md) where "each file addresses a different dimension of AI agent context." Claude Code's actual behavior with multiple CLAUDE.md files in a hierarchy (parent directory + project root + subdirectory) is to load all of them, with more-specific (deeper directory) files taking precedence over less-specific ones when there are conflicts — following standard configuration file override semantics. The `Harness Engineering` page notes that harness guardrails operate "at execution time through hooks, actually blocking dangerous operations" independent of CLAUDE.md content, meaning hooks (not CLAUDE.md prose) are the conflict-resolution layer for critical operations. Practical guidance from existing wiki knowledge: structure CLAUDE.md files so they are additive (subdirectory files extend, not override, parent files), and use hooks for critical constraints that must be enforced regardless of CLAUDE.md hierarchy.
+> [!success] **CLAUDE.md verbosity: under 200 lines, use skills for the rest**
+> Cross-referencing `Context-Aware Tool Loading` and `Design.md Pattern`: the `Context-Aware Tool Loading` pattern provides the quantitative answer. Claude Code accuracy is affected by context utilization (one practitioner reported observing degradation at higher percentages, but this is probabilistic and session-dependent). CLAUDE.md occupies context budget on every turn. The `Design.md Pattern` page documents this explicitly: "every token in CLAUDE.md costs context budget... This creates an implicit pressure to keep it concise — verbosity has a real cost." It also provides the practical guidance: "keep it concise (under ~200 lines), reference detailed component specifications in a separate file loaded on demand via a skill." For CLAUDE.md, the equivalent is: keep the always-loaded CLAUDE.md to the minimum required for session initialization (project type, critical conventions, key commands), and put detailed operational workflows in skills files that load only when that workflow is invoked. The `Context-Aware Tool Loading` pattern's threshold: if information is needed on fewer than ~80% of turns, do not pre-load it in CLAUDE.md — put it in a skill. This wiki's own CLAUDE.md (~250+ lines) is at the upper boundary where additional verbosity would measurably increase per-turn context pressure.
 
-**Q: What is the right level of verbosity for a CLAUDE.md before context cost outweighs configuration value?**
-
-Cross-referencing `Context-Aware Tool Loading` and `Design.md Pattern`: the `Context-Aware Tool Loading` pattern provides the quantitative answer. Claude Code accuracy is affected by context utilization (one practitioner reported observing degradation at higher percentages, but this is probabilistic and session-dependent). CLAUDE.md occupies context budget on every turn. The `Design.md Pattern` page documents this explicitly: "every token in CLAUDE.md costs context budget... This creates an implicit pressure to keep it concise — verbosity has a real cost." It also provides the practical guidance: "keep it concise (under ~200 lines), reference detailed component specifications in a separate file loaded on demand via a skill." For CLAUDE.md, the equivalent is: keep the always-loaded CLAUDE.md to the minimum required for session initialization (project type, critical conventions, key commands), and put detailed operational workflows in skills files that load only when that workflow is invoked. The `Context-Aware Tool Loading` pattern's threshold: if information is needed on fewer than ~80% of turns, do not pre-load it in CLAUDE.md — put it in a skill. This wiki's own CLAUDE.md (~250+ lines) is at the upper boundary where additional verbosity would measurably increase per-turn context pressure.
-
-**Q: Should the 24 immune system rules be expressed as a YAML rule file (machine-executable) rather than Python logic in doctor.py?**
-
-Cross-referencing `Immune System Rules` and `devops-control-plane`: the `Immune System Rules` page establishes the core requirement: "doctor.py runs with zero LLM calls. Rules are pure Python: state comparisons, threshold checks, counter increments. This makes the immune system fast (microseconds per check), cheap (no token cost), and auditable." The `devops-control-plane` page documents that the control-plane already uses YAML for stack policy definitions (`stacks/*.yml`): "each file specifies detection rules, health checks, and integration guidance. The engine reads these at runtime to auto-detect project capabilities." This is precisely the precedent for YAML rule files. A YAML format for immune system rules would make them: (1) shareable across OpenFleet and AICP without Python import dependencies, (2) human-reviewable without reading Python logic, (3) modifiable without code changes or deployments. The counter-argument from the `Immune System Rules` page: Python rules have full expressiveness for complex state comparisons that YAML cannot easily capture. The optimal design mirrors the control-plane's pattern: define rule metadata and thresholds in YAML (the "what"), implement the evaluation logic in Python (the "how"), and load YAML at runtime. This gives shareability and editability without sacrificing evaluation power.
+> [!success] **YAML for rule metadata + thresholds, Python for evaluation logic**
+> Cross-referencing `Immune System Rules` and `devops-control-plane`: the `Immune System Rules` page establishes the core requirement: "doctor.py runs with zero LLM calls. Rules are pure Python: state comparisons, threshold checks, counter increments. This makes the immune system fast (microseconds per check), cheap (no token cost), and auditable." The `devops-control-plane` page documents that the control-plane already uses YAML for stack policy definitions (`stacks/*.yml`): "each file specifies detection rules, health checks, and integration guidance. The engine reads these at runtime to auto-detect project capabilities." This is precisely the precedent for YAML rule files. A YAML format for immune system rules would make them: (1) shareable across OpenFleet and AICP without Python import dependencies, (2) human-reviewable without reading Python logic, (3) modifiable without code changes or deployments. The counter-argument from the `Immune System Rules` page: Python rules have full expressiveness for complex state comparisons that YAML cannot easily capture. The optimal design mirrors the control-plane's pattern: define rule metadata and thresholds in YAML (the "what"), implement the evaluation logic in Python (the "how"), and load YAML at runtime. This gives shareability and editability without sacrificing evaluation power.
 
 ## Relationships
 
