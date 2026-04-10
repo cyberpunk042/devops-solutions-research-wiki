@@ -21,7 +21,7 @@ instances:
   - page: "Research Pipeline Orchestration"
     context: "Wiki-agent 5-stage pipeline: EXTRACT → ANALYZE → SYNTHESIZE → WRITE → INTEGRATE, with 6-step post-chain that enforces validation and review after every write."
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-openfleet-local
     type: documentation
@@ -50,15 +50,20 @@ The Plan→Execute→Review cycle is a recurring structural pattern observed ind
 
 ## Pattern Description
 
-At its core, the Plan→Execute→Review cycle separates three fundamentally different cognitive modes: **deliberation** (what should happen and in what sequence), **action** (doing the work within bounded scope), and **verification** (confirming the result matches intent before propagating). Each phase has a distinct failure mode when absent or collapsed.
+> [!abstract] Three cognitive modes, each with a distinct failure when absent
+>
+> | Phase | Mode | Failure When Missing |
+> |-------|------|---------------------|
+> | **Plan** | Deliberation — what should happen, in what sequence | Execution becomes prompt-reactive: locally plausible, globally wrong |
+> | **Execute** | Action — doing the work within bounded scope | (the phase everyone does — the surrounding gates are what matters) |
+> | **Review** | Verification — result matches intent before promotion | Errors compound silently until systemic |
 
-Without an explicit plan phase, execution becomes prompt-reactive — the system takes the most locally plausible action rather than the globally correct one. This produces correct-looking results that accumulate into wrong outcomes. Without an explicit review gate, execution results are accepted and promoted based on recency bias rather than correctness. Errors compound silently until they become systemic.
+The pattern is recognizable by three structural signals: (1) separation between intent and execution — tasks defined before dispatched, (2) review gate before state promotion — work not "done" until reviewed, (3) enforcement — the gate is mechanically blocked, not just recommended.
 
-The pattern is recognizable by three structural signals: (1) a separation boundary between intent and execution — tasks are defined before they are dispatched, (2) a review gate that must be cleared before state promotion — completed work is not finished until reviewed, and (3) some form of enforcement — the review gate is mechanically blocked, not just recommended.
+> [!warning] Enforcement strength is the key differentiator
+> Weak: cycle stated in documentation (CLAUDE.md, README). Strong: mechanically enforced — OpenFleet's deterministic brain won't dispatch without security scan + doctor checks; harness guardrails block commits skipping review; wiki post-chain blocks on non-zero validate. Systems that treat review as a suggestion degrade; systems that treat it as a hard gate remain stable.
 
-The enforcement mechanism is the key differentiator between weak and strong implementations. Weak implementations state the cycle in documentation (CLAUDE.md, README, team norms). Strong implementations mechanically enforce it: OpenFleet's deterministic brain will not dispatch a task until it passes the security scan and doctor checks; the harness guardrail engine blocks commit operations that skip the review verb; the wiki post-chain blocks completion if validate returns non-zero.
-
-The cycle can be instantiated at any granularity — a 30-second orchestrator tick, a multi-day sprint, a single ingestion run — and nested: an outer Plan→Execute→Review governs a project sprint while an inner one governs each individual task within it. Nesting is visible in OpenFleet's two-board architecture (Plane governs the planning/review layer; Mission Control governs the execution/dispatch layer).
+The cycle nests at any granularity — a 30-second orchestrator tick, a multi-day sprint, a single ingestion run. An outer cycle governs the sprint while inner ones govern individual tasks.
 
 ## Instances
 

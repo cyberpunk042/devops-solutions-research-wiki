@@ -20,7 +20,7 @@ instances:
   - page: "Harness Engineering"
     context: "13 TypeScript guardrail rules (R01-R13) form the deterministic enforcement shell: they block dangerous operations, query out-of-scope writes, and enforce the Plan→Work→Review cycle at execution time. The LLM (Claude) executes within the guardrail boundaries."
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-openfleet-local
     type: documentation
@@ -45,11 +45,12 @@ Deterministic Shell, LLM Core is the architectural pattern of wrapping LLM infer
 
 ## Pattern Description
 
-The pattern is recognizable by the separation between two qualitatively different execution domains sharing a boundary:
-
-**The deterministic shell** executes with zero LLM inference and operates on explicit state. It handles: routing decisions (which backend? which agent? which tool?), validation (is this output schema-correct?), scheduling (when to fire, at what interval?), security checks (is this task safe to dispatch?), budget gating (is this within cost parameters?), and failure handling (circuit breaker, retry, dead-letter queue). Shell components are testable with unit tests, auditable by reading the code, and reliable in the statistical sense: given the same inputs they produce the same outputs.
-
-**The LLM core** executes with inference and operates on context. It handles: synthesis (combining information from multiple sources into coherent analysis), reasoning (understanding relationships, drawing conclusions, making judgments), generation (writing pages, code, responses), and creative tasks where the quality of the output depends on model capability rather than rule execution. Core components are not unit-testable in the traditional sense — their output quality is assessed by humans or by downstream validators, not by assertion matching.
+> [!abstract] Two execution domains sharing a boundary
+>
+> | Domain | Characteristics | Handles |
+> |--------|----------------|---------|
+> | **Deterministic Shell** | Zero LLM, explicit state, unit-testable, auditable, same inputs → same outputs | Routing, validation, scheduling, security, budget gating, failure handling |
+> | **LLM Core** | Inference, context-dependent, quality assessed by humans/validators | Synthesis, reasoning, generation, creative tasks requiring model capability |
 
 The boundary between shell and core is the pattern's critical design decision. Too much in the LLM core produces a system that is expensive, slow, and unreliable for operational tasks — the LLM is being asked to do bookkeeping it should not do. Too much in the deterministic shell produces a system that is brittle and rule-bound, unable to handle novel cases that require judgment. The correct boundary places in the shell everything that can be deterministically specified (validation rules, routing criteria, scheduling logic, safety checks) and in the core everything that genuinely requires model intelligence.
 

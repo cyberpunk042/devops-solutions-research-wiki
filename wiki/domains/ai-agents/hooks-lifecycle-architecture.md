@@ -5,7 +5,7 @@ domain: ai-agents
 status: synthesized
 confidence: high
 created: 2026-04-09
-updated: 2026-04-09
+updated: 2026-04-10
 layer: 2
 maturity: growing
 sources:
@@ -28,17 +28,27 @@ Claude Code's hook system exposes 26 lifecycle events across 7 categories — se
 
 - **26 events, 7 categories**: The full event surface spans session lifecycle (SessionStart, SessionEnd, InstructionsLoaded, ConfigChange, CwdChanged), tool execution (PreToolUse, PostToolUse, PostToolUseFailure), permissions (PermissionRequest, PermissionDenied), subagents (SubagentStart, SubagentStop), tasks (TaskCreated, TaskCompleted), system/environment (Notification, FileChanged, WorktreeCreate, WorktreeRemove, Elicitation, ElicitationResult), and compaction (PreCompact, PostCompact). Plus Stop, StopFailure, TeammateIdle, and UserPromptSubmit. No agent boundary is left uncovered.
 
-- **The blocking pattern**: PreToolUse, PermissionRequest, UserPromptSubmit, Stop, TaskCreated, TaskCompleted, and ConfigChange all support blocking. A command hook exits with code 2 or returns `{"decision": "block"}` to halt the operation. PreToolUse additionally supports `updatedInput` to modify the tool call in-flight, and can return `allow`, `ask`, or `defer` decisions for graduated control rather than binary block/pass.
+> [!info] Handler types reference card
+>
+> | Handler | How It Works | Cost/Capability |
+> |---------|-------------|----------------|
+> | `command` | Shell script receiving JSON on stdin | Low cost, supports `async: true` fire-and-forget |
+> | `http` | POST to an endpoint | External integration, decoupled |
+> | `prompt` | Single-turn LLM evaluation | Lightweight AI reasoning at hook boundaries |
+> | `agent` | Full subagent with tool access | Highest capability, highest cost |
 
-- **The reverse hook concept**: Stop and TeammateIdle invert the PreToolUse pattern. PreToolUse GATES initiation — it fires before an action and can prevent it from starting. Stop fires when Claude *finishes responding* and can BLOCK the stop, forcing the agent to continue. TeammateIdle fires when an agent teammate is idle and can prevent idle — keeping the agent working. These hooks prevent completion rather than gating initiation, creating a bidirectional control axis across the full agent loop.
+> [!warning] PreToolUse is the primary enforcement surface
+> A hook can block all `Write`/`Edit` calls to `src/` during documentation phase — enforcing "no implementation in document stage" at the infrastructure level. Impossible to violate, not merely discouraged. This closes the compliance gap: instruction files ~60% → programmatic hooks ~98%.
+>
+> Four decision gradations: **block** (hard denial), **allow** (unconditional pass), **ask** (escalate to user), **defer** (pass to next hook in chain).
 
-- **Context injection**: SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, and SubagentStart all accept `additionalContext` in their response — allowing hooks to inject structured information into the running conversation without user intervention. This is the mechanism context-mode uses to restore session state after compaction.
+- **The blocking pattern**: PreToolUse, PermissionRequest, UserPromptSubmit, Stop, TaskCreated, TaskCompleted, ConfigChange all support blocking. Exit code 2 or `{"decision": "block"}` halts the operation.
 
-- **4 handler types**: `command` (shell script receiving JSON on stdin — supports `async: true` for fire-and-forget), `http` (POST to an endpoint), `prompt` (single-turn LLM evaluation — allows lightweight AI reasoning at hook boundaries), and `agent` (full subagent with tool access — the most powerful handler type). Each has a different capability/cost tradeoff.
+- **The reverse hook concept**: Stop and TeammateIdle invert PreToolUse. PreToolUse gates initiation; Stop can block completion (forcing the agent to continue). Bidirectional control across the full agent loop.
 
-- **Composition and scope hierarchy**: Hooks compose via matchers (exact string, pipe-separated list, JavaScript regex), MCP tool patterns (`mcp__server__tool`), per-event matchers (e.g., SessionStart matches `startup|resume|clear|compact`), and `if` filters using permission rule syntax (`Bash(rm *)`, `Edit(*.ts)`). Identical handlers deduplicate. Scope hierarchy: user settings → project settings → local settings → plugins → policies. Lower scopes can add but not remove higher-scope hooks.
+- **Context injection**: SessionStart, UserPromptSubmit, PreToolUse, PostToolUse, SubagentStart accept `additionalContext` — structured info injected into the conversation without user intervention. This is how context-mode restores state after compaction.
 
-- **Stage-gate enforcement**: PreToolUse is the correct mechanism for enforcing stage-gate constraints. A hook can block all `Write` or `Edit` calls to `src/` during a documentation phase, enforcing "no implementation writes in document stage" at the infrastructure level — impossible to violate, not merely discouraged. This is how hybrid enforcement (methodology + tooling) closes the compliance gap between instruction files (~60%) and programmatic hooks (~98%).
+- **Scope hierarchy**: user settings → project settings → local settings → plugins → policies. Lower scopes add but cannot remove higher-scope hooks. Matchers compose via exact string, pipe-separated list, regex, and `if` filters.
 
 ## Deep Analysis
 

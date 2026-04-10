@@ -1,5 +1,5 @@
 {
-  "generated": "2026-04-10T17:08:41.799831+00:00",
+  "generated": "2026-04-10T17:14:57.557546+00:00",
   "stats": {
     "pages": 175,
     "domains": 9,
@@ -1391,7 +1391,7 @@
       "status": "synthesized",
       "confidence": "authoritative",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-10",
       "tags": [
         "claude-code",
         "ai-agent",
@@ -1662,7 +1662,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-09",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "hooks",
         "lifecycle",
@@ -1907,7 +1907,7 @@
       "status": "synthesized",
       "confidence": "authoritative",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-10",
       "tags": [
         "openfleet",
         "ai-agents",
@@ -4336,7 +4336,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-10",
       "tags": [
         "ingestion",
         "pipeline",
@@ -7607,7 +7607,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-10",
       "tags": [
         "deterministic",
         "orchestration",
@@ -7938,7 +7938,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-08",
-      "updated": "2026-04-08",
+      "updated": "2026-04-10",
       "tags": [
         "plan-execute-review",
         "orchestration",

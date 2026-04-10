@@ -7,7 +7,7 @@ domain: ai-agents
 status: synthesized
 confidence: authoritative
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-openfleet-local
     type: documentation
@@ -27,21 +27,28 @@ OpenFleet is an AI-native project lifecycle orchestration framework implementing
 
 - **Deterministic brain, not LLM-driven**: The orchestrator runs every 30 seconds with zero LLM calls. Pure Python logic handles state diffing, budget gating, heartbeat scheduling, task dispatch, security scanning, and anomaly detection. This makes orchestration predictable, auditable, and cheap.
 
-- **10 specialized agents**: fleet-ops (board lead, 30m heartbeat), project-manager (sprint planning, Plane bridge), devsecops-expert, architect, software-engineer, qa-engineer, devops, technical-writer, ux-designer, accountability-generator. Each has a SOUL.md (identity) and HEARTBEAT.md (periodic checklist).
+> [!info] Fleet architecture reference card
+>
+> | Layer | Component | Role |
+> |-------|-----------|------|
+> | L0 | Persistent state graph | Substrate — task, agent, board state |
+> | L1 | Deterministic Brain | 12-step cycle, zero LLM calls, 30-second interval |
+> | L2 | Orchestration | Dispatch, gating, budget, security scan |
+> | L3 | Agent Execution | 10 specialized agents (LLM-powered) |
+> | L4 | Capability & Extension | Skills, 13 MCP tools |
+> | L5 | Interaction | Prompts, @mentions, Mission Control UI, API |
+> | L6 | Observability & Governance | doctor.py immune system, audit ledger |
 
-- **Seven-layer architecture**: L0 Substrate (persistent state graph) → L1 Deterministic Brain → L2 Orchestration → L3 Agent Execution (LLM-powered) → L4 Capability & Extension (Skills, 13 MCP tools) → L5 Interaction (prompts, @mentions, UI, API) → L6 Observability & Governance.
+- **10 specialized agents**: fleet-ops, project-manager, devsecops, architect, software-engineer, qa-engineer, devops, technical-writer, ux-designer, accountability-generator. Each has SOUL.md (identity) + HEARTBEAT.md (periodic checklist).
 
-- **Multi-dimensional state**: 6 orthogonal axes — lifecycle, execution, progress, readiness, validation, context. This replaces the single "status" field that most task systems use, enabling nuanced decisions like "this task is ready for review but blocked by a dependency."
+> [!abstract] Multi-dimensional state replaces single "status" field
+> 6 orthogonal axes: lifecycle, execution, progress, readiness, validation, context. Enables nuanced decisions like "ready for review but blocked by dependency."
 
-- **kb_sync.py replaces LLM-based entity extraction**: LightRAG's LLM extraction (hermes 7B) produced inconsistent results across runs. kb_sync extracts relationships from the KB's explicit `## Relationships` sections — zero randomness, zero model dependency. 1,545 entities, 2,295 relationships from 219 KB entries.
+**kb_sync.py replaces LLM-based extraction.** LightRAG's hermes 7B produced inconsistent results. kb_sync extracts from `## Relationships` directly — zero randomness, zero model dependency. 1,545 entities, 2,295 relationships from 219 KB entries.
 
-- **Dual-board synchronization**: Plane (PM board, human-driven planning with sprints, epics, velocity) syncs bidirectionally with Mission Control (ops board, agent-driven execution with tasks, dispatches, heartbeats). 5 sync mechanisms: structural, state, semantic, event-driven, intent.
+**Dual-board sync.** Plane (PM, human-driven: sprints, epics, velocity) ↔ Mission Control (ops, agent-driven: tasks, dispatches, heartbeats). 5 sync mechanisms: structural, state, semantic, event-driven, intent.
 
-- **Local-first inference strategy**: LocalAI (hermes-3b for queries, bge-m3 for embeddings, bge-reranker for reranking) handles routine work. Claude handles complex reasoning. Silent heartbeats for idle agents save 70% cost.
-
-- **IaC-only operations**: No manual commands. Everything scripted in `scripts/` (42+ scripts). Zero to running fleet via `setup.sh`.
-
-- **Immune system from devops-control-plane**: doctor.py implements 3-strike rule, task state anomaly detection, behavioral security — codified from 24 rules derived from 16 post-mortems and agent death analysis.
+**IaC-only operations.** No manual commands. 42+ scripts in `scripts/`. Zero to running fleet via `setup.sh`.
 
 ## Deep Analysis
 

@@ -7,7 +7,7 @@ domain: ai-agents
 status: synthesized
 confidence: authoritative
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-shanraisshan-claude-code-best-practice
     type: documentation
@@ -38,25 +38,24 @@ Claude Code is Anthropic's official CLI coding agent — a terminal-resident AI 
 
 ## Key Insights
 
-- **Tool-use agent loop**: Claude Code is not a chatbot — it's an agent that iteratively decides which tools to invoke. Each response can chain multiple tool calls (Read → Edit → Bash → validate). The loop continues until the task is complete or the model yields to the user.
+> [!info] Extension system reference card
+>
+> | Layer | Mechanism | Loading Behavior | Best For |
+> |-------|-----------|-----------------|----------|
+> | **Commands** | Built-in slash commands | Always available | Navigation, session control (/help, /compact, /clear) |
+> | **Skills** | SKILL.md instruction files | On-demand (invoked or auto-detected) | Reusable workflows, transferable knowledge |
+> | **Hooks** | Shell scripts on events | Event-triggered (pre/post tool calls) | Automated behaviors, stage-gate enforcement |
+> | **MCP** | External tool servers | Schema loaded at session start | Cross-conversation tool discoverability |
+> | **Subagents** | Isolated parallel workers | Fresh context per spawn | Parallel research, independent tasks |
 
-- **Three-tier extension system**: Commands (built-in slash commands like /help, /compact, /clear), Skills (SKILL.md files loaded into context — reusable, shareable knowledge), Hooks (shell scripts triggered before/after events like tool calls, model responses, notifications).
+> [!tip] Claude Code is an agent loop, not a chatbot
+> It iteratively decides which tools to invoke — Read → Edit → Bash → validate in a single response. The loop continues until the task is complete. The tool-use pattern makes it the execution engine behind the wiki, each OpenFleet agent, and the primary human-to-AI interface for the ecosystem.
 
-- **Context management is the critical skill**: The context window is finite. Effective use requires: CLAUDE.md project instructions (always loaded), compact (/compact to summarize and free context), subagents (isolated context for research tasks), targeted reads (specific line ranges, not whole files), and plan/todo tracking (externalized state).
+**Context management is the critical skill.** The context window is finite. CLAUDE.md (always loaded, <200 lines), /compact at 60%, subagents (isolated context), targeted reads (line ranges, not whole files), plans/todos (externalized state).
 
-- **Subagent parallelism**: The Agent tool spawns isolated workers that share the filesystem but not the conversation context. Use for: parallel research, independent file modifications, isolated testing. Each subagent gets a fresh context window, protecting the main conversation from context bloat.
+**CLAUDE.md is the project brain.** Loaded every conversation. Defines conventions, schemas, tooling, quality gates. The research wiki's CLAUDE.md is the single source of truth for the entire system.
 
-- **MCP integration**: Model Context Protocol servers expose external tools to Claude Code. Any MCP server (database, API, custom tool) becomes available as a tool call. The research wiki's future architecture (backlog item 3) envisions MCP servers for wiki operations, NotebookLM, and Obsidian.
-
-- **Hooks for automated behaviors**: Shell commands executed on events (pre-tool-call, post-tool-call, notification, etc.). Use for: linting on save, auto-formatting, custom notifications, git hooks integration. Unlike skills (which are instructions), hooks are executable actions.
-
-- **Skills as transferable knowledge**: SKILL.md files teach Claude Code how to operate specific systems. The wiki-agent skill teaches ingestion, querying, linting, export. Skills are versionable, shareable, and composable. The agentskills.io ecosystem standardizes the format.
-
-- **CLAUDE.md as project brain**: Loaded into every conversation. Defines conventions, schemas, tooling commands, quality gates. The research wiki's CLAUDE.md is the single source of truth for how the wiki system operates.
-
-- **Persistent memory across sessions**: Memory files in `~/.claude/projects/` persist across conversations. Used to remember user preferences, project state, feedback, and references. Structured with frontmatter (name, description, type).
-
-- **Plans and todos for structured work**: Plans decompose complex tasks into steps. Todos track progress within a session. Both externalize state from the context window, enabling work that spans beyond what fits in memory.
+**Persistent memory across sessions.** Files in `~/.claude/projects/` survive conversations — user preferences, project state, feedback, references. Structured with frontmatter.
 
 ## Deep Analysis
 

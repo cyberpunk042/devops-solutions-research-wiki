@@ -7,7 +7,7 @@ domain: knowledge-systems
 status: synthesized
 confidence: high
 created: 2026-04-08
-updated: 2026-04-08
+updated: 2026-04-10
 sources:
   - id: src-karpathy-claude-code-10x
     type: youtube-transcript
@@ -37,18 +37,22 @@ The wiki ingestion pipeline is the workflow by which raw source documents are tr
 
 ## Key Insights
 
-- **Three-phase workflow**: (1) Drop raw source into the `raw/` folder, (2) tell Claude Code to ingest it, (3) Claude Code reads, asks questions, generates wiki pages, updates the index, and logs the operation.
-- **Clarifying questions phase**: After reading a source, Claude Code asks the user about emphasis, focus areas, desired granularity, and the project's overall purpose. This shapes how it structures the output.
-- **Adaptive page generation**: The LLM decides how many pages to create based on content density. The AI 2027 article produced 23 wiki pages including 1 source page, 6 person pages, 5 organization pages, 1 AI systems page, multiple concept pages, and an analysis page.
-- **Batch ingestion**: The presenter ingested 36 YouTube transcripts in a single batch, which took about 14 minutes. Individual article ingestion takes roughly 10 minutes depending on length and complexity.
-- **Web clipper as intake mechanism**: The Obsidian Web Clipper extension allows one-click capture of web articles directly into the `raw/` folder, reducing friction in the intake step.
-- **Automatic relationship discovery**: Claude Code does not just summarize — it identifies entities, concepts, and their relationships, then creates explicit interlinks between pages. The human does no manual relationship building.
-- **Index and log maintenance**: Every ingestion operation updates the master index (adding new entries for tools, techniques, concepts, people, comparisons) and appends to the log (operation history for auditability).
-- **Project context matters**: Telling Claude Code the purpose of the vault (research project vs. personal second brain vs. YouTube archive) changes how it structures and categorizes the output.
-- **Interactive vs. batch modes (from primary source)**: Karpathy describes two ingestion styles: interactive ("I prefer to ingest sources one at a time and stay involved — I read the summaries, check the updates, and guide the LLM on what to emphasize") and batch ("you could also batch-ingest many sources at once with less supervision"). The right workflow depends on user preference and is documented in the schema.
-- **Entity extraction during ingestion (from v2)**: The LLM Wiki v2 document argues that ingestion should go beyond prose summaries to extract structured entities (people, projects, libraries, concepts) with typed attributes and relationships. This enables graph-based queries that catch connections prose summaries miss.
-- **Event-driven auto-ingestion (from v2)**: Rather than requiring the user to manually trigger ingestion, a "new source" event hook should auto-ingest, extract entities, update the graph, and update the index. The human remains in the loop for curation but is freed from remembering to trigger processing.
-- **Privacy filtering on ingest (from v2)**: Before anything reaches the wiki, sensitive data (API keys, tokens, passwords, PII) should be automatically stripped. This should be a standard ingestion step, not something the user remembers to do manually.
+> [!info] Three ingestion modes
+>
+> | Mode | Behavior | When to Use |
+> |------|----------|-------------|
+> | **guided** | Show extraction plan, wait for approval, review each page | New domains, complex sources, high-stakes content |
+> | **smart** (default) | Auto when confident; escalate on: new domain, contradictions, ambiguity | Most ingestion |
+> | **auto** | Process without stopping, report summary | High-confidence, low-complexity, batch URLs |
+
+> [!tip] The pipeline comprehends, not chunks
+> Unlike RAG (mechanical splitting at token boundaries), the LLM reads holistically and makes editorial decisions: how many pages, what entities, what relationships. A single article may produce 5–25 pages depending on content density. The human does no manual relationship building.
+
+**Clarifying questions shape output.** After reading a source, Claude Code asks about emphasis, focus areas, granularity, and project purpose. This is what makes the same pipeline work for research vaults and personal second brains.
+
+**Batch ingestion scales linearly.** 36 YouTube transcripts in 14 minutes (~23 seconds/transcript in batch). Individual articles ~10 minutes. `pipeline run URL [URL...]` for parallel fetch + post-chain.
+
+**v2 extensions.** Entity extraction during ingestion (structured entities, not just prose). Event-driven auto-ingestion (hooks on new raw files). Privacy filtering (strip API keys, PII before wiki). All additive to the current pipeline.
 
 ## Deep Analysis
 
