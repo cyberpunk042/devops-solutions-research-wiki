@@ -48,32 +48,16 @@ The Immune System Rules are 24 operational governance rules derived from 16 post
 
 ### Rule Categories (Synthesized from Post-Mortem Analysis)
 
-Based on the documented origin and implementation, the 24 rules cluster into at least 5 categories:
+24 rules cluster into 5 categories. Each category catches a different failure class:
 
-**1. Liveness Rules** — Detect agents or tasks that are alive in state but dead in practice:
-- Heartbeat timeout (no checkin within N cycles)
-- Task stuck in execution with no progress markers
-- Agent registered but session ID stale
-
-**2. Loop Detection Rules** — Detect runaway cycles and retry storms:
-- Task retry count exceeding threshold
-- Task dispatched more than N times without completion
-- Circular dependency chains detected in task graph
-
-**3. State Integrity Rules** — Detect impossible or inconsistent state combinations:
-- Parent task complete but child tasks unresolved
-- Task in "review" state with no reviewer assigned
-- Task marked "blocked" with no blocking dependency recorded
-
-**4. Behavioral Security Rules** — Detect permission and scope violations:
-- Agent writing to paths outside its declared access scope
-- Cost spike: LLM calls per cycle exceeding budget threshold
-- Task acquiring capabilities not in its original specification
-
-**5. Resource Rules** — Detect resource exhaustion and degraded conditions:
-- LLM backend circuit breaker open (AICP pattern applied at fleet level)
-- External service (Plane, GitHub, LocalAI) unresponsive for N cycles
-- Disk or memory pressure crossing operational thresholds
+> [!info] **The 5 categories**
+> | Category | What it detects | Example rules |
+> |----------|----------------|---------------|
+> | **1. Liveness** | Agents alive in state, dead in practice | Heartbeat timeout, stuck execution, stale session ID |
+> | **2. Loop detection** | Runaway cycles and retry storms | Retry count exceeded, dispatch-without-completion, circular dependencies |
+> | **3. State integrity** | Impossible state combinations | Parent complete + children pending, review with no reviewer, blocked with no blocker |
+> | **4. Behavioral security** | Permission and scope violations | Out-of-scope path writes, cost spikes, capability acquisition beyond spec |
+> | **5. Resource exhaustion** | Degraded conditions | Circuit breaker open, external service down, disk/memory pressure |
 
 ### Integration Point: doctor.py in the Orchestrator Cycle
 
@@ -97,15 +81,15 @@ The placement matters: doctor.py runs after the security scan has flagged behavi
 
 ### Why Post-Mortem-Derived Rules Are Superior
 
-The standard approach to agent safety is prompt-level guardrails: "don't do X" in the system prompt. This fails because:
-1. LLMs can be distracted out of prompt-level constraints under adversarial inputs
-2. Prompt-level guardrails apply per-call, not per-session — state drift accumulates across calls
-3. No audit trail: a bypassed prompt constraint leaves no record
+> [!warning] **Why prompt-level guardrails fail**
+> 1. LLMs can be distracted out of prompt constraints under adversarial inputs
+> 2. Prompt guardrails apply per-call, not per-session — state drift accumulates across calls
+> 3. No audit trail — a bypassed constraint leaves no record
 
-Post-mortem-derived rules codified in Python provide:
-1. Infrastructure-level enforcement — cannot be bypassed by any model
-2. Session-level tracking — counters persist across the entire task lifecycle
-3. Full audit trail — every rule check writes to the append-only ledger
+> [!success] **Why code-level rules work**
+> 1. Infrastructure-level enforcement — cannot be bypassed by any model
+> 2. Session-level tracking — counters persist across the entire task lifecycle
+> 3. Full audit trail — every rule check writes to the append-only ledger
 
 ### From devops-control-plane to OpenFleet
 
@@ -120,17 +104,14 @@ This is a model for how operational knowledge should flow in any multi-project e
 
 ### Answered Open Questions
 
-**Q: How does the 3-strike window duration scale with the orchestrator cycle speed (turbo=5s vs economic=60s)?**
+> [!success] **3-strike window scaling with cycle speed (turbo=5s vs economic=60s)**
+> Cross-referencing `OpenFleet` and `Agent Orchestration Patterns`: the `OpenFleet` page documents three cycle speeds: turbo=5s, standard=30s, economic=60s. The `Agent Orchestration Patterns` page documents the 12-step cycle and confirms the doctor runs at step 6 on every cycle. The 3-strike window is defined as a number of violations within a window — if the window is time-based (e.g., 3 violations in 90 seconds), turbo mode (5s cycles) would detect violations ~6x faster than standard mode but may also trigger more false positives from transient blips that resolve quickly. If the window is cycle-count-based (e.g., 3 violations in 3 consecutive cycles), turbo mode accumulates strikes 6x faster than standard mode in wall-clock time, while economic mode takes 3 minutes. The `Immune System Rules` page documents that the strike window "prevents both false positives and silent degradation" — implying the window is tuned for the standard 30s cycle. At turbo speed, the window likely requires recalibration to avoid false escalation on transient anomalies that resolve within a few seconds. This remains a noted design concern without a canonical answer in the wiki.
 
-Cross-referencing `OpenFleet` and `Agent Orchestration Patterns`: the `OpenFleet` page documents three cycle speeds: turbo=5s, standard=30s, economic=60s. The `Agent Orchestration Patterns` page documents the 12-step cycle and confirms the doctor runs at step 6 on every cycle. The 3-strike window is defined as a number of violations within a window — if the window is time-based (e.g., 3 violations in 90 seconds), turbo mode (5s cycles) would detect violations ~6x faster than standard mode but may also trigger more false positives from transient blips that resolve quickly. If the window is cycle-count-based (e.g., 3 violations in 3 consecutive cycles), turbo mode accumulates strikes 6x faster than standard mode in wall-clock time, while economic mode takes 3 minutes. The `Immune System Rules` page documents that the strike window "prevents both false positives and silent degradation" — implying the window is tuned for the standard 30s cycle. At turbo speed, the window likely requires recalibration to avoid false escalation on transient anomalies that resolve within a few seconds. This remains a noted design concern without a canonical answer in the wiki.
+> [!success] **Shared library for OpenFleet + AICP — feasible via YAML rule definitions**
+> Cross-referencing `AICP` and `devops-control-plane`: the `AICP` page documents that AICP implements a circuit breaker (CLOSED → OPEN → HALF_OPEN) per backend, and that OpenFleet's doctor.py already applies the AICP circuit breaker pattern at fleet level: "LLM backend circuit breaker open (AICP pattern applied at fleet level)" is listed as a Resource Rule. The `devops-control-plane` page confirms the immune system rules "originated from control-plane incident analysis" and were transferred to OpenFleet. The architectural pattern for sharing already exists — the control-plane is the "incident laboratory," OpenFleet is the consumer. A shared library would require extracting the rule-checking logic from doctor.py into a Python package that both OpenFleet and AICP could import. The `Infrastructure as Code Patterns` page raises this directly: "Should the 24 immune system rules be expressed as a YAML rule file (machine-executable) rather than Python logic in doctor.py?" — suggesting that YAML rule definitions would be the more shareable format. The answer: technically feasible, architecturally aligned with the ecosystem's IaC philosophy, but not yet implemented.
 
-**Q: Can the immune system rules be expressed as a shared library usable by both OpenFleet and AICP's circuit breaker pattern?**
-
-Cross-referencing `AICP` and `devops-control-plane`: the `AICP` page documents that AICP implements a circuit breaker (CLOSED → OPEN → HALF_OPEN) per backend, and that OpenFleet's doctor.py already applies the AICP circuit breaker pattern at fleet level: "LLM backend circuit breaker open (AICP pattern applied at fleet level)" is listed as a Resource Rule. The `devops-control-plane` page confirms the immune system rules "originated from control-plane incident analysis" and were transferred to OpenFleet. The architectural pattern for sharing already exists — the control-plane is the "incident laboratory," OpenFleet is the consumer. A shared library would require extracting the rule-checking logic from doctor.py into a Python package that both OpenFleet and AICP could import. The `Infrastructure as Code Patterns` page raises this directly: "Should the 24 immune system rules be expressed as a YAML rule file (machine-executable) rather than Python logic in doctor.py?" — suggesting that YAML rule definitions would be the more shareable format. The answer: technically feasible, architecturally aligned with the ecosystem's IaC philosophy, but not yet implemented.
-
-**Q: Should the rules evolve automatically (ML on incident data) or remain statically maintained via human post-mortem review?**
-
-Cross-referencing `devops-control-plane` and `Agent Orchestration Patterns`: the `Immune System Rules` page's own analysis provides the core answer: "Post-mortem-derived rules codified in Python provide: (1) Infrastructure-level enforcement — cannot be bypassed by any model; (2) Session-level tracking — counters persist across the entire task lifecycle; (3) Full audit trail — every rule check writes to the append-only ledger." The `devops-control-plane` page confirms the append-only audit ledger as the definitive record. Automatic ML evolution would make the rules non-deterministic — exactly the property the immune system was designed to avoid. The `Agent Orchestration Patterns` page reinforces: "A deterministic security scan cannot be social-engineered via a crafted task description. An LLM-based security layer can be prompted around." Applying this principle to rule evolution: ML-driven rule mutation introduces the same reliability risks as LLM-based enforcement. The answer from existing wiki knowledge: rules should remain statically maintained via human post-mortem review. The human review gate in the knowledge evolution pipeline (`--review` flag) is the same principle applied to wiki pages — automation handles bookkeeping, humans handle high-stakes decisions. ML could assist by surfacing anomaly candidates for human review, but should not auto-modify rule thresholds.
+> [!success] **Static human maintenance, not ML evolution — determinism is the point**
+> Cross-referencing `devops-control-plane` and `Agent Orchestration Patterns`: the `Immune System Rules` page's own analysis provides the core answer: "Post-mortem-derived rules codified in Python provide: (1) Infrastructure-level enforcement — cannot be bypassed by any model; (2) Session-level tracking — counters persist across the entire task lifecycle; (3) Full audit trail — every rule check writes to the append-only ledger." The `devops-control-plane` page confirms the append-only audit ledger as the definitive record. Automatic ML evolution would make the rules non-deterministic — exactly the property the immune system was designed to avoid. The `Agent Orchestration Patterns` page reinforces: "A deterministic security scan cannot be social-engineered via a crafted task description. An LLM-based security layer can be prompted around." Applying this principle to rule evolution: ML-driven rule mutation introduces the same reliability risks as LLM-based enforcement. The answer from existing wiki knowledge: rules should remain statically maintained via human post-mortem review. The human review gate in the knowledge evolution pipeline (`--review` flag) is the same principle applied to wiki pages — automation handles bookkeeping, humans handle high-stakes decisions. ML could assist by surfacing anomaly candidates for human review, but should not auto-modify rule thresholds.
 
 ## Relationships
 
