@@ -1,11 +1,11 @@
 {
-  "generated": "2026-04-10T04:34:05.179537+00:00",
+  "generated": "2026-04-10T04:36:26.126515+00:00",
   "stats": {
     "pages": 173,
     "domains": 9,
     "sources": 24,
     "comparisons": 5,
-    "relationships": 1190,
+    "relationships": 1192,
     "tags_unique": 637,
     "layers": {
       "3": 5,
@@ -10358,7 +10358,7 @@
       "status": "synthesized",
       "confidence": "high",
       "created": "2026-04-09",
-      "updated": "2026-04-09",
+      "updated": "2026-04-10",
       "tags": [
         "ecosystem",
         "model",
@@ -10371,7 +10371,20 @@
         "spine",
         "architecture"
       ],
-      "sources": [],
+      "sources": [
+        {
+          "id": "src-openfleet-local",
+          "type": "documentation",
+          "file": "../openfleet/CLAUDE.md",
+          "title": "OpenFleet \u2014 Local Project Documentation"
+        },
+        {
+          "id": "src-devops-control-plane-local",
+          "type": "documentation",
+          "file": "../devops-control-plane/README.md",
+          "title": "devops-control-plane \u2014 Local Project Documentation"
+        }
+      ],
       "layer": "spine",
       "maturity": "growing",
       "derived_from": [],
@@ -10387,6 +10400,10 @@
         {
           "verb": "BUILDS ON",
           "target": "AICP"
+        },
+        {
+          "verb": "BUILDS ON",
+          "target": "Immune System Rules"
         },
         {
           "verb": "BUILDS ON",
@@ -10407,6 +10424,10 @@
         {
           "verb": "RELATES TO",
           "target": "Model: Skills, Commands, and Hooks"
+        },
+        {
+          "verb": "RELATES TO",
+          "target": "Model: Methodology"
         },
         {
           "verb": "FEEDS INTO",
@@ -11736,7 +11757,7 @@
     },
     "cross-domain": {
       "page_count": 49,
-      "relationship_count": 372
+      "relationship_count": 374
     },
     "ai-agents": {
       "page_count": 34,
