@@ -155,21 +155,23 @@ def cmd_spine(manifest: Dict, root: Path):
     standards_list = [p for p in pages if "Standards" in p.get("title", "") and "What Good" in p.get("title", "")]
     standards_map = {s["title"]: s for s in standards_list}
 
-    # Super-model
+    # Super-model — match spine pages only (not log notes with "Super-Model" in title)
     print("\n=== SPINE ===\n")
     for p in pages:
-        if "Super-Model" in p.get("title", ""):
+        if "Super-Model" in p.get("title", "") and p.get("path", "").startswith("spine/"):
             s = _summary_for(p, root, 150)
             print(f"  ★ {p['title']}")
             if s:
                 print(f"    {s}")
             print()
+            break
     for p in pages:
         if p.get("title") == "Model Registry":
             print(f"  ★ Model Registry — entry point for all {len(models)} models")
             print()
+            break
     for p in pages:
-        if "Adoption Guide" in p.get("title", ""):
+        if "Adoption Guide" in p.get("title", "") and p.get("path", "").startswith("spine/"):
             print(f"  ★ {p['title']}")
             print()
             break
@@ -198,10 +200,18 @@ def cmd_spine(manifest: Dict, root: Path):
 def cmd_model(manifest: Dict, root: Path, model_name: str):
     """One model with member pages and references."""
     pages = manifest["pages"]
+
+    # No argument → list all models briefly
+    if not model_name:
+        return cmd_spine(manifest, root)
+
+    # Find model — fuzzy match against Model: titles and spine pages
     model = None
     for p in pages:
         t = p.get("title", "")
-        if model_name.lower() in t.lower() and (t.startswith("Model:") or "Super-Model" in t):
+        if model_name.lower() in t.lower() and (
+            t.startswith("Model:") or ("Super-Model" in t and p.get("path", "").startswith("spine/"))
+        ):
             model = p
             break
 
@@ -401,8 +411,11 @@ def main():
     if fn:
         fn()
     else:
-        print(f"Unknown: {args.command}")
-        cmd_tree(manifest, root)
+        # Unknown command → treat as search query
+        query = args.command
+        if args.argument:
+            query = f"{args.command} {args.argument}"
+        cmd_search(manifest, root, query, filter_type=args.filter_type)
 
 
 if __name__ == "__main__":
