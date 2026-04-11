@@ -190,6 +190,13 @@ Manual start: `.venv/bin/python -m tools.mcp_server`
 - `python3 -m tools.obsidian` — Regenerate [[wikilinks]] for Obsidian graph view
 - `python3 -m tools.ingest URL [URL...]` — Fetch URLs (YouTube, GitHub, web) into raw/
 - `python3 -m tools.ingest --list-raw` — List unprocessed raw files
+- `python3 -m tools.view` — Dashboard overview (pages, types, domains, maturity)
+- `python3 -m tools.view type lesson` — List all lessons with summaries
+- `python3 -m tools.view domain ai-agents` — Domain pages grouped by type
+- `python3 -m tools.view refs "Page Title"` — Outbound + inbound relationships
+- `python3 -m tools.view search "query" [--type X] [--domain Y]` — Faceted search
+- `python3 -m tools.view models` — All 15 models with standards pages
+- `python3 -m tools.view decisions` — All decisions with summaries
 
 ## Setup
 
