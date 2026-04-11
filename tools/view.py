@@ -199,27 +199,33 @@ def cmd_spine(manifest: Dict, root: Path):
 
     # Models
     print(f"  --- Models ({len(models)}) ---\n")
+    keys = []
     for m in models:
         title = m["title"]
         name = title.replace("Model: ", "")
         mat = m.get("maturity", "")
+        path = "wiki/" + m.get("path", "")
         std = None
-        # Match standards by checking if the model's key words appear together
         name_lower = name.lower()
         for st in standards_map:
             st_lower = st.lower()
-            # Must match first word of model name (not just any word)
             first_word = name.split()[0].lower()
             if first_word in st_lower and first_word not in ("and", "the", "a"):
                 std = st
                 break
         summary = _summary_for(m, root)
+        keys.append(name.split()[0].lower())
         print(f"  {title} [{mat}]")
         if std:
             print(f"    Standards: {std}")
         if summary:
             print(f"    {summary}")
+        print(f"    [{path}]")
         print()
+
+    # Drill-down hint at the end
+    print("Drill into a model:  python3 wiki.py model <name>")
+    print(f"  e.g.  model {keys[0]},  model {keys[2]},  model {keys[-1]}")
 
 
 def cmd_model(manifest: Dict, root: Path, model_name: str):
@@ -249,10 +255,12 @@ def cmd_model(manifest: Dict, root: Path, model_name: str):
         return
 
     title = model["title"]
+    path = "wiki/" + model.get("path", "")
     summary = _summary_for(model, root)
     print(f"\n=== {title} ===\n")
     if summary:
-        print(f"  {summary}\n")
+        print(f"  {summary}")
+    print(f"  [{path}]\n")
 
     rels = model.get("relationships", [])
     if rels:
@@ -294,14 +302,17 @@ def cmd_domain(manifest: Dict, root: Path, domain: str, brief: bool = False):
     for p in sorted(concepts, key=lambda x: x.get("title", "")):
         title = p.get("title", "")
         mat = p.get("maturity", "")
+        path = "wiki/" + p.get("path", "")
         if brief:
-            print(f"  {title}" + (f" [{mat}]" if mat else ""))
+            print(f"  {title}" + (f" [{mat}]" if mat else "") + f"  [{path}]")
         else:
             summary = _summary_for(p, root)
             print(f"  {title}" + (f" [{mat}]" if mat else ""))
             if summary:
                 print(f"    {summary}")
+            print(f"    [{path}]")
             print()
+    print(f"\nRead a page:  cat <path>  or open in your editor")
 
 
 def cmd_lessons(manifest: Dict, root: Path):
@@ -330,10 +341,13 @@ def cmd_decisions(manifest: Dict, root: Path):
     print(f"\n=== DECISIONS ({len(decisions)}) ===\n")
     for d in sorted(decisions, key=lambda x: x.get("title", "")):
         summary = _summary_for(d, root)
+        path = "wiki/" + d.get("path", "")
         print(f"  {d['title']}")
         if summary:
             print(f"    {summary}")
+        print(f"    [{path}]")
         print()
+    print("Read a decision:  cat <path>  or open in your editor")
 
 
 def cmd_refs(manifest: Dict, root: Path, query: str):
@@ -401,9 +415,11 @@ def cmd_search(manifest: Dict, root: Path, query: str, filter_type: Optional[str
     print(f"\n=== Search: '{query}'{filt} — {len(results)} results ===\n")
     for _, p in results[:15]:
         summary = _summary_for(p, root)
+        path = "wiki/" + p.get("path", "")
         print(f"  [{p.get('type','')}] {p.get('title','')}")
         if summary:
             print(f"    {summary}")
+        print(f"    [{path}]")
         print()
     if len(results) > 15:
         print(f"  ... +{len(results) - 15} more")
